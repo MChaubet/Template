@@ -1,5 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { combineLatest } from 'rxjs';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { combineLatest, interval, startWith, Subscription, switchMap } from 'rxjs';
 
 import { MetricsService } from './metrics.service';
 import { Metrics, Thread } from './metrics.model';
@@ -9,10 +9,12 @@ import { Metrics, Thread } from './metrics.model';
   templateUrl: './metrics.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MetricsComponent implements OnInit {
+export class MetricsComponent implements OnInit, OnDestroy {
   metrics?: Metrics;
   threads?: Thread[];
   updatingMetrics = true;
+
+  subscription?: Subscription;
 
   constructor(private metricsService: MetricsService, private changeDetector: ChangeDetectorRef) {}
 
@@ -20,14 +22,25 @@ export class MetricsComponent implements OnInit {
     this.refresh();
   }
 
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
+  }
+
   refresh(): void {
-    this.updatingMetrics = true;
-    combineLatest([this.metricsService.getMetrics(), this.metricsService.threadDump()]).subscribe(([metrics, threadDump]) => {
-      this.metrics = metrics;
-      this.threads = threadDump.threads;
-      this.updatingMetrics = false;
-      this.changeDetector.markForCheck();
-    });
+    this.subscription = interval(1000)
+      .pipe(
+        startWith(0),
+        switchMap(() => {
+          this.updatingMetrics = true;
+          return combineLatest([this.metricsService.getMetrics(), this.metricsService.threadDump()]);
+        })
+      )
+      .subscribe(([metrics, threadDump]) => {
+        this.metrics = metrics;
+        this.threads = threadDump.threads;
+        this.updatingMetrics = false;
+        this.changeDetector.markForCheck();
+      });
   }
 
   metricsKeyExists(key: keyof Metrics): boolean {

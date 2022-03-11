@@ -9,17 +9,12 @@ import { MetricsModalThreadsComponent } from '../metrics-modal-threads/metrics-m
   templateUrl: './jvm-threads.component.html',
 })
 export class JvmThreadsComponent {
-  threadStats = {
-    threadDumpAll: 0,
-    threadDumpRunnable: 0,
-    threadDumpTimedWaiting: 0,
-    threadDumpWaiting: 0,
-    threadDumpBlocked: 0,
-  };
+  threadStats = this.initThreadsValues();
 
   @Input()
   set threads(threads: Thread[] | undefined) {
     this._threads = threads;
+    this.threadStats = this.initThreadsValues();
 
     threads?.forEach(thread => {
       if (thread.threadState === ThreadState.Runnable) {
@@ -47,6 +42,22 @@ export class JvmThreadsComponent {
   private _threads: Thread[] | undefined;
 
   constructor(private modalService: NgbModal) {}
+
+  initThreadsValues(): {
+    threadDumpAll: number;
+    threadDumpRunnable: number;
+    threadDumpTimedWaiting: number;
+    threadDumpWaiting: number;
+    threadDumpBlocked: number;
+  } {
+    return {
+      threadDumpAll: 0,
+      threadDumpRunnable: 0,
+      threadDumpTimedWaiting: 0,
+      threadDumpWaiting: 0,
+      threadDumpBlocked: 0,
+    };
+  }
 
   open(): void {
     const modalRef = this.modalService.open(MetricsModalThreadsComponent);
