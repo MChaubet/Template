@@ -16,7 +16,9 @@
       "livenessState": "Liveness state",
       "readinessState": "Readiness state",
       "ping": "Application",
-      "db": "Base de données"
+      "db": "Base de données",
+      "discoveryComposite": "Discovery composite",
+      "refreshScope": "Scope refresh"
     },
     "table": {
       "service": "Nom du service",
