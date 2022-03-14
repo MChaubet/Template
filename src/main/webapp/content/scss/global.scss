@@ -200,3 +200,16 @@ ui bootstrap tweaks
 }
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */
+@import 'animation';
+
+.card {
+  border: 0;
+  .card-header {
+    background-color: white;
+  }
+}
+
+.carousel-caption {
+  top: 0;
+  bottom: auto;
+}
