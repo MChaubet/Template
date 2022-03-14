@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class RestaurantComponent {
   title: string;
   text: string;
-  images = [944, 1011, 984].map(n => `https://picsum.photos/id/${n}/900/500`);
+  images = [1, 2, 3].map(n => `content/images/carousel${n}.jpg`);
 
   constructor() {
     this.title = 'Title';

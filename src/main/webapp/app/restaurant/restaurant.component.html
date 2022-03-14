@@ -1,24 +1,24 @@
-<ngb-carousel class="align-items-center d-flex justify-content-center m-auto" style="height: auto" *ngIf="images">
+<ngb-carousel
+  class="align-items-center d-flex justify-content-center m-auto"
+  style="width: calc(100% + 2rem); left: -1rem; top: -1rem; object-fit: cover"
+  *ngIf="images"
+>
   <ng-template ngbSlide *ngFor="let img of images">
     <div class="picsum-img-wrapper">
       <img [src]="img" class="w-100" alt="Random first slide" />
     </div>
-    <div class="carousel-caption">
-      <h1 jhiTranslate="global.menu.entities.restaurant">Restaurant</h1>
+    <div class="carousel-caption" style="text-shadow: 1px 1px 2px #444444">
+      <h1 style="font-size: 4rem" jhiTranslate="global.menu.entities.restaurant">Restaurant</h1>
     </div>
   </ng-template>
 </ngb-carousel>
 
 <div class="container">
-  <div class="row base-animation" jhiAnimation [animationType]="'fade-in-right'">
-    <div class="col-12 col-md-8">
-      <img
-        class="img-fluid"
-        src="https://www.sortiraparis.com/images/80/95878/693086-photos-mohamed-cheikh-top-chef-2021-a-la-pagode-de-cos-de-la-reserve.jpg"
-        alt="plat"
-      />
+  <div class="row base-animation" jhiAnimation [animationType]="'fade-in-right'" [animationOutType]="'fade-out-left'">
+    <div class="col-12 col-lg-8">
+      <img class="img-fluid" src="content/images/plat.jpg" alt="plat" />
     </div>
-    <div class="col-12 col-md-4 card p-0">
+    <div class="col-12 col-lg-4 card p-0">
       <h1 class="card-header align-items-center d-flex justify-content-center">{{ title }}</h1>
       <div class="card-body text-justify align-items-center d-flex justify-content-center">{{ text }}</div>
     </div>
@@ -27,26 +27,22 @@
 <hr />
 <div class="container">
   <div class="row base-animation" jhiAnimation [animationType]="'fade-in-left'" [animationOutType]="'fade-out-right'">
-    <div class="col-12 col-md 4 card p-0">
+    <div class="col-12 col-lg 4 card p-0">
       <h1 class="card-header align-items-center d-flex justify-content-center">{{ title }}</h1>
       <div class="card-body text-justify align-items-center d-flex justify-content-center">{{ text }}</div>
     </div>
-    <div class="col-12 col-md-8">
-      <img
-        class="img-fluid"
-        src="https://www.lecoindesentrepreneurs.fr/wp-content/uploads/2016/04/ouvrir-un-restaurant-1.png"
-        alt="resto"
-      />
+    <div class="col-12 col-lg-8">
+      <img class="img-fluid" src="content/images/restaurant.png" alt="resto" />
     </div>
   </div>
 </div>
 <hr />
 <div class="container">
   <div class="row base-animation" jhiAnimation [animationType]="'fade-in-right'" [animationOutType]="'fade-out-left'">
-    <div class="col-12 col-md-8">
-      <img class="img-fluid" src="https://d3aux7tjp119y2.cloudfront.net/original_images/Tak2-CMSTemplate_sqGSCzb.jpg" alt="dehors" />
+    <div class="col-12 col-lg-8">
+      <img class="img-fluid" src="content/images/terrasse.jpg" alt="dehors" />
     </div>
-    <div class="col-12 col-md 4 card p-0">
+    <div class="col-12 col-lg 4 card p-0">
       <h1 class="card-header align-items-center d-flex justify-content-center">{{ title }}</h1>
       <div class="card-body text-justify align-items-center d-flex justify-content-center">{{ text }}</div>
     </div>

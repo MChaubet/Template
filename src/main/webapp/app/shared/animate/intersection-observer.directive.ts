@@ -4,11 +4,10 @@ import { Directive, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
   selector: '[jhiAnimation]',
 })
 export class IntersectionObserverDirective implements OnInit, OnDestroy {
-  @Input() threshold = 0.5;
+  @Input() threshold = 0.3;
   @Input() intersectionRootMargin = '0px';
   @Input() intersectionRoot?: HTMLElement;
 
-  @Input() animationInfinity = false;
   @Input() animationType = 'fade-in';
   @Input() animationOutType?: string;
 
@@ -26,10 +25,8 @@ export class IntersectionObserverDirective implements OnInit, OnDestroy {
               entry.target.classList.remove(this.animationOutType);
             }
           } else {
-            if (this.animationInfinity) {
-              entry.target.classList.remove(this.animationType);
-            }
             if (this.animationOutType) {
+              entry.target.classList.remove(this.animationType);
               entry.target.classList.add(this.animationOutType);
             }
           }
