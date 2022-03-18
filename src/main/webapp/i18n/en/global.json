@@ -1,6 +1,6 @@
 {
   "global": {
-    "title": "Template",
+    "title": "Juun Project",
     "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
     "menu": {
       "home": "Home",
@@ -137,5 +137,13 @@
       "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
     }
   },
-  "footer": "Copyright © 2022 Juun INC. All right reserved"
+  "footer": {
+    "contactUs": "Contact us",
+    "ourTeam": "Our team",
+    "availablity": "We are available:",
+    "availablity_1": "Monday to Friday 9am to 8pm",
+    "availablity_2": "Saturday 9am to 12pm and 2pm to 6pm",
+    "availablity_3": "Sunday 10am à 12pm et 2pm to 4pm",
+    "copyRight": "Copyright © 2022 Juun INC. All right reserved"
+  }
 }
