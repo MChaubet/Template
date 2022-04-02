@@ -7,7 +7,8 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entités",
-        "restaurant": "Restaurant"
+        "restaurant": "Restaurant",
+        "restaurant-dark": "Restaurant ardoise"
       },
       "account": {
         "main": "Compte",
@@ -143,7 +144,6 @@
     "availablity": "Nous sommes disponible :",
     "availablity_1": "Lundi au vendredi de 9h à 20h",
     "availablity_2": "Samedi de 9h à 12h et 14h à 18h",
-    "availablity_3": "Dimanche de 10h à 12h et 14h à 16h",
     "copyRight": "Copyright © 2022 Juun INC. Tous droits réservés"
   }
 }

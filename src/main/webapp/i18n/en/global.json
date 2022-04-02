@@ -7,7 +7,8 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
-        "restaurant": "Restaurant"
+        "restaurant": "Restaurant",
+        "restaurant-dark": "Restaurant slate"
       },
       "account": {
         "main": "Account",
@@ -143,7 +144,6 @@
     "availablity": "We are available:",
     "availablity_1": "Monday to Friday 9am to 8pm",
     "availablity_2": "Saturday 9am to 12pm and 2pm to 6pm",
-    "availablity_3": "Sunday 10am à 12pm et 2pm to 4pm",
     "copyRight": "Copyright © 2022 Juun INC. All right reserved"
   }
 }

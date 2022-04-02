@@ -1,8 +1,4 @@
-<ngb-carousel
-  class="align-items-center d-flex justify-content-center m-auto"
-  style="width: calc(100% + 2rem); left: -1rem; top: -1rem; object-fit: cover"
-  *ngIf="images"
->
+<ngb-carousel *ngIf="images" class="align-items-center d-flex justify-content-center m-auto" style="object-fit: cover">
   <ng-template ngbSlide *ngFor="let img of images">
     <div class="picsum-img-wrapper">
       <img [src]="img" class="w-100" alt="Random first slide" />
@@ -46,3 +42,4 @@
     </div>
   </div>
 </div>
+<br />

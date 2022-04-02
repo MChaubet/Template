@@ -1,6 +1,6 @@
 <nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md bg-dark">
   <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
-    <span class="logo-img"></span>
+    <span class="logo-img" style="max-height: 50px"></span>
     <span jhiTranslate="global.title" class="navbar-title">Template</span>
     <span class="navbar-version">{{ version }}</span>
   </a>
@@ -47,6 +47,10 @@
             <a class="dropdown-item" routerLink="restaurant" routerLinkActive="active" (click)="collapseNavbar()">
               <fa-icon icon="glass-martini" [fixedWidth]="true"></fa-icon>
               <span jhiTranslate="global.menu.entities.restaurant">Restaurant</span>
+            </a>
+            <a class="dropdown-item" routerLink="restaurant-dark" routerLinkActive="active" (click)="collapseNavbar()">
+              <fa-icon icon="glass-martini" [fixedWidth]="true"></fa-icon>
+              <span jhiTranslate="global.menu.entities.restaurant-dark">Restaurant Dark</span>
             </a>
           </li>
         </ul>

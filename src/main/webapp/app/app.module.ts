@@ -25,7 +25,8 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
-import { RestaurantComponent } from './restaurant/restaurant.component';
+import { RestaurantComponent } from './modules/restaurant/restaurant.component';
+import { RestaurantDarkComponent } from './modules/restaurant-dark/restaurant-dark.component';
 
 @NgModule({
   imports: [
@@ -54,6 +55,7 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
     ActiveMenuDirective,
     FooterComponent,
     RestaurantComponent,
+    RestaurantDarkComponent,
   ],
   bootstrap: [MainComponent],
 })
