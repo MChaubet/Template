@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class RestaurantDarkComponent {
   value: string;
-  cards = [0, 0, 0];
+  cards = [0, 0, 0, 0, 0, 0];
 
   constructor() {
     this.value = '';

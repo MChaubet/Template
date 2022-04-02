@@ -37,19 +37,19 @@
 <div class="restaurant pt-3 pb-3">
   <h1 class="text-center display-1 pb-2">Restaurant</h1>
 
-  <!--  <img class="img-fluid zoom-out-in-rotate rounded mx-auto d-block" style="height: 100px" src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c234.png" alt="">-->
+  <img class="img-fluid zoom-out-in-rotate rounded mx-auto d-block" style="height: 100px" src="content/images/salade.png" alt="" />
 
-  <div class="container-fluid pl-5 pr-5">
-    <div class="row w-100 m-0 pl-5 pr-5">
+  <div class="container">
+    <div class="row w-100 m-0">
       <ng-container *ngFor="let card of cards">
         <div class="col-12 col-xl-6 pb-4">
-          <div class="card h-100" style="border-radius: 5px">
+          <div class="card h-100 p-4" style="border-radius: 5px">
             <div class="row no-gutters">
-              <div class="col-3">
+              <div class="col-12 col-lg-3 my-auto d-flex justify-content-center">
                 <img class="img-fluid" style="height: inherit" src="content/images/plat-recipe.png" alt="" />
               </div>
-              <div class="col-9 p-3">
-                <div class="card-body">
+              <div class="col-12 col-lg-9 p-0">
+                <div class="card-body pr-0">
                   <h1 class="card-title">Card one</h1>
                   <div class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
                   <div class="card-text">Saumon, avocat, choux rouge, wakamé, concombre, edamamé, sésame, oignons frits</div>
@@ -59,38 +59,19 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-xl-6 pb-4">
-          <div class="card h-100" style="border-radius: 5px">
-            <div class="row no-gutters">
-              <div class="col-9 p-3">
-                <div class="card-body">
-                  <h1 class="card-title">Card one</h1>
-                  <div class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-                  <!--                  <div class="card-text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</div>-->
-                </div>
-                <h5 class="card-footer py-0">15€</h5>
-              </div>
-              <div class="col-3">
-                <img class="img-fluid" style="height: inherit" src="content/images/plat-recipe.png" alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
       </ng-container>
     </div>
   </div>
 
-  <h1 class="text-center display-1 pb-2">Cocktail</h1>
+  <hr class="h-50 pt-4 border-top align-middle" />
+  <h1 class="text-center display-1">Cocktail</h1>
 
   <div class="container">
     <div class="row">
       <div class="col-10 pb-4" jhiAnimation [animationType]="'fade-in-right'" [animationOutType]="'fade-out-left'">
-        <div
-          class="row card"
-          style="border-radius: 5px; background: transparent; border-top: solid 1px; border-bottom: solid 1px; border-left: solid 1px"
-        >
+        <div class="row card" style="border-radius: 5px; background: transparent">
           <div class="row no-gutters">
-            <div class="col-8 p-3">
+            <div class="col-8 p-3 h-100 my-auto">
               <div class="card-header">
                 <h1>Pina Colada</h1>
               </div>
@@ -111,15 +92,12 @@
       <div class="col-2"></div>
 
       <div class="col-10 pb-4" jhiAnimation [animationType]="'fade-in-left'" [animationOutType]="'fade-out-right'">
-        <div
-          class="row card"
-          style="border-radius: 5px; background: transparent; border-top: solid 1px; border-bottom: solid 1px; border-right: solid 1px"
-        >
+        <div class="row card" style="border-radius: 5px; background: transparent">
           <div class="row no-gutters">
             <div class="col-4">
               <img class="img-fluid mx-auto d-block" style="position: absolute; left: -120px" src="content/images/blue-lagoon.png" alt="" />
             </div>
-            <div class="col-8 p-3">
+            <div class="col-8 p-3 h-100 my-auto">
               <div class="card-header">
                 <h1>Blue Lagoon</h1>
               </div>
@@ -134,12 +112,9 @@
       </div>
 
       <div class="col-10 pb-4" jhiAnimation [animationType]="'fade-in-right'" [animationOutType]="'fade-out-left'">
-        <div
-          class="row card"
-          style="border-radius: 5px; background: transparent; border-top: solid 1px; border-bottom: solid 1px; border-left: solid 1px"
-        >
+        <div class="row card" style="border-radius: 5px; background: transparent">
           <div class="row no-gutters">
-            <div class="col-8 p-3">
+            <div class="col-8 p-3 h-100 my-auto">
               <div class="card-header">
                 <h1>Ice Pick</h1>
               </div>
