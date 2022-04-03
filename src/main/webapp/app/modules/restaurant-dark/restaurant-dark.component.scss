@@ -1,80 +1,19 @@
 .restaurant {
-  // background: #151515;
-  background-image: url('~content/images/slate2.jpg');
-  background-size: 100% 100%;
-  background-attachment: fixed;
+  background: url('~content/images/slate3.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .card {
   background: rgba(255, 255, 255, 0.07);
   color: #fff;
 }
-//.card:hover {
-//  background: rgba(255, 255, 255, 0.2);
-//}
 
 h1 {
   font-family: Chalk, serif;
   color: white;
-}
-
-.zoom-out-in-rotate {
-  // animation: zoom-out-in-rotate 15s ease-in-out infinite;
-  animation: zoom-out-in-rotate1 5s linear infinite;
-}
-
-@keyframes zoom-out-in-rotate1 {
-  0% {
-    transform: scale(1) rotate(0deg);
-  }
-  100% {
-    transform: scale(1) rotate(360deg);
-  }
-}
-
-@keyframes zoom-out-in-rotate {
-  0%,
-  100% {
-    transform: scale(1) rotate(0deg);
-  }
-  10% {
-    transform: scale(0) rotate(-360deg);
-  }
-  20% {
-    transform: scale(1) rotate(360deg);
-  }
-  50% {
-    transform: scale(1) rotate(360deg);
-  }
-  60% {
-    transform: scale(0) rotate(-360deg);
-  }
-  70% {
-    transform: scale(1) rotate(0deg);
-  }
-}
-
-@keyframes zoom-in-rotate {
-  0% {
-    transform: scale(0) rotate(0deg);
-  }
-  100% {
-    transform: scale(1) rotate(720deg);
-  }
-}
-
-fieldset.scheduler-border {
-  border: 1px groove #ddd !important;
-  padding: 0 1.4em 1.4em 1.4em !important;
-  margin: 0 0 1.5em 0 !important;
-  -webkit-box-shadow: 0px 0px 0px 0px #000;
-  box-shadow: 0px 0px 0px 0px #000;
-}
-
-legend.scheduler-border {
-  font-size: 1.2em !important;
-  font-weight: bold !important;
-  text-align: left !important;
 }
 
 //.restaurant {
