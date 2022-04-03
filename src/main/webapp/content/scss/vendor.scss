@@ -11,21 +11,6 @@ eg $input-color: red;
 
 /* jhipster-needle-scss-add-vendor JHipster will add new css style */
 @font-face {
-  font-family: Tahu;
-  src: url(~content/font/Tahu.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: LemonTea;
-  src: url(~content/font/LemonTea.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: Chalk-regular;
-  src: url(~content/font/Chalk-Regular.ttf) format('truetype');
-}
-
-@font-face {
   font-family: Chalk;
   src: url(~content/font/Chalk.ttf) format('truetype');
 }
