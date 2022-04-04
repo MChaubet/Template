@@ -900,7 +900,7 @@
                                 </configuration>
                             </execution>
                             <execution>
-                                <id>npm install</id>
+                                <id>npm install –production</id>
                                 <goals>
                                     <goal>npm</goal>
                                 </goals>
@@ -1057,7 +1057,7 @@
                                 </configuration>
                             </execution>
                             <execution>
-                                <id>npm install</id>
+                                <id>npm install –production</id>
                                 <goals>
                                     <goal>npm</goal>
                                 </goals>
