@@ -1,0 +1,10 @@
+{
+  "restaurant": {
+    "title": "Restaurant",
+    "carousel": {
+      "description1": "Come to us, the dishes are good",
+      "description2": "The dishes are organic and the ingredients are fresh.",
+      "description3": "We cook with passion and desire"
+    }
+  }
+}

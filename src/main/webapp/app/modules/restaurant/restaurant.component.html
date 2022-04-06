@@ -1,20 +1,21 @@
-<ngb-carousel *ngIf="images" class="align-items-center d-flex justify-content-center m-auto" style="object-fit: cover">
-  <ng-template ngbSlide *ngFor="let img of images">
+<ngb-carousel *ngIf="photos" class="align-items-center d-flex justify-content-center m-auto" style="object-fit: cover">
+  <ng-template ngbSlide *ngFor="let photo of photos">
     <div class="picsum-img-wrapper">
-      <img [src]="img" class="w-100" alt="Random first slide" />
+      <img [src]="photo.img" class="w-100" alt="Random first slide" style="max-height: 400px" />
     </div>
     <div class="carousel-caption" style="text-shadow: 1px 1px 2px #444444">
-      <h1 style="font-size: 4rem" jhiTranslate="global.menu.entities.restaurant">Restaurant</h1>
+      <h1 style="font-size: 4rem" jhiTranslate="restaurant.title">Restaurant</h1>
+      <h5>{{ photo.desc | translate }}</h5>
     </div>
   </ng-template>
 </ngb-carousel>
 
-<img class="align-items-center d-flex justify-content-center m-auto w-75" src="content/images/fioriture.jpeg" alt="fioriture" />
+<hr class="hr-logo text-center" />
 
 <div class="container">
   <div class="row base-animation" jhiAnimation [animationType]="'fade-in-right'" [animationOutType]="'fade-out-left'">
     <div class="col-12 col-lg-8">
-      <img class="img-fluid" src="content/images/plat.jpg" alt="plat" />
+      <img class="img-fluid" src="https://cdn.discordapp.com/attachments/960641870382374943/961346101074600116/plat.jpg" alt="plat" />
     </div>
     <div class="col-12 col-lg-4 card card-no-border p-0">
       <h1 class="card-header align-items-center d-flex justify-content-center">{{ title }}</h1>
@@ -28,13 +29,17 @@
       <div class="card-body text-justify align-items-center d-flex justify-content-center">{{ text }}</div>
     </div>
     <div class="col-12 col-lg-8">
-      <img class="img-fluid" src="content/images/restaurant.png" alt="resto" />
+      <img
+        class="img-fluid"
+        src="https://cdn.discordapp.com/attachments/960641870382374943/961346101389168650/restaurant.png"
+        alt="resto"
+      />
     </div>
   </div>
   <hr class="container border-0 mt-4" />
   <div class="row base-animation" jhiAnimation [animationType]="'fade-in-right'" [animationOutType]="'fade-out-left'">
     <div class="col-12 col-lg-8">
-      <img class="img-fluid" src="content/images/terrasse.jpg" alt="dehors" />
+      <img class="img-fluid" src="https://cdn.discordapp.com/attachments/960641870382374943/961346101653430292/terrasse.jpg" alt="dehors" />
     </div>
     <div class="col-12 col-lg 4 card card-no-border p-0">
       <h1 class="card-header align-items-center d-flex justify-content-center">{{ title }}</h1>

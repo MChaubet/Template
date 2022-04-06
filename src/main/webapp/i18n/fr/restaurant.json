@@ -1,0 +1,10 @@
+{
+  "restaurant": {
+    "title": "Restaurant",
+    "carousel": {
+      "description1": "Venez chez nous, les plats sont bons",
+      "description2": "Les plats sont bios et les ingrédiants sont frais",
+      "description3": "Nous cuisinons avec passion et envie"
+    }
+  }
+}

@@ -8,6 +8,21 @@ import { Component } from '@angular/core';
 export class RestaurantComponent {
   title: string;
   text: string;
+  photos = [
+    {
+      img: 'https://cdn.discordapp.com/attachments/960641870382374943/961326574941126686/lac.jpg',
+      desc: 'restaurant.carousel.description1',
+    },
+    {
+      img: 'https://cdn.discordapp.com/attachments/960641870382374943/961326575461232730/montagne.jpg',
+      desc: 'restaurant.carousel.description2',
+    },
+    {
+      img: 'https://cdn.discordapp.com/attachments/960641870382374943/961326576568500294/ville.jpg',
+      desc: 'restaurant.carousel.description3',
+    },
+  ];
+
   images = [1, 2, 3].map(n => `content/images/carousel${n}.jpg`);
 
   constructor() {
