@@ -912,7 +912,7 @@
                                 </goals>
                                 <phase>generate-resources</phase>
                                 <configuration>
-                                    <arguments>run webapp:build</arguments>
+                                    <arguments>run webapp:prod</arguments>
                                     <environmentVariables>
                                         <APP_VERSION>${project.version}</APP_VERSION>
                                     </environmentVariables>
