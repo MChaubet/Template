@@ -8,7 +8,8 @@
       "entities": {
         "main": "Entities",
         "restaurant": "Restaurant",
-        "restaurant-dark": "Restaurant slate"
+        "restaurant-dark": "Restaurant slate",
+        "portfolio": "Portfolio"
       },
       "account": {
         "main": "Account",

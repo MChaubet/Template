@@ -1,0 +1,19 @@
+div.video-banner {
+  height: 400px;
+  overflow: hidden;
+}
+
+@media screen and (max-device-width: 900px) {
+  div.video-banner {
+    height: 180px;
+  }
+}
+
+.overlay-video {
+  position: absolute;
+  right: 0;
+}
+
+button.change-video {
+  background: rgba(255, 255, 255, 0.5);
+}

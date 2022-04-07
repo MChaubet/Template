@@ -27,6 +27,7 @@ import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
 import { RestaurantComponent } from './modules/restaurant/restaurant.component';
 import { RestaurantDarkComponent } from './modules/restaurant-dark/restaurant-dark.component';
+import { PortfolioComponent } from './modules/portfolio/portfolio.component';
 
 @NgModule({
   imports: [
@@ -56,6 +57,7 @@ import { RestaurantDarkComponent } from './modules/restaurant-dark/restaurant-da
     FooterComponent,
     RestaurantComponent,
     RestaurantDarkComponent,
+    PortfolioComponent,
   ],
   bootstrap: [MainComponent],
 })

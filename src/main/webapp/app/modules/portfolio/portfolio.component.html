@@ -1,0 +1,9 @@
+<div class="video-banner w-100 position-relative">
+  <video id="video" class="m-auto w-100 position-absolute" style="top: 50%; bottom: 50%" [muted]="'muted'" loop autoplay>
+    <source id="source" [src]="videoSrc[0]" type="video/mp4" />
+    Your browser does not support HTML video.
+  </video>
+  <div class="overlay-video">
+    <button class="change-video btn btn-lg m-2 btn-light border-0" (click)="changeVideo()">Switch</button>
+  </div>
+</div>

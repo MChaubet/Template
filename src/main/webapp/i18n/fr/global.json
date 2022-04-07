@@ -8,7 +8,8 @@
       "entities": {
         "main": "Entités",
         "restaurant": "Restaurant",
-        "restaurant-dark": "Restaurant ardoise"
+        "restaurant-dark": "Restaurant ardoise",
+        "portfolio": "Portfolio"
       },
       "account": {
         "main": "Compte",
