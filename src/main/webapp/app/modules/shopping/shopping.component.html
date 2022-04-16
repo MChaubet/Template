@@ -1,4 +1,19 @@
 <div style="background-color: #282828">
+  <ng-template #popContent><jhi-shopping-cart></jhi-shopping-cart></ng-template>
+  <ng-template #popTitle>Cart</ng-template>
+  <button
+    style="position: absolute; right: 0; margin-right: 10px; background-color: rgba(0, 0, 0, 0.5); color: white"
+    type="button"
+    class="btn btn-outline-secondary"
+    placement="bottom-right"
+    [autoClose]="'outside'"
+    [ngbPopover]="popContent"
+    [popoverTitle]="popTitle"
+  >
+    <span *ngIf="shoppingCart.length" class="badge">{{ shoppingCart.length }}</span>
+    Cart
+  </button>
+
   <div class="container-fluid" style="background-color: #86d1e4">
     <div class="row p-4">
       <div class="col-8 text-center align-self-center">
@@ -23,7 +38,7 @@
 
             <div class="d-flex justify-content-between">
               <ngb-rating class="my-auto" [(rate)]="currentRate" [readonly]="true" [max]="5"></ngb-rating>
-              <button class="btn btn-light">Add</button>
+              <button class="btn btn-light" (click)="addArticle(article)">Add</button>
             </div>
           </div>
         </div>

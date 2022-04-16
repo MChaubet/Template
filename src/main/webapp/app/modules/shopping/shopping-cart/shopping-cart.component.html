@@ -1,0 +1,6 @@
+<ul class="list-group overflow-auto" style="max-height: 40vh">
+  <li *ngFor="let item of shoppingCart" class="list-group-item d-flex justify-content-between px-2 bg-transparent">
+    <div>{{ item.name }}</div>
+    <div>{{ item.price }}</div>
+  </li>
+</ul>

@@ -14,3 +14,16 @@ eg $input-color: red;
   font-family: Chalk;
   src: url(~content/font/Chalk.ttf) format('truetype');
 }
+
+.popover {
+  border-radius: 10px;
+  min-width: 500px;
+}
+.popover-header {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.popover-body {
+  padding: 0;
+}

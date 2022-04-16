@@ -26,6 +26,7 @@ import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
 import { ModulesModule } from 'app/modules/modules.module';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { ModulesModule } from 'app/modules/modules.module';
     HttpClientModule,
     NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-', caseSensitive: true }),
     TranslationModule,
+    StoreModule.forRoot({}),
 
     ModulesModule,
   ],

@@ -6,6 +6,9 @@ import { RestaurantDarkComponent } from 'app/modules/restaurant-dark/restaurant-
 import { PortfolioComponent } from 'app/modules/portfolio/portfolio.component';
 import { ShoppingComponent } from 'app/modules/shopping/shopping.component';
 import { SharedModule } from 'app/shared/shared.module';
+import { StoreModule } from '@ngrx/store';
+import { shoppingFeatureKey, shoppingReducer } from 'app/modules/shopping/store/shopping-reducer';
+import { ShoppingCartComponent } from './shopping/shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
   {
@@ -27,7 +30,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [RestaurantComponent, RestaurantDarkComponent, PortfolioComponent, ShoppingComponent],
-  imports: [CommonModule, SharedModule, RouterModule.forChild(routes)],
+  declarations: [RestaurantComponent, RestaurantDarkComponent, PortfolioComponent, ShoppingComponent, ShoppingCartComponent],
+  imports: [CommonModule, SharedModule, RouterModule.forChild(routes), StoreModule.forFeature(shoppingFeatureKey, shoppingReducer)],
 })
 export class ModulesModule {}
