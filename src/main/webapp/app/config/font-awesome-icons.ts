@@ -21,6 +21,7 @@ import {
   faRoad,
   faSave,
   faSearch,
+  faShoppingBasket,
   faSignOutAlt,
   faSignInAlt,
   faSort,
@@ -82,4 +83,5 @@ export const fontAwesomeIcons = [
   faWrench,
   // jhipster-needle-add-icon-import
   faGlassMartini,
+  faShoppingBasket,
 ];

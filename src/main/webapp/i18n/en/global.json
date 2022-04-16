@@ -9,7 +9,8 @@
         "main": "Entities",
         "restaurant": "Restaurant",
         "restaurant-dark": "Restaurant slate",
-        "portfolio": "Portfolio"
+        "portfolio": "Portfolio",
+        "shopping": "Shopping"
       },
       "account": {
         "main": "Account",

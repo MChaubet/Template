@@ -10,15 +10,15 @@ export class RestaurantComponent {
   text: string;
   photos = [
     {
-      img: 'https://cdn.discordapp.com/attachments/960641870382374943/961326574941126686/lac.jpg',
+      img: 'content/images/carousel1.jpg',
       desc: 'restaurant.carousel.description1',
     },
     {
-      img: 'https://cdn.discordapp.com/attachments/960641870382374943/961326575461232730/montagne.jpg',
+      img: 'content/images/carousel2.jpg',
       desc: 'restaurant.carousel.description2',
     },
     {
-      img: 'https://cdn.discordapp.com/attachments/960641870382374943/961326576568500294/ville.jpg',
+      img: 'content/images/carousel3.jpg',
       desc: 'restaurant.carousel.description3',
     },
   ];

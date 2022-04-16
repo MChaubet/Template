@@ -25,9 +25,7 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
-import { RestaurantComponent } from './modules/restaurant/restaurant.component';
-import { RestaurantDarkComponent } from './modules/restaurant-dark/restaurant-dark.component';
-import { PortfolioComponent } from './modules/portfolio/portfolio.component';
+import { ModulesModule } from 'app/modules/modules.module';
 
 @NgModule({
   imports: [
@@ -41,6 +39,8 @@ import { PortfolioComponent } from './modules/portfolio/portfolio.component';
     HttpClientModule,
     NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-', caseSensitive: true }),
     TranslationModule,
+
+    ModulesModule,
   ],
   providers: [
     Title,
@@ -48,17 +48,7 @@ import { PortfolioComponent } from './modules/portfolio/portfolio.component';
     { provide: NgbDateAdapter, useClass: NgbDateDayjsAdapter },
     httpInterceptorProviders,
   ],
-  declarations: [
-    MainComponent,
-    NavbarComponent,
-    ErrorComponent,
-    PageRibbonComponent,
-    ActiveMenuDirective,
-    FooterComponent,
-    RestaurantComponent,
-    RestaurantDarkComponent,
-    PortfolioComponent,
-  ],
+  declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   bootstrap: [MainComponent],
 })
 export class AppModule {
