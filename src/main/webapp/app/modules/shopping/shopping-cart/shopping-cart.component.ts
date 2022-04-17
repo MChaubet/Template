@@ -1,8 +1,9 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Article } from 'app/modules/shopping/model/article.model';
+import { ArticleQty } from 'app/modules/shopping/model/article.model';
 import { Subscription } from 'rxjs';
 import { getShopping, getShoppingCartPrice } from 'app/modules/shopping/store/shopping-selector';
+import { addArticleInCart, clearShoppingCart, removeArticleInCart } from 'app/modules/shopping/store/shopping-action';
 
 @Component({
   selector: 'jhi-shopping-cart',
@@ -10,7 +11,7 @@ import { getShopping, getShoppingCartPrice } from 'app/modules/shopping/store/sh
   styleUrls: ['./shopping-cart.component.scss'],
 })
 export class ShoppingCartComponent implements OnDestroy {
-  shoppingCart: Article[] = [];
+  shoppingCart: ArticleQty[] = [];
   shoppingCartPrice = 0;
   shoppingCartSub: Subscription;
   shoppingCartPriceSub: Subscription;
@@ -20,12 +21,24 @@ export class ShoppingCartComponent implements OnDestroy {
       next: res => (this.shoppingCart = res.articles),
     });
     this.shoppingCartPriceSub = this.store.select(getShoppingCartPrice).subscribe({
-      next: res => (this.shoppingCartPrice = res ?? 0),
+      next: res => (this.shoppingCartPrice = res),
     });
   }
 
   ngOnDestroy(): void {
     this.shoppingCartSub.unsubscribe();
     this.shoppingCartPriceSub.unsubscribe();
+  }
+
+  submit(): void {
+    this.store.dispatch(clearShoppingCart());
+  }
+
+  removeArticle(item: ArticleQty): void {
+    this.store.dispatch(removeArticleInCart(item.article));
+  }
+
+  addArticle(item: ArticleQty): void {
+    this.store.dispatch(addArticleInCart(item.article));
   }
 }

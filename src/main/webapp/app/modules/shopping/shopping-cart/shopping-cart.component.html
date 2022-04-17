@@ -1,6 +1,26 @@
-<ul class="list-group overflow-auto" style="max-height: 40vh">
+<ul class="list-group overflow-auto border-bottom" style="max-height: 40vh">
   <li *ngFor="let item of shoppingCart" class="list-group-item d-flex justify-content-between px-2 bg-transparent">
-    <div>{{ item.name }}</div>
-    <div>{{ item.price }}</div>
+    <div class="media w-100">
+      <img [src]="item.article.img" class="align-self-center mr-3" width="50px" alt="article" />
+      <div class="media-body">
+        <div class="d-flex justify-content-between">
+          <h6 class="mt-0">{{ item.article.name }}</h6>
+          <div class="text-nowrap">
+            <em class="fa-solid fa-minus cursor" (click)="removeArticle(item)"></em>
+            <em class="fa-solid fa-plus cursor" (click)="addArticle(item)"></em>
+          </div>
+        </div>
+        <div class="mb-0 d-flex justify-content-between">
+          <span style="color: #3e8acc">{{ item.article.price }} €</span>
+          <span style="color: #737373">Quantity : {{ item.quantity }}</span>
+        </div>
+      </div>
+    </div>
   </li>
 </ul>
+
+<div *ngIf="!shoppingCart.length" class="py-3 pl-2">You've got no item in your cart</div>
+
+<div class="text-center py-2">
+  <button class="btn btn-lg btn-dark" (click)="submit()">Checkout</button>
+</div>

@@ -7,7 +7,7 @@ export const getShoppingState = createFeatureSelector<ShoppingCart>(shoppingFeat
 export const getShopping = createSelector(getShoppingState, state => state);
 export const getShoppingCartPrice = createSelector(getShoppingState, state => {
   if (state.articles.length) {
-    return state.articles.map(elem => elem.price).reduce((prev, curr) => (prev ?? 0) + (curr ?? 0));
+    return state.articles.map(elem => (elem.article.price ?? 0) * elem.quantity).reduce((prev, curr) => prev + curr);
   } else {
     return 0;
   }

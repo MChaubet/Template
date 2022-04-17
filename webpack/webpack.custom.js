@@ -27,7 +27,7 @@ module.exports = async (config, options, targetOptions) => {
       }),
       new WebpackNotifierPlugin({
         title: 'Template',
-        contentImage: path.join(__dirname, 'logo.png'),
+        contentImage: path.join(__dirname, 'logo.svg'),
       })
     );
   }

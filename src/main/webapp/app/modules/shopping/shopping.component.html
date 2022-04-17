@@ -1,17 +1,25 @@
 <div style="background-color: #282828">
   <ng-template #popContent><jhi-shopping-cart></jhi-shopping-cart></ng-template>
-  <ng-template #popTitle>Cart</ng-template>
+  <ng-template #popTitle>
+    <div class="d-flex justify-content-between">
+      <fa-icon icon="shopping-basket" [fixedWidth]="true"></fa-icon>
+      <div class="font-weight-bold">
+        Total: <span style="color: #3e8acc">{{ shoppingCartPrice }}€</span>
+      </div>
+    </div>
+  </ng-template>
   <button
-    style="position: absolute; right: 0; margin-right: 10px; background-color: rgba(0, 0, 0, 0.5); color: white"
+    style="z-index: 1000; position: absolute; right: 0; margin-right: 10px; background-color: rgba(0, 0, 0, 0.5); color: white"
     type="button"
     class="btn btn-outline-secondary"
     placement="bottom-right"
-    [autoClose]="'outside'"
+    [animation]="true"
+    [autoClose]="false"
     [ngbPopover]="popContent"
     [popoverTitle]="popTitle"
   >
-    <span *ngIf="shoppingCart.length" class="badge">{{ shoppingCart.length }}</span>
-    Cart
+    <span *ngIf="shoppingCart.length" class="badge">{{ shoppingCartQty }}</span>
+    <fa-icon class="fa-2xl" icon="shopping-basket" style="font-size: 2rem"></fa-icon>
   </button>
 
   <div class="container-fluid" style="background-color: #86d1e4">
@@ -33,11 +41,26 @@
             <img [src]="article.img" alt="plat" height="150px" />
           </div>
           <div class="card-footer">
-            <div>{{ article.desc }}</div>
+            <h6>{{ article.name }}</h6>
+            <small>{{ article.desc }}</small>
             <div>{{ article.price }} €</div>
 
             <div class="d-flex justify-content-between">
-              <ngb-rating class="my-auto" [(rate)]="currentRate" [readonly]="true" [max]="5"></ngb-rating>
+              <ngb-rating
+                class="my-auto"
+                [(rate)]="article.rate!"
+                [readonly]="true"
+                [max]="maxRate"
+                ngbTooltip="{{ article.rate! }} / {{ maxRate }}"
+                placement="right"
+              >
+                <ng-template let-fill="fill">
+                  <span class="star" [class.full]="fill === 100">
+                    <span class="half" [style.width.%]="fill">&starf;</span>
+                    &starf;
+                  </span>
+                </ng-template>
+              </ngb-rating>
               <button class="btn btn-light" (click)="addArticle(article)">Add</button>
             </div>
           </div>

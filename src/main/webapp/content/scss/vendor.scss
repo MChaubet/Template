@@ -16,14 +16,15 @@ eg $input-color: red;
 }
 
 .popover {
-  border-radius: 10px;
-  min-width: 500px;
-}
-.popover-header {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
+  border-radius: 5px;
+  min-width: 350px;
 
-.popover-body {
-  padding: 0;
+  .popover-header {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .popover-body {
+    padding: 0;
+  }
 }
