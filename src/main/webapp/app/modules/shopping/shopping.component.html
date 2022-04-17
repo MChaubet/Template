@@ -35,33 +35,36 @@
 
   <div class="container py-5">
     <div class="row">
-      <div *ngFor="let article of articles" class="col-4 pb-3">
-        <div class="card">
-          <div class="card-body w-100 text-center mx-auto" style="background-color: white">
-            <img [src]="article.img" alt="plat" height="150px" />
+      <div *ngFor="let article of articles" class="col-lg-2 col-md-4 col-6 pb-3">
+        <div class="card h-100">
+          <div class="card-header w-100 text-center mx-auto bg-white cursor" (click)="open(article)">
+            <img [src]="article.img" alt="plat" height="100px" />
           </div>
-          <div class="card-footer">
-            <h6>{{ article.name }}</h6>
-            <small>{{ article.desc }}</small>
-            <div>{{ article.price }} €</div>
 
-            <div class="d-flex justify-content-between">
-              <ngb-rating
-                class="my-auto"
-                [(rate)]="article.rate!"
-                [readonly]="true"
-                [max]="maxRate"
-                ngbTooltip="{{ article.rate! }} / {{ maxRate }}"
-                placement="right"
-              >
-                <ng-template let-fill="fill">
-                  <span class="star" [class.full]="fill === 100">
-                    <span class="half" [style.width.%]="fill">&starf;</span>
-                    &starf;
-                  </span>
-                </ng-template>
-              </ngb-rating>
-              <button class="btn btn-light" (click)="addArticle(article)">Add</button>
+          <div class="card-body p-2 d-flex align-items-start flex-column">
+            <h6 class="cursor" (click)="open(article)">{{ article.name }}</h6>
+            <div class="mt-auto w-100">
+              <div>{{ article.price }} €</div>
+
+              <div class="d-flex justify-content-between mt-auto">
+                <ngb-rating
+                  class="my-auto"
+                  [(rate)]="article.rate!"
+                  [readonly]="true"
+                  [max]="maxRate"
+                  ngbTooltip="{{ article.rate! }} / {{ maxRate }}"
+                  [openDelay]="300"
+                  placement="right"
+                >
+                  <ng-template let-fill="fill">
+                    <span class="star" [class.full]="fill === 100">
+                      <span class="half" [style.width.%]="fill">&starf;</span>
+                      &starf;
+                    </span>
+                  </ng-template>
+                </ngb-rating>
+                <button class="btn btn-light btn-sm fa-plus" (click)="addArticle(article)"></button>
+              </div>
             </div>
           </div>
         </div>
