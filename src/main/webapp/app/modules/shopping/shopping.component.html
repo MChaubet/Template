@@ -25,7 +25,7 @@
   <div class="container-fluid" style="background-color: #86d1e4">
     <div class="row p-4">
       <div class="col-8 text-center align-self-center">
-        <h1 class="font-weight-bold display-1">Title</h1>
+        <h1 class="font-weight-bold display-3">Title</h1>
         <h4 class="font-weight-bold text-white">Hello everyone</h4>
         <h4 class="font-weight-bold text-white">But not one of you</h4>
       </div>
@@ -38,7 +38,7 @@
       <div *ngFor="let article of articles" class="col-lg-2 col-md-4 col-6 pb-3">
         <div class="card h-100">
           <div class="card-header w-100 text-center mx-auto bg-white cursor" (click)="open(article)">
-            <img [src]="article.img" alt="plat" height="100px" />
+            <img [src]="article.img" alt="plat" height="75px" />
           </div>
 
           <div class="card-body p-2 d-flex align-items-start flex-column">
@@ -57,13 +57,10 @@
                   placement="right"
                 >
                   <ng-template let-fill="fill">
-                    <span class="star" [class.full]="fill === 100">
-                      <span class="half" [style.width.%]="fill">&starf;</span>
-                      &starf;
-                    </span>
+                    <span class="star" [class.full]="fill === 100"> <span class="half" [style.width.%]="fill">&starf;</span>&starf; </span>
                   </ng-template>
                 </ngb-rating>
-                <button class="btn btn-light btn-sm fa-plus" (click)="addArticle(article)"></button>
+                <button class="btn btn-light btn-sm fa fa-solid fa-plus" (click)="addArticle($event, article)"></button>
               </div>
             </div>
           </div>

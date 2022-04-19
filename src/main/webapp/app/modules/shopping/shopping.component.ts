@@ -57,8 +57,26 @@ export class ShoppingComponent implements OnDestroy {
     });
   }
 
-  addArticle(article: Article): void {
+  addArticle($event: MouseEvent, article: Article): void {
     this.store.dispatch(addArticleInCart(article));
+
+    const plusButton = $event.target as Element;
+    this.addButtonValidate(plusButton);
+    setTimeout(() => this.removeButtonValidate(plusButton), 1000);
+  }
+
+  addButtonValidate(elem: Element): void {
+    elem.classList.remove('btn-light');
+    elem.classList.add('btn-success');
+    elem.classList.remove('fa-plus');
+    elem.classList.add('fa-check');
+  }
+
+  removeButtonValidate(elem: Element): void {
+    elem.classList.add('btn-light');
+    elem.classList.remove('btn-success');
+    elem.classList.add('fa-plus');
+    elem.classList.remove('fa-check');
   }
 
   open(article: Article): void {
