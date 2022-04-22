@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'jhi-management-app',
   templateUrl: './management-app.component.html',
   styleUrls: ['./management-app.component.scss'],
 })
-export class ManagementAppComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+export class ManagementAppComponent {
+  value: string;
+  constructor() {
+    this.value = '';
+  }
 }

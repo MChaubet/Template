@@ -17,3 +17,60 @@ div.video-banner {
 button.change-video {
   background: rgba(255, 255, 255, 0.5);
 }
+
+.img-text {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text-shadow {
+  text-shadow: 0 0 20px #000000;
+}
+
+.appear-hover {
+  height: 100%;
+  opacity: 0;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+
+    & div span {
+      text-shadow: black 0.1em 0.1em 20em;
+    }
+
+    & div h5 {
+      font-size: 3.2rem;
+      font-weight: 300;
+      line-height: 1.2;
+    }
+  }
+}
+
+// Timeline
+
+ul.timeline {
+  list-style-type: none;
+  position: relative;
+}
+ul.timeline:before {
+  content: ' ';
+  background: #d4d9df;
+  position: absolute;
+  left: 29px;
+  width: 2px;
+  height: 100%;
+  z-index: 400;
+}
+ul.timeline > li:before {
+  content: ' ';
+  background: white;
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid #22c0e8;
+  left: 20px;
+  width: 20px;
+  height: 20px;
+  z-index: 400;
+}
