@@ -6,11 +6,12 @@
       "home": "Accueil",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
-        "main": "Entités",
+        "main": "Pages",
         "restaurant": "Restaurant",
         "restaurant-dark": "Restaurant ardoise",
         "portfolio": "Portfolio",
-        "shopping": "Shopping"
+        "shopping": "Shopping",
+        "management-app": "Application de gestion"
       },
       "account": {
         "main": "Compte",

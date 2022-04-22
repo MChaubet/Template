@@ -60,6 +60,10 @@
               <fa-icon icon="shopping-basket" [fixedWidth]="true"></fa-icon>
               <span jhiTranslate="global.menu.entities.shopping">Shopping</span>
             </a>
+            <a class="dropdown-item" routerLink="modules/management-app" routerLinkActive="active" (click)="collapseNavbar()">
+              <em class="fa-solid fa-display"></em>
+              <span jhiTranslate="global.menu.entities.management-app">Management app</span>
+            </a>
           </li>
         </ul>
       </li>

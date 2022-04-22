@@ -43,7 +43,7 @@ export class ShoppingComponent implements OnDestroy {
       new Article(6, 'Gants divers', this.description, this.imgBase + 'mitten.svg', 4.3, 25),
       new Article(7, 'Sac Louis et Vuitton', this.description, this.imgBase + 'bag-shopping.svg', 2.3, 500),
       new Article(8, 'Guitare bois ébène', this.description, this.imgBase + 'guitar.svg', 4.3, 500),
-      new Article(9, 'Altère de musculation', this.description, this.imgBase + 'dumbbell.svg', 4.3, 500),
+      new Article(9, 'Haltère de musculation', this.description, this.imgBase + 'dumbbell.svg', 4.3, 500),
     ];
 
     this.shoppingCartSub = this.store.select(getShopping).subscribe({

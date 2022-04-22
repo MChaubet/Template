@@ -1,0 +1,388 @@
+#head {
+  text-align: center;
+  padding-top: 120px;
+  padding-bottom: 50px;
+  position: relative;
+  border-radius: 6px;
+}
+
+#titre {
+  color: #d0d0d0;
+  text-align: left;
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+}
+
+#contenu {
+  position: relative;
+  background: #f5f5f5;
+  margin-bottom: 100px;
+}
+
+fieldset {
+  border: 1px solid #ddd !important;
+  margin: 0;
+  padding: 25px !important;
+  position: relative;
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+
+#bottom-buttons {
+  padding-top: 3rem;
+  text-align: right;
+}
+
+#bottom-buttons button {
+  margin: 0.25rem;
+}
+
+.panel-default li {
+  margin: 0 0 5px 0;
+}
+
+.panel-body {
+  text-align: left;
+}
+
+ul {
+  list-style: none;
+}
+
+.btn {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 255, 0.2);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-family: sans-serif;
+  color: #c6ccd2;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  font-family: sans-serif;
+  color: #c6ccd2;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  font-family: sans-serif;
+  color: #c6ccd2;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  font-family: sans-serif;
+  color: #c6ccd2;
+}
+
+.erreur {
+  color: red;
+  font-size: 10px;
+}
+
+.success {
+  color: limegreen;
+}
+
+/** Bootstrap 3.3.7 **/
+
+.label {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+}
+
+a.label:hover,
+a.label:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.label:empty {
+  display: none;
+}
+
+.btn .label {
+  position: relative;
+  top: -1px;
+}
+
+.label-default {
+  background-color: #777;
+}
+
+.label-default[href]:hover,
+.label-default[href]:focus {
+  background-color: #5e5e5e;
+}
+
+.label-primary {
+  background-color: #337ab7;
+}
+
+.label-primary[href]:hover,
+.label-primary[href]:focus {
+  background-color: #286090;
+}
+
+.label-success {
+  background-color: #5cb85c;
+}
+
+.label-success[href]:hover,
+.label-success[href]:focus {
+  background-color: #449d44;
+}
+
+.label-info {
+  background-color: #5bc0de;
+}
+
+.label-info[href]:hover,
+.label-info[href]:focus {
+  background-color: #31b0d5;
+}
+
+.label-warning {
+  background-color: #f0ad4e;
+}
+
+.label-warning[href]:hover,
+.label-warning[href]:focus {
+  background-color: #ec971f;
+}
+
+.label-danger {
+  background-color: #d9534f;
+}
+
+.label-danger[href]:hover,
+.label-danger[href]:focus {
+  background-color: #c9302c;
+}
+
+/*********************/
+
+table th {
+  font-weight: normal;
+}
+
+.btn-blue {
+  padding: 0.3rem 0.6rem;
+  color: #fff;
+  background-color: #008bac;
+  border-color: #008bac;
+}
+
+.btn-blue:hover,
+.btn-blue:focus,
+.btn-blue:active,
+.btn-blue.active,
+.open .dropdown-toggle .btn-blue {
+  color: #fff;
+  background-color: #0097bb;
+  border-color: #008bac;
+}
+
+.help-block {
+  display: block;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  color: red;
+}
+
+table.dataTable tbody td {
+  vertical-align: middle;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .form-control {
+    transition: none;
+  }
+}
+
+.form-control::-ms-expand {
+  background-color: transparent;
+  border: 0;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+  font-weight: 300;
+}
+
+.form-control::-moz-placeholder {
+  color: #c6ccd2;
+  opacity: 1;
+  font-weight: 300;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #c6ccd2;
+  opacity: 1;
+  font-weight: 300;
+}
+
+.form-control::-ms-input-placeholder {
+  color: #c6ccd2;
+  opacity: 1;
+  font-weight: 300;
+}
+
+.form-control::placeholder {
+  color: #c6ccd2;
+  opacity: 1;
+  font-weight: 300;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+  background-color: #e9ecef;
+  opacity: 1;
+}
+
+select.form-control:focus::-ms-value {
+  color: #c6ccd2;
+  background-color: #fff;
+}
+
+table.table-style-two {
+  color: #333333;
+  border: 1px #3a3a3a;
+  border-collapse: collapse;
+}
+
+#prestations {
+  border-radius: 3px;
+}
+
+table.table-style-two th {
+  padding: 8px;
+  border: 1px solid #517994;
+  background-color: #0097bb;
+  text-align: center;
+}
+
+table.table-style-two td {
+  font-weight: 300;
+  padding: 8px;
+  border: 1px solid #517994;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+table.table-style-two tr td:first-child {
+  border: none;
+  text-align: left;
+  background-color: #fdfdfe;
+}
+
+table.table-style-two tr th:first-child {
+  border: none;
+  background-color: #fdfdfe;
+}
+
+table.table-style-two tr th {
+  font-weight: 300;
+  color: #ffffff;
+}
+
+/*Le label*/
+.container {
+  font-weight: 300;
+}
+
+/*Le placeholder du select*/
+.dropdown > select {
+  font-weight: 300;
+}
+
+/*Les éléments du select*/
+.dropdown > select > option {
+  font-weight: 300;
+}
+
+/*Lorsque l'utilisateur écrit*/
+div > input {
+  font-weight: 300;
+}
+
+/*Case tarif des prestations*/
+td > input {
+  font-weight: 300;
+}
+
+/*Les placeholders*/
+.date::-webkit-input-placeholder {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.date::-moz-placeholder {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.date::-ms-input-placeholder {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.date::-ms-input-placeholder {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.date::placeholder {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.inputDossier {
+  border-radius: 4px;
+  border: 1px solid #b8b8b8;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.borneInf {
+  background-color: #d8d8d8;
+}

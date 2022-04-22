@@ -1,0 +1,495 @@
+<style>
+  input,
+  button,
+  select,
+  textarea {
+    margin: 3px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+</style>
+
+<div id="head">
+  <div id="titre">
+    <h1>Application de gestion</h1>
+  </div>
+</div>
+
+<div id="contenu" class="container rounded text-center font-weight-normal p-4">
+  <div class="container">
+    <form>
+      <div class="panel-group">
+        <div class="my-panel">
+          <div class="panel-heading">
+            <div class="card-title">Identification</div>
+          </div>
+          <div class="panel-body" style="display: block">
+            <div class="panel-collapse">
+              <div class="table-responsive well">
+                <div class="container">
+                  <!--                  <input th:value="${idClient}" type="hidden" class="form-control" id="idClient" name="i_client">-->
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="numeroDossier">Numéro dossier *</label>
+                    </div>
+                    <div class="col-8">
+                      <!--                      <input th:field="*{numeroDossier}" type="text" class="form-control" id="numeroDossier" name="i_numeroDossier" maxlength="20" required>-->
+                      <!--                      <span th:if="${#fields.hasErrors('numeroDossier')}" class="help-block" th:errors="*{numeroDossier}"></span>-->
+                    </div>
+                  </div>
+                  <div id="info" class="row position-relative" style="display: none">
+                    <div class="col-4 text-right pt-2"></div>
+                    <div class="col-8">
+                      <span style="color: red">Ce numéro dossier existe déjà.</span>
+                    </div>
+                  </div>
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="nom">Nom dossier *</label>
+                    </div>
+                    <div class="col-8">
+                      <!--                      <input th:field="*{nom}" type="text" class="form-control" id="nom" name="i_nom" maxlength="100" required>-->
+                      <!--                      <span th:if="${#fields.hasErrors('nom')}" class="help-block" th:errors="*{nom}"></span>-->
+                    </div>
+                  </div>
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="selectTypePrestation">Type prestations *</label>
+                    </div>
+                    <div class="dropdown col-8">
+                      <!--                      <select th:field="*{typePrestation}" class="form-control" name="i_typePrestations" id="selectTypePrestation" required>-->
+                      <!--                        <option th:value="${null}" th:text="'Sélectionner...'"></option>-->
+                      <!--                        <option th:each="typePrestation: ${typesPrestations}" th:value="${typePrestation.id}"-->
+                      <!--                                th:text="${typePrestation.code} + ' : ' + ${typePrestation.libelle}"></option>-->
+                      <!--                      </select>-->
+                      <!--                      <span th:if="${#fields.hasErrors('typePrestation')}" class="help-block" th:errors="*{typePrestation}"></span>-->
+                    </div>
+                  </div>
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="selectLogiciel">Logiciel *</label>
+                    </div>
+                    <div class="dropdown col-8">
+                      <!--                      <select th:field="*{logiciel}" class="form-control" name="i_Logiciel" id="selectLogiciel" required>-->
+                      <!--                        <option th:value="0" th:text="'Sélectionner...'"></option>-->
+                      <!--                        <option th:each="logiciel : ${logiciels}" th:value="${logiciel.id}"-->
+                      <!--                                th:text="${logiciel.libelle}"></option>-->
+                      <!--                      </select>-->
+                      <!--                      <span th:if="${#fields.hasErrors('logiciel')}" class="help-block" th:errors="*{logiciel}"></span>-->
+                    </div>
+                  </div>
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="selectCommercial">Commercial *</label>
+                    </div>
+                    <div class="dropdown col-8">
+                      <!--                      <select th:field="*{ligneCommercial}" class="form-control" name="i_commercial" id="selectCommercial" required>-->
+                      <!--                        <option th:value="0" th:text="'Sélectionner...'"></option>-->
+                      <!--                        <option th:each="commercial: ${commerciaux}" th:value="${commercial.id}" th:text="${commercial.codeCommercial} + ' : ' + ${commercial.nom}"></option>-->
+                      <!--                      </select>-->
+                      <!--                      <span th:if="${#fields.hasErrors('ligneCommercial')}" class="help-block" th:errors="*{ligneCommercial}"></span>-->
+                    </div>
+                  </div>
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="dateDebutDossier">Date de début de dossier</label>
+                    </div>
+                    <div class="col-8">
+                      <!--                      <input th:field="*{dateDebutDossier}" type="text" id="dateDebutDossier" class="form-control date" name="i_dateDebutDossier"-->
+                      <!--                             maxlength="10" placeholder="JJ/MM/AAAA"-->
+                      <!--                             pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d"-->
+                      <!--                             title="JJ/MM/AAAA">-->
+                      <!--                      <span th:if="${#fields.hasErrors('dateDebutDossier')}" class="help-block" th:errors="*{dateDebutDossier}"></span>-->
+                    </div>
+                  </div>
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="dateDebutFacturation">Date de début de facturation</label>
+                    </div>
+                    <div class="col-8">
+                      <!--                      <input th:field="*{dateDebutFacturation}" type="text" id="dateDebutFacturation" class="form-control date" name="i_dateDebutFacturation"-->
+                      <!--                             maxlength="10" placeholder="JJ/MM/AAAA"-->
+                      <!--                             pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d"-->
+                      <!--                             title="JJ/MM/AAAA">-->
+                      <!--                      <span th:if="${#fields.hasErrors('dateDebutFacturation')}" class="help-block" th:errors="*{dateDebutFacturation}"></span>-->
+                    </div>
+                  </div>
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="selectMois">Mois d'augmentation</label>
+                    </div>
+                    <div class="dropdown col-8">
+                      <!--                      <select th:field="*{moisAugmentation}" class="form-control" name="i_moisAugmentation" id="selectMois" required>-->
+                      <!--                        <option th:value="0" th:text="'Sélectionner...'"></option>-->
+                      <!--                        <option th:value="1" th:text="'Janvier'"></option>-->
+                      <!--                        <option th:value="2" th:text="'Février'"></option>-->
+                      <!--                        <option th:value="3" th:text="'Mars'"></option>-->
+                      <!--                        <option th:value="4" th:text="'Avril'"></option>-->
+                      <!--                        <option th:value="5" th:text="'Mai'"></option>-->
+                      <!--                        <option th:value="6" th:text="'Juin'"></option>-->
+                      <!--                        <option th:value="7" th:text="'Juillet'"></option>-->
+                      <!--                        <option th:value="8" th:text="'Août'"></option>-->
+                      <!--                        <option th:value="9" th:text="'Septembre'"></option>-->
+                      <!--                        <option th:value="10" th:text="'Octobre'"></option>-->
+                      <!--                        <option th:value="11" th:text="'Novembre'"></option>-->
+                      <!--                        <option th:value="12" th:text="'Décembre'"></option>-->
+                      <!--                      </select>-->
+                      <!--                      <span th:if="${#fields.hasErrors('moisAugmentation')}" class="help-block" th:errors="*{moisAugmentation}"></span>-->
+                    </div>
+                  </div>
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="nomCollaborateur">Code collaborateur</label>
+                    </div>
+                    <div class="col-8">
+                      <!--                      <input th:field="*{codeCollaborateur}" type="text" class="form-control" id="nomCollaborateur" name="i_codeCollaborateur">-->
+                      <!--                      <span th:if="${#fields.hasErrors('codeCollaborateur')}" class="help-block" th:errors="*{codeCollaborateur}"></span>-->
+                    </div>
+                  </div>
+
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="dateFin">Date de fin</label>
+                    </div>
+                    <div class="col-8">
+                      <!--                      <input th:field="*{dateFin}" type="text" id="dateFin" class="form-control date" name="i_dateFin"-->
+                      <!--                             maxlength="10" placeholder="JJ/MM/AAAA"-->
+                      <!--                             pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d"-->
+                      <!--                             title="JJ/MM/AAAA">-->
+                      <!--                      <span th:if="${#fields.hasErrors('dateFin')}" class="help-block" th:errors="*{dateFin}"></span>-->
+                    </div>
+                  </div>
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="selectMotifFin">Motif de fin</label>
+                    </div>
+                    <div class="dropdown col-8">
+                      <!--                      <select th:field="*{motifFin}" class="form-control" name="i_MotifFin" id="selectMotifFin">-->
+                      <!--                        <option th:value="0" th:text="'Sélectionner...'"></option>-->
+                      <!--                        <option th:each="motifFin : ${motifsFin}" th:value="${motifFin.id}"-->
+                      <!--                                th:text="${motifFin.libelle}"></option>-->
+                      <!--                      </select>-->
+                      <!--                      <span th:if="${#fields.hasErrors('motifFin')}" class="help-block" th:errors="*{motifFin}"></span>-->
+                    </div>
+                  </div>
+                  <div class="row position-relative pt-1">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="blocageDossier">Blocage du dossier</label>
+                    </div>
+                    <div class="col-8">
+                      <!--                      <input th:field="*{blocageDossier}" class="mt-3" type="checkbox" id="blocageDossier" name="i_blocageDossier">-->
+                      <!--                      <span th:if="${#fields.hasErrors('blocageDossier')}" class="help-block" th:errors="*{blocageDossier}"></span>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="my-panel">
+          <div class="panel-heading">
+            <div class="panel-title">Adresse de facturation</div>
+          </div>
+          <div class="panel-body" style="display: none">
+            <div class="panel-collapse">
+              <div class="table-responsive well">
+                <div class="container">
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="complementLocalisation">Complément de localisation</label>
+                    </div>
+                    <div class="col-8">
+                      <!--                      <input th:field="*{complementLocalisation}" type="text" class="form-control" id="complementLocalisation" name="a_complementLocalisation" maxlength="50">-->
+                      <!--                      <span th:if="${#fields.hasErrors('complementLocalisation')}" class="help-block" th:errors="*{complementLocalisation}"></span>-->
+                    </div>
+                  </div>
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="numeroAdresse">Numéro</label>
+                    </div>
+                    <div class="col-8">
+                      <!--                      <input th:field="*{numero}" type="text" class="form-control" id="numeroAdresse" name="a_numeroAdresse" maxlength="4">-->
+                      <!--                      <span th:if="${#fields.hasErrors('numero')}" class="help-block" th:errors="*{numero}"></span>-->
+                    </div>
+                  </div>
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="extension">Extension</label>
+                    </div>
+                    <div class="col-8">
+                      <!--                      <input th:field="*{extension}" type="text" class="form-control" id="extension" name="a_extension" maxlength="10">-->
+                      <!--                      <span th:if="${#fields.hasErrors('extension')}" class="help-block" th:errors="*{extension}"></span>-->
+                    </div>
+                  </div>
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="natureLibelle">Nature et libellé de la voie *</label>
+                    </div>
+                    <div class="col-8">
+                      <!--                      <input th:field="*{natureLibelleVoie}" type="text" class="form-control" id="natureLibelle" name="a_natureLibelle" maxlength="100" required>-->
+                      <!--                      <span th:if="${#fields.hasErrors('natureLibelleVoie')}" class="help-block" th:errors="*{natureLibelleVoie}"></span>-->
+                    </div>
+                  </div>
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="serviceDistribution">Service de distribution, complément</label>
+                    </div>
+                    <div class="col-8">
+                      <!--                      <input th:field="*{serviceDistribComplement}" type="text" class="form-control" id="serviceDistribution" name="a_serviceDistribution" maxlength="50">-->
+                      <!--                      <span th:if="${#fields.hasErrors('serviceDistribComplement')}" class="help-block" th:errors="*{serviceDistribComplement}"></span>-->
+                    </div>
+                  </div>
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="pays">Pays</label>
+                    </div>
+                    <div class="col-8">
+                      <!--                      <input th:field="*{pays}" type="text" class="form-control" id="pays" name="a_pays" maxlength="32">-->
+                      <!--                      <span th:if="${#fields.hasErrors('pays')}" class="help-block" th:errors="*{pays}"></span>-->
+                    </div>
+                  </div>
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="codePostal">Code postal *</label>
+                    </div>
+                    <div class="col-8">
+                      <!--                      <input th:field="*{codePostal}" type="text" class="form-control" id="codePostal" name="a_codePostal" maxlength="6" pattern="[0-9]{5}" required>-->
+                      <!--                      <span th:if="${#fields.hasErrors('codePostal')}" class="help-block" th:errors="*{codePostal}"></span>-->
+                    </div>
+                  </div>
+                  <div class="row position-relative">
+                    <div class="col-4 text-right pt-2">
+                      <label class="form-check-label" for="localite">Localité</label>
+                    </div>
+                    <div class="col-8">
+                      <!--                      <input th:field="*{localite}" type="text" class="form-control" id="localite" name="a_localite" maxlength="50">-->
+                      <!--                      <span th:if="${#fields.hasErrors('localite')}" class="help-block" th:errors="*{localite}"></span>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="my-panel">
+          <div class="panel-heading">
+            <div class="panel-title">Prestations</div>
+          </div>
+          <div class="panel-body" style="display: none">
+            <div class="panel-collapse">
+              <div class="table-responsive well">
+                <div class="container">
+                  <div>
+                    <table id="prestations" class="table-style-two" width="100%">
+                      <tr>
+                        <th width="12%"></th>
+                        <th width="17%">Unité de mesure</th>
+                        <th width="33%">Critère</th>
+                        <th width="26%">Borne</th>
+                        <th width="12%">Tarif (en euros)</th>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <!--                      <th:block th:each="prestationDossier, iter : ${prestationsDossierDto}">-->
+                      <!--                        <tr th:id="'trPrestation_' + ${iter.index}">-->
+                      <!--                          <td>-->
+                      <!--                            <input type="checkbox" th:id="'checkbox_' + ${iter.index}" th:checked="${prestationDossier.isActif()}"-->
+                      <!--                                   th:name="'prestationsDossierDto['+${iter.index}+'].actif'" class="checkboxPrestationActive">-->
+                      <!--                            <input type="hidden" th:name="'prestationsDossierDto['+${iter.index}+'].lignePrestation.codeArticle'" th:value="${prestationDossier.getCode()}">-->
+                      <!--                            <label class="form-check-label" th:for="'checkbox_' + ${iter.index}" th:text="${prestationDossier.getCode()}"></label>-->
+                      <!--                          </td>-->
+                      <!--                          <td th:id="'tdUnite_' + ${iter.index}">-->
+                      <!--                            <div class="form-check form-check-inline">-->
+                      <!--                              <input class="form-check-input mesure" type="radio" name="radioMesure" th:id="'inlineRadioUnite_' + ${iter.index}" th:value="true"-->
+                      <!--                                     th:checked="${prestationDossier.isUnite()}"-->
+                      <!--                                     th:name="'prestationsDossierDto['+${iter.index}+'].unite'">-->
+                      <!--                              <label class="form-check-label" th:for="'inlineRadioUnite_' + ${iter.index}">Unité</label>-->
+                      <!--                            </div>-->
+                      <!--                            <div class="form-check form-check-inline">-->
+                      <!--                              <input class="form-check-input mesure" type="radio" name="radioMesure" th:id="'inlineRadioForfait_' + ${iter.index}" th:value="false"-->
+                      <!--                                     th:checked="${!prestationDossier.isUnite()}"-->
+                      <!--                                     th:name="'prestationsDossierDto['+${iter.index}+'].unite'">-->
+                      <!--                              <label class="form-check-label" th:for="'inlineRadioForfait_' + ${iter.index}">Forfait</label>-->
+                      <!--                            </div>-->
+                      <!--                          </td>-->
+                      <!--                          <td th:id="'tdCritere_' + ${iter.index}">-->
+                      <!--                            <div class="form-check form-check-inline">-->
+                      <!--                              <input class="form-check-input" type="radio" name="radioCritere" th:id="'inlineNbSalaries_' + ${iter.index}" th:value="false"-->
+                      <!--                                     th:checked="${prestationDossier.isCritere()}"-->
+                      <!--                                     th:name="'prestationsDossierDto['+${iter.index}+'].critere'">-->
+                      <!--                              <label class="form-check-label" th:for="'inlineNbSalaries_' + ${iter.index}">Nombre salariés</label>-->
+                      <!--                            </div>-->
+                      <!--                            <div class="form-check form-check-inline">-->
+                      <!--                              <input class="form-check-input" type="radio" name="radioCritere" th:id="'inlineNbBulletins_' + ${iter.index}" th:value="true"-->
+                      <!--                                     th:checked="${!prestationDossier.isCritere()}"-->
+                      <!--                                     th:name="'prestationsDossierDto['+${iter.index}+'].critere'">-->
+                      <!--                              <label class="form-check-label" th:for="'inlineNbBulletins_' + ${iter.index}">Nombre bulletins</label>-->
+                      <!--                            </div>-->
+                      <!--                          </td>-->
+                      <!--                          <td th:id="'tdBorne_' + ${iter.index}" style="text-align: left">-->
+                      <!--                            <div th:id="'ligneBornes_' + ${iter.index}" class="position-relative">-->
+                      <!--                              <button type="button" class="btn btn-success ajoutLigne" th:id="'ajouterLigneBornes_' + ${iter.index}"-->
+                      <!--                                      style="font-size: 10px; position: absolute; top: 0; right: 24px;" disabled>-->
+                      <!--                                <i class="fas fa-plus"></i>-->
+                      <!--                              </button>-->
+                      <!--                              <th:block th:each="ligneBornesDto, subIter : ${prestationDossier.getLignesBornesDto()}">-->
+                      <!--                                <div th:id="'ligneBornes_' + ${iter.index} + '_' + ${subIter.index}"-->
+                      <!--                                     class="sousLigneBornes form-check-inline ml-4">-->
+                      <!--                                  <input type="hidden"-->
+                      <!--                                         th:value="${ligneBornesDto.toPersist}"-->
+                      <!--                                         th:name="'prestationsDossierDto['+${iter.index}+'].lignesBornesDto['+${subIter.index}+'].toPersist'"-->
+                      <!--                                         th:id="'toPersistLigneBornes_' + ${iter.index} + '_' + ${subIter.index}" value="true">-->
+                      <!--                                  <input type="hidden"-->
+                      <!--                                         th:value="${ligneBornesDto.deleted}"-->
+                      <!--                                         th:name="'prestationsDossierDto['+${iter.index}+'].lignesBornesDto['+${subIter.index}+'].deleted'"-->
+                      <!--                                         th:id="'deletedLigneBornes_' + ${iter.index} + '_' + ${subIter.index}" value="false">-->
+
+                      <!--                                  <input type="hidden" th:name="'prestationsDossierDto['+${iter.index}+'].lignesBornesDto['+${subIter.index}+'].prestationDossier.id'"-->
+                      <!--                                         th:value="${prestationDossier.getId()}">-->
+
+                      <!--                                  <input type="hidden"-->
+                      <!--                                         th:value="${ligneBornesDto.id}"-->
+                      <!--                                         th:name="'prestationsDossierDto['+${iter.index}+'].lignesBornesDto['+${subIter.index}+'].id'">-->
+
+                      <!--                                  <label class="form-check-label" th:for="'borneInf_' + ${iter.index} + '_' + ${subIter.index}">De </label>-->
+                      <!--                                  <input type="text" class="text-center inputDossier borneInf" th:id="'borneInf_' + ${iter.index} + '_' + ${subIter.index}" size="3"-->
+                      <!--                                         maxlength="8"-->
+                      <!--                                         th:name="'prestationsDossierDto['+${iter.index}+'].lignesBornesDto['+${subIter.index}+'].borneInf'"-->
+                      <!--                                         th:value="${ligneBornesDto.getBorneInf()}" readonly>-->
+                      <!--                                  <span class="help-block"-->
+                      <!--                                        th:if="${#fields.hasErrors('prestationsDossierDto[__${iter.index}__].lignesBornesDto[__${subIter.index}__].borneInf')}"-->
+                      <!--                                        th:errors="*{prestationsDossierDto[__${iter.index}__].lignesBornesDto[__${subIter.index}__].borneInf}">-->
+                      <!--																	</span>-->
+                      <!--                                  <label class="form-check-label" th:for="'borneSup_' + ${iter.index} + '_' + ${subIter.index}"> à </label>-->
+                      <!--                                  <input type="text" class="text-center inputDossier borneSup" th:id="'borneSup_' + ${iter.index} + '_' + ${subIter.index}"-->
+                      <!--                                         size="3"-->
+                      <!--                                         maxlength="8"-->
+                      <!--                                         th:name="'prestationsDossierDto['+${iter.index}+'].lignesBornesDto['+${subIter.index}+'].borneSup'"-->
+                      <!--                                         th:value="${ligneBornesDto.getBorneSup()}" required>-->
+                      <!--                                  <span class="help-block"-->
+                      <!--                                        th:if="${#fields.hasErrors('prestationsDossierDto[__${iter.index}__].lignesBornesDto[__${subIter.index}__].borneSup')}"-->
+                      <!--                                        th:errors="*{prestationsDossierDto[__${iter.index}__].lignesBornesDto[__${subIter.index}__].borneSup}">-->
+                      <!--																	</span>-->
+                      <!--                                  <div th:if="${subIter.index > 0}">-->
+                      <!--                                    <button type="button" th:id="'supprimerLigne_' + ${iter.index} + '_' + ${subIter.index}"-->
+                      <!--                                            class="btn btn-danger supprLigneBornes form-check-inline" style="font-size: 10px;">-->
+                      <!--                                      <i class="far fa-times-circle"></i>-->
+                      <!--                                    </button>-->
+                      <!--                                  </div>-->
+                      <!--                                </div>-->
+                      <!--                              </th:block>-->
+                      <!--                            </div>-->
+                      <!--                          </td>-->
+                      <!--                          <td th:id="'tdTarif_' + ${iter.index}">-->
+                      <!--                            <div th:id="'tarifUnite_' + ${iter.index}" class="form-check-inline ml-4">-->
+                      <!--                              <input type="text" class="text-right inputDossier inputTarifUnite" th:id="'inputTarif_' + ${iter.index}"-->
+                      <!--                                     size="4"-->
+                      <!--                                     maxlength="8"-->
+                      <!--                                     th:name="'prestationsDossierDto['+${iter.index}+'].tarif'"-->
+                      <!--                                     th:value="${prestationDossier.getTarif()}">-->
+                      <!--                              <label class="form-check-label" th:for="'inputTarif_' + ${iter.index}">€</label>-->
+                      <!--                              <span class="help-block"-->
+                      <!--                                    th:if="${#fields.hasErrors('prestationsDossierDto[__${iter.index}__].tarif')}"-->
+                      <!--                                    th:errors="*{prestationsDossierDto[__${iter.index}__].tarif}">-->
+                      <!--																	</span>-->
+                      <!--                            </div>-->
+                      <!--                            <div th:id="'tarifForfait_' + ${iter.index}" style="display: none">-->
+                      <!--                              <th:block th:each="ligneBornesDto, subIter : ${prestationDossier.getLignesBornesDto()}">-->
+                      <!--                                <div th:id="'tarifForfait_' + ${iter.index} + '_' + ${subIter.index}" class="sousLigneTarif form-check-inline ml-4">-->
+                      <!--                                  <input type="hidden"-->
+                      <!--                                         th:value="${ligneBornesDto.toPersist}"-->
+                      <!--                                         th:name="'prestationsDossierDto['+${iter.index}+'].lignesBornesDto['+${subIter.index}+'].toPersist'"-->
+                      <!--                                         th:id="'toPersistTarifForfait_' + ${iter.index} + '_' + ${subIter.index}" value="true">-->
+                      <!--                                  <input type="hidden"-->
+                      <!--                                         th:value="${ligneBornesDto.deleted}"-->
+                      <!--                                         th:name="'prestationsDossierDto['+${iter.index}+'].lignesBornesDto['+${subIter.index}+'].deleted'"-->
+                      <!--                                         th:id="'deletedTarifForfait_' + ${iter.index} + '_' + ${subIter.index}" value="false">-->
+
+                      <!--                                  <input type="text" class="text-right inputDossier inputTarifForfait" th:id="'inputTarif_' + ${iter.index} + '_' + ${subIter.index}"-->
+                      <!--                                         size="4"-->
+                      <!--                                         maxlength="8"-->
+                      <!--                                         th:name="'prestationsDossierDto['+${iter.index}+'].lignesBornesDto['+${subIter.index}+'].tarif'"-->
+                      <!--                                         th:value="${ligneBornesDto.getTarif()}">-->
+                      <!--                                  <label class="form-check-label" th:for="'inputTarif_' + ${iter.index} + '_' + ${subIter.index}">€</label>-->
+                      <!--                                  <span class="help-block"-->
+                      <!--                                        th:if="${#fields.hasErrors('prestationsDossierDto[__${iter.index}__].lignesBornesDto[__${subIter.index}__].tarif')}"-->
+                      <!--                                        th:errors="*{prestationsDossierDto[__${iter.index}__].lignesBornesDto[__${subIter.index}__].tarif}">-->
+                      <!--																	</span>-->
+                      <!--                                </div>-->
+                      <!--                              </th:block>-->
+                      <!--                            </div>-->
+                      <!--                          </td>-->
+                      <!--                          <input type="hidden" th:name="'prestationsDossierDto['+${iter.index}+'].lignePrestation.id'"-->
+                      <!--                                 th:value="${prestationDossier.getLignePrestation().getId()}">-->
+                      <!--                          <input type="hidden" th:name="'prestationsDossierDto['+${iter.index}+'].id'"-->
+                      <!--                                 th:value="${prestationDossier.getId()}">-->
+                      <!--                        </tr>-->
+                      <!--                      </th:block>-->
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="my-panel">
+          <div class="panel-heading">
+            <div class="panel-title">Prestations récurrentes</div>
+          </div>
+          <div class="panel-body" style="display: none">
+            <div class="panel-collapse">
+              <div class="table-responsive well">
+                <div class="container">
+                  <div>
+                    <table id="prestationsRecurrentes" class="table-style-two" width="100%">
+                      <tr>
+                        <th width="12%"></th>
+                        <th width="76%">Nombre</th>
+                        <th width="12%">Tarif (en euros)</th>
+                      </tr>
+                      <!--                      <th:block th:each="prestationRecurrente, iter : ${prestationsDossierRecurrentesDto}">-->
+                      <!--                        <tr th:id="'prestationRecurrente_' + ${iter.index}">-->
+                      <!--                          <td>-->
+                      <!--                            <input type="checkbox" th:id="'checkboxRecurrente_' + ${iter.index}" th:checked="${prestationRecurrente.isActif()}"-->
+                      <!--                                   th:name="'prestationsDossierRecurrentesDto['+${iter.index}+'].actif'">-->
+                      <!--                            <input type="hidden" th:name="'prestationsDossierRecurrentesDto['+${iter.index}+'].code'" th:value="${prestationRecurrente.getCode()}">-->
+                      <!--                            <label class="form-check-label" th:for="'checkboxRecurrente_' + ${iter.index}" th:text="${prestationRecurrente.getCode()}"></label>-->
+                      <!--                          </td>-->
+                      <!--                          <td th:id="'nombreRecurrente_' + ${iter.index}">-->
+                      <!--                            <input type="text" class="text-center inputDossier" th:id="'inputNombreRecurrente_' + ${iter.index}" size="4" maxlength="8"-->
+                      <!--                                   th:name="'prestationsDossierRecurrentesDto['+${iter.index}+'].nombre'"-->
+                      <!--                                   th:value="${prestationRecurrente.getNombre()}" required>-->
+                      <!--                          </td>-->
+                      <!--                          <td th:id="'tarifRecurrente_' + ${iter.index}">-->
+                      <!--                            <input type="text" class="text-right inputDossier" th:id="'inputTarifRecurrente_' + ${iter.index}" size="4" maxlength="8"-->
+                      <!--                                   th:name="'prestationsDossierRecurrentesDto['+${iter.index}+'].tarif'"-->
+                      <!--                                   th:value="${prestationRecurrente.getTarif()}" required>-->
+                      <!--                            <label class="form-check-label" th:for="'tarifRecurrente_' + ${iter.index}">€</label>-->
+                      <!--                            <span th:if="${#fields.hasErrors('prestationsDossierRecurrentesDto[__${iter.index}__].tarif')}" class="help-block"-->
+                      <!--                                  th:errors="*{prestationsDossierRecurrentesDto[__${iter.index}__].tarif}"></span>-->
+                      <!--                          </td>-->
+                      <!--                          <input type="hidden" th:name="'prestationsDossierRecurrentesDto['+${iter.index}+'].lignePrestation.id'"-->
+                      <!--                                 th:value="${prestationRecurrente.getLignePrestation().getId()}">-->
+                      <!--                        </tr>-->
+                      <!--                      </th:block>-->
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="bottom-buttons" class="mr-3">
+          <button type="submit" class="btn btn-success text-white mr-2" id="ajouterDossier">Ajouter dossier</button>
+          <!--          <a role="button" class="btn btn-danger" th:href="${T(com.epaye.config.mapping.ApplicationUrl).PARAMETRAGE_CLIENT_VISUALISATION} + '/' + ${idClient}"> Annuler </a>-->
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

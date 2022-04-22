@@ -10,6 +10,7 @@ import { StoreModule } from '@ngrx/store';
 import { shoppingFeatureKey, shoppingReducer } from 'app/modules/shopping/store/shopping-reducer';
 import { ShoppingCartComponent } from './shopping/shopping-cart/shopping-cart.component';
 import { ArticleModalComponent } from 'app/modules/shopping/article-modal-component';
+import { ManagementAppComponent } from './management-app/management-app.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
     path: 'shopping',
     component: ShoppingComponent,
   },
+  {
+    path: 'management-app',
+    component: ManagementAppComponent,
+  },
 ];
 
 @NgModule({
@@ -38,6 +43,7 @@ const routes: Routes = [
     ShoppingComponent,
     ShoppingCartComponent,
     ArticleModalComponent,
+    ManagementAppComponent,
   ],
   imports: [CommonModule, SharedModule, RouterModule.forChild(routes), StoreModule.forFeature(shoppingFeatureKey, shoppingReducer)],
 })
