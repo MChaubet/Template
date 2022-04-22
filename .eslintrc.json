@@ -95,6 +95,7 @@
     "object-shorthand": ["error", "always", { "avoidExplicitReturnArrows": true }],
     "radix": "error",
     "spaced-comment": ["warn", "always"],
-    "@angular-eslint/no-empty-lifecycle-method": "off"
+    "@angular-eslint/no-empty-lifecycle-method": "off",
+    "@typescript-eslint/no-empty-function": "off"
   }
 }
