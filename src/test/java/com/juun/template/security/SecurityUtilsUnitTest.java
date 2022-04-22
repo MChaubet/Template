@@ -2,6 +2,8 @@ package com.juun.template.security;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.juun.template.constants.AuthoritiesConstants;
+import com.juun.template.utils.SecurityUtils;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;

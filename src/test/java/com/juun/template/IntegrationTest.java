@@ -1,6 +1,5 @@
 package com.juun.template;
 
-import com.juun.template.TemplateApp;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

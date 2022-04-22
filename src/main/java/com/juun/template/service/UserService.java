@@ -1,17 +1,23 @@
 package com.juun.template.service;
 
-import com.juun.template.config.Constants;
-import com.juun.template.domain.Authority;
-import com.juun.template.domain.User;
-import com.juun.template.repository.AuthorityRepository;
-import com.juun.template.repository.UserRepository;
-import com.juun.template.security.AuthoritiesConstants;
-import com.juun.template.security.SecurityUtils;
-import com.juun.template.service.dto.AdminUserDTO;
-import com.juun.template.service.dto.UserDTO;
+import com.juun.template.constants.AuthoritiesConstants;
+import com.juun.template.constants.Constants;
+import com.juun.template.dao.AuthorityDao;
+import com.juun.template.dao.UserDao;
+import com.juun.template.exception.EmailAlreadyUsedRuntimeException;
+import com.juun.template.exception.InvalidPasswordRuntimeException;
+import com.juun.template.exception.UsernameAlreadyUsedException;
+import com.juun.template.model.dto.AdminUserDTO;
+import com.juun.template.model.dto.UserDTO;
+import com.juun.template.model.entity.Authority;
+import com.juun.template.model.entity.User;
+import com.juun.template.utils.SecurityUtils;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,21 +38,21 @@ public class UserService {
 
     private final Logger log = LoggerFactory.getLogger(UserService.class);
 
-    private final UserRepository userRepository;
+    private final UserDao userDao;
 
     private final PasswordEncoder passwordEncoder;
 
-    private final AuthorityRepository authorityRepository;
+    private final AuthorityDao authorityDao;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthorityRepository authorityRepository) {
-        this.userRepository = userRepository;
+    public UserService(UserDao userDao, PasswordEncoder passwordEncoder, AuthorityDao authorityDao) {
+        this.userDao = userDao;
         this.passwordEncoder = passwordEncoder;
-        this.authorityRepository = authorityRepository;
+        this.authorityDao = authorityDao;
     }
 
     public Optional<User> activateRegistration(String key) {
         log.debug("Activating user for activation key {}", key);
-        return userRepository
+        return userDao
             .findOneByActivationKey(key)
             .map(user -> {
                 // activate given user for the registration key.
@@ -59,7 +65,7 @@ public class UserService {
 
     public Optional<User> completePasswordReset(String newPassword, String key) {
         log.debug("Reset user password for reset key {}", key);
-        return userRepository
+        return userDao
             .findOneByResetKey(key)
             .filter(user -> user.getResetDate().isAfter(Instant.now().minus(1, ChronoUnit.DAYS)))
             .map(user -> {
@@ -71,7 +77,7 @@ public class UserService {
     }
 
     public Optional<User> requestPasswordReset(String mail) {
-        return userRepository
+        return userDao
             .findOneByEmailIgnoreCase(mail)
             .filter(User::isActivated)
             .map(user -> {
@@ -82,7 +88,7 @@ public class UserService {
     }
 
     public User registerUser(AdminUserDTO userDTO, String password) {
-        userRepository
+        userDao
             .findOneByLogin(userDTO.getLogin().toLowerCase())
             .ifPresent(existingUser -> {
                 boolean removed = removeNonActivatedUser(existingUser);
@@ -90,12 +96,12 @@ public class UserService {
                     throw new UsernameAlreadyUsedException();
                 }
             });
-        userRepository
+        userDao
             .findOneByEmailIgnoreCase(userDTO.getEmail())
             .ifPresent(existingUser -> {
                 boolean removed = removeNonActivatedUser(existingUser);
                 if (!removed) {
-                    throw new EmailAlreadyUsedException();
+                    throw new EmailAlreadyUsedRuntimeException();
                 }
             });
         User newUser = new User();
@@ -115,9 +121,9 @@ public class UserService {
         // new user gets registration key
         newUser.setActivationKey(RandomUtil.generateActivationKey());
         Set<Authority> authorities = new HashSet<>();
-        authorityRepository.findById(AuthoritiesConstants.USER).ifPresent(authorities::add);
+        authorityDao.findById(AuthoritiesConstants.USER).ifPresent(authorities::add);
         newUser.setAuthorities(authorities);
-        userRepository.save(newUser);
+        userDao.save(newUser);
         log.debug("Created Information for User: {}", newUser);
         return newUser;
     }
@@ -126,8 +132,8 @@ public class UserService {
         if (existingUser.isActivated()) {
             return false;
         }
-        userRepository.delete(existingUser);
-        userRepository.flush();
+        userDao.delete(existingUser);
+        userDao.flush();
         return true;
     }
 
@@ -154,13 +160,13 @@ public class UserService {
             Set<Authority> authorities = userDTO
                 .getAuthorities()
                 .stream()
-                .map(authorityRepository::findById)
+                .map(authorityDao::findById)
                 .filter(Optional::isPresent)
                 .map(Optional::get)
                 .collect(Collectors.toSet());
             user.setAuthorities(authorities);
         }
-        userRepository.save(user);
+        userDao.save(user);
         log.debug("Created Information for User: {}", user);
         return user;
     }
@@ -173,7 +179,7 @@ public class UserService {
      */
     public Optional<AdminUserDTO> updateUser(AdminUserDTO userDTO) {
         return Optional
-            .of(userRepository.findById(userDTO.getId()))
+            .of(userDao.findById(userDTO.getId()))
             .filter(Optional::isPresent)
             .map(Optional::get)
             .map(user -> {
@@ -191,7 +197,7 @@ public class UserService {
                 userDTO
                     .getAuthorities()
                     .stream()
-                    .map(authorityRepository::findById)
+                    .map(authorityDao::findById)
                     .filter(Optional::isPresent)
                     .map(Optional::get)
                     .forEach(managedAuthorities::add);
@@ -202,10 +208,10 @@ public class UserService {
     }
 
     public void deleteUser(String login) {
-        userRepository
+        userDao
             .findOneByLogin(login)
             .ifPresent(user -> {
-                userRepository.delete(user);
+                userDao.delete(user);
                 log.debug("Deleted User: {}", user);
             });
     }
@@ -222,7 +228,7 @@ public class UserService {
     public void updateUser(String firstName, String lastName, String email, String langKey, String imageUrl) {
         SecurityUtils
             .getCurrentUserLogin()
-            .flatMap(userRepository::findOneByLogin)
+            .flatMap(userDao::findOneByLogin)
             .ifPresent(user -> {
                 user.setFirstName(firstName);
                 user.setLastName(lastName);
@@ -239,11 +245,11 @@ public class UserService {
     public void changePassword(String currentClearTextPassword, String newPassword) {
         SecurityUtils
             .getCurrentUserLogin()
-            .flatMap(userRepository::findOneByLogin)
+            .flatMap(userDao::findOneByLogin)
             .ifPresent(user -> {
                 String currentEncryptedPassword = user.getPassword();
                 if (!passwordEncoder.matches(currentClearTextPassword, currentEncryptedPassword)) {
-                    throw new InvalidPasswordException();
+                    throw new InvalidPasswordRuntimeException();
                 }
                 String encryptedPassword = passwordEncoder.encode(newPassword);
                 user.setPassword(encryptedPassword);
@@ -253,22 +259,22 @@ public class UserService {
 
     @Transactional(readOnly = true)
     public Page<AdminUserDTO> getAllManagedUsers(Pageable pageable) {
-        return userRepository.findAll(pageable).map(AdminUserDTO::new);
+        return userDao.findAll(pageable).map(AdminUserDTO::new);
     }
 
     @Transactional(readOnly = true)
     public Page<UserDTO> getAllPublicUsers(Pageable pageable) {
-        return userRepository.findAllByIdNotNullAndActivatedIsTrue(pageable).map(UserDTO::new);
+        return userDao.findAllByIdNotNullAndActivatedIsTrue(pageable).map(UserDTO::new);
     }
 
     @Transactional(readOnly = true)
     public Optional<User> getUserWithAuthoritiesByLogin(String login) {
-        return userRepository.findOneWithAuthoritiesByLogin(login);
+        return userDao.findOneWithAuthoritiesByLogin(login);
     }
 
     @Transactional(readOnly = true)
     public Optional<User> getUserWithAuthorities() {
-        return SecurityUtils.getCurrentUserLogin().flatMap(userRepository::findOneWithAuthoritiesByLogin);
+        return SecurityUtils.getCurrentUserLogin().flatMap(userDao::findOneWithAuthoritiesByLogin);
     }
 
     /**
@@ -278,20 +284,21 @@ public class UserService {
      */
     @Scheduled(cron = "0 0 1 * * ?")
     public void removeNotActivatedUsers() {
-        userRepository
+        userDao
             .findAllByActivatedIsFalseAndActivationKeyIsNotNullAndCreatedDateBefore(Instant.now().minus(3, ChronoUnit.DAYS))
             .forEach(user -> {
                 log.debug("Deleting not activated user {}", user.getLogin());
-                userRepository.delete(user);
+                userDao.delete(user);
             });
     }
 
     /**
      * Gets a list of all the authorities.
+     *
      * @return a list of all the authorities.
      */
     @Transactional(readOnly = true)
     public List<String> getAuthorities() {
-        return authorityRepository.findAll().stream().map(Authority::getName).collect(Collectors.toList());
+        return authorityDao.findAll().stream().map(Authority::getName).collect(Collectors.toList());
     }
 }

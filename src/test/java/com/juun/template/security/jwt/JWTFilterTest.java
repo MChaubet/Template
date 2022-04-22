@@ -2,8 +2,10 @@ package com.juun.template.security.jwt;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.juun.template.management.SecurityMetersService;
-import com.juun.template.security.AuthoritiesConstants;
+import com.juun.template.config.security.jwt.JWTFilter;
+import com.juun.template.config.security.jwt.TokenProvider;
+import com.juun.template.constants.AuthoritiesConstants;
+import com.juun.template.service.SecurityMetersService;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import io.micrometer.core.instrument.simple.SimpleMeterRegistry;

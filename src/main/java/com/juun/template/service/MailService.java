@@ -1,6 +1,6 @@
 package com.juun.template.service;
 
-import com.juun.template.domain.User;
+import com.juun.template.model.entity.User;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 import javax.mail.MessagingException;
