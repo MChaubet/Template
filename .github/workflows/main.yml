@@ -23,22 +23,8 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
-        
-      - name: Heroku login credentials
-        run: |
-          cat > ~/.netrc <<EOF
-            machine api.heroku.com
-              login ${{secrets.HEROKU_EMAIL}}
-              password ${{secrets.HEROKU_API_KEY}}
-            machine git.heroku.com
-              login ${{secrets.HEROKU_EMAIL}}
-              password ${{secrets.HEROKU_API_KEY}}
-          EOF
-        
-      - name: Add Heroku remote
-        run: heroku git:remote --app template-juun
-          
-      - name: Push to Heroku
-        run: git push heroku master
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
