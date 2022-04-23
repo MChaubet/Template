@@ -35,7 +35,9 @@ jobs:
           distribution: 'zulu'
       
       - name: Build back-end
-        run: mvn --batch-mode --update-snapshots verify
+        run: |
+          ls
+          mvn --batch-mode --update-snapshots verify
 
   # This job contains frontend build
   build-frontend:
