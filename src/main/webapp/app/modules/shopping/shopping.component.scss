@@ -1,32 +1,16 @@
-$blue-custom: #86d1e4;
-$blue-dark-custom: #6394f8;
-
 .card {
+  background-color: transparent;
+}
+.card-body {
   background: rgba(255, 255, 255, 0.07);
-  color: #fff;
+  color: white;
 }
 
 .badge {
-  background-color: $blue-dark-custom;
+  background-color: #6394f8;
   border-radius: 100px;
   color: white;
   font-size: 12px;
   text-align: center;
   vertical-align: top;
-}
-
-.star {
-  position: relative;
-  display: inline-block;
-  font-size: 1.3rem;
-  color: #fff;
-}
-.full {
-  color: $blue-dark-custom;
-}
-.half {
-  position: absolute;
-  display: inline-block;
-  overflow: hidden;
-  color: $blue-dark-custom;
 }

@@ -31,20 +31,21 @@ button.change-video {
 .appear-hover {
   height: 100%;
   opacity: 0;
+  transition: 300ms linear;
+
+  div span {
+    text-shadow: black 0.1em 0.1em 20em;
+  }
+
+  div h5 {
+    font-size: 3.2rem;
+    font-weight: 300;
+    line-height: 1.2;
+  }
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.5);
     opacity: 1;
-
-    & div span {
-      text-shadow: black 0.1em 0.1em 20em;
-    }
-
-    & div h5 {
-      font-size: 3.2rem;
-      font-weight: 300;
-      line-height: 1.2;
-    }
   }
 }
 
@@ -73,4 +74,19 @@ ul.timeline > li:before {
   width: 20px;
   height: 20px;
   z-index: 400;
+}
+
+.card.card-no {
+  background-color: transparent;
+  border: transparent;
+
+  .card-header {
+    background-color: transparent;
+    border: transparent;
+  }
+
+  .card-body {
+    background-color: transparent;
+    padding: 0;
+  }
 }

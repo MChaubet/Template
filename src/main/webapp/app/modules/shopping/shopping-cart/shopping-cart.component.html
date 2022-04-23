@@ -1,8 +1,8 @@
 <ul class="list-group overflow-auto border-bottom" style="max-height: 40vh">
-  <li *ngFor="let item of shoppingCart" class="list-group-item d-flex justify-content-between px-2 bg-transparent">
-    <div class="media w-100">
-      <img [src]="item.article.img" class="align-self-center mr-3" width="50px" alt="article" />
-      <div class="media-body">
+  <li *ngFor="let item of shoppingCart" class="list-group-item px-2 bg-transparent">
+    <div class="media w-100 d-flex justify-content-start">
+      <img [src]="item.article.img" class="align-self-center me-3" width="50px" alt="article" />
+      <div class="media-body w-100">
         <div class="d-flex justify-content-between">
           <h6 class="mt-0 pr-2">{{ item.article.name }}</h6>
           <div class="text-nowrap">
@@ -19,7 +19,7 @@
   </li>
 </ul>
 
-<div *ngIf="!shoppingCart.length" class="py-3 pl-2">You've got no item in your cart</div>
+<div *ngIf="!shoppingCart.length" class="py-3 px-2">You've got no item in your cart</div>
 
 <div class="text-center py-2">
   <button class="btn btn-lg btn-dark" (click)="submit()">Checkout</button>

@@ -1,8 +1,10 @@
 hr.hr-logo {
-  height: 75px;
+  color: #123455;
   width: 50%;
-  border-color: #555273;
   margin: 75px auto 50px;
+  overflow: inherit;
+  background-color: black;
+  height: 1px;
 }
 
 hr.hr-logo:after {

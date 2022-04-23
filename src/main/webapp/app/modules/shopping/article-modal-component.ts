@@ -9,7 +9,7 @@ import { addArticleInCart } from 'app/modules/shopping/store/shopping-action';
     <div *ngIf="article">
       <div class="modal-header">
         <h3 class="modal-title">{{ article.name }}</h3>
-        <button class="btn btn-sm btn-close btn-dark" aria-label="Close" (click)="activeModal.dismiss('Cross click')">X</button>
+        <button class="btn btn-sm btn-close" (click)="activeModal.dismiss('Cross click')"></button>
       </div>
       <div class="modal-body">
         <div class="row p-3">
@@ -22,7 +22,7 @@ import { addArticleInCart } from 'app/modules/shopping/store/shopping-action';
         </div>
       </div>
       <div class="modal-footer d-flex justify-content-end">
-        <h5 class="pr-3" style="color: #3e8acc">{{ article.price }} €</h5>
+        <h5 class="pe-3" style="color: #3e8acc">{{ article.price }} €</h5>
         <button class="btn btn-info fa-solid fa-plus cursor" (click)="addArticle(article); activeModal.dismiss('Cross click')">
           Add to cart
         </button>

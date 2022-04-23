@@ -60,17 +60,17 @@
     </div>
   </div>
 
-  <div class="container pb-5">
+  <div class="container-fluid pb-5">
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <h4 class="pb-3">Latest News</h4>
         <ul class="timeline">
-          <li *ngFor="let news of newsList" class="mt-0 mb-4 pl-3">
+          <li *ngFor="let news of newsList" class="mt-0 mb-4 px-3">
             <div class="d-flex justify-content-between">
               <h5 class="mb-0">{{ news.title }}</h5>
               <h6 class="mb-0">{{ news.date }}</h6>
             </div>
-            <p>{{ news.desc }}</p>
+            <p>{{ news.desc + news.desc }}</p>
           </li>
         </ul>
       </div>
@@ -81,29 +81,57 @@
     <h1 class="font-weight-bold pt-5">Our amazing team</h1>
     <span class="font-italic">Loren ipsum dolor sit amet consectetur</span>
 
-    <div class="container pt-5">
+    <div class="container">
       <div class="row">
-        <div class="col-12 col-lg-6">
-          <h4 class="font-weight-bold">Jordan Noël</h4>
-          <div>Dev-ops</div>
-          <ngb-rating class="my-auto" [(rate)]="rate" [readonly]="true" [max]="rate" ngbTooltip="Best" [openDelay]="300">
-            <ng-template let-fill="fill">
-              <span class="star" style="font-size: 2rem" [class.full]="fill === 100">
-                <span class="half" style="font-size: 2rem" [style.width.%]="fill">&starf;</span>&starf;
-              </span>
-            </ng-template>
-          </ngb-rating>
+        <div class="col-12 col-lg-6 pt-5">
+          <div class="card card-no">
+            <div class="card-header">
+              <h4 class="font-weight-bold">Jordan Noël</h4>
+              <div>Dev-ops</div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-center mt-auto">
+                <ngb-rating
+                  class="my-auto"
+                  [(rate)]="rate"
+                  [readonly]="true"
+                  [max]="rate"
+                  ngbTooltip="Best"
+                  [openDelay]="300"
+                  placement="right"
+                >
+                  <ng-template let-fill="fill">
+                    <span class="star" [class.full]="fill === 100"> <span class="half" [style.width.%]="fill">&starf;</span>&starf; </span>
+                  </ng-template>
+                </ngb-rating>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-12 col-lg-6">
-          <h4 class="font-weight-bold">Mathieu Chaubet</h4>
-          <div>Dev-ops</div>
-          <ngb-rating class="my-auto" [(rate)]="rate" [readonly]="true" [max]="rate" ngbTooltip="Best" [openDelay]="300">
-            <ng-template let-fill="fill">
-              <span class="star" style="font-size: 2rem" [class.full]="fill === 100">
-                <span class="half" style="font-size: 2rem" [style.width.%]="fill">&starf;</span>&starf;
-              </span>
-            </ng-template>
-          </ngb-rating>
+        <div class="col-12 col-lg-6 pt-5">
+          <div class="card card-no">
+            <div class="card-header">
+              <h4 class="font-weight-bold">Mathieu Chaubet</h4>
+              <div>Dev-ops</div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-center mt-auto">
+                <ngb-rating
+                  class="my-auto"
+                  [(rate)]="rate"
+                  [readonly]="true"
+                  [max]="rate"
+                  ngbTooltip="Best"
+                  [openDelay]="300"
+                  placement="right"
+                >
+                  <ng-template let-fill="fill">
+                    <span class="star" [class.full]="fill === 100"> <span class="half" [style.width.%]="fill">&starf;</span>&starf; </span>
+                  </ng-template>
+                </ngb-rating>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -113,60 +141,58 @@
     <section class="pb-5">
       <h1 class="h1-responsive font-weight-bold text-center my-5">Contact us</h1>
 
-      <div class="d-flex justify-content-center pb-5">
-        <div class="d-flex flex-row">
-          <div class="text-center mx-5">
-            <em class="fas fa-phone fa-4x pb-3"></em>
-            <p style="font-size: 1.3rem">+ 01 234 567 89</p>
-          </div>
-          <div class="text-center mx-5">
-            <em class="fas fa-map-marker-alt fa-4x pb-3"></em>
-            <p style="font-size: 1.3rem">San Francisco, CA 94126, USA</p>
-          </div>
-          <div class="text-center mx-5">
-            <em class="fas fa-envelope fa-4x pb-3"></em>
-            <p style="font-size: 1.3rem">contact@us.com</p>
-          </div>
+      <div class="d-flex justify-content-around pb-5">
+        <div class="text-center">
+          <em class="fas fa-phone fa-4x pb-3"></em>
+          <p style="font-size: 1.3rem">+ 01 234 567 89</p>
+        </div>
+        <div class="text-center">
+          <em class="fas fa-map-marker-alt fa-4x pb-3"></em>
+          <p style="font-size: 1.3rem">San Francisco, CA 94126, USA</p>
+        </div>
+        <div class="text-center">
+          <em class="fas fa-envelope fa-4x pb-3"></em>
+          <p style="font-size: 1.3rem">contact@us.com</p>
         </div>
       </div>
 
-      <hr class="pb-4" />
-      <p class="text-center w-responsive mx-auto mb-1">
+      <hr />
+      <p class="text-center w-responsive mx-auto pt-4 mb-1">
         Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within a matter of hours to
         help you.
       </p>
 
       <div class="row">
-        <div class="col-12 mb-md-0 mb-5">
-          <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="md-form mb-0">
+        <div class="col-12 mb-5">
+          <form id="contact-form" name="contact-form">
+            <div class="row pb-3">
+              <div class="col-6">
+                <div class="form-floating">
                   <input type="text" id="name" name="name" class="form-control" />
                   <label for="name" class="">Your name</label>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="md-form mb-0">
+              <div class="col-6">
+                <div class="form-floating">
                   <input type="text" id="email" name="email" class="form-control" />
                   <label for="email" class="">Your email</label>
                 </div>
               </div>
             </div>
 
-            <div class="row">
-              <div class="col-md-12">
-                <div class="md-form mb-0">
+            <div class="row pb-3">
+              <div class="col-12">
+                <div class="form-floating">
                   <input type="text" id="subject" name="subject" class="form-control" />
                   <label for="subject" class="">Subject</label>
                 </div>
               </div>
             </div>
 
-            <div class="row">
-              <div class="col-md-12">
-                <div class="md-form">
-                  <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+            <div class="row pb-3">
+              <div class="col-12">
+                <div class="form-floating">
+                  <textarea type="text" id="message" name="message" rows="2" class="form-control"></textarea>
                   <label for="message">Your message</label>
                 </div>
               </div>

@@ -260,3 +260,19 @@ ui bootstrap tweaks
 .cursor {
   cursor: pointer;
 }
+
+.star {
+  position: relative;
+  display: inline-block;
+  font-size: 1.3rem;
+  color: #fff;
+}
+.full {
+  color: $blue-dark-custom;
+}
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  color: $blue-dark-custom;
+}
