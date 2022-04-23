@@ -44,7 +44,7 @@ jobs:
         
       - name: Build frontend
         run: |
-          npm install --production
+          npm install
           npm run webapp:build:prod
 
   # This job contains deployment
