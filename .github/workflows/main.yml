@@ -31,4 +31,20 @@ jobs:
           distribution: 'zulu'
       
       - name: Build back-end
-        run: mvn --batch-mode --update-snapshots verify
+        run: mvn -B -U verify
+        
+  # This workflow contains a single job called "build"
+  deploy:
+    needs: [build-backend]
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Deploying to Heroku
+      - uses: actions/checkout@v3
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "template-juun"
+          heroku_email: "mathieu.chaubet.travail@gmail.com"
