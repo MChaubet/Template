@@ -23,7 +23,7 @@ import { addArticleInCart } from 'app/modules/shopping/store/shopping-action';
       </div>
       <div class="modal-footer d-flex justify-content-end">
         <h5 class="pe-3" style="color: #3e8acc">{{ article.price }} €</h5>
-        <button class="btn btn-info fa-solid fa-plus cursor" (click)="addArticle(article); activeModal.dismiss('Cross click')">
+        <button class="btn btn-dark fa-solid fa-plus cursor" (click)="addArticle(article); activeModal.dismiss('Cross click')">
           Add to cart
         </button>
       </div>

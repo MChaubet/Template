@@ -21,7 +21,7 @@
           <span>{{ bean.prefix }}</span>
         </td>
         <td>
-          <div class="row" *ngFor="let property of bean.properties | keyvalue">
+          <div class="row w-100" *ngFor="let property of bean.properties | keyvalue">
             <div class="col-md-4">{{ property.key }}</div>
             <div class="col-md-8">
               <span class="float-right badge-secondary break">{{ property.value | json }}</span>
