@@ -12,16 +12,11 @@
     aria-controls="navbarResponsive"
     aria-expanded="false"
     aria-label="Toggle navigation"
-    (click)="toggleNavbar()"
+    (click)="isNavbarCollapsed = !isNavbarCollapsed"
   >
     <fa-icon icon="bars"></fa-icon>
   </a>
-  <div
-    class="navbar-collapse collapse d-flex justify-content-end"
-    id="navbarResponsive"
-    [ngbCollapse]="isNavbarCollapsed"
-    [ngSwitch]="account !== null"
-  >
+  <div class="navbar-collapse collapse text-right" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="account !== null">
     <ul class="navbar-nav ms-auto">
       <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
         <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
