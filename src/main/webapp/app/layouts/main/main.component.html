@@ -1,14 +1,7 @@
-<jhi-page-ribbon></jhi-page-ribbon>
+<div class="d-flex flex-column" style="min-height: 100vh">
+  <jhi-page-ribbon></jhi-page-ribbon>
 
-<div class="card vh-100 mh-100 h-100 w-100 border-0">
-  <div class="card-header border-bottom-0 p-0">
-    <router-outlet name="navbar"></router-outlet>
-  </div>
-
-  <div class="card-body h-100 p-0 overflow-auto">
-    <router-outlet></router-outlet>
-    <jhi-footer></jhi-footer>
-  </div>
-
-  <div class="footer border-top-0 p-0" hidden></div>
+  <jhi-navbar class="sticky-top"></jhi-navbar>
+  <router-outlet></router-outlet>
+  <jhi-footer class="mt-auto"></jhi-footer>
 </div>
