@@ -17,17 +17,16 @@ Bootstrap tweaks
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #dcdcdc;
+  background: #bebebe;
   border: 1px none #000000;
-  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #bebebe;
+  background: #ababab;
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: #a0a0a0;
+  background: #8d8d8d;
 }
 
 ::-webkit-scrollbar-track {
@@ -267,4 +266,15 @@ ui bootstrap tweaks
   display: inline-block;
   overflow: hidden;
   color: $blue-dark-custom;
+}
+
+ngb-accordion .card-header > button {
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem 1.25rem; /* Or whatever padding you would have applied in the next rule*/
+}
+
+ngb-accordion .card-header {
+  padding: 0; /* Just to make sure the <a> fills the whole card header */
 }
