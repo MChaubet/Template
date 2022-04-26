@@ -278,3 +278,8 @@ ngb-accordion .card-header > button {
 ngb-accordion .card-header {
   padding: 0; /* Just to make sure the <a> fills the whole card header */
 }
+
+.management-app {
+  background: url('~content/images/management-app.jpg') no-repeat fixed;
+  background-size: cover;
+}

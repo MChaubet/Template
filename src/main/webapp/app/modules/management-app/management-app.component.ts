@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   templateUrl: './management-app.component.html',
   styleUrls: ['./management-app.component.scss'],
 })
-export class ManagementAppComponent implements OnInit {
+export class ManagementAppComponent implements OnInit, OnDestroy {
   invoiceForm = this.formBuilder.group({
     numeroDossier: [null, [Validators.required, Validators.maxLength(10)]],
     nomDossier: [null, [Validators.required, Validators.maxLength(50)]],
@@ -38,10 +38,16 @@ export class ManagementAppComponent implements OnInit {
 
   activeIds: string[] = [];
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder) {
+    document.getElementsByTagName('body').item(0)?.classList.toggle('management-app');
+  }
 
   ngOnInit(): void {
     // this.activeIds = ['panel-identification', 'panel-adresse']; //panels 1 and 2 are open
+  }
+
+  ngOnDestroy(): void {
+    document.getElementsByTagName('body').item(0)?.classList.toggle('management-app');
   }
 
   genererFacture(): void {}
