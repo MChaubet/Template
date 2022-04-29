@@ -1,307 +1,134 @@
-<div>
-  <div class="titre">
-    <h1>Application de gestion</h1>
+<div class="container-sm contenu rounded my-5">
+  <div class="titre-container d-flex justify-content-center">
+    <em class="fa-solid fa-file-lines fa-4x text-success"></em>
+    <h1 class="ms-4 align-self-center titre">Edition de facture</h1>
   </div>
 
-  <div id="contenu" class="container rounded text-center">
-    <ngb-panel class="container">
-      <form class="form" role="form" (ngSubmit)="genererFacture()" [formGroup]="invoiceForm">
-        <ngb-accordion #acc="ngbAccordion" [activeIds]="activeIds">
-          <!--     Identification     -->
-          <ngb-panel id="panel-identification" title="Identification">
-            <ng-template ngbPanelContent>
-              <div class="accordion-body">
-                <div class="table-responsive well">
-                  <div class="container">
-                    <div class="row position-relative">
-                      <div class="col-4 text-right pt-2">
-                        <label class="form-check-label" for="numeroDossier">Numéro dossier *</label>
-                      </div>
-                      <div class="col-8">
-                        <input
-                          formControlName="numeroDossier"
-                          type="text"
-                          class="form-control"
-                          id="numeroDossier"
-                          maxlength="10"
-                          required
-                        />
-                        <span class="help-block" *ngIf="invoiceForm.get('numeroDossier')?.hasError('maxLength')"
-                          >La taille maximale est de 10 caractères</span
-                        >
-                      </div>
-                    </div>
-                    <div class="row position-relative">
-                      <div class="col-4 text-right pt-2">
-                        <label class="form-check-label" for="nomDossier">Nom dossier *</label>
-                      </div>
-                      <div class="col-8">
-                        <input formControlName="nomDossier" type="text" class="form-control" id="nomDossier" maxlength="50" required />
-                        <span class="help-block" *ngIf="invoiceForm.get('nomDossier')?.hasError('minLength')"
-                          >La taille minimale est de 2 caractères</span
-                        >
-                        <span class="help-block" *ngIf="invoiceForm.get('nomDossier')?.hasError('maxLength')"
-                          >La taille maximale est de 50 caractères</span
-                        >
-                      </div>
-                    </div>
-                    <div class="row position-relative">
-                      <div class="col-4 text-right pt-2">
-                        <label class="form-check-label" for="selectLogiciel">Logiciel *</label>
-                      </div>
-                      <div class="dropdown col-8">
-                        <select id="selectLogiciel" class="form-control" required>
-                          <option *ngFor="let s of softwares" [value]="s.id">{{ s.name }}</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="row position-relative">
-                      <div class="col-4 text-right pt-2">
-                        <label class="form-check-label" for="selectCommercial">Commercial *</label>
-                      </div>
-                      <div class="dropdown col-8">
-                        <select id="selectCommercial" class="form-control" required>
-                          <option *ngFor="let c of commercials" [value]="c.id">{{ c.name }}</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="row position-relative">
-                      <div class="col-4 text-right pt-2">
-                        <label class="form-check-label" for="dateDebutDossier">Date de début de dossier</label>
-                      </div>
-                      <div class="col-8">
-                        <!-- TODO les / doivent s'insérer automatiquement -->
-                        <input
-                          formControlName="dateDebutDossier"
-                          type="text"
-                          id="dateDebutDossier"
-                          class="form-control date"
-                          maxlength="10"
-                          placeholder="JJ/MM/AAAA"
-                          pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d"
-                          title="JJ/MM/AAAA"
-                        />
-                      </div>
-                    </div>
-                    <div class="row position-relative">
-                      <div class="col-4 text-right pt-2">
-                        <label class="form-check-label" for="dateDebutFacturation">Date de début de facturation</label>
-                      </div>
-                      <div class="col-8">
-                        <input
-                          formControlName="dateDebutFacturation"
-                          type="text"
-                          id="dateDebutFacturation"
-                          class="form-control date"
-                          maxlength="10"
-                          placeholder="JJ/MM/AAAA"
-                          pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d"
-                          title="JJ/MM/AAAA"
-                        />
-                      </div>
-                    </div>
-                    <div class="row position-relative">
-                      <div class="col-4 text-right pt-2">
-                        <label class="form-check-label" for="dateFinFacturation">Date de fin de facturation</label>
-                      </div>
-                      <div class="col-8">
-                        <input
-                          formControlName="dateFinFacturation"
-                          type="text"
-                          id="dateFinFacturation"
-                          class="form-control date"
-                          maxlength="10"
-                          placeholder="JJ/MM/AAAA"
-                          pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d"
-                          title="JJ/MM/AAAA"
-                        />
-                      </div>
-                    </div>
-                    <div class="row position-relative pt-1">
-                      <div class="col-4 text-right pt-2">
-                        <label class="form-check-label" for="blocageDossier">Blocage du dossier</label>
-                      </div>
-                      <div class="col-8">
-                        <input formControlName="blocageDossier" class="mt-3" type="checkbox" id="blocageDossier" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ng-template>
-          </ngb-panel>
-          <!--     Adresse de facturation     -->
-          <ngb-panel id="panel-adresse" title="Adresse de facturation">
-            <ng-template ngbPanelContent>
-              <div class="accordion-body">
-                <div class="table-responsive well">
-                  <div class="container">
-                    <div class="row position-relative">
-                      <div class="col-4 text-right pt-2">
-                        <label class="form-check-label" for="pays">Pays</label>
-                      </div>
-                      <div class="col-8">
-                        <input formControlName="pays" type="text" class="form-control" id="pays" maxlength="30" />
-                        <!--                        <span class="help-block" *ngIf="invoiceForm.get('pays')?.hasError('maxLength')">La taille maximale est de 30 caractères</span>-->
-                      </div>
-                    </div>
-                    <div class="row position-relative">
-                      <div class="col-4 text-right pt-2">
-                        <label class="form-check-label" for="numeroAdresse">Numéro</label>
-                      </div>
-                      <div class="col-8">
-                        <input formControlName="numeroAdresse" type="text" class="form-control" id="numeroAdresse" maxlength="4" required />
-                        <span class="help-block" *ngIf="invoiceForm.get('numeroAdresse')?.hasError('maxLength')"
-                          >La taille maximale est de 4 caractères</span
-                        >
-                      </div>
-                    </div>
-                    <div class="row position-relative">
-                      <div class="col-4 text-right pt-2">
-                        <label class="form-check-label" for="extensionAdresse">Extension</label>
-                      </div>
-                      <div class="col-8">
-                        <input formControlName="extensionAdresse" type="text" class="form-control" id="extensionAdresse" maxlength="4" />
-                        <span class="help-block" *ngIf="invoiceForm.get('extensionAdresse')?.hasError('maxLength')"
-                          >La taille maximale est de 4 caractères</span
-                        >
-                      </div>
-                    </div>
-                    <div class="row position-relative">
-                      <div class="col-4 text-right pt-2">
-                        <label class="form-check-label" for="natureLibelleVoie">Nature et libellé de la voie *</label>
-                      </div>
-                      <div class="col-8">
-                        <input
-                          formControlName="natureLibelleVoie"
-                          type="text"
-                          class="form-control"
-                          id="natureLibelleVoie"
-                          maxlength="100"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div class="row position-relative">
-                      <div class="col-4 text-right pt-2">
-                        <label class="form-check-label" for="complementLocalisation">Complément de localisation</label>
-                      </div>
-                      <div class="col-8">
-                        <input
-                          formControlName="complementLocalisation"
-                          type="text"
-                          class="form-control"
-                          id="complementLocalisation"
-                          maxlength="50"
-                        />
-                        <span class="help-block" *ngIf="invoiceForm.get('complementLocalisation')?.hasError('maxLength')"
-                          >La taille maximale est de 50 caractères</span
-                        >
-                      </div>
-                    </div>
-                    <div class="row position-relative">
-                      <div class="col-4 text-right pt-2">
-                        <label class="form-check-label" for="codePostal">Code postal *</label>
-                      </div>
-                      <div class="col-8">
-                        <input
-                          formControlName="codePostal"
-                          type="text"
-                          class="form-control"
-                          id="codePostal"
-                          maxlength="5"
-                          pattern="[0-9]{5}"
-                          required
-                        />
-                        <span class="help-block" *ngIf="invoiceForm.get('pays')?.hasError('maxLength')"
-                          >La taille maximale est de 6 caractères</span
-                        >
-                      </div>
-                    </div>
-                    <div class="row position-relative">
-                      <div class="col-4 text-right pt-2">
-                        <label class="form-check-label" for="serviceDistributionComplement">Service de distribution, complément</label>
-                      </div>
-                      <div class="col-8">
-                        <input
-                          formControlName="serviceDistributionComplement"
-                          type="text"
-                          class="form-control"
-                          id="serviceDistributionComplement"
-                          maxlength="50"
-                        />
-                        <span class="help-block" *ngIf="invoiceForm.get('serviceDistributionComplement')?.hasError('maxLength')"
-                          >La taille maximale est de 50 caractères</span
-                        >
-                      </div>
-                    </div>
-                    <div class="row position-relative">
-                      <div class="col-4 text-right pt-2">
-                        <label class="form-check-label" for="ville">Ville</label>
-                      </div>
-                      <div class="col-8">
-                        <input formControlName="ville" type="text" class="form-control" id="ville" maxlength="50" />
-                        <span class="help-block" *ngIf="invoiceForm.get('ville')?.hasError('maxLength')"
-                          >La taille maximale est de 50 caractères</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ng-template>
-          </ngb-panel>
-          <!--     Prestations     -->
-          <ngb-panel id="panel-prestations" title="Prestations">
-            <ng-template ngbPanelContent>
-              <div class="accordion-body">
-                <div class="table-responsive well">
-                  <div class="container">
-                    <div>
-                      <table id="prestationsRecurrentes" class="table-style-two" width="100%">
-                        <tr>
-                          <th width="12%"></th>
-                          <th width="76%">Nombre</th>
-                          <th width="12%">Tarif (en euros)</th>
-                        </tr>
-                        <!--                      <th:block th:each="prestationRecurrente, iter : ${prestationsDossierRecurrentesDto}">-->
-                        <!--                        <tr th:id="'prestationRecurrente_' + ${iter.index}">-->
-                        <!--                          <td>-->
-                        <!--                            <input type="checkbox" th:id="'checkboxRecurrente_' + ${iter.index}" th:checked="${prestationRecurrente.isActif()}"-->
-                        <!--                                   th:name="'prestationsDossierRecurrentesDto['+${iter.index}+'].actif'">-->
-                        <!--                            <input type="hidden" th:name="'prestationsDossierRecurrentesDto['+${iter.index}+'].code'" th:value="${prestationRecurrente.getCode()}">-->
-                        <!--                            <label class="form-check-label" th:for="'checkboxRecurrente_' + ${iter.index}" th:text="${prestationRecurrente.getCode()}"></label>-->
-                        <!--                          </td>-->
-                        <!--                          <td th:id="'nombreRecurrente_' + ${iter.index}">-->
-                        <!--                            <input type="text" class="text-center inputDossier" th:id="'inputNombreRecurrente_' + ${iter.index}" size="4" maxlength="8"-->
-                        <!--                                   th:name="'prestationsDossierRecurrentesDto['+${iter.index}+'].nombre'"-->
-                        <!--                                   th:value="${prestationRecurrente.getNombre()}" required>-->
-                        <!--                          </td>-->
-                        <!--                          <td th:id="'tarifRecurrente_' + ${iter.index}">-->
-                        <!--                            <input type="text" class="text-right inputDossier" th:id="'inputTarifRecurrente_' + ${iter.index}" size="4" maxlength="8"-->
-                        <!--                                   th:name="'prestationsDossierRecurrentesDto['+${iter.index}+'].tarif'"-->
-                        <!--                                   th:value="${prestationRecurrente.getTarif()}" required>-->
-                        <!--                            <label class="form-check-label" th:for="'tarifRecurrente_' + ${iter.index}">€</label>-->
-                        <!--                            <span th:if="${#fields.hasErrors('prestationsDossierRecurrentesDto[__${iter.index}__].tarif')}" class="help-block"-->
-                        <!--                                  th:errors="*{prestationsDossierRecurrentesDto[__${iter.index}__].tarif}"></span>-->
-                        <!--                          </td>-->
-                        <!--                          <input type="hidden" th:name="'prestationsDossierRecurrentesDto['+${iter.index}+'].lignePrestation.id'"-->
-                        <!--                                 th:value="${prestationRecurrente.getLignePrestation().getId()}">-->
-                        <!--                        </tr>-->
-                        <!--                      </th:block>-->
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ng-template>
-          </ngb-panel>
-        </ngb-accordion>
-        <div class="bottom-buttons" class="mr-3">
-          <button type="submit" class="btn btn-success text-white me-2" id="ajouterDossier">Impression</button>
-          <a role="button" class="btn btn-danger">Annuler</a>
-        </div>
-      </form>
-    </ngb-panel>
-  </div>
+  <form class="form-row" role="form" (ngSubmit)="genererFacture()" [formGroup]="invoiceForm">
+    <h2 class="pb-3">Identification</h2>
+    <div class="row justify-content-between mb-5">
+      <div class="form-group col-5">
+        <label for="numeroDossier" class="control-label">NUMERO DOSSIER<span class="asterisque">*</span></label>
+        <input formControlName="numeroDossier" type="text" class="form-control" id="numeroDossier" maxlength="10" required />
+      </div>
+
+      <div class="form-group col-5">
+        <label for="nomDossier" class="control-label">NOM DOSSIER<span class="asterisque">*</span></label>
+        <input formControlName="nomDossier" type="text" class="form-control" id="nomDossier" maxlength="50" required />
+      </div>
+    </div>
+    <div class="row justify-content-between">
+      <div class="form-group col-5">
+        <label for="dateDebutFacturation" class="control-label">DATE DE DEBUT DE FACTURATION</label>
+        <input
+          formControlName="dateDebutFacturation"
+          type="text"
+          id="dateDebutFacturation"
+          class="form-control date"
+          maxlength="10"
+          placeholder="JJ/MM/AAAA"
+          pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d"
+          title="JJ/MM/AAAA"
+        />
+      </div>
+      <div class="form-group col-5">
+        <label for="dateFinFacturation" class="control-label">DATE DE FIN DE FACTURATION</label>
+        <input
+          formControlName="dateFinFacturation"
+          type="text"
+          id="dateFinFacturation"
+          class="form-control date"
+          maxlength="10"
+          placeholder="JJ/MM/AAAA"
+          pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d"
+          title="JJ/MM/AAAA"
+        />
+      </div>
+    </div>
+
+    <hr />
+
+    <h2 class="pb-3">Adresse de facturation</h2>
+    <div class="row">
+      <div class="col-4">
+        <label for="selectCountry">Pays<span class="asterisque">*</span></label>
+      </div>
+      <div class="dropdown col-8">
+        <select id="selectCountry" class="form-control" required>
+          <option *ngFor="let c of countries" [value]="c.id">{{ c.name }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <label for="numeroAdresse">Numéro, extension<span class="asterisque">*</span></label>
+      </div>
+      <div class="col-2">
+        <input formControlName="numeroAdresse" type="text" class="form-control" id="numeroAdresse" jhiNumbersOnly maxlength="4" required />
+      </div>
+      <div class="col-6">
+        <input formControlName="extensionAdresse" type="text" class="form-control" id="extensionAdresse" maxlength="4" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <label for="natureLibelleVoie">Nature et libellé de la voie<span class="asterisque">*</span></label>
+      </div>
+      <div class="col-8">
+        <input formControlName="natureLibelleVoie" type="text" class="form-control" id="natureLibelleVoie" maxlength="100" required />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <label for="complementLocalisation">Complément de localisation</label>
+      </div>
+      <div class="col-8">
+        <input formControlName="complementLocalisation" type="text" class="form-control" id="complementLocalisation" maxlength="50" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <label for="codePostal">Code postal, ville<span class="asterisque">*</span></label>
+      </div>
+      <div class="col-2">
+        <input
+          formControlName="codePostal"
+          type="text"
+          class="form-control"
+          id="codePostal"
+          jhiNumbersOnly
+          maxlength="5"
+          pattern="[0-9]{5}"
+          required
+        />
+      </div>
+      <div class="col-6">
+        <input formControlName="ville" type="text" class="form-control" id="ville" maxlength="50" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <label for="serviceDistributionComplement">Service de distribution, complément</label>
+      </div>
+      <div class="col-8">
+        <input
+          formControlName="serviceDistributionComplement"
+          type="text"
+          class="form-control"
+          id="serviceDistributionComplement"
+          maxlength="50"
+        />
+      </div>
+    </div>
+
+    <hr />
+
+    <h2 class="pb-3">Prestations</h2>
+
+    <hr />
+
+    <div class="text-end">
+      <button type="submit" class="btn btn-success text-white me-3">Impression</button>
+    </div>
+  </form>
 </div>

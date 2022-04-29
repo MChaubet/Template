@@ -1,4 +1,4 @@
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import locale from '@angular/common/locales/fr';
@@ -27,6 +27,7 @@ import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
 import { ModulesModule } from 'app/modules/modules.module';
 import { StoreModule } from '@ngrx/store';
+import { NumbersOnlyDirective } from './directives/numbers-only.directive';
 
 @NgModule({
   imports: [
@@ -41,7 +42,6 @@ import { StoreModule } from '@ngrx/store';
     NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-', caseSensitive: true }),
     TranslationModule,
     StoreModule.forRoot({}),
-
     ModulesModule,
   ],
   providers: [
@@ -52,6 +52,7 @@ import { StoreModule } from '@ngrx/store';
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   bootstrap: [MainComponent],
+  exports: [NumbersOnlyDirective],
 })
 export class AppModule {
   constructor(applicationConfigService: ApplicationConfigService, iconLibrary: FaIconLibrary, dpConfig: NgbDatepickerConfig) {
