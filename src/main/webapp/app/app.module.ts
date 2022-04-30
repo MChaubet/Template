@@ -8,14 +8,12 @@ import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import dayjs from 'dayjs/esm';
 import { NgbDateAdapter, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
-
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 import './config/dayjs';
 import { SharedModule } from 'app/shared/shared.module';
 import { TranslationModule } from 'app/shared/language/translation.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
-// jhipster-needle-angular-add-module-import JHipster will add new module here
 import { NgbDateDayjsAdapter } from './config/datepicker-adapter';
 import { fontAwesomeIcons } from './config/font-awesome-icons';
 import { httpInterceptorProviders } from 'app/core/interceptor';
@@ -28,20 +26,24 @@ import { ErrorComponent } from './layouts/error/error.component';
 import { ModulesModule } from 'app/modules/modules.module';
 import { StoreModule } from '@ngrx/store';
 import { NumbersOnlyDirective } from './directives/numbers-only.directive';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 @NgModule({
   imports: [
     BrowserModule,
     SharedModule,
     HomeModule,
-    // jhipster-needle-angular-add-module JHipster will add new module here
     AppRoutingModule,
-    // Set this to true to enable service worker (PWA)
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: false }),
     HttpClientModule,
     NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-', caseSensitive: true }),
     TranslationModule,
     StoreModule.forRoot({}),
+    NgxMaskModule.forRoot(maskConfig),
     ModulesModule,
   ],
   providers: [

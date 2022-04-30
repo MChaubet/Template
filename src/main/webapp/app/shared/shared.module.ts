@@ -14,6 +14,7 @@ import { SortDirective } from './sort/sort.directive';
 import { ItemCountComponent } from './pagination/item-count.component';
 import { IntersectionObserverDirective } from 'app/shared/animate/intersection-observer.directive';
 import { NumbersOnlyDirective } from '../directives/numbers-only.directive';
+import { DateFormatDirective } from '../directives/date-format.directive';
 
 @NgModule({
   imports: [SharedLibsModule],
@@ -31,6 +32,7 @@ import { NumbersOnlyDirective } from '../directives/numbers-only.directive';
     ItemCountComponent,
     IntersectionObserverDirective,
     NumbersOnlyDirective,
+    DateFormatDirective,
   ],
   exports: [
     SharedLibsModule,
@@ -47,6 +49,7 @@ import { NumbersOnlyDirective } from '../directives/numbers-only.directive';
     ItemCountComponent,
     IntersectionObserverDirective,
     NumbersOnlyDirective,
+    DateFormatDirective,
   ],
 })
 export class SharedModule {}

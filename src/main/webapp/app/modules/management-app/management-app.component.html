@@ -7,31 +7,32 @@
   <form class="form-row" role="form" (ngSubmit)="genererFacture()" [formGroup]="invoiceForm">
     <h2 class="pb-3">Identification</h2>
     <div class="row justify-content-between mb-5">
-      <div class="form-group col-5">
-        <label for="numeroDossier" class="control-label">NUMERO DOSSIER<span class="asterisque">*</span></label>
+      <div class="form-group col-xl-6 col-12 px-5">
+        <label for="numeroDossier" class="control-label">NUMERO CLIENT<span class="asterisque">*</span></label>
         <input formControlName="numeroDossier" type="text" class="form-control" id="numeroDossier" maxlength="10" required />
       </div>
-
-      <div class="form-group col-5">
-        <label for="nomDossier" class="control-label">NOM DOSSIER<span class="asterisque">*</span></label>
+      <div class="form-group col-xl-6 col-12 px-5">
+        <label for="nomDossier" class="control-label">NOM CLIENT<span class="asterisque">*</span></label>
         <input formControlName="nomDossier" type="text" class="form-control" id="nomDossier" maxlength="50" required />
       </div>
     </div>
     <div class="row justify-content-between">
-      <div class="form-group col-5">
+      <div class="form-group col-xl-6 col-12 px-5">
         <label for="dateDebutFacturation" class="control-label">DATE DE DEBUT DE FACTURATION</label>
-        <input
-          formControlName="dateDebutFacturation"
-          type="text"
-          id="dateDebutFacturation"
-          class="form-control date"
-          maxlength="10"
-          placeholder="JJ/MM/AAAA"
-          pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d"
-          title="JJ/MM/AAAA"
-        />
+        <div class="input-group">
+          <input
+            formControlName="dateFinFacturation"
+            type="text"
+            id="dateDebutFacturation"
+            class="form-control date"
+            maxlength="10"
+            placeholder="JJ/MM/AAAA"
+            jhiDateFormat
+            title="JJ/MM/AAAA"
+          />
+        </div>
       </div>
-      <div class="form-group col-5">
+      <div class="form-group col-xl-6 col-12 px-5">
         <label for="dateFinFacturation" class="control-label">DATE DE FIN DE FACTURATION</label>
         <input
           formControlName="dateFinFacturation"
@@ -40,7 +41,7 @@
           class="form-control date"
           maxlength="10"
           placeholder="JJ/MM/AAAA"
-          pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d"
+          jhiDateFormat
           title="JJ/MM/AAAA"
         />
       </div>

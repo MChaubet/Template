@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { NgbCalendar, NgbDateAdapter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-management-app',
@@ -33,7 +34,13 @@ export class ManagementAppComponent implements OnInit, OnDestroy {
     { id: 5, name: 'Suisse' },
   ];
 
-  constructor(private formBuilder: FormBuilder) {
+  model?: NgbDateStruct;
+  placement = 'bottom';
+
+  model1?: string;
+  model2?: string;
+
+  constructor(private formBuilder: FormBuilder, private ngbCalendar: NgbCalendar, private dateAdapter: NgbDateAdapter<string>) {
     document.getElementsByTagName('body').item(0)?.classList.toggle('management-app');
   }
 
@@ -41,6 +48,10 @@ export class ManagementAppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     document.getElementsByTagName('body').item(0)?.classList.toggle('management-app');
+  }
+
+  get today(): any {
+    return this.dateAdapter.toModel(this.ngbCalendar.getToday())!;
   }
 
   genererFacture(): void {
