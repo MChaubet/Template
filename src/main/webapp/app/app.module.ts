@@ -26,11 +26,6 @@ import { ErrorComponent } from './layouts/error/error.component';
 import { ModulesModule } from 'app/modules/modules.module';
 import { StoreModule } from '@ngrx/store';
 import { NumbersOnlyDirective } from './directives/numbers-only.directive';
-import { NgxMaskModule, IConfig } from 'ngx-mask';
-
-const maskConfig: Partial<IConfig> = {
-  validation: false,
-};
 
 @NgModule({
   imports: [
@@ -43,7 +38,6 @@ const maskConfig: Partial<IConfig> = {
     NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-', caseSensitive: true }),
     TranslationModule,
     StoreModule.forRoot({}),
-    NgxMaskModule.forRoot(maskConfig),
     ModulesModule,
   ],
   providers: [

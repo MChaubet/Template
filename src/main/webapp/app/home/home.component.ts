@@ -1,10 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { forkJoin, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/auth/account.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'jhi-home',
@@ -14,36 +15,22 @@ import { Account } from 'app/core/auth/account.model';
 export class HomeComponent implements OnInit, OnDestroy {
   account: Account | null = null;
 
-  possibilities: { name: string; desc: string; pricing: string }[] = [
-    {
-      name: 'Site vitrine',
-      desc: "Création d'un site vitrine pour artisan, description de l'activité et des produits",
-      pricing: '750€ - 1500€',
-    },
-    {
-      name: 'Site vitrine + Réservation/Connexion',
-      desc: "Création d'un site vitrine pour artisan, description de l'activité et des produits + mise en place d'un système de réservation/connexion",
-      pricing: '1500€ - 5000€',
-    },
-    { name: 'Charte graphique', desc: "Création d'une charte graphique pour l'homogéïnité de l'application", pricing: '50€ - 200€' },
-    {
-      name: 'Designer',
-      desc: "Ajout d'un concepteur visuel de solutions de communication, réalisation d'une maquette visuelle combinant image et texte",
-      pricing: '100€ - 1000€',
-    },
-    { name: 'Langues', desc: 'Gestion des langues pour les écrans souhaités', pricing: '100€ - 500€ par langue' },
-    { name: 'Title', desc: 'Description', pricing: 'Pricing' },
-  ];
+  texts: string[] = [];
 
   private readonly destroy$ = new Subject<void>();
 
-  constructor(private accountService: AccountService, private router: Router) {}
+  constructor(private accountService: AccountService, private router: Router, private translateService: TranslateService) {}
 
   ngOnInit(): void {
     this.accountService
       .getAuthenticationState()
       .pipe(takeUntil(this.destroy$))
       .subscribe(account => (this.account = account));
+
+    forkJoin([this.translateService.getTranslation('fr'), this.translateService.getTranslation('en')]).subscribe(res => {
+      this.texts.push(this.translateService.getParsedResult(res[0], 'home.title'));
+      this.texts.push(this.translateService.getParsedResult(res[1], 'home.title'));
+    });
   }
 
   login(): void {

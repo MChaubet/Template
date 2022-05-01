@@ -5,7 +5,7 @@
     </div>
 
     <div class="col-md-9">
-      <h1 class="display-4" jhiTranslate="home.title">Welcome!</h1>
+      <h1 class="display-4"><span *ngIf="texts.length" class="text-cursor" jhiAnimationText [texts]="texts"></span>&nbsp;</h1>
 
       <p class="lead" jhiTranslate="home.subtitle">This is your homepage</p>
 
@@ -52,15 +52,3 @@
     </div>
   </div>
 </div>
-
-<!--<div class="container-fluid p-5">-->
-<!--  <div class="row">-->
-<!--    <div *ngFor="let possibility of possibilities" class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">-->
-<!--      <div class="card m-2">-->
-<!--        <div class="card-header">{{ possibility.name }}</div>-->
-<!--        <div class="card-body">{{ possibility.desc }}</div>-->
-<!--        <div class="card-footer">{{ possibility.pricing }}</div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->

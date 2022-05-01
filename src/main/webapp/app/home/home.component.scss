@@ -23,3 +23,16 @@ Main page styles
     transform: scale(1);
   }
 }
+
+.text-cursor:after {
+  content: '';
+  font-size: 2.5rem;
+  border-right: 0.05em solid;
+  animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% {
+    border-color: transparent;
+  }
+}

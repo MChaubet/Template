@@ -15,6 +15,8 @@ import { ItemCountComponent } from './pagination/item-count.component';
 import { IntersectionObserverDirective } from 'app/shared/animate/intersection-observer.directive';
 import { NumbersOnlyDirective } from '../directives/numbers-only.directive';
 import { DateFormatDirective } from '../directives/date-format.directive';
+import { TextAnimationDirective } from 'app/shared/animate/text-animation.directive';
+import { MaskDirective } from 'app/shared/mask/mask.directive';
 
 @NgModule({
   imports: [SharedLibsModule],
@@ -33,6 +35,8 @@ import { DateFormatDirective } from '../directives/date-format.directive';
     IntersectionObserverDirective,
     NumbersOnlyDirective,
     DateFormatDirective,
+    TextAnimationDirective,
+    MaskDirective,
   ],
   exports: [
     SharedLibsModule,
@@ -50,6 +54,8 @@ import { DateFormatDirective } from '../directives/date-format.directive';
     IntersectionObserverDirective,
     NumbersOnlyDirective,
     DateFormatDirective,
+    TextAnimationDirective,
+    MaskDirective,
   ],
 })
 export class SharedModule {}
