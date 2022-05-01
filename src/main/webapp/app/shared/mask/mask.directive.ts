@@ -7,7 +7,7 @@ export class MaskDirective {
   @Input() ngxMask?: string;
 
   readonly _formatToRegExp = [
-    { id: '0', regExp: /[0-9]/ },
+    { id: '0', regExp: /\d/ },
     { id: 'a', regExp: /[a-z]/ },
     { id: 'A', regExp: /[A-Z]/ },
     { id: 'B', regExp: /[a-zA-Z]/ },

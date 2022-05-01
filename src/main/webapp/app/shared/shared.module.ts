@@ -17,6 +17,7 @@ import { NumbersOnlyDirective } from '../directives/numbers-only.directive';
 import { DateFormatDirective } from '../directives/date-format.directive';
 import { TextAnimationDirective } from 'app/shared/animate/text-animation.directive';
 import { MaskDirective } from 'app/shared/mask/mask.directive';
+import { CurrencyMaskDirective } from 'app/shared/mask/currency-mask.directive';
 
 @NgModule({
   imports: [SharedLibsModule],
@@ -37,6 +38,7 @@ import { MaskDirective } from 'app/shared/mask/mask.directive';
     DateFormatDirective,
     TextAnimationDirective,
     MaskDirective,
+    CurrencyMaskDirective,
   ],
   exports: [
     SharedLibsModule,
@@ -56,6 +58,7 @@ import { MaskDirective } from 'app/shared/mask/mask.directive';
     DateFormatDirective,
     TextAnimationDirective,
     MaskDirective,
+    CurrencyMaskDirective,
   ],
 })
 export class SharedModule {}

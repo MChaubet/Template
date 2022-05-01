@@ -4,6 +4,11 @@
     <label for="date">Date</label>
   </div>
 
+  <div class="form-floating">
+    <input type="text" id="currency" name="currency" class="form-control" jhiCurrencyMask placeholder="Currency" />
+    <label for="currency">Currency</label>
+  </div>
+
   <div class="row">
     <div *ngFor="let possibility of possibilities" class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 p-2">
       <div class="card h-100">
