@@ -1,0 +1,27 @@
+.masonry-box {
+  column-count: 4;
+  column-gap: 10px;
+}
+
+@media screen and (max-device-width: 1200px) {
+  .masonry-box {
+    column-count: 2;
+  }
+}
+@media screen and (max-device-width: 500px) {
+  .masonry-box {
+    column-count: 1;
+  }
+}
+
+.masonry-card {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  break-inside: avoid;
+}
+
+.masonry-card div {
+  background-color: rgba(0, 0, 0, 0.005);
+  grid-row: 1 / -1;
+  grid-column: 1;
+}

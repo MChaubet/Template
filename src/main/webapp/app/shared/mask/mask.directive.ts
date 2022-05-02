@@ -1,10 +1,10 @@
-import { Directive, Input, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
   selector: '[jhiMask]',
 })
 export class MaskDirective {
-  @Input() ngxMask?: string;
+  @Input() mask?: string;
 
   readonly _formatToRegExp = [
     { id: '0', regExp: /\d/ },
@@ -31,10 +31,10 @@ export class MaskDirective {
   }
 
   _maskValue(val: string): string {
-    if (!val || !this.ngxMask || val === this._lastMaskedValue) {
+    if (!val || !this.mask || val === this._lastMaskedValue) {
       return val;
     }
-    this._lastMaskedValue = this.valueToFormat(val, this.ngxMask);
+    this._lastMaskedValue = this.valueToFormat(val, this.mask);
     return this._lastMaskedValue;
   }
 
