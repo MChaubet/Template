@@ -25,11 +25,23 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.accountService
       .getAuthenticationState()
       .pipe(takeUntil(this.destroy$))
-      .subscribe(account => (this.account = account));
+      .subscribe(account => {
+        this.account = account;
+        this.animateTitle();
+      });
 
+    this.animateTitle();
+  }
+
+  animateTitle(): void {
     forkJoin([this.translateService.getTranslation('fr'), this.translateService.getTranslation('en')]).subscribe(res => {
-      this.texts.push(this.translateService.getParsedResult(res[0], 'home.title'));
-      this.texts.push(this.translateService.getParsedResult(res[1], 'home.title'));
+      this.texts = [];
+      this.texts.push(
+        (this.translateService.getParsedResult(res[0], 'home.title') as string) + (this.account ? ' ' + this.account.login : '')
+      );
+      this.texts.push(
+        (this.translateService.getParsedResult(res[1], 'home.title') as string) + (this.account ? ' ' + this.account.login : '')
+      );
     });
   }
 

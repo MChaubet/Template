@@ -29,6 +29,19 @@ Navbar
   }
 }
 
+.dropdown-menu.show {
+  background-color: #171717;
+}
+
+.dropdown-item {
+  color: #fff;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: #333333;
+}
+
 /* ==========================================================================
 Logo styles
 ========================================================================== */
