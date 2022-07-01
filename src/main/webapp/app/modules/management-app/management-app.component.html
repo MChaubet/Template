@@ -4,132 +4,277 @@
     <h1 class="ms-4 align-self-center titre">Edition de facture</h1>
   </div>
 
-  <form class="form-row" role="form" (ngSubmit)="genererFacture()" [formGroup]="invoiceForm">
-    <h2 class="pb-3">Identification</h2>
-    <div class="row justify-content-between mb-5">
-      <div class="form-group col-xl-6 col-12 px-5">
-        <label for="numeroDossier" class="control-label">NUMERO CLIENT<span class="asterisque">*</span></label>
-        <input formControlName="numeroDossier" type="text" class="form-control" id="numeroDossier" maxlength="10" required />
-      </div>
-      <div class="form-group col-xl-6 col-12 px-5">
-        <label for="nomDossier" class="control-label">NOM CLIENT<span class="asterisque">*</span></label>
-        <input formControlName="nomDossier" type="text" class="form-control" id="nomDossier" maxlength="50" required />
-      </div>
-    </div>
-    <div class="row justify-content-between">
-      <div class="form-group col-xl-6 col-12 px-5">
-        <label for="dateDebutFacturation" class="control-label">DATE DE DEBUT DE FACTURATION</label>
-        <div class="input-group">
-          <input
-            formControlName="dateFinFacturation"
-            type="text"
-            id="dateDebutFacturation"
-            class="form-control date"
-            maxlength="10"
-            placeholder="JJ/MM/AAAA"
-            jhiDateFormat
-            title="JJ/MM/AAAA"
-          />
+  <form class="form-row" role="form" (ngSubmit)="genererFacture()" [formGroup]="form">
+    <div>
+      <h2 class="pb-3">Identification</h2>
+      <div class="row justify-content-between mb-5">
+        <div class="form-group col-xl-6 col-12 px-5 position-relative">
+          <div class="input-error" [ngClass]="{ 'is-invalid': form.get('numeroClient')?.errors && form.get('numeroClient')?.touched }">
+            <label for="numeroClient" class="control-label">NUMERO CLIENT<span class="asterisque">*</span></label>
+            <input formControlName="numeroClient" type="text" class="form-control" id="numeroClient" maxlength="10" required />
+          </div>
+          <div class="invalid-feedback position-absolute" style="top: 95%">
+            {{ messageInputRequis }}
+          </div>
+        </div>
+        <div class="form-group col-xl-6 col-12 px-5 position-relative">
+          <div class="input-error" [ngClass]="{ 'is-invalid': form.get('nomClient')?.errors && form.get('nomClient')?.touched }">
+            <label for="nomClient" class="form-control-label">NOM CLIENT<span class="asterisque">*</span></label>
+            <input formControlName="nomClient" type="text" class="form-control" id="nomClient" maxlength="50" required />
+          </div>
+          <div class="invalid-feedback position-absolute" style="top: 95%">
+            {{ messageInputRequis }}
+          </div>
         </div>
       </div>
-      <div class="form-group col-xl-6 col-12 px-5">
-        <label for="dateFinFacturation" class="control-label">DATE DE FIN DE FACTURATION</label>
-        <input
-          formControlName="dateFinFacturation"
-          type="text"
-          id="dateFinFacturation"
-          class="form-control date"
-          maxlength="10"
-          placeholder="JJ/MM/AAAA"
-          jhiDateFormat
-          title="JJ/MM/AAAA"
-        />
+      <div class="row justify-content-between">
+        <div class="form-group col-xl-6 col-12 px-5 position-relative">
+          <div
+            class="input-error"
+            [ngClass]="{ 'is-invalid': form.get('dateDebutFacturation')?.errors && form.get('dateDebutFacturation')?.touched }"
+          >
+            <label for="dateDebutFacturation" class="control-label">DATE DE DEBUT DE FACTURATION</label>
+            <input
+              formControlName="dateDebutFacturation"
+              type="text"
+              id="dateDebutFacturation"
+              class="form-control date"
+              maxlength="10"
+              placeholder="JJ/MM/AAAA"
+              title="JJ/MM/AAAA"
+              jhiDateFormat
+              required
+            />
+          </div>
+          <div class="invalid-feedback position-absolute" style="top: 95%">
+            {{ messageInputRequis }}
+          </div>
+        </div>
+        <div class="form-group col-xl-6 col-12 px-5 position-relative">
+          <div
+            class="input-error"
+            [ngClass]="{ 'is-invalid': form.get('dateFinFacturation')?.errors && form.get('dateFinFacturation')?.touched }"
+          >
+            <label for="dateFinFacturation" class="control-label">DATE DE FIN DE FACTURATION</label>
+            <input
+              formControlName="dateFinFacturation"
+              type="text"
+              id="dateFinFacturation"
+              class="form-control date"
+              maxlength="10"
+              placeholder="JJ/MM/AAAA"
+              title="JJ/MM/AAAA"
+              jhiDateFormat
+              required
+            />
+          </div>
+          <div class="invalid-feedback position-absolute" style="top: 95%">
+            {{ messageInputRequis }}
+          </div>
+        </div>
       </div>
     </div>
 
     <hr />
 
-    <h2 class="pb-3">Adresse de facturation</h2>
-    <div class="row">
-      <div class="col-4">
-        <label for="selectCountry">Pays<span class="asterisque">*</span></label>
+    <div>
+      <h2 class="pb-3">Adresse de facturation</h2>
+      <div class="row">
+        <div class="col-4">
+          <label for="pays">Pays<span class="asterisque">*</span></label>
+        </div>
+        <div class="dropdown col-8">
+          <div class="input-group select-error" [ngClass]="{ 'is-invalid': form.get('pays')?.errors && form.get('pays')?.touched }">
+            <select formControlName="pays" class="form-select" required>
+              <option *ngFor="let c of countries" [value]="c.id">{{ c.name }}</option>
+            </select>
+          </div>
+        </div>
       </div>
-      <div class="dropdown col-8">
-        <select id="selectCountry" class="form-control" required>
-          <option *ngFor="let c of countries" [value]="c.id">{{ c.name }}</option>
-        </select>
+      <div class="row">
+        <div class="col-4">
+          <label for="numeroAdresse">Numéro, extension<span class="asterisque">*</span></label>
+        </div>
+        <div class="col-2">
+          <div
+            class="input-group input-error"
+            [ngClass]="{ 'is-invalid': form.get('numeroAdresse')?.errors && form.get('numeroAdresse')?.touched }"
+          >
+            <input
+              formControlName="numeroAdresse"
+              type="text"
+              class="form-control"
+              id="numeroAdresse"
+              jhiNumbersOnly
+              maxlength="4"
+              required
+            />
+          </div>
+        </div>
+        <div class="col-6">
+          <div
+            class="input-group input-error"
+            [ngClass]="{ 'is-invalid': form.get('extensionAdresse')?.errors && form.get('extensionAdresse')?.touched }"
+          >
+            <input formControlName="extensionAdresse" type="text" class="form-control" id="extensionAdresse" maxlength="4" />
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-4">
-        <label for="numeroAdresse">Numéro, extension<span class="asterisque">*</span></label>
+      <div class="row">
+        <div class="col-4">
+          <label for="natureLibelleVoie">Nature et libellé de la voie<span class="asterisque">*</span></label>
+        </div>
+        <div class="col-8">
+          <div
+            class="input-group input-error"
+            [ngClass]="{ 'is-invalid': form.get('natureLibelleVoie')?.errors && form.get('natureLibelleVoie')?.touched }"
+          >
+            <input formControlName="natureLibelleVoie" type="text" class="form-control" id="natureLibelleVoie" maxlength="100" required />
+          </div>
+        </div>
       </div>
-      <div class="col-2">
-        <input formControlName="numeroAdresse" type="text" class="form-control" id="numeroAdresse" jhiNumbersOnly maxlength="4" required />
+      <div class="row">
+        <div class="col-4">
+          <label for="complementLocalisation">Complément de localisation</label>
+        </div>
+        <div class="col-8">
+          <div
+            class="input-group input-error"
+            [ngClass]="{ 'is-invalid': form.get('complementLocalisation')?.errors && form.get('complementLocalisation')?.touched }"
+          >
+            <input formControlName="complementLocalisation" type="text" class="form-control" id="complementLocalisation" maxlength="50" />
+          </div>
+        </div>
       </div>
-      <div class="col-6">
-        <input formControlName="extensionAdresse" type="text" class="form-control" id="extensionAdresse" maxlength="4" />
+      <div class="row">
+        <div class="col-4">
+          <label for="codePostal">Code postal, ville<span class="asterisque">*</span></label>
+        </div>
+        <div class="col-2">
+          <div
+            class="input-group input-error"
+            [ngClass]="{ 'is-invalid': form.get('codePostal')?.errors && form.get('codePostal')?.touched }"
+          >
+            <input
+              formControlName="codePostal"
+              type="text"
+              class="form-control"
+              id="codePostal"
+              jhiNumbersOnly
+              maxlength="5"
+              pattern="[0-9]{5}"
+              required
+            />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="input-group input-error" [ngClass]="{ 'is-invalid': form.get('ville')?.errors && form.get('ville')?.touched }">
+            <input formControlName="ville" type="text" class="form-control" id="ville" maxlength="50" />
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-4">
-        <label for="natureLibelleVoie">Nature et libellé de la voie<span class="asterisque">*</span></label>
-      </div>
-      <div class="col-8">
-        <input formControlName="natureLibelleVoie" type="text" class="form-control" id="natureLibelleVoie" maxlength="100" required />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-4">
-        <label for="complementLocalisation">Complément de localisation</label>
-      </div>
-      <div class="col-8">
-        <input formControlName="complementLocalisation" type="text" class="form-control" id="complementLocalisation" maxlength="50" />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-4">
-        <label for="codePostal">Code postal, ville<span class="asterisque">*</span></label>
-      </div>
-      <div class="col-2">
-        <input
-          formControlName="codePostal"
-          type="text"
-          class="form-control"
-          id="codePostal"
-          jhiNumbersOnly
-          maxlength="5"
-          pattern="[0-9]{5}"
-          required
-        />
-      </div>
-      <div class="col-6">
-        <input formControlName="ville" type="text" class="form-control" id="ville" maxlength="50" />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-4">
-        <label for="serviceDistributionComplement">Service de distribution, complément</label>
-      </div>
-      <div class="col-8">
-        <input
-          formControlName="serviceDistributionComplement"
-          type="text"
-          class="form-control"
-          id="serviceDistributionComplement"
-          maxlength="50"
-        />
+      <div class="row">
+        <div class="col-4">
+          <label for="serviceDistributionComplement">Service de distribution, complément</label>
+        </div>
+        <div class="col-8">
+          <div
+            class="input-group input-error"
+            [ngClass]="{
+              'is-invalid': form.get('serviceDistributionComplement')?.errors && form.get('serviceDistributionComplement')?.touched
+            }"
+          >
+            <input
+              formControlName="serviceDistributionComplement"
+              type="text"
+              class="form-control"
+              id="serviceDistributionComplement"
+              maxlength="50"
+            />
+          </div>
+        </div>
       </div>
     </div>
 
     <hr />
+
+    <!---------------------------------------------------------------------------------------->
 
     <h2 class="pb-3">Prestations</h2>
+    <div>
+      <table id="prestations" class="table-prestations w-100" #tablePrestations>
+        <tr>
+          <th class="w-45">Nom de la prestation</th>
+          <th class="w-10">Nombre</th>
+          <th class="w-25">Unité</th>
+          <th class="w-15">Tarif unitaire</th>
+          <th class="w-5"></th>
+        </tr>
+
+        <tr *ngFor="let prestation of prestations; let i = index" id="lignePrestation_{{ i }}">
+          <td class="w-45">
+            <div
+              class="input-group input-error"
+              [ngClass]="{ 'is-invalid': form.get('nom_' + i)?.errors && form.get('nom_' + i)?.touched }"
+            >
+              <input type="text" [(ngModel)]="this.prestations[i].nom" class="form-control" formControlName="nom_{{ i }}" required />
+            </div>
+            <div class="invalid-feedback d-block" *ngIf="form.get('nom_' + i)?.errors?.required && form.get('nom_' + i)?.touched">
+              {{ messageInputRequis }}
+            </div>
+          </td>
+          <td class="w-10">
+            <input
+              type="text"
+              [(ngModel)]="this.prestations[i].nombre"
+              [ngModelOptions]="{ standalone: true }"
+              class="form-control inputNombre"
+              jhiNumbersOnly
+              placeholder="0"
+              required
+            />
+          </td>
+          <td class="w-25">
+            <select [(ngModel)]="this.prestations[i].unite" [ngModelOptions]="{ standalone: true }" class="form-select" required>
+              <option *ngFor="let u of this.unites" [ngValue]="u">{{ u }}</option>
+            </select>
+          </td>
+          <td class="w-15">
+            <div class="d-flex align-items-center">
+              <input
+                type="text"
+                id="'tarif_' + {{ i }}"
+                [(ngModel)]="this.prestations[i].tarifUnitaire"
+                [ngModelOptions]="{ standalone: true }"
+                class="form-control inputNombre"
+                size="3em"
+                jhiCurrencyMask
+                placeholder="0.00"
+                required
+              />
+              <div class="ms-2">€</div>
+            </div>
+          </td>
+          <td class="w-5">
+            <button type="button" class="btn btn-danger" id="deleteRowPrestation_{{ i }}" (click)="deleteRowPrestation(i)">
+              <em class="fa-solid fa-minus"></em>
+            </button>
+          </td>
+        </tr>
+      </table>
+      <div class="w-100 text-center mt-3">
+        <button type="button" class="btn btn-primary" (click)="addRowPrestation()">
+          <em class="fa-solid fa-plus"></em>
+        </button>
+      </div>
+    </div>
+
+    <!---------------------------------------------------------------------------------------->
 
     <hr />
 
     <div class="text-end">
-      <button type="submit" class="btn btn-success text-white me-3">Impression</button>
+      <button type="submit" class="btn btn-primary text-white me-3">Impression</button>
     </div>
   </form>
 </div>

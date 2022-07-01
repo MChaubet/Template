@@ -1,19 +1,33 @@
+// ================ Constantes ================
+
+$theme-primary: #28a745;
+$background: #f5f7f8;
+$color-formError: #f86c6b;
+
 // =============== Balises HTML ===============
-
-label {
-  font-weight: 500;
-}
-
-input,
-select,
-option {
-  font-weight: 300;
-}
 
 hr {
   width: 70%;
   margin: 75px auto 30px;
   color: #3ecc45;
+}
+
+.input-error.is-invalid {
+  input {
+    border-color: $color-formError;
+  }
+}
+
+select-error.is-invalid {
+  select {
+    border-color: $color-formError;
+  }
+}
+
+input::placeholder {
+  /* Most modern browsers support this now. */
+  color: #9a9a9a;
+  font-weight: 300;
 }
 
 // ================= Classes ==================
@@ -23,8 +37,9 @@ hr {
     padding: 100px 150px;
   }
 }
+
 .contenu {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: $background;
   padding: 50px;
 }
 
@@ -45,27 +60,44 @@ hr {
 }
 
 .asterisque {
-  color: #3ecc45;
+  color: $theme-primary;
 }
 
-.input-error {
-  display: block;
-  margin-left: 5px;
-  margin-bottom: 10px;
-  color: red;
+table.table-prestations th {
+  padding: 8px;
+  background-color: $theme-primary;
+  border: 1px solid #6b6b6b;
+  text-align: center;
+  font-weight: 300;
+  color: #ffffff;
+}
+
+table.table-prestations td {
+  padding: 8px;
+  background-color: #f5f5f5;
+  border: 1px solid #6b6b6b;
+  text-align: center;
+}
+
+table.table-prestations th:last-child,
+table.table-prestations td:last-child {
+  border: none;
+  background-color: $background;
+}
+
+.inputNombre {
+  text-align: right;
 }
 
 // ============= Override bootstrap =============
 
-.form-control {
-  color: #495057;
+.form-control,
+.form-select {
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
 }
 
 .row {
-  display: flex;
-  align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
 }

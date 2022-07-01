@@ -1,0 +1,24 @@
+{
+  "countries": [
+    {
+      "id": 1,
+      "name": "France"
+    },
+    {
+      "id": 2,
+      "name": "Allemagne"
+    },
+    {
+      "id": 3,
+      "name": "Angleterre"
+    },
+    {
+      "id": 4,
+      "name": "Espagne"
+    },
+    {
+      "id": 5,
+      "name": "Suisse"
+    }
+  ]
+}
