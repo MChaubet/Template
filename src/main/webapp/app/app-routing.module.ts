@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { errorRoute } from './layouts/error/error.route';
-import { navbarRoute } from './layouts/navbar/navbar.route';
-import { Authority } from 'app/config/authority.constants';
+import { errorRoute } from './components/layouts/error/error.route';
+import { navbarRoute } from './components/layouts/navbar/navbar.route';
+import { Authority } from 'app/constants/authority.constants';
 
-import { UserRouteAccessService } from 'app/core/auth/user-route-access.service';
+import { UserRouteAccessService } from 'app/services/user-route-access.service';
 
 @NgModule({
   imports: [
@@ -14,21 +14,21 @@ import { UserRouteAccessService } from 'app/core/auth/user-route-access.service'
         path: 'admin',
         data: { authorities: [Authority.ADMIN] },
         canActivate: [UserRouteAccessService],
-        loadChildren: () => import('./admin/admin-routing.module').then(m => m.AdminRoutingModule),
+        loadChildren: () => import('./components/admin/admin-routing.module').then(m => m.AdminRoutingModule),
       },
       {
         path: 'account',
-        loadChildren: () => import('./account/account.module').then(m => m.AccountModule),
+        loadChildren: () => import('./components/account/account.module').then(m => m.AccountModule),
       },
       {
         path: 'login',
-        loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
+        loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule),
       },
       {
         path: 'modules',
         data: { authorities: [Authority.USER] },
         canActivate: [UserRouteAccessService],
-        loadChildren: () => import(`./modules/modules.module`).then(m => m.ModulesModule),
+        loadChildren: () => import(`./components/pages/modules.module`).then(m => m.ModulesModule),
       },
       navbarRoute,
       ...errorRoute,

@@ -1,0 +1,17 @@
+.restaurant {
+  background: url('src/main/webapp/content/images/slate.jpg') no-repeat center center; // TODO trouver une meilleure image, elle est trop zoomée et ça rend pas propre
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+}
+
+h1 {
+  font-family: Chalk, serif;
+  color: white;
+}
