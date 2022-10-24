@@ -31,6 +31,8 @@ import { ErrorHandlerInterceptor } from './interceptor/error-handler.interceptor
 import { NotificationInterceptor } from './interceptor/notification.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { TypeaheadComponent } from './components/typeahead/typeahead.component';
+import { KafkaComponent } from './modules/kafka/kafka.component';
 
 export const httpInterceptorProviders = [
   {
@@ -77,7 +79,16 @@ export const httpInterceptorProviders = [
     CurrencyPipe,
     httpInterceptorProviders,
   ],
-  declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+  declarations: [
+    MainComponent,
+    NavbarComponent,
+    ErrorComponent,
+    PageRibbonComponent,
+    ActiveMenuDirective,
+    FooterComponent,
+    TypeaheadComponent,
+    KafkaComponent,
+  ],
   bootstrap: [MainComponent],
   exports: [NumbersOnlyDirective],
 })

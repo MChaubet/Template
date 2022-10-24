@@ -6,10 +6,15 @@ import { navbarRoute } from './components/layouts/navbar/navbar.route';
 import { Authority } from 'app/constants/authority.constants';
 
 import { UserRouteAccessService } from 'app/services/user-route-access.service';
+import { KafkaComponent } from './modules/kafka/kafka.component';
 
 @NgModule({
   imports: [
     RouterModule.forRoot([
+      {
+        path: 'kafka',
+        component: KafkaComponent,
+      },
       {
         path: 'admin',
         data: { authorities: [Authority.ADMIN] },
