@@ -1,0 +1,200 @@
+[
+  {
+    "numeroClient": "123456789",
+    "nomClient": "Caisse des dépôts",
+    "pays": "France",
+    "numeroAdresse": "5",
+    "extensionAdresse": "",
+    "natureLibelleVoie": "Rue du Vergne",
+    "complementLocalisation": "g",
+    "codePostal": "33300",
+    "ville": "Bordeaux",
+    "prestations": [
+      {
+        "nom": "Impression de documents",
+        "quantite": 2500,
+        "tarifUnitaire": 0.08
+      },
+      {
+        "nom": "Transport",
+        "quantite": 680,
+        "tarifUnitaire": 0.4
+      }
+    ]
+  },
+  {
+    "numeroClient": "987654321",
+    "nomClient": "Jean Dupont",
+    "pays": "France",
+    "numeroAdresse": "7",
+    "extensionAdresse": "Bis",
+    "natureLibelleVoie": "Rue Salvador Allende",
+    "complementLocalisation": "Bat A2 Appt 11",
+    "codePostal": "13009",
+    "ville": "Marseille",
+    "prestations": [
+      {
+        "nom": "Plafonnier sur-mesures",
+        "quantite": 5,
+        "tarifUnitaire": 42
+      },
+      {
+        "nom": "Peinture plafond au m²",
+        "quantite": 680,
+        "tarifUnitaire": 25
+      },
+      {
+        "nom": "Peinture mur au m²",
+        "quantite": 36,
+        "tarifUnitaire": 32
+      }
+    ]
+  },
+  {
+    "numeroClient": "ABC11XT",
+    "nomClient": "Pierre Poljaq",
+    "pays": "France",
+    "numeroAdresse": "12",
+    "extensionAdresse": "",
+    "natureLibelleVoie": "Allée du Berger",
+    "complementLocalisation": "Appt 5",
+    "codePostal": "33300",
+    "ville": "Bordeaux",
+    "prestations": [
+      {
+        "nom": "Courroie de distribution",
+        "quantite": 1,
+        "tarifUnitaire": 105
+      },
+      {
+        "nom": "Pompe à eau",
+        "quantite": 1,
+        "tarifUnitaire": 79
+      },
+      {
+        "nom": "Rétroviseur électrique",
+        "quantite": 2,
+        "tarifUnitaire": 159
+      },
+      {
+        "nom": "Main d'oeuvre",
+        "quantite": 1,
+        "tarifUnitaire": 700
+      }
+    ]
+  },
+  {
+    "numeroClient": "99XSDRR01",
+    "nomClient": "Loup-Paolo Breheret",
+    "pays": "France",
+    "numeroAdresse": "114",
+    "extensionAdresse": "Bis",
+    "natureLibelleVoie": "Rue Lucien Faure",
+    "complementLocalisation": "Bat A5",
+    "codePostal": "33300",
+    "ville": "Bordeaux",
+    "prestations": [
+      {
+        "nom": "Formation à l'heure",
+        "quantite": 940,
+        "tarifUnitaire": 17.9
+      },
+      {
+        "nom": "Pack EPSI",
+        "quantite": 1,
+        "tarifUnitaire": 129
+      },
+      {
+        "nom": "Frais de dossier",
+        "quantite": 1,
+        "tarifUnitaire": 125
+      },
+      {
+        "nom": "Soucription au BDE",
+        "quantite": 1,
+        "tarifUnitaire": 30
+      },
+      {
+        "nom": "Location de PC portable en jours",
+        "quantite": 120,
+        "tarifUnitaire": 1.8
+      }
+    ]
+  },
+  {
+    "numeroClient": "99XSDRR08",
+    "nomClient": "Mathieu Béchot",
+    "pays": "France",
+    "numeroAdresse": "12",
+    "extensionAdresse": "Ter",
+    "natureLibelleVoie": "Rue de Cadaujac",
+    "complementLocalisation": "Appt 200",
+    "codePostal": "33170",
+    "ville": "Gradignan",
+    "prestations": [
+      {
+        "nom": "Lave vaisselle tout encastrable Whirlpool WIO3O540PELG",
+        "quantite": 1,
+        "tarifUnitaire": 679
+      },
+      {
+        "nom": "Sèche linge pompe à chaleur Electrolux EW7H4963SP",
+        "quantite": 1,
+        "tarifUnitaire": 799
+      },
+      {
+        "nom": "Crêpière Lagrange Tradi duo Grande et mini crêpes",
+        "quantite": 1,
+        "tarifUnitaire": 125
+      },
+      {
+        "nom": "Montre sport Garmin VIVOACTIVE 4S 40mm WHITE/ROSE GOLD",
+        "quantite": 1,
+        "tarifUnitaire": 30
+      },
+      {
+        "nom": "Frais de livraison",
+        "quantite": 1,
+        "tarifUnitaire": 30
+      },
+      {
+        "nom": "Carte cadeau 50€",
+        "quantite": 4,
+        "tarifUnitaire": 50
+      }
+    ]
+  },
+  {
+    "numeroClient": "99XSDRR12",
+    "nomClient": "Nadroj Lëon",
+    "pays": "France",
+    "numeroAdresse": "150",
+    "extensionAdresse": "Ter",
+    "natureLibelleVoie": "Rue de Paris",
+    "complementLocalisation": "",
+    "codePostal": "75000",
+    "ville": "Paris",
+    "prestations": [
+      {
+        "nom": "Chambre à louer en nuits",
+        "quantite": 2,
+        "tarifUnitaire": 129
+      },
+      {
+        "nom": "Petit-déjeuner",
+        "quantite": 2,
+        "tarifUnitaire": 12
+      },
+      {
+        "nom": "Service à table",
+        "quantite": 1,
+        "tarifUnitaire": 29
+      },
+      {
+        "nom": "Accès salle de sport",
+        "quantite": 1,
+        "tarifUnitaire": 20
+      }
+    ]
+  }
+]

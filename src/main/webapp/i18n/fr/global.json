@@ -11,7 +11,7 @@
         "restaurant-dark": "Restaurant ardoise",
         "portfolio": "Portfolio",
         "shopping": "Shopping",
-        "management-app": "Application de gestion"
+        "invoice": "Génération de factures"
       },
       "account": {
         "main": "Compte",
@@ -144,9 +144,9 @@
   "footer": {
     "contactUs": "Contactez-nous",
     "ourTeam": "Notre équipe",
-    "availablity": "Nous sommes disponible :",
-    "availablity_1": "Lundi au vendredi de 9h à 20h",
-    "availablity_2": "Samedi de 9h à 12h et 14h à 18h",
+    "availablity": "Nous sommes disponibles :",
+    "availablity_1": "Du lundi au vendredi 9h-20h",
+    "availablity_2": "Le samedi 9h-12h / 14h-18h",
     "copyRight": "Copyright © 2022 Juun INC. Tous droits réservés"
   }
 }

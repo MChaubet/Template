@@ -29,6 +29,8 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { AuthExpiredInterceptor } from './interceptor/auth-expired.interceptor';
 import { ErrorHandlerInterceptor } from './interceptor/error-handler.interceptor';
 import { NotificationInterceptor } from './interceptor/notification.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 export const httpInterceptorProviders = [
   {
@@ -56,6 +58,8 @@ export const httpInterceptorProviders = [
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     SharedModule,
     HomeModule,
     AppRoutingModule,

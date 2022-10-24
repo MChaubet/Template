@@ -1,0 +1,81 @@
+// ================ Constantes ================
+
+$theme-primary: #3f51b5;
+$background: #f5f7f8;
+
+// =============== Balises HTML ===============
+
+hr {
+  width: 70%;
+  margin: 75px auto 30px;
+  color: $theme-primary;
+}
+
+// ================= Classes ==================
+
+@media (min-width: 768px) {
+  .contenu {
+    padding: 100px 150px;
+  }
+}
+
+.contenu {
+  background-color: $background;
+  padding: 50px;
+}
+
+.titre-container {
+  margin-bottom: 100px;
+}
+
+.titre {
+  margin-bottom: 0 !important;
+}
+
+.bottom-buttons {
+  text-align: right;
+}
+
+.bottom-buttons button {
+  margin: 0.25rem;
+}
+
+input.inputNombre::-webkit-outer-spin-button,
+input.inputNombre::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.inputNombre {
+  -moz-appearance: textfield;
+  text-align: right;
+}
+
+.draggable-element .drag-handle {
+  cursor: grab;
+}
+
+.draggable-element.cdk-drag-preview .drag-handle {
+  pointer-events: auto;
+  cursor: grabbing;
+}
+
+::ng-deep .mat-form-field-suffix {
+  top: 0 !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline:not(.mat-form-field-outline-thick) {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+// ============= Override bootstrap =============
+
+.form-control,
+.form-select {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.ng-invalid,
+.ng-valid {
+  border-left: none;
+}

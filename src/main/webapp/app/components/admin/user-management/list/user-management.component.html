@@ -8,7 +8,7 @@
         <span jhiTranslate="userManagement.home.refreshListLabel">Refresh List</span>
       </button>
       <button class="btn btn-primary jh-create-entity" [routerLink]="['./new']">
-        <fa-icon icon="plus"></fa-icon> <span jhiTranslate="userManagement.home.createLabel">Create a new User</span>
+        <em class="fa-solid fa-plus"></em> <span jhiTranslate="userManagement.home.createLabel">Create a new User</span>
       </button>
     </div>
   </h2>
@@ -21,22 +21,22 @@
     <table class="table table-striped" aria-describedby="user-management-page-heading">
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="transition()">
-          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
-          <th scope="col" jhiSortBy="login"><span jhiTranslate="userManagement.login">Login</span> <fa-icon icon="sort"></fa-icon></th>
-          <th scope="col" jhiSortBy="email"><span jhiTranslate="userManagement.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <em class="fa-solid fa-sort"></em></th>
+          <th scope="col" jhiSortBy="login"><span jhiTranslate="userManagement.login">Login</span> <em class="fa-solid fa-sort"></em></th>
+          <th scope="col" jhiSortBy="email"><span jhiTranslate="userManagement.email">Email</span> <em class="fa-solid fa-sort"></em></th>
           <th scope="col"></th>
           <th scope="col" jhiSortBy="langKey">
-            <span jhiTranslate="userManagement.langKey">Lang Key</span> <fa-icon icon="sort"></fa-icon>
+            <span jhiTranslate="userManagement.langKey">Lang Key</span> <em class="fa-solid fa-sort"></em>
           </th>
           <th scope="col"><span jhiTranslate="userManagement.profiles">Profiles</span></th>
           <th scope="col" jhiSortBy="createdDate">
-            <span jhiTranslate="userManagement.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon>
+            <span jhiTranslate="userManagement.createdDate">Created Date</span> <em class="fa-solid fa-sort"></em>
           </th>
           <th scope="col" jhiSortBy="lastModifiedBy">
-            <span jhiTranslate="userManagement.lastModifiedBy">Last Modified By</span> <fa-icon icon="sort"></fa-icon>
+            <span jhiTranslate="userManagement.lastModifiedBy">Last Modified By</span> <em class="fa-solid fa-sort"></em>
           </th>
           <th scope="col" jhiSortBy="lastModifiedDate">
-            <span jhiTranslate="userManagement.lastModifiedDate">Last Modified Date</span> <fa-icon icon="sort"></fa-icon>
+            <span jhiTranslate="userManagement.lastModifiedDate">Last Modified Date</span> <em class="fa-solid fa-sort"></em>
           </th>
           <th scope="col"></th>
         </tr>
@@ -79,12 +79,12 @@
           <td class="text-right">
             <div class="btn-group">
               <button type="submit" [routerLink]="['./', user.login, 'view']" class="btn btn-info btn-sm">
-                <fa-icon icon="eye"></fa-icon>
+                <em class="fa-solid fa-eye"></em>
                 <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
               </button>
 
               <button type="submit" [routerLink]="['./', user.login, 'edit']" queryParamsHandling="merge" class="btn btn-primary btn-sm">
-                <fa-icon icon="pencil-alt"></fa-icon>
+                <em class="fa-solid fa-pencil-alt"></em>
                 <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
               </button>
 
@@ -94,7 +94,7 @@
                 class="btn btn-danger btn-sm"
                 [disabled]="!currentAccount || currentAccount.login === user.login"
               >
-                <fa-icon icon="times"></fa-icon>
+                <em class="fa-solid fa-times"></em>
                 <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
               </button>
             </div>

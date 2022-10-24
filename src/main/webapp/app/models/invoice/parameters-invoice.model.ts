@@ -1,27 +1,22 @@
 import { PrestationModel } from './prestation.model';
 
-export class ParametresFactureModel {
+export class ParametersInvoiceModel {
   numeroClient?: string;
-  nomClient?: string;
-  dateDebutFacturation?: string;
-  dateFinFacturation?: string;
+  nomClient: string;
 
-  pays?: string;
-  numeroAdresse?: string;
+  pays: string;
+  numeroAdresse: string;
   extensionAdresse?: string;
-  natureLibelleVoie?: string;
+  natureLibelleVoie: string;
   complementLocalisation?: string;
   codePostal?: string;
   ville?: string;
-  serviceDistributionComplement?: string;
 
   prestations?: PrestationModel[];
 
   constructor(
     numeroClient: string,
     nomClient: string,
-    dateDebutFacturation: string,
-    dateFinFacturation: string,
     pays: string,
     numeroAdresse: string,
     extensionAdresse: string,
@@ -29,13 +24,10 @@ export class ParametresFactureModel {
     complementLocalisation: string,
     codePostal: string,
     ville: string,
-    serviceDistributionComplement: string,
     prestations: PrestationModel[]
   ) {
     this.numeroClient = numeroClient;
     this.nomClient = nomClient;
-    this.dateDebutFacturation = dateDebutFacturation;
-    this.dateFinFacturation = dateFinFacturation;
     this.pays = pays;
     this.numeroAdresse = numeroAdresse;
     this.extensionAdresse = extensionAdresse;
@@ -43,7 +35,6 @@ export class ParametresFactureModel {
     this.complementLocalisation = complementLocalisation;
     this.codePostal = codePostal;
     this.ville = ville;
-    this.serviceDistributionComplement = serviceDistributionComplement;
     this.prestations = prestations;
   }
 }

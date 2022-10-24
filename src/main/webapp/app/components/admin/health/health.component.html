@@ -3,7 +3,7 @@
     <span id="health-page-heading" jhiTranslate="health.title" data-cy="healthPageHeading">Health Checks</span>
 
     <button class="btn btn-primary float-right" (click)="refresh()">
-      <fa-icon icon="sync"></fa-icon> <span jhiTranslate="health.refresh.button">Refresh</span>
+      <em class="fa-solid fa-sync"></em> <span jhiTranslate="health.refresh.button">Refresh</span>
     </button>
   </h2>
 
@@ -36,7 +36,7 @@
               (click)="showHealth({ key: componentHealth.key, value: componentHealth.value! })"
               *ngIf="componentHealth.value!.details"
             >
-              <fa-icon icon="eye"></fa-icon>
+              <em class="fa-solid fa-eye"></em>
             </a>
           </td>
         </tr>

@@ -10,7 +10,7 @@ import { StoreModule } from '@ngrx/store';
 import { shoppingFeatureKey, shoppingReducer } from 'app/components/pages/shopping/store/shopping-reducer';
 import { ShoppingCartComponent } from './shopping/shopping-cart/shopping-cart.component';
 import { ArticleModalComponent } from 'app/components/pages/shopping/article-modal-component';
-import { ManagementAppComponent } from './management-app/management-app.component';
+import { InvoiceComponent } from './invoice/invoice.component';
 import { PricingComponent } from './pricing/pricing.component';
 
 const routes: Routes = [
@@ -31,8 +31,8 @@ const routes: Routes = [
     component: ShoppingComponent,
   },
   {
-    path: 'management-app',
-    component: ManagementAppComponent,
+    path: 'invoice',
+    component: InvoiceComponent,
   },
   {
     path: 'pricing',
@@ -48,7 +48,7 @@ const routes: Routes = [
     ShoppingComponent,
     ShoppingCartComponent,
     ArticleModalComponent,
-    ManagementAppComponent,
+    InvoiceComponent,
     PricingComponent,
   ],
   imports: [CommonModule, SharedModule, RouterModule.forChild(routes), StoreModule.forFeature(shoppingFeatureKey, shoppingReducer)],
