@@ -2,26 +2,19 @@
 Main page styles
 ========================================================================== */
 
-.hipster {
-  display: inline-block;
-  width: 100%;
-  background: url('../../../content/images/jhipster_family_member_1.svg') no-repeat center top;
-  background-size: contain;
+/* ----- Variables ----- */
+$color-background: hsl(252, 7%, 15%);
+$color-primary: hsl(0, 0%, 30%);
+$color-secondary: hsl(162, 35%, 81%);
+
+.dark-mode {
+  $color-background: hsl(0, 0%, 100%);
+  $color-primary: hsl(0, 0%, 30%);
+  $color-secondary: hsl(160, 33%, 65%);
 }
 
-.preview {
-  filter: saturate(0) blur(0.2rem);
-  transform: scale(0.7);
-  transition: all 300ms;
-
-  img {
-    border-radius: 10%;
-  }
-
-  &:hover {
-    filter: saturate(1);
-    transform: scale(1);
-  }
+.home {
+  font-family: ABCNormal, serif;
 }
 
 .text-cursor:after {
@@ -34,5 +27,141 @@ Main page styles
 @keyframes caret {
   50% {
     border-color: transparent;
+  }
+}
+
+.big-title {
+  font-size: 6vw;
+  line-height: 6vw;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+  color: $color-secondary;
+}
+
+.big-text {
+  font-size: 3.633vw;
+  line-height: 4.642vw;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+  color: $color-secondary;
+}
+
+.medium-text {
+  font-size: 2vw;
+  line-height: 2vw;
+  letter-spacing: -0.05em;
+  font-weight: 300;
+  color: $color-secondary;
+
+  &.italic {
+    font-style: italic;
+  }
+}
+
+.small-text {
+  font-size: 1vw;
+  line-height: 1vw;
+  letter-spacing: -0.05em;
+  font-weight: 300;
+  color: $color-secondary;
+}
+
+.img-dev {
+  border-radius: 15px;
+}
+
+.img-keyboard {
+  width: 75%;
+  border-radius: 15px;
+}
+
+// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+/* ----- Footer Section ----- */
+
+/* ----- Global ----- */
+
+h3 {
+  font-size: 0.7em;
+  letter-spacing: 1.2px;
+  color: $color-secondary;
+}
+
+img {
+  filter: drop-shadow(1px 1px 3px $color-primary);
+}
+
+.row.separator-top {
+  padding-top: 3vw;
+}
+
+.row.separator {
+  padding-top: 10vw;
+
+  &:last-child {
+    padding-bottom: 10vw;
+  }
+}
+
+.product {
+  $padding-x: 3rem;
+
+  background-color: hsl(252, 6%, 20%);
+  border: solid hsla(162, 35%, 81%, 0.15);
+  border-radius: 5px;
+  color: $color-secondary !important;
+
+  .product_photo {
+    position: relative;
+
+    .photo-container {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -$padding-x;
+
+      height: unset;
+
+      background-color: hsla(162, 35%, 81%, 0.3);
+      border-radius: 5px;
+
+      width: calc(100% + $padding-x);
+    }
+  }
+
+  .product_info {
+    padding: 0.8em 0;
+
+    .title {
+      h1 {
+        margin-bottom: 0.1em;
+        font-size: 1.5em;
+        font-weight: 900;
+      }
+
+      span {
+        font-size: 1em;
+        font-style: italic;
+      }
+    }
+
+    .description {
+      clear: left;
+      margin: 2em 0;
+
+      h3 {
+        margin-bottom: 1em;
+        font-size: 1.2em;
+      }
+
+      ul {
+        font-size: 1em;
+        list-style: disc;
+
+        li {
+          margin-bottom: 0.5em;
+        }
+      }
+    }
   }
 }

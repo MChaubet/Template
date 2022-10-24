@@ -17,9 +17,34 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   texts: string[] = [];
 
+  developers: DeveloperDesc[] = [];
+
   private readonly destroy$ = new Subject<void>();
 
-  constructor(private accountService: AccountService, private router: Router, private translateService: TranslateService) {}
+  constructor(private accountService: AccountService, private router: Router, private translateService: TranslateService) {
+    const mathieuDiploma = ['IUT Informatique', 'Licence informatique', 'Master génie logiciel'];
+
+    const mathieuProject = [
+      "Consultant développeur ERP Cloud, réalisation du SI d'Orange",
+      "Développeur senior FullStack Spring + Angular, réalisation de l'application de gestion des investissements et productions de Total Energies",
+      'Tech-Lead FullStack Spring + EmberJS, réalisation du SI de Leclerc',
+    ];
+
+    const mathieu = new DeveloperDesc('Mathieu CHAUBET', '', 'Tech-lead Full Stack', mathieuDiploma, mathieuProject);
+
+    const jordanDiploma = ['IUT Informatique', 'Licence informatique', 'Master génie logiciel'];
+
+    const jordanProjecta = [
+      "Consultant développeur ERP Cloud, réalisation du SI d'Orange",
+      "Développeur senior FullStack Spring + Angular, réalisation de l'application de gestion des investissements et productions de Total Energies",
+      'Tech-Lead FullStack Spring + EmberJS, réalisation du SI de Leclerc',
+    ];
+
+    const jordan = new DeveloperDesc('Jordan NOËL', '', 'Développeur senior Full Stack', jordanDiploma, jordanProjecta);
+
+    this.developers.push(mathieu);
+    this.developers.push(jordan);
+  }
 
   ngOnInit(): void {
     this.accountService
@@ -53,4 +78,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.destroy$.next();
     this.destroy$.complete();
   }
+}
+
+class DeveloperDesc {
+  constructor(public name: string, public photoPath: string, public jobName: string, public diploma: string[], public project: string[]) {}
 }

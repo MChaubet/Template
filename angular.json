@@ -46,6 +46,7 @@
             "styles": [
               "src/main/webapp/content/scss/vendor.scss",
               "src/main/webapp/content/scss/global.scss",
+              "src/main/webapp/content/scss/font.scss",
               "src/main/webapp/content/fontawesome/css/all.min.css"
             ],
             "scripts": []

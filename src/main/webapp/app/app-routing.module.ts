@@ -26,8 +26,6 @@ import { UserRouteAccessService } from 'app/services/user-route-access.service';
       },
       {
         path: 'modules',
-        data: { authorities: [Authority.USER] },
-        canActivate: [UserRouteAccessService],
         loadChildren: () => import(`./components/pages/modules.module`).then(m => m.ModulesModule),
       },
       navbarRoute,

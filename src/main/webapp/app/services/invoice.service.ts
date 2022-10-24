@@ -136,7 +136,7 @@ export class InvoiceService {
         const tarifTT = tarifHT + tarifHT * (this.tva / 100);
         totalPrestationsHT += tarifHT;
         totalPrestationsTT += tarifTT;
-        let lignePrestation = [
+        const lignePrestation = [
           { text: prestation.nom, style: 'prestation' },
           { text: String(prestation.tarifUnitaire.toFixed(2)) + ' €', style: ['right', 'prestation'] },
           { text: String(prestation.quantite), style: ['right', 'prestation'] },

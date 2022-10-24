@@ -1,45 +1,100 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-3">
-      <img src="../../../content/images/jhipster_family_member_1.svg" alt="member" />
+<div class="home container-fluid h-100 text-white">
+  <!--  <div class="row">-->
+  <!--    <h1 class="display-4 text-cursor" *ngIf="texts.length" jhiAnimationText [texts]="texts"></h1>-->
+  <!--  </div>-->
+
+  <div class="row separator-top mb-2">
+    <div class="col-12 col-md-8 my-auto" jhiAnimation [animationType]="'fade-in-bottom'" [threshold]="0">
+      <div class="big-title">A forward thinking</div>
+      <div class="big-title">studio delivering</div>
+      <div class="big-title">digital solutions</div>
+      <div class="big-title">that resonate</div>
     </div>
+    <div class="col-12 col-md-4">
+      <img
+        src="https://images.pexels.com/photos/5926370/pexels-photo-5926370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        alt="typing"
+        class="img-dev"
+      />
+    </div>
+  </div>
 
-    <div class="col-md-9">
-      <h1 class="display-4"><span *ngIf="texts.length" class="text-cursor" jhiAnimationText [texts]="texts"></span>&nbsp;</h1>
+  <br />
 
-      <div *ngIf="account === null">
-        <div class="alert alert-warning">
-          <div>
-            <span jhiTranslate="global.messages.info.authenticated.prefix">If you want to </span>
-            <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">sign in</a>
-            <span jhiTranslate="global.messages.info.authenticated.suffix">
-              , you can try the default account:<br />- User (login="user" and password="user").
-            </span>
-          </div>
-          <br />
-          <div>
-            <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
-            <a class="alert-link" routerLink="account/register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
-          </div>
+  <div class="row separator">
+    <div class="row separator">
+      <div class="col-12 col-md-6 text-center">
+        <img
+          src="https://images.pexels.com/photos/1194713/pexels-photo-1194713.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt="keyboard"
+          class="img-keyboard"
+        />
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="medium-text" jhiAnimation [animationType]="'fade-in-left'" [threshold]="0">
+          Born from a passion for design, we envision, design, and create apps and websites from a seeded idea into a unique experience.
+        </div>
+        <hr class="mb-5" />
+        <div class="medium-text" jhiAnimation [animationType]="'fade-in-left'" [threshold]="0">
+          From small ambitious start-ups to industry icons, we strive to create meaningful experiences for clients all around the world.
+        </div>
+        <hr class="mb-5" />
+        <div class="medium-text" jhiAnimation [animationType]="'fade-in-left'" [threshold]="0">
+          By making functional products, gorgeous designs, and brands that resonate, we help large eminent companies clear hurdles, small
+          businesses grow and funded startups seize opportunities.
         </div>
       </div>
+    </div>
 
-      <div class="container-fluid">
-        <div class="row w-100 m-0">
-          <a class="col-12 col-md-4 col-xl-3 preview cursor" routerLink="modules/restaurant">
-            <img src="../../../content/images/restaurant.png" alt="restaurant" class="w-100" />
-          </a>
-          <a class="col-12 col-md-4 col-xl-3 preview cursor" routerLink="modules/restaurant-dark">
-            <img src="../../../content/images/restaurant-dark.png" alt="restaurant-dark" class="w-100" />
-          </a>
-          <div class="col-12 col-md-4 col-xl-3 preview cursor" routerLink="modules/shopping">
-            <img src="../../../content/images/shopping.png" alt="shopping" class="w-100" />
+    <br />
+
+    <div class="row separator justify-content-center">
+      <div class="col-12 col-md-6">
+        <q class="medium-text italic">
+          Working on our first project with Kreativa was a joy. By trusting their process, we got a sense of how professional, creative,
+          detail-oriented and accessible they are, with swift communication. They have done an outstanding job for us, and I highly
+          recommend them.
+        </q>
+        <div class="small-text text-end">Our leitmotiv</div>
+      </div>
+    </div>
+
+    <br />
+
+    <div class="row separator px-5">
+      <div *ngFor="let developer of developers" class="col-12 col-lg-6 px-5 pb-4">
+        <div class="row product h-100">
+          <div class="product_photo col-4">
+            <div class="photo-container">
+              <div class="photo-main w-100">
+                <a class="p-1 text-white" href="https://www.linkedin.com/in/mathieu-chaubet/" target="_blank">
+                  <i class="fa-solid fa-share-nodes fa-lg"></i>
+                </a>
+                <img
+                  src="https://res.cloudinary.com/john-mantas/image/upload/v1537291846/codepen/delicious-apples/green-apple-with-slice.png"
+                  alt="green apple slice"
+                  class="w-100"
+                />
+              </div>
+            </div>
           </div>
-          <div class="col-12 col-md-4 col-xl-3 preview cursor" routerLink="modules/portfolio">
-            <img src="../../../content/images/portfolio.png" alt="portfolio" class="w-100" />
-          </div>
-          <div class="col-12 col-md-4 col-xl-3 preview cursor" routerLink="modules/invoice">
-            <img src="../../../content/images/portfolio.png" alt="management" class="w-100" />
+          <div class="product_info col-8 h-100 p-3">
+            <div class="title">
+              <h1>{{ developer.name }}</h1>
+              <span>{{ developer.jobName }}</span>
+            </div>
+            <div class="description">
+              <h3>Diplôme</h3>
+              <ul>
+                <li *ngFor="let diploma of developer.diploma">{{ diploma }}</li>
+              </ul>
+            </div>
+            <div class="description">
+              <h3>PROJECTS</h3>
+              <ul>
+                <li *ngFor="let project of developer.project">{{ project }}</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
