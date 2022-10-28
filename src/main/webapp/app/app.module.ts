@@ -33,6 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { TypeaheadComponent } from './components/typeahead/typeahead.component';
 import { KafkaComponent } from './modules/kafka/kafka.component';
+import { SidenavComponent } from './components/layouts/sidenav/sidenav.component';
 
 export const httpInterceptorProviders = [
   {
@@ -88,6 +89,7 @@ export const httpInterceptorProviders = [
     FooterComponent,
     TypeaheadComponent,
     KafkaComponent,
+    SidenavComponent,
   ],
   bootstrap: [MainComponent],
   exports: [NumbersOnlyDirective],

@@ -6,11 +6,19 @@ import dayjs from 'dayjs/esm';
 
 import { AccountService } from 'app/services/account.service';
 
+interface SideNavToggle {
+  screenWidth: number;
+  collapsed: boolean;
+}
+
 @Component({
   selector: 'jhi-main',
   templateUrl: './main.component.html',
 })
 export class MainComponent implements OnInit {
+  isSideNavCollapsed = false;
+  screenWidth = 0;
+
   private renderer: Renderer2;
 
   constructor(
@@ -38,6 +46,11 @@ export class MainComponent implements OnInit {
       dayjs.locale(langChangeEvent.lang);
       this.renderer.setAttribute(document.querySelector('html'), 'lang', langChangeEvent.lang);
     });
+  }
+
+  toggleSideNav(data: SideNavToggle): void {
+    this.screenWidth = data.screenWidth;
+    this.isSideNavCollapsed = data.collapsed;
   }
 
   private getPageTitle(routeSnapshot: ActivatedRouteSnapshot): string {

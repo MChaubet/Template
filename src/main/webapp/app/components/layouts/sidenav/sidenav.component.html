@@ -1,0 +1,18 @@
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+  <div class="logo-container">
+    <button class="logo" (click)="toggleCollapse()">
+      <em class="fa-solid fa-bars"></em>
+    </button>
+    <h3 class="logo-text" style="margin-top: 8px" @fadeInOut *ngIf="collapsed">Bienvenue</h3>
+  </div>
+  <ul class="sidenav-nav">
+    <li class="sidenav-nav-item" *ngFor="let data of navData">
+      <a class="sidenav-nav-link" [routerLink]="[data.routeLink]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <em class="sidenav-link-icon" [class]="data.icon"></em>
+        <h6 class="sidenav-link-text" style="margin-top: 9px" @fadeInOut *ngIf="collapsed">
+          {{ data.label }}
+        </h6>
+      </a>
+    </li>
+  </ul>
+</div>
