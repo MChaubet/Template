@@ -37,6 +37,15 @@
       }
     ],
     "@angular-eslint/relative-url-prefix": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
     "@typescript-eslint/ban-types": [
       "error",
       {

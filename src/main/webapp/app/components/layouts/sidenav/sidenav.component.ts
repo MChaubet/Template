@@ -1,6 +1,10 @@
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { navbarData } from './nav-data';
+import { LoginService } from '../../../services/login.service';
+import { Router } from '@angular/router';
+import { AccountService } from '../../../services/account.service';
+import { Account } from '../../../models/account.model';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -28,13 +32,17 @@ interface SideNavToggle {
 })
 export class SidenavComponent implements OnInit {
   @Output() toggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
-  collapsed = false;
+  collapsed = true;
   screenWidth = 0;
   navData = navbarData;
   openButtonStyle: 'background: #fff' | 'background: #eef' = 'background: #fff';
 
+  account: Account | null = null;
+
+  constructor(private loginService: LoginService, private router: Router, private accountService: AccountService) {}
+
   @HostListener('window:resize', ['$event'])
-  onResize(event: any): void {
+  onResize(_event: any): void {
     this.screenWidth = window.innerWidth;
     if (this.screenWidth <= 768) {
       this.collapsed = false;
@@ -44,6 +52,10 @@ export class SidenavComponent implements OnInit {
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
+
+    this.accountService.getAuthenticationState().subscribe(account => {
+      this.account = account;
+    });
   }
 
   toggleCollapse(): void {
@@ -53,8 +65,17 @@ export class SidenavComponent implements OnInit {
   }
 
   closeSidenav(): void {
-    this.collapsed = false;
+    this.collapsed = true;
     this.toggleSideNav.emit({ collapsed: this.collapsed, screenWidth: this.screenWidth });
     this.openButtonStyle = 'background: #eef';
+  }
+
+  collapseNavbar(): void {
+    this.collapsed = true;
+  }
+
+  logout(): void {
+    this.loginService.logout();
+    this.router.navigate(['']).then(r => r);
   }
 }

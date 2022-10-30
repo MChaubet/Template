@@ -1,18 +1,49 @@
-<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+<div class="sidenav" [ngClass]="!collapsed ? 'sidenav-extends' : ''">
   <div class="logo-container">
-    <button class="logo" (click)="toggleCollapse()">
-      <em class="fa-solid fa-bars"></em>
-    </button>
-    <h3 class="logo-text" style="margin-top: 8px" @fadeInOut *ngIf="collapsed">Bienvenue</h3>
+    <button class="logo fa-solid fa-bars fa-xl" (click)="toggleCollapse()"></button>
+    <div class="logo-text" @fadeInOut *ngIf="!collapsed" jhiTranslate="home.title"></div>
   </div>
-  <ul class="sidenav-nav">
+  <hr class="text-white">
+  <ul class="sidenav-nav flex-grow-1">
     <li class="sidenav-nav-item" *ngFor="let data of navData">
-      <a class="sidenav-nav-link" [routerLink]="[data.routeLink]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-        <em class="sidenav-link-icon" [class]="data.icon"></em>
-        <h6 class="sidenav-link-text" style="margin-top: 9px" @fadeInOut *ngIf="collapsed">
+      <a class="sidenav-nav-link" [routerLink]="[data.routeLink]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+        <em class="sidenav-link-icon fa-xl fa-fw" [class]="data.icon"></em>
+        <div class="sidenav-link-text" @fadeInOut *ngIf="!collapsed">
           {{ data.label }}
-        </h6>
+        </div>
       </a>
     </li>
+
+    <div class="mt-auto sidenav-nav">
+      <ng-container *ngIf="!account">
+        <li class="sidenav-nav-item">
+          <a class="sidenav-nav-link" routerLink="account/register" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+            <em class="sidenav-link-icon fa-xl fa-fw fa-solid fa-user-plus"></em>
+            <div class="sidenav-link-text" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.account.register"></div>
+          </a>
+        </li>
+        <li class="sidenav-nav-item">
+          <a class="sidenav-nav-link" routerLink="login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+            <em class="sidenav-link-icon fa-xl fa-fw fa-regular fa-user"></em>
+            <div class="sidenav-link-text" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.account.login"></div>
+          </a>
+        </li>
+      </ng-container>
+
+      <ng-container *ngIf="account">
+        <li class="sidenav-nav-item" >
+          <a class="sidenav-nav-link" routerLink="account/settings" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+            <em class="sidenav-link-icon fa-xl fa-fw fa-solid fa-wrench"></em>
+            <div class="sidenav-link-text" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.account.settings"></div>
+          </a>
+        </li>
+        <li class="sidenav-nav-item">
+          <a class="sidenav-nav-link" (click)="collapseNavbar(); logout()">
+            <em class="sidenav-link-icon fa-xl fa-fw fa-solid fa-user"></em>
+            <div class="sidenav-link-text" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.account.logout"></div>
+          </a>
+        </li>
+      </ng-container>
+    </div>
   </ul>
 </div>

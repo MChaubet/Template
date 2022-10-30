@@ -1,5 +1,5 @@
 <div class="container">
-  <ngb-carousel *ngIf="photos" class="carousel-fade align-items-center d-flex justify-content-center m-auto">
+  <ngb-carousel *ngIf="photos" class="carousel-fade align-items-center d-flex justify-content-center m-auto" style="z-index: 0">
     <ng-template ngbSlide *ngFor="let photo of photos">
       <div class="picsum-img-wrapper">
         <img [src]="photo.img" class="w-100" alt="Random first slide" style="max-height: 400px" />
