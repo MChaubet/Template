@@ -12,6 +12,7 @@ import { ShoppingCartComponent } from './shopping/shopping-cart/shopping-cart.co
 import { ArticleModalComponent } from 'app/components/pages/shopping/article-modal-component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { PricingComponent } from './pricing/pricing.component';
+import { BakeryComponent } from './bakery/bakery.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
     path: 'pricing',
     component: PricingComponent,
   },
+  {
+    path: 'bakery',
+    component: BakeryComponent,
+  },
 ];
 
 @NgModule({
@@ -50,6 +55,7 @@ const routes: Routes = [
     ArticleModalComponent,
     InvoiceComponent,
     PricingComponent,
+    BakeryComponent,
   ],
   imports: [CommonModule, SharedModule, RouterModule.forChild(routes), StoreModule.forFeature(shoppingFeatureKey, shoppingReducer)],
 })

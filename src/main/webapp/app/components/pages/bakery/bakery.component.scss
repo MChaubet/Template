@@ -1,0 +1,223 @@
+$background-color: hsl(0, 0%, 100%);
+$color-primary: hsla(24, 100%, 55%, 0.8);
+$color-secondary: hsla(18, 55%, 38%, 0.95);
+
+$color-primary-opacity-1: hsla(16, 81%, 59%, 0.85);
+$color-primary-opacity-2: hsla(16, 81%, 49%, 0.5);
+$color-input-opacity: hsla(0, 0%, 100%, 0.1);
+
+$text-color: hsl(0, 0%, 100%);
+$text-shadow-color: hsl(0, 0%, 0%);
+
+$separator-size: 10px;
+
+.color-primary {
+  color: $color-primary;
+}
+
+.color-secondary {
+  color: $color-secondary;
+}
+
+.font-blackout {
+  font-family: Blackout, serif;
+}
+
+.btn {
+  background-color: $color-primary;
+  color: $text-color;
+  padding: 0 15px;
+  border-radius: 20px;
+}
+
+.btn-inverse {
+  background-color: $color-primary;
+  color: $text-color;
+  padding: 0 15px;
+  border: solid;
+  border-radius: 20px;
+}
+
+.welcome {
+  background-image: url(~content/images/bakery/pastries_welcome.png);
+  background-position: center;
+  background-size: 100%;
+
+  box-shadow: inset 0 0 0 1000px hsla(0, 0%, 0%, 0.4);
+
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
+}
+
+.welcome-title {
+  font-weight: 700;
+}
+
+.welcome-content {
+  color: $text-color;
+  font-weight: 500;
+}
+
+.about-us-subtitle {
+  font-weight: bold;
+}
+
+.about-us-content {
+  font-weight: 500;
+  font-size: 1.25vw;
+}
+
+.img-container {
+  padding: 10px;
+}
+
+.border-inside {
+  width: 100%;
+  outline: 3px solid white;
+  outline-offset: -7px;
+}
+
+.separator-down {
+  height: $separator-size;
+  background-image: linear-gradient(45deg, transparent 75%, $color-primary 0%), linear-gradient(315deg, transparent 75%, $color-primary 0%);
+  background-position: center;
+  background-size: $separator-size $separator-size;
+}
+
+.separator-up {
+  height: $separator-size;
+  background-image: linear-gradient(225deg, transparent 75%, $color-primary 0%), linear-gradient(135deg, transparent 75%, $color-primary 0%);
+  background-position: center;
+  background-size: $separator-size $separator-size;
+}
+
+.img-container-product {
+  padding: 20px;
+}
+
+.text-inside-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: $text-color;
+  text-shadow: $text-shadow-color 0 0 10px;
+  font-weight: bold;
+}
+
+.description {
+  padding-top: 20px;
+  background-color: $color-primary;
+}
+
+.bakery-text-bold {
+  color: $color-secondary;
+  font-weight: bold;
+  font-size: 1.5vw;
+}
+.bakery-text {
+  color: $text-color;
+  font-size: 1.5vw;
+}
+
+.catering-service {
+  background-image: url(~content/images/bakery/bread_large.png);
+  background-position: center;
+  background-size: 100%;
+
+  box-shadow: inset 0 0 0 1000px $color-primary-opacity-2;
+}
+
+.catering-service-button {
+  width: fit-content;
+}
+
+.description-2-title {
+  color: $color-secondary;
+  padding-left: 2rem;
+}
+
+.description-2-list {
+  list-style: none;
+
+  color: $text-color;
+  font-weight: 500;
+  font-size: 1.5vw;
+
+  li::before {
+    content: '\2022';
+    color: $color-secondary;
+    font-weight: bold;
+    font-size: 20px;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+}
+
+.svg-path {
+  transform: translate(0, 0px);
+  opacity: 1;
+  fill: $color-secondary;
+}
+
+.wave-down {
+  transform: scaleY(-1);
+  transition: 0.3s;
+}
+
+.wave-up {
+  transform: scaleY(1);
+  transition: 0.3s;
+}
+
+.text-loyalty-card {
+  font-weight: bold;
+}
+
+.fidelity-card {
+  width: 50%;
+}
+
+.subscribe {
+  background-color: $color-secondary;
+  color: $text-color;
+}
+
+.contact-us {
+  background-image: url(~content/images/bakery/contact-us.jpeg);
+  box-shadow: inset 0 0 0 1000px $color-primary-opacity-1;
+  color: $text-color;
+
+  position: relative;
+}
+
+@media (min-width: 700px) {
+  .contact-us-container {
+    max-width: 33%;
+  }
+}
+
+@media (max-width: 700px) {
+  .contact-us-container {
+    max-width: 100%;
+  }
+}
+
+.flex-gap {
+  gap: 10px;
+}
+
+.contact-us-input,
+.contact-us-textarea {
+  background-color: $color-input-opacity;
+  color: $text-color;
+
+  border: solid 2px $color-secondary;
+  border-radius: 5px;
+
+  &::placeholder {
+    color: $text-color;
+  }
+}

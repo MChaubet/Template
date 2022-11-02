@@ -35,4 +35,10 @@ export const navbarData = [
     icon: 'fa-solid fa-file-lines',
     label: 'Génération de factures',
   },
+  {
+    bold: '',
+    routeLink: 'modules/bakery',
+    icon: 'fa-solid fa-cake-candles',
+    label: 'Boulangerie',
+  },
 ];
