@@ -78,10 +78,7 @@ export class InvoiceComponent implements OnInit {
     { updateOn: 'submit' }
   );
 
-  constructor(private formBuilder: FormBuilder, private invoiceService: InvoiceService) {
-    // Todo fix ça
-    document.getElementsByTagName('body').item(0)?.classList.toggle('invoice');
-  }
+  constructor(private formBuilder: FormBuilder, private invoiceService: InvoiceService) {}
 
   ngOnInit(): void {}
 

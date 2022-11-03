@@ -1,232 +1,234 @@
-<div class="container-sm contenu rounded my-5">
-  <div class="titre-container d-flex justify-content-center">
-    <em class="fa-solid fa-file-lines fa-4x text-primary"></em>
-    <h1 class="ms-4 align-self-center titre">Edition de facture</h1>
-  </div>
+<div class="invoice py-5">
+  <div class="container-sm contenu rounded">
+    <div class="titre-container d-flex justify-content-center">
+      <em class="fa-solid fa-file-lines fa-4x text-primary"></em>
+      <h1 class="ms-4 align-self-center titre">Edition de facture</h1>
+    </div>
 
-  <div class="text-end">
-    <button class="btn btn-primary text-white" (click)="fillInputsRandomly()">Tout remplir aléatoirement</button>
-  </div>
+    <div class="text-end">
+      <button class="btn btn-primary text-white" (click)="fillInputsRandomly()">Tout remplir aléatoirement</button>
+    </div>
 
-  <form role="form" [formGroup]="form" novalidate>
-    <div class="mb-5">
+    <form role="form" [formGroup]="form" novalidate>
+      <div class="mb-5">
+        <div class="d-flex mb-4">
+          <em class="fa-solid fa-id-card fa-3x"></em>
+          <h2 class="ms-4 titre align-self-center">Identification</h2>
+        </div>
+        <div class="row justify-content-between">
+          <mat-form-field class="col-xl-5 col-12" appearance="outline">
+            <mat-label>Numéro client</mat-label>
+            <input matInput #inputNumeroClient maxlength="10" formControlName="numeroClient" />
+            <mat-hint align="end">{{ inputNumeroClient.value?.length || 0 }}/10</mat-hint>
+            <mat-error *ngFor="let validation of validationMsgs.numeroClient">
+              <div *ngIf="form.get('numeroClient')?.hasError(validation.type)">
+                {{ validation.message }}
+              </div>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="col-xl-5 col-12" appearance="outline">
+            <mat-label>Nom client</mat-label>
+            <input matInput #inputNomClient maxlength="30" formControlName="nomClient" />
+            <mat-hint align="end">{{ inputNomClient.value?.length || 0 }}/30</mat-hint>
+            <mat-error *ngFor="let validation of validationMsgs.nomClient">
+              <div *ngIf="form.get('nomClient')?.hasError(validation.type) && form.get('nomClient')?.touched">
+                {{ validation.message }}
+              </div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="mb-5">
+        <div class="d-flex mb-4">
+          <em class="fa-solid fa-location-dot fa-3x"></em>
+          <h2 class="ms-4 titre align-self-center">Adresse de facturation</h2>
+        </div>
+        <div class="row">
+          <mat-form-field appearance="outline">
+            <mat-label>Pays</mat-label>
+            <mat-select formControlName="pays">
+              <mat-option *ngFor="let c of countries" [value]="c.name">{{ c.name }}</mat-option>
+            </mat-select>
+            <mat-error *ngFor="let validation of validationMsgs.pays">
+              <div *ngIf="form.get('pays')?.hasError(validation.type) && form.get('pays')?.touched">
+                {{ validation.message }}
+              </div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col-4" appearance="outline">
+            <mat-label>Numéro</mat-label>
+            <input matInput #inputNumeroAdresse formControlName="numeroAdresse" placeholder="Numéro" />
+            <mat-hint align="end">{{ inputNumeroAdresse.value?.length || 0 }}/4</mat-hint>
+            <mat-error *ngFor="let validation of validationMsgs.numeroAdresse">
+              <div *ngIf="form.get('numeroAdresse')?.hasError(validation.type) && form.get('numeroAdresse')?.touched">
+                {{ validation.message }}
+              </div>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="col-8" appearance="outline">
+            <mat-label>Extension</mat-label>
+            <input matInput #inputExtensionAdresse formControlName="extensionAdresse" placeholder="Extension" />
+            <mat-hint align="end">{{ inputExtensionAdresse.value?.length || 0 }}/4</mat-hint>
+            <mat-error *ngFor="let validation of validationMsgs.extensionAdresse">
+              <div *ngIf="form.get('extensionAdresse')?.hasError(validation.type) && form.get('extensionAdresse')?.touched">
+                {{ validation.message }}
+              </div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col-12" appearance="outline">
+            <mat-label>Nature et libellé de la voie</mat-label>
+            <input
+              matInput
+              #inputNatureLibelleVoie
+              formControlName="natureLibelleVoie"
+              placeholder="Nature et libellé de la voie"
+              maxlength="60"
+            />
+            <mat-hint align="end">{{ inputNatureLibelleVoie.value?.length || 0 }}/60</mat-hint>
+            <mat-error *ngFor="let validation of validationMsgs.natureLibelleVoie">
+              <div *ngIf="form.get('natureLibelleVoie')?.hasError(validation.type) && form.get('natureLibelleVoie')?.touched">
+                {{ validation.message }}
+              </div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col-12" appearance="outline">
+            <mat-label>Complément de localisation</mat-label>
+            <input
+              matInput
+              #inputComplementLocalisation
+              formControlName="complementLocalisation"
+              placeholder="Complément de localisation"
+              maxlength="50"
+            />
+            <mat-hint align="end">{{ inputComplementLocalisation.value?.length || 0 }}/50</mat-hint>
+            <mat-error *ngFor="let validation of validationMsgs.complementLocalisation">
+              <div *ngIf="form.get('complementLocalisation')?.hasError(validation.type) && form.get('complementLocalisation')?.touched">
+                {{ validation.message }}
+              </div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col-4" appearance="outline">
+            <mat-label>Code postal</mat-label>
+            <input matInput #inputCodePostal formControlName="codePostal" placeholder="Code postal" maxlength="5" />
+            <mat-hint align="end">{{ inputCodePostal.value?.length || 0 }}/5</mat-hint>
+            <mat-error *ngFor="let validation of validationMsgs.codePostal">
+              <div *ngIf="form.get('codePostal')?.hasError(validation.type) && form.get('codePostal')?.touched">
+                {{ validation.message }}
+              </div>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="col-8" appearance="outline">
+            <mat-label>Ville</mat-label>
+            <input matInput #inputVille formControlName="ville" placeholder="Ville" maxlength="50" />
+            <mat-hint align="end">{{ inputVille.value?.length || 0 }}/50</mat-hint>
+            <mat-error *ngFor="let validation of validationMsgs.ville">
+              <div *ngIf="form.get('ville')?.hasError(validation.type) && form.get('ville')?.touched">
+                {{ validation.message }}
+              </div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
       <div class="d-flex mb-4">
-        <em class="fa-solid fa-id-card fa-3x"></em>
-        <h2 class="ms-4 titre align-self-center">Identification</h2>
+        <em class="fa-solid fa-euro-sign fa-3x"></em>
+        <h2 class="ms-4 titre align-self-center">Prestations</h2>
       </div>
-      <div class="row justify-content-between">
-        <mat-form-field class="col-xl-5 col-12" appearance="outline">
-          <mat-label>Numéro client</mat-label>
-          <input matInput #inputNumeroClient maxlength="10" formControlName="numeroClient" />
-          <mat-hint align="end">{{ inputNumeroClient.value?.length || 0 }}/10</mat-hint>
-          <mat-error *ngFor="let validation of validationMsgs.numeroClient">
-            <div *ngIf="form.get('numeroClient')?.hasError(validation.type)">
-              {{ validation.message }}
-            </div>
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field class="col-xl-5 col-12" appearance="outline">
-          <mat-label>Nom client</mat-label>
-          <input matInput #inputNomClient maxlength="30" formControlName="nomClient" />
-          <mat-hint align="end">{{ inputNomClient.value?.length || 0 }}/30</mat-hint>
-          <mat-error *ngFor="let validation of validationMsgs.nomClient">
-            <div *ngIf="form.get('nomClient')?.hasError(validation.type) && form.get('nomClient')?.touched">
-              {{ validation.message }}
-            </div>
-          </mat-error>
-        </mat-form-field>
-      </div>
-    </div>
-
-    <div class="mb-5">
-      <div class="d-flex mb-4">
-        <em class="fa-solid fa-location-dot fa-3x"></em>
-        <h2 class="ms-4 titre align-self-center">Adresse de facturation</h2>
-      </div>
-      <div class="row">
-        <mat-form-field appearance="outline">
-          <mat-label>Pays</mat-label>
-          <mat-select formControlName="pays">
-            <mat-option *ngFor="let c of countries" [value]="c.name">{{ c.name }}</mat-option>
-          </mat-select>
-          <mat-error *ngFor="let validation of validationMsgs.pays">
-            <div *ngIf="form.get('pays')?.hasError(validation.type) && form.get('pays')?.touched">
-              {{ validation.message }}
-            </div>
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field class="col-4" appearance="outline">
-          <mat-label>Numéro</mat-label>
-          <input matInput #inputNumeroAdresse formControlName="numeroAdresse" placeholder="Numéro" />
-          <mat-hint align="end">{{ inputNumeroAdresse.value?.length || 0 }}/4</mat-hint>
-          <mat-error *ngFor="let validation of validationMsgs.numeroAdresse">
-            <div *ngIf="form.get('numeroAdresse')?.hasError(validation.type) && form.get('numeroAdresse')?.touched">
-              {{ validation.message }}
-            </div>
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="col-8" appearance="outline">
-          <mat-label>Extension</mat-label>
-          <input matInput #inputExtensionAdresse formControlName="extensionAdresse" placeholder="Extension" />
-          <mat-hint align="end">{{ inputExtensionAdresse.value?.length || 0 }}/4</mat-hint>
-          <mat-error *ngFor="let validation of validationMsgs.extensionAdresse">
-            <div *ngIf="form.get('extensionAdresse')?.hasError(validation.type) && form.get('extensionAdresse')?.touched">
-              {{ validation.message }}
-            </div>
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field class="col-12" appearance="outline">
-          <mat-label>Nature et libellé de la voie</mat-label>
-          <input
-            matInput
-            #inputNatureLibelleVoie
-            formControlName="natureLibelleVoie"
-            placeholder="Nature et libellé de la voie"
-            maxlength="60"
-          />
-          <mat-hint align="end">{{ inputNatureLibelleVoie.value?.length || 0 }}/60</mat-hint>
-          <mat-error *ngFor="let validation of validationMsgs.natureLibelleVoie">
-            <div *ngIf="form.get('natureLibelleVoie')?.hasError(validation.type) && form.get('natureLibelleVoie')?.touched">
-              {{ validation.message }}
-            </div>
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field class="col-12" appearance="outline">
-          <mat-label>Complément de localisation</mat-label>
-          <input
-            matInput
-            #inputComplementLocalisation
-            formControlName="complementLocalisation"
-            placeholder="Complément de localisation"
-            maxlength="50"
-          />
-          <mat-hint align="end">{{ inputComplementLocalisation.value?.length || 0 }}/50</mat-hint>
-          <mat-error *ngFor="let validation of validationMsgs.complementLocalisation">
-            <div *ngIf="form.get('complementLocalisation')?.hasError(validation.type) && form.get('complementLocalisation')?.touched">
-              {{ validation.message }}
-            </div>
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field class="col-4" appearance="outline">
-          <mat-label>Code postal</mat-label>
-          <input matInput #inputCodePostal formControlName="codePostal" placeholder="Code postal" maxlength="5" />
-          <mat-hint align="end">{{ inputCodePostal.value?.length || 0 }}/5</mat-hint>
-          <mat-error *ngFor="let validation of validationMsgs.codePostal">
-            <div *ngIf="form.get('codePostal')?.hasError(validation.type) && form.get('codePostal')?.touched">
-              {{ validation.message }}
-            </div>
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field class="col-8" appearance="outline">
-          <mat-label>Ville</mat-label>
-          <input matInput #inputVille formControlName="ville" placeholder="Ville" maxlength="50" />
-          <mat-hint align="end">{{ inputVille.value?.length || 0 }}/50</mat-hint>
-          <mat-error *ngFor="let validation of validationMsgs.ville">
-            <div *ngIf="form.get('ville')?.hasError(validation.type) && form.get('ville')?.touched">
-              {{ validation.message }}
-            </div>
-          </mat-error>
-        </mat-form-field>
-      </div>
-    </div>
-
-    <div class="d-flex mb-4">
-      <em class="fa-solid fa-euro-sign fa-3x"></em>
-      <h2 class="ms-4 titre align-self-center">Prestations</h2>
-    </div>
-    <div>
-      <div formArrayName="prestations" cdkDropList (cdkDropListDropped)="drop($event)">
-        <div
-          class="row draggable-element"
-          *ngFor="let prestation of prestations.controls; let i = index"
-          [formGroupName]="i"
-          [cdkDragData]="prestations.controls"
-          cdkDrag
-          cdkDragLockAxis="y"
-        >
-          <mat-form-field style="width: 50%" appearance="outline">
-            <mat-label>Nom</mat-label>
-            <input matInput #inputNomPrestation formControlName="nom" placeholder="Nom" />
-            <mat-hint align="end">{{ inputNomPrestation.value?.length || 0 }}/100</mat-hint>
-            <mat-error *ngFor="let validation of validationMsgs.nomPrestation">
-              <div *ngIf="prestation.get('nom')?.hasError(validation.type) && prestation.get('nom')?.touched">
-                {{ validation.message }}
+      <div>
+        <div formArrayName="prestations" cdkDropList (cdkDropListDropped)="drop($event)">
+          <div
+            class="row draggable-element"
+            *ngFor="let prestation of prestations.controls; let i = index"
+            [formGroupName]="i"
+            [cdkDragData]="prestations.controls"
+            cdkDrag
+            cdkDragLockAxis="y"
+          >
+            <mat-form-field style="width: 50%" appearance="outline">
+              <mat-label>Nom</mat-label>
+              <input matInput #inputNomPrestation formControlName="nom" placeholder="Nom" />
+              <mat-hint align="end">{{ inputNomPrestation.value?.length || 0 }}/100</mat-hint>
+              <mat-error *ngFor="let validation of validationMsgs.nomPrestation">
+                <div *ngIf="prestation.get('nom')?.hasError(validation.type) && prestation.get('nom')?.touched">
+                  {{ validation.message }}
+                </div>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field style="width: 19%" appearance="outline">
+              <mat-label>Quantité</mat-label>
+              <input matInput formControlName="quantite" placeholder="Quantité" class="text-right" jhiNumbersOnly />
+              <mat-error *ngFor="let validation of validationMsgs.quantitePrestation">
+                <div *ngIf="prestation.get('quantite')?.hasError(validation.type) && prestation.get('quantite')?.touched">
+                  {{ validation.message }}
+                </div>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field style="width: 19%" appearance="outline">
+              <mat-label>Tarif unitaire</mat-label>
+              <input matInput formControlName="tarifUnitaire" type="number" class="inputNombre text-right" placeholder="0.00" />
+              <span matSuffix>€</span>
+              <mat-error *ngFor="let validation of validationMsgs.tarifUnitairePrestation">
+                <div *ngIf="prestation.get('tarifUnitaire')?.hasError(validation.type)">
+                  {{ validation.message }}
+                </div>
+              </mat-error>
+            </mat-form-field>
+            <div style="width: 12%">
+              <div class="d-flex justify-content-center" style="margin-top: 10px">
+                <button
+                  mat-icon-button
+                  color="primary"
+                  aria-label="Remove/clear"
+                  type="button"
+                  (click)="deletePrestation(i)"
+                  matTooltip="Supprimer"
+                >
+                  <mat-icon>highlight_off</mat-icon>
+                </button>
+                <button
+                  mat-icon-button
+                  color="primary"
+                  aria-label="Add"
+                  type="button"
+                  (click)="addPrestation()"
+                  matTooltip="Ajouter"
+                  [disabled]="prestations.length === 10"
+                >
+                  <mat-icon>add_circle_outline</mat-icon>
+                </button>
+                <button
+                  class="drag-handle"
+                  mat-icon-button
+                  color="primary"
+                  aria-label="Add"
+                  cdkDragHandle
+                  [disableRipple]="true"
+                  type="button"
+                >
+                  <mat-icon>drag_indicator</mat-icon>
+                </button>
               </div>
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field style="width: 19%" appearance="outline">
-            <mat-label>Quantité</mat-label>
-            <input matInput formControlName="quantite" placeholder="Quantité" class="text-right" jhiNumbersOnly />
-            <mat-error *ngFor="let validation of validationMsgs.quantitePrestation">
-              <div *ngIf="prestation.get('quantite')?.hasError(validation.type) && prestation.get('quantite')?.touched">
-                {{ validation.message }}
-              </div>
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field style="width: 19%" appearance="outline">
-            <mat-label>Tarif unitaire</mat-label>
-            <input matInput formControlName="tarifUnitaire" type="number" class="inputNombre text-right" placeholder="0.00" />
-            <span matSuffix>€</span>
-            <mat-error *ngFor="let validation of validationMsgs.tarifUnitairePrestation">
-              <div *ngIf="prestation.get('tarifUnitaire')?.hasError(validation.type)">
-                {{ validation.message }}
-              </div>
-            </mat-error>
-          </mat-form-field>
-          <div style="width: 12%">
-            <div class="d-flex justify-content-center" style="margin-top: 10px">
-              <button
-                mat-icon-button
-                color="primary"
-                aria-label="Remove/clear"
-                type="button"
-                (click)="deletePrestation(i)"
-                matTooltip="Supprimer"
-              >
-                <mat-icon>highlight_off</mat-icon>
-              </button>
-              <button
-                mat-icon-button
-                color="primary"
-                aria-label="Add"
-                type="button"
-                (click)="addPrestation()"
-                matTooltip="Ajouter"
-                [disabled]="prestations.length === 10"
-              >
-                <mat-icon>add_circle_outline</mat-icon>
-              </button>
-              <button
-                class="drag-handle"
-                mat-icon-button
-                color="primary"
-                aria-label="Add"
-                cdkDragHandle
-                [disableRipple]="true"
-                type="button"
-              >
-                <mat-icon>drag_indicator</mat-icon>
-              </button>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <hr />
+      <hr />
 
-    <div class="text-end">
-      <button (click)="submitForm()" class="btn btn-success text-white me-3">Impression</button>
-    </div>
-  </form>
+      <div class="text-end">
+        <button (click)="submitForm()" class="btn btn-success text-white me-3">Impression</button>
+      </div>
+    </form>
+  </div>
 </div>
