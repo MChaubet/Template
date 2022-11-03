@@ -221,3 +221,17 @@ $separator-size: 10px;
     color: $text-color;
   }
 }
+
+.border-card {
+  border: solid 2px $color-primary;
+  border-radius: 25px;
+}
+
+.logo-card {
+  font-size: 50px;
+  color: $color-secondary;
+}
+
+.footer-bakery {
+  background-color: $color-primary;
+}
