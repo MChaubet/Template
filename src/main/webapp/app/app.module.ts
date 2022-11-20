@@ -22,7 +22,7 @@ import { FooterComponent } from './components/layouts/footer/footer.component';
 import { PageRibbonComponent } from './components/layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './directives/active-menu.directive';
 import { ErrorComponent } from './components/layouts/error/error.component';
-import { ModulesModule } from 'app/components/pages/modules.module';
+import { PagesModule } from 'app/components/pages/pages.module';
 import { StoreModule } from '@ngrx/store';
 import { NumbersOnlyDirective } from './directives/numbers-only.directive';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
@@ -71,7 +71,7 @@ export const httpInterceptorProviders = [
     NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-', caseSensitive: true }),
     TranslationModule,
     StoreModule.forRoot({}),
-    ModulesModule,
+    PagesModule,
   ],
   providers: [
     Title,

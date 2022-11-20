@@ -1,21 +1,37 @@
+$navbar-theme: #171717;
+$navbar-shadow: hsl(0, 0%, 0%);
+
+$button-color: hsla(0, 0%, 100%, 0.6);
+$button-color-hover: hsla(0, 0%, 100%, 0.8);
+$button-color-active: hsla(0, 0%, 100%, 0.8);
+
 .sidenav {
-  background: #263238;
-  transition: all 0.2s ease;
+  background: $navbar-theme;
+  transition: all 0.3s ease;
   position: fixed;
   z-index: 1;
   top: 0;
   width: 5rem;
-  height: 100vh;
-  box-shadow: 0.02rem 0 8rem 0 #4c5057;
+  box-shadow: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
 
-  .logo-container {
+  .openCloseButtonHoverContainer:hover {
+    .openCloseButton {
+      color: #000;
+    }
+  }
+
+  .openCloseButton-container {
     display: flex;
     align-items: center;
     padding: 0.938rem 0.938rem 0 0.938rem;
     width: 100%;
 
-    .logo {
-      background: #fff;
+    .openCloseButton {
       text-align: center;
       width: 3rem;
       min-width: 3rem;
@@ -25,20 +41,32 @@
       font-weight: 900;
       cursor: pointer;
       border: none;
+      background-color: $navbar-theme;
+      color: $button-color;
+      transition: all 0.2s ease;
     }
 
-    .logo-text {
-      margin-left: 1.5rem;
+    .openCloseButton:active {
+      background: $button-color-active;
+    }
+
+    .openCloseButton:hover {
+      background: $button-color-hover;
+    }
+
+    .project-name {
+      margin-left: 1rem;
       font-size: 24px;
       font-weight: 700;
-      color: #fff;
+      color: $button-color;
+      white-space: nowrap;
     }
   }
 }
 
-.sidenav-collapsed {
-  width: 16.5625rem;
-  box-shadow: none;
+.sidenav-opened {
+  width: 16.6rem;
+  box-shadow: 1rem 0 8rem 0 $navbar-shadow;
 }
 
 .sidenav-nav {
@@ -49,7 +77,6 @@
   flex-direction: column;
   align-items: center;
   height: calc(100% - 3.65rem);
-  cursor: pointer;
 
   .sidenav-nav-item {
     width: 100%;
@@ -59,10 +86,10 @@
       display: flex;
       align-items: center;
       height: 3rem;
-      color: #f3f3f3;
+      color: $button-color;
       text-decoration: none;
       border-radius: 0.625rem;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
 
       .sidenav-link-icon {
         font-size: 22px;
@@ -73,24 +100,39 @@
       }
 
       .sidenav-link-text {
-        margin-left: 1rem;
+        margin-left: 0.5rem;
+        flex-grow: 1;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-weight: 300;
       }
     }
   }
 
   .sidenav-nav-item:hover {
     .sidenav-nav-link {
-      background-color: #fff;
+      background-color: $button-color-hover;
       color: #000;
     }
   }
 }
 
 .active {
-  background-color: #fff;
-
+  background-color: $button-color-hover;
   .sidenav-link-icon,
   .sidenav-link-text {
     color: #000;
   }
+}
+
+.sidenav-version {
+  color: $button-color;
+  white-space: nowrap;
+  margin-left: 1.8em;
+}
+
+.sidenav-hr {
+  width: 90%;
+  color: $button-color;
 }

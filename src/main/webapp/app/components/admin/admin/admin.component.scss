@@ -1,0 +1,44 @@
+/* change for hover and if any child elements are in focus */
+.card:hover,
+card:focus-within {
+  background-color: #e9ecef; /* Using the same color as selected nav items */
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+  color: #474747;
+
+  span {
+    color: #474747;
+  }
+}
+
+span {
+  color: white;
+}
+
+.card-clickable {
+  border-radius: 7px;
+  border-width: 2px;
+}
+
+div > a {
+  padding: 10px;
+  background-color: #686868;
+}
+
+.grid {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+@media all and (min-width: 450px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media all and (min-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

@@ -13,6 +13,7 @@ import { ArticleModalComponent } from 'app/components/pages/shopping/article-mod
 import { InvoiceComponent } from './invoice/invoice.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { BakeryComponent } from './bakery/bakery.component';
+import { AdminComponent } from '../admin/admin/admin.component';
 
 const routes: Routes = [
   {
@@ -59,4 +60,4 @@ const routes: Routes = [
   ],
   imports: [CommonModule, SharedModule, RouterModule.forChild(routes), StoreModule.forFeature(shoppingFeatureKey, shoppingReducer)],
 })
-export class ModulesModule {}
+export class PagesModule {}

@@ -30,8 +30,8 @@ import { KafkaComponent } from './modules/kafka/kafka.component';
         loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule),
       },
       {
-        path: 'modules',
-        loadChildren: () => import(`./components/pages/modules.module`).then(m => m.ModulesModule),
+        path: '',
+        loadChildren: () => import(`./components/pages/pages.module`).then(m => m.PagesModule),
       },
       navbarRoute,
       ...errorRoute,
