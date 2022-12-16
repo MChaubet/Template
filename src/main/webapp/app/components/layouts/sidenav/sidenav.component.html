@@ -5,37 +5,39 @@
         <em class="fa-solid fa-bars"></em>
       </button>
     </div>
-    <a [routerLink]="'/'" class="project-name" style="text-decoration: none" @fadeInOut *ngIf="!collapsed">Juun Project</a>
+    <a [routerLink]="'/'" class="project-name" @fadeInOut *ngIf="!collapsed" (click)="closeSidenav()">Juun Project</a>
   </div>
-  <ul class="sidenav-nav">
-    <li class="sidenav-nav-item" *ngFor="let data of navData">
-      <a
-        class="sidenav-nav-link"
-        [routerLink]="[data.routeLink]"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        (click)="closeSidenav()"
-      >
-        <em class="sidenav-link-icon" [class]="data.icon"></em>
-        <h6 class="sidenav-link-text" style="margin-top: 7px" @fadeInOut *ngIf="!collapsed">
-          {{ data.label }}
-        </h6>
-      </a>
-    </li>
 
-    <li class="sidenav-hr">
-      <hr />
-    </li>
+  <hr class="sidenav-hr" />
 
-    <li class="sidenav-nav-item" *jhiHasAnyAuthority="'ROLE_ADMIN'">
-      <a class="sidenav-nav-link" [routerLink]="'admin'" (click)="closeSidenav()">
-        <em class="sidenav-link-icon fa-solid fa-gear"></em>
-        <div class="sidenav-link-text" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.admin.main"></div>
-      </a>
-    </li>
+  <div>
+    <ul class="sidenav-nav">
+      <li class="sidenav-nav-item" *ngFor="let data of navData">
+        <a
+          class="sidenav-nav-link"
+          [routerLink]="[data.routeLink]"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="closeSidenav()"
+        >
+          <em class="sidenav-link-icon" [class]="data.icon"></em>
+          <div class="sidenav-link-text" @fadeInOut *ngIf="!collapsed">{{ data.label }}</div>
+        </a>
+      </li>
+    </ul>
+  </div>
 
-    <ng-container *ngIf="!account">
-      <li class="sidenav-nav-item">
+  <hr class="sidenav-hr" />
+
+  <div>
+    <ul class="sidenav-nav">
+      <li class="sidenav-nav-item" *jhiHasAnyAuthority="'ROLE_ADMIN'">
+        <a class="sidenav-nav-link" [routerLink]="'admin'" (click)="closeSidenav()">
+          <em class="sidenav-link-icon fa-solid fa-gear"></em>
+          <div class="sidenav-link-text" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.admin.main"></div>
+        </a>
+      </li>
+      <li *ngIf="!account" class="sidenav-nav-item">
         <a class="sidenav-nav-link" [routerLink]="'account/register'" (click)="closeSidenav()">
           <em class="sidenav-link-icon fa-xl fa-fw fa-solid fa-user-plus"></em>
           <div class="sidenav-link-text" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.account.register"></div>
@@ -47,35 +49,37 @@
           <div class="sidenav-link-text" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.account.login"></div>
         </a>
       </li>
-    </ng-container>
-    <ng-container *ngIf="account">
-      <li class="sidenav-nav-item">
+      <li *ngIf="account" class="sidenav-nav-item">
         <a class="sidenav-nav-link" (click)="logout()">
           <em class="sidenav-link-icon fa-xl fa-fw fa-solid fa-sign-out-alt"></em>
           <div class="sidenav-link-text" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.account.logout"></div>
         </a>
       </li>
-    </ng-container>
+    </ul>
+  </div>
 
-    <!--  todo ajouter les langues dans un menu déroulant  -->
-    <!--    <li ngbDropdown class="nav-item dropdown pointer" display="dynamic" *ngIf="languages && languages.length > 1">-->
-    <!--      <a class="nav-link dropdown-toggle" ngbDropdownToggle id="languagesnavBarDropdown">-->
-    <!--      <span>-->
-    <!--        <em class="fa-solid fa-flag"></em>-->
-    <!--        <span jhiTranslate="global.menu.language">Language</span>-->
-    <!--      </span>-->
-    <!--      </a>-->
-    <!--    </li>-->
-    <!--    <li *ngFor="let language of languages">-->
-    <!--      <a class="d-flex justify-content-between align-items-center" href="javascript:void(0);"-->
-    <!--         [jhiActiveMenu]="language" (click)="changeLanguage(language);" #elem>-->
-    <!--        <span>{{ language | findLanguageFromKey }}</span>-->
-    <!--        <em *ngIf="elem.classList.contains('active')" class="fa-solid fa-check text-white"></em>-->
-    <!--      </a>-->
-    <!--    </li>-->
+  <div class="sidenav-version-container">
+    <ul class="sidenav-nav">
+      <li class="sidenav-nav-item" *ngIf="!collapsed">
+        <span class="sidenav-version" @fadeInOut>{{ version }}</span>
+      </li>
+    </ul>
+  </div>
 
-    <li class="sidenav-nav-item" *ngIf="!collapsed" style="margin-top: 1em">
-      <span class="sidenav-version" @fadeInOut>{{ version }}</span>
-    </li>
-  </ul>
+  <!--  todo ajouter les langues dans un menu déroulant  -->
+  <!--    <li ngbDropdown class="nav-item dropdown pointer" display="dynamic" *ngIf="languages && languages.length > 1">-->
+  <!--      <a class="nav-link dropdown-toggle" ngbDropdownToggle id="languagesnavBarDropdown">-->
+  <!--      <span>-->
+  <!--        <em class="fa-solid fa-flag"></em>-->
+  <!--        <span jhiTranslate="global.menu.language">Language</span>-->
+  <!--      </span>-->
+  <!--      </a>-->
+  <!--    </li>-->
+  <!--    <li *ngFor="let language of languages">-->
+  <!--      <a class="d-flex justify-content-between align-items-center" href="javascript:void(0);"-->
+  <!--         [jhiActiveMenu]="language" (click)="changeLanguage(language);" #elem>-->
+  <!--        <span>{{ language | findLanguageFromKey }}</span>-->
+  <!--        <em *ngIf="elem.classList.contains('active')" class="fa-solid fa-check text-white"></em>-->
+  <!--      </a>-->
+  <!--    </li>-->
 </div>

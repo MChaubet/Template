@@ -1,9 +1,9 @@
-<jhi-sidenav (toggleSideNav)="toggleSideNav($event)"></jhi-sidenav>
-<div class="d-flex flex-column" style="min-height: 100vh; margin-left: 5rem">
-  <jhi-page-ribbon></jhi-page-ribbon>
-
-  <div class="flex-grow-1">
-    <router-outlet></router-outlet>
+<div class="d-flex flex-row vh-100">
+  <jhi-sidenav (toggleSideNav)="toggleSideNav($event)"></jhi-sidenav>
+  <div class="d-flex flex-column flex-grow-1 overflow-auto">
+    <div class="flex-grow-1" [id]="isSideNavCollapsed ? 'sidenav-collapsed-container' : ''">
+      <router-outlet></router-outlet>
+    </div>
+    <jhi-footer></jhi-footer>
   </div>
-  <jhi-footer></jhi-footer>
 </div>

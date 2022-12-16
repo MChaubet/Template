@@ -16,7 +16,7 @@ interface SideNavToggle {
   templateUrl: './main.component.html',
 })
 export class MainComponent implements OnInit {
-  isSideNavCollapsed = false;
+  isSideNavCollapsed = true;
   screenWidth = 0;
 
   private renderer: Renderer2;

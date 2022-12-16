@@ -15,6 +15,7 @@ $color-secondary: hsl(162, 35%, 81%);
 
 .home {
   font-family: ABCNormal, serif;
+  background-color: hsl(252, 7%, 15%);
 }
 
 .text-cursor:after {
@@ -30,9 +31,9 @@ $color-secondary: hsl(162, 35%, 81%);
   }
 }
 
-.big-title {
-  font-size: 4.5vw;
-  line-height: 5vw;
+.catchphrase {
+  font-size: 3.5vw;
+  line-height: 3.5vw;
   letter-spacing: -0.05em;
   font-weight: 400;
   color: $color-secondary;
@@ -68,6 +69,9 @@ $color-secondary: hsl(162, 35%, 81%);
 
 .img-dev {
   border-radius: 15px;
+  max-width: 100%;
+  height: auto;
+  width: auto;
 }
 
 .img-keyboard {

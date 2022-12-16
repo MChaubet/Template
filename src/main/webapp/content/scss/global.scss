@@ -121,48 +121,63 @@ Generic styles
 .w-5 {
   width: 5% !important;
 }
+
 .w-10 {
   width: 10% !important;
 }
+
 .w-15 {
   width: 15% !important;
 }
+
 .w-20 {
   width: 20% !important;
 }
+
 .w-30 {
   width: 30% !important;
 }
+
 .w-35 {
   width: 35% !important;
 }
+
 .w-40 {
   width: 40% !important;
 }
+
 .w-45 {
   width: 45% !important;
 }
+
 .w-55 {
   width: 55% !important;
 }
+
 .w-60 {
   width: 60% !important;
 }
+
 .w-65 {
   width: 65% !important;
 }
+
 .w-70 {
   width: 70% !important;
 }
+
 .w-80 {
   width: 80% !important;
 }
+
 .w-85 {
   width: 85% !important;
 }
+
 .w-90 {
   width: 90% !important;
 }
+
 .w-95 {
   width: 95% !important;
 }
@@ -178,7 +193,8 @@ Generic styles
 }
 
 .footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  border-top: solid #4b4b4b 1px;
+  background-color: #171717;
 }
 
 .hand,
@@ -192,6 +208,7 @@ Custom alerts for notification
 .alerts {
   .alert {
     text-overflow: ellipsis;
+
     pre {
       background: none;
       border: none;
@@ -200,22 +217,28 @@ Custom alerts for notification
       padding: 0;
       margin: 0;
     }
+
     .popover pre {
       font-size: 10px;
     }
   }
+
   .jhi-toast {
     position: fixed;
     width: 100%;
+
     &.left {
       left: 5px;
     }
+
     &.right {
       right: 5px;
     }
+
     &.top {
       top: 55px;
     }
+
     &.bottom {
       bottom: 55px;
     }
@@ -249,6 +272,7 @@ entity detail page css
       white-space: nowrap;
       padding: 0.5em 0;
     }
+
     dd {
       border-bottom: 1px solid #eee;
       padding: 0.5em 0;
@@ -292,9 +316,11 @@ ui bootstrap tweaks
   font-size: 1.3rem;
   color: #fff;
 }
+
 .full {
   color: $blue-dark-custom;
 }
+
 .half {
   position: absolute;
   display: inline-block;
@@ -311,4 +337,9 @@ ngb-accordion .card-header > button {
 
 ngb-accordion .card-header {
   padding: 0; /* Just to make sure the <a> fills the whole card header */
+}
+
+#sidenav-collapsed-container > *:not(:first-child) > * {
+  padding-left: 5.8rem;
+  padding-right: 5.8rem;
 }
