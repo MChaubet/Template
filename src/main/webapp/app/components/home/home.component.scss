@@ -32,8 +32,8 @@ $color-secondary: hsl(162, 35%, 81%);
 }
 
 .catchphrase {
-  font-size: 3.5vw;
-  line-height: 3.5vw;
+  font-size: 4vw;
+  line-height: 4vw;
   letter-spacing: -0.05em;
   font-weight: 400;
   color: $color-secondary;
@@ -68,7 +68,6 @@ $color-secondary: hsl(162, 35%, 81%);
 }
 
 .img-dev {
-  border-radius: 15px;
   max-width: 100%;
   height: auto;
   width: auto;
@@ -109,7 +108,6 @@ img {
 
 .product {
   $padding-x: 3rem;
-
   background-color: hsl(252, 6%, 20%);
   border: solid hsla(162, 35%, 81%, 0.15);
   border-radius: 5px;
@@ -167,5 +165,59 @@ img {
         }
       }
     }
+  }
+}
+
+.btn-header {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 400;
+  color: $color-secondary;
+  background: transparent;
+  border: 0;
+  flex-shrink: 0;
+  text-align: inherit;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  width: 100%;
+  justify-content: end;
+
+  button {
+    display: block;
+    position: relative;
+    padding: 0.2em 0;
+  }
+
+  button::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 0.12em;
+    background-color: #776aff;
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+  }
+
+  button:hover::after,
+  button:focus::after {
+    opacity: 1;
+    transform: translate3d(0, 0.2em, 0);
+  }
+
+  button::after {
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center;
+  }
+
+  button:hover::after,
+  button:focus::after {
+    transform: scale(1);
   }
 }

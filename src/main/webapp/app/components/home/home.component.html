@@ -1,17 +1,31 @@
 <div class="home w-100 h-100 text-white">
-  <div class="container">
-    <div class="row separator-top m-0">
-      <div class="col-8 col-md-8 my-auto" jhiAnimation [animationType]="'fade-in-bottom'" [threshold]="0">
-        <div class="catchphrase">
-          Spécialisés dans le développement d'applications et de sites web, nous designons et développons pour vous.
-        </div>
+  <div class="d-flex align-items-center" style="height: 80px">
+    <div class="header">
+      <div>
+        <button class="btn-header">Produits</button>
       </div>
-      <div class="col-4 col-md-4">
-        <img
-          src="https://images.pexels.com/photos/5926370/pexels-photo-5926370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="typing"
-          class="img-dev"
-        />
+      <div>
+        <button class="btn-header">Entreprise</button>
+      </div>
+      <div>
+        <button class="btn-header">À propos</button>
+      </div>
+      <div>
+        <button class="btn-header">Langue</button>
+      </div>
+      <div>
+        <button class="btn-header">Démarrer</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row separator-top m-0">
+      <div class="col-md-7 my-auto" jhiAnimation [animationType]="'fade-in-bottom'" [threshold]="0">
+        <div class="catchphrase">Demandez votre site web en quelques clics.</div>
+      </div>
+      <div class="col-md-5">
+        <img src="content/images/laptop-home.png" alt="typing" class="img-dev" />
       </div>
     </div>
 
