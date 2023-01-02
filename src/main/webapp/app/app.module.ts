@@ -13,7 +13,7 @@ import './config/dayjs';
 import { SharedModule } from 'app/components/shared/shared.module';
 import { TranslationModule } from 'app/components/shared/language/translation.module';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeModule } from './components/home/home.module';
+import { HomeModule } from './components/pages/home/home.module';
 import { NgbDateDayjsAdapter } from './config/datepicker-adapter';
 import { fontAwesomeIcons } from './config/font-awesome-icons';
 import { MainComponent } from './components/layouts/main/main.component';
@@ -22,7 +22,6 @@ import { FooterComponent } from './components/layouts/footer/footer.component';
 import { PageRibbonComponent } from './components/layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './directives/active-menu.directive';
 import { ErrorComponent } from './components/layouts/error/error.component';
-import { PagesModule } from 'app/components/pages/pages.module';
 import { StoreModule } from '@ngrx/store';
 import { NumbersOnlyDirective } from './directives/numbers-only.directive';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
@@ -31,9 +30,10 @@ import { ErrorHandlerInterceptor } from './interceptor/error-handler.interceptor
 import { NotificationInterceptor } from './interceptor/notification.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { TypeaheadComponent } from './components/typeahead/typeahead.component';
+import { TypeaheadComponent } from './components/shared/typeahead/typeahead.component';
 import { KafkaComponent } from './modules/kafka/kafka.component';
-import { SidenavComponent } from './components/layouts/sidenav/sidenav.component';
+import { ModalContactComponent } from './components/shared/contact/modal-contact/modal-contact.component';
+import { ModalDemarrerComponent } from './components/shared/contact/modal-demarrer/modal-demarrer.component';
 
 export const httpInterceptorProviders = [
   {
@@ -71,7 +71,6 @@ export const httpInterceptorProviders = [
     NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-', caseSensitive: true }),
     TranslationModule,
     StoreModule.forRoot({}),
-    PagesModule,
   ],
   providers: [
     Title,
@@ -79,6 +78,7 @@ export const httpInterceptorProviders = [
     { provide: NgbDateAdapter, useClass: NgbDateDayjsAdapter },
     CurrencyPipe,
     httpInterceptorProviders,
+    { provide: Window, useValue: window },
   ],
   declarations: [
     MainComponent,
@@ -89,7 +89,8 @@ export const httpInterceptorProviders = [
     FooterComponent,
     TypeaheadComponent,
     KafkaComponent,
-    SidenavComponent,
+    ModalContactComponent,
+    ModalDemarrerComponent,
   ],
   bootstrap: [MainComponent],
   exports: [NumbersOnlyDirective],

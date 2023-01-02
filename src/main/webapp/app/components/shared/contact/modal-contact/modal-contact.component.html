@@ -1,0 +1,48 @@
+<div cdkDrag cdkDragRootElement=".su7">
+  <div class="modal-header" cdkDragHandle>
+    <h5 class="modal-title">Yo !</h5>
+    <!--    <button type="button" class="close" (click)="activeModal.close()">-->
+    <!--      <span>&times;</span>-->
+    <!--    </button>-->
+  </div>
+  <div class="modal-body">
+    <!--    <form [formGroup]="form" *ngIf="form">-->
+    <!--      <div class="form-group">-->
+    <!--        <div>-->
+    <!--          <label for="nouveauMontant" *ngIf="type === 'exercices anterieurs'">Nouveau montant fiscal (requis)</label>-->
+    <!--          <label for="nouveauMontant" *ngIf="type === 'exercice en cours'">Nouveau montant imposable (requis)</label>-->
+    <!--          <div class="input-group nouveau-montant"-->
+    <!--               [ngClass]="{'is-invalid': form.get('nouveauMontant').errors && form.get('nouveauMontant').touched}">-->
+    <!--            <input id="nouveauMontant" class="form-control" name="nouveauMontant" formControlName="nouveauMontant"-->
+    <!--                   su7TwoDigitsDecimalNumber>-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--        <div class="invalid-feedback d-block"-->
+    <!--             *ngIf="form.get('nouveauMontant').errors?.required && form.get('nouveauMontant').touched">-->
+    <!--          Veuillez rentrer un montant.-->
+    <!--        </div>-->
+    <!--        <p *ngIf="type === 'exercices anterieurs'" class="su7-small">Montant imposable initial-->
+    <!--          : {{ligneDonneeFiscale.montantImposable}}</p>-->
+    <!--        <p *ngIf="type === 'exercice en cours'" class="su7-small">Montant imposable initial-->
+    <!--          : {{paiement.montantImposableInitial}}</p>-->
+    <!--        <label for="commentaire">Commentaire</label>-->
+    <!--        <div class="input-group">-->
+    <!--        <textarea formControlName="commentaire" id="commentaire" rows="3" maxlength="3000"-->
+    <!--                  placeholder="Saisie d'un commentaire" class="form-control"></textarea>-->
+    <!--        </div>-->
+    <!--      </div>-->
+
+    <!--      <div class="modal-footer">-->
+    <!--        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close()" [disabled]="loading">Abandonner</button>-->
+    <!--        <button type="button" class="btn btn-valide"-->
+    <!--                (click)="saveDemandeModificationDonneeFiscale()" [disabled]="loading">-->
+    <!--          <ng-container *ngIf="loading">-->
+    <!--            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>-->
+    <!--            <span class="sr-only">Loading...</span>-->
+    <!--          </ng-container>-->
+    <!--          Confirmer-->
+    <!--        </button>-->
+    <!--      </div>-->
+    <!--    </form>-->
+  </div>
+</div>

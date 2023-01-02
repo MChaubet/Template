@@ -4,6 +4,7 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import { ContentImage, Margins, Style, Table } from 'pdfmake/interfaces';
 import { formatDateToddMMyyyy } from '../utils/date.utils';
+import { HttpClient } from '@angular/common/http';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -13,7 +14,8 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 export class InvoiceService {
   tva = 20;
 
-  constructor() {}
+  //add a http service to the constructor
+  constructor(private http: HttpClient) {}
 
   generateInvoice(parameters: ParametersInvoiceModel): void {
     if (

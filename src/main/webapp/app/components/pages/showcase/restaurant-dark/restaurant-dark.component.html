@@ -1,0 +1,114 @@
+<div class="pt-3 pb-3" style="background-color: #181818">
+  <h1 class="text-center display-2 pb-2">Restaurant</h1>
+  <div>
+    <p class="text-white">
+      Where does it come from?
+      <br />
+      Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,
+      making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more
+      obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature,
+      discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The
+      Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the
+      Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+      <br />
+      The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de
+      Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914
+      translation by H. Rackham.
+    </p>
+    <br />
+  </div>
+
+  <div class="menu border-bottom d-flex justify-content-center">
+    <div class="menu-container">
+      <div *ngFor="let card of cards" class="row pb-5 text-white" style="font-family: Chalk, serif">
+        <div class="col-10" style="font-size: 32px">
+          Roti de boeuf sur son lit de haricots a l'ail et fines herbes
+          <div style="font-size: 24px">Ingrédients : boeuf, haricots, huile d'olive, ail, thym, persil, sel.</div>
+        </div>
+        <div class="col-2" style="font-size: 32px">15.90€</div>
+        <!--          <div class="card h-100 p-4" style="border-radius: 5px">-->
+        <!--            <div class="row no-gutters">-->
+        <!--              <div class="col-12 col-lg-3 my-auto d-flex justify-content-center">-->
+        <!--                <img class="img-fluid rounded mx-auto d-block" style="height: inherit" src="../../../../content/images/plat-recipe.png" alt=""/>-->
+        <!--              </div>-->
+        <!--              <div class="col-12 col-lg-9 p-0">-->
+        <!--                <div class="card-body pe-0">-->
+        <!--                  <h1 class="card-title">Card one</h1>-->
+        <!--                  <div class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>-->
+        <!--                  <div class="card-text">Saumon, avocat, choux rouge, wakamé, concombre, edamamé, sésame, oignons frits</div>-->
+        <!--                </div>-->
+        <!--                <h5 class="card-footer py-0">15€</h5>-->
+        <!--              </div>-->
+        <!--            </div>-->
+        <!--          </div>-->
+      </div>
+    </div>
+  </div>
+
+  <div class="drinks-container">
+    <h1 class="py-4 text-center display-1">Cocktails</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pb-4" jhiAnimation [animationType]="'fade-in'" [animationOutType]="'fade-out'">
+          <div class="row card" style="border-radius: 5px; background: transparent">
+            <div class="row no-gutters">
+              <div class="col-12 col-lg-8 p-3 h-100 my-auto">
+                <div class="card-header text-center">
+                  <h1>Pina Colada</h1>
+                </div>
+                <div class="card-body text-center">
+                  <div class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                  <div class="card-text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</div>
+                </div>
+                <div class="card-footer text-center">Price</div>
+              </div>
+              <div class="col-12 col-lg-4">
+                <img class="img-fluid mx-auto d-block" style="" src="../../../../../content/images/cocktail-pina-colada.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 pb-4" jhiAnimation [animationType]="'fade-in'" [animationOutType]="'fade-out'">
+          <div class="row card" style="border-radius: 5px; background: transparent">
+            <div class="row no-gutters">
+              <div class="col-12 col-lg-4">
+                <img class="img-fluid mx-auto d-block" style="" src="../../../../../content/images/cocktail-blue-lagoon.png" alt="" />
+              </div>
+              <div class="col-12 col-lg-8 p-3 h-100 my-auto">
+                <div class="card-header text-center">
+                  <h1>Blue Lagoon</h1>
+                </div>
+                <div class="card-body text-center">
+                  <div class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                  <div class="card-text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</div>
+                </div>
+                <div class="card-footer text-center">Price</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 pb-4" jhiAnimation [animationType]="'fade-in'" [animationOutType]="'fade-out'">
+          <div class="row card" style="border-radius: 5px; background: transparent">
+            <div class="row no-gutters">
+              <div class="col-12 col-lg-8 p-3 h-100 my-auto">
+                <div class="card-header text-center">
+                  <h1>Ice Pick</h1>
+                </div>
+                <div class="card-body text-center">
+                  <div class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                  <div class="card-text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</div>
+                </div>
+                <div class="card-footer text-center">Price</div>
+              </div>
+              <div class="col-12 col-lg-4">
+                <img class="img-fluid mx-auto d-block" style="" src="../../../../../content/images/cocktail-ice-pick.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

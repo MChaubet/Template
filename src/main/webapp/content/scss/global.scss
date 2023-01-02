@@ -2,6 +2,7 @@
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~bootstrap/dist/css/bootstrap.css';
 
 /* ==============================================================
 Bootstrap tweaks
@@ -337,9 +338,4 @@ ngb-accordion .card-header > button {
 
 ngb-accordion .card-header {
   padding: 0; /* Just to make sure the <a> fills the whole card header */
-}
-
-#sidenav-collapsed-container > *:not(:first-child) > * {
-  padding-left: 5.8rem;
-  padding-right: 5.8rem;
 }

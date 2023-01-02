@@ -1,0 +1,39 @@
+.menu {
+  background: url('~content/images/restaurant-cosy.png') no-repeat center center;
+  //-webkit-background-size: cover;
+  //-moz-background-size: cover;
+  //-o-background-size: cover;
+  background-size: cover;
+  min-height: 50vw;
+}
+
+.drinks-container {
+  background: url('~content/images/bar-cosy.png') no-repeat center center;
+  //-webkit-background-size: cover;
+  //-moz-background-size: cover;
+  //-o-background-size: cover;
+  background-size: cover;
+  min-height: 50vw;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+}
+
+h1 {
+  font-family: Chalk, serif;
+  color: white;
+}
+
+.menu-container {
+  position: relative;
+  top: 100px;
+  height: 44vw;
+  width: 44vw;
+  overflow: scroll;
+}
+
+.menu-container > * {
+  overflow: hidden;
+}

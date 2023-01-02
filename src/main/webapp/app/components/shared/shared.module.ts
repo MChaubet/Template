@@ -18,6 +18,7 @@ import { DateFormatDirective } from '../../directives/date-format.directive';
 import { TextAnimationDirective } from 'app/directives/text-animation.directive';
 import { MaskDirective } from 'app/directives/mask.directive';
 import { CurrencyMaskDirective } from 'app/directives/currency-mask.directive';
+import { ContactComponent } from './button-contact/contact.component';
 
 @NgModule({
   imports: [SharedLibsModule],
@@ -39,6 +40,7 @@ import { CurrencyMaskDirective } from 'app/directives/currency-mask.directive';
     TextAnimationDirective,
     MaskDirective,
     CurrencyMaskDirective,
+    ContactComponent,
   ],
   exports: [
     SharedLibsModule,
@@ -59,6 +61,7 @@ import { CurrencyMaskDirective } from 'app/directives/currency-mask.directive';
     TextAnimationDirective,
     MaskDirective,
     CurrencyMaskDirective,
+    ContactComponent,
   ],
 })
 export class SharedModule {}

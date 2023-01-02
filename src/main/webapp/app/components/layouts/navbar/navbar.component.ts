@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { SessionStorageService } from 'ngx-webstorage';
 
-import { VERSION } from 'app/constants/app.constants';
 import { LANGUAGES } from 'app/constants/language.constants';
 import { Account } from 'app/models/account.model';
 import { AccountService } from 'app/services/account.service';
@@ -30,11 +29,7 @@ export class NavbarComponent implements OnInit {
     private accountService: AccountService,
     private profileService: ProfileService,
     private router: Router
-  ) {
-    if (VERSION) {
-      this.version = VERSION.toLowerCase().startsWith('v') ? VERSION : `v${VERSION}`;
-    }
-  }
+  ) {}
 
   ngOnInit(): void {
     this.profileService.getProfileInfo().subscribe(profileInfo => {

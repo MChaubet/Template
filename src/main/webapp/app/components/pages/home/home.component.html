@@ -1,0 +1,105 @@
+<div class="home w-100 h-100 text-white">
+  <div class="container-fluid h-100" (scroll)="handleScroll()">
+    <button *ngIf="buttonDemarrerFixed === true" class="btn btn-primary btn-contact" (click)="openModalContact()">
+      <span class="texte-contact">Démarrer</span>
+    </button>
+    <div class="d-flex align-items-center" style="height: 120px">
+      <div class="header me-5 align-items-center">
+        <button class="btn-header">Nous contacter</button>
+        <button class="btn-header">À propos</button>
+        <button class="btn-header">Langue</button>
+        <button class="btn-header" [routerLink]="'showcase'">Exemples</button>
+        <jhi-contact></jhi-contact>
+      </div>
+    </div>
+
+    <div class="row separator-top m-0">
+      <div class="col-md-7 my-auto" jhiAnimation [animationType]="'fade-in-bottom'" [threshold]="0">
+        <div class="catchphrase">Demandez votre site web en quelques clics.</div>
+      </div>
+      <div class="col-md-5">
+        <img src="../../../../content/images/laptop-home.png" alt="typing" class="img-dev" />
+      </div>
+    </div>
+
+    <div class="separator">
+      <div class="row separator m-0">
+        <div class="col-12 col-md-6 text-center">
+          <img
+            src="https://images.pexels.com/photos/1194713/pexels-photo-1194713.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="keyboard"
+            class="img-keyboard"
+          />
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="medium-text" jhiAnimation [animationType]="'fade-in-left'" [threshold]="0">
+            Born from a passion for design, we envision, design, and create apps and websites from a seeded idea into a unique experience.
+          </div>
+          <hr class="mb-5" />
+          <div class="medium-text" jhiAnimation [animationType]="'fade-in-left'" [threshold]="0">
+            From small ambitious start-ups to industry icons, we strive to create meaningful experiences for clients all around the world.
+          </div>
+          <hr class="mb-5" />
+          <div class="medium-text" jhiAnimation [animationType]="'fade-in-left'" [threshold]="0">
+            By making functional products, gorgeous designs, and brands that resonate, we help large eminent companies clear hurdles, small
+            businesses grow and funded startups seize opportunities.
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <div class="row separator justify-content-center m-0">
+        <div class="col-12 col-md-6">
+          <q class="medium-text italic">
+            Working on our first project with Kreativa was a joy. By trusting their process, we got a sense of how professional, creative,
+            detail-oriented and accessible they are, with swift communication. They have done an outstanding job for us, and I highly
+            recommend them.
+          </q>
+          <div class="small-text text-end">Our leitmotiv</div>
+        </div>
+      </div>
+
+      <br />
+
+      <div class="row separator px-5 m-0">
+        <div *ngFor="let developer of developers" class="col-12 col-lg-6 px-5 pb-4">
+          <div class="row product h-100">
+            <div class="product_photo col-4">
+              <div class="photo-container">
+                <div class="photo-main w-100">
+                  <a class="p-1 text-white" href="https://www.linkedin.com/in/mathieu-chaubet/" target="_blank">
+                    <i class="fa-solid fa-share-nodes fa-lg"></i>
+                  </a>
+                  <img
+                    src="https://res.cloudinary.com/john-mantas/image/upload/v1537291846/codepen/delicious-apples/green-apple-with-slice.png"
+                    alt="green apple slice"
+                    class="w-100"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="product_info col-8 h-100 p-3">
+              <div class="title">
+                <h1>{{ developer.name }}</h1>
+                <span>{{ developer.jobName }}</span>
+              </div>
+              <div class="description">
+                <h3>Diplôme</h3>
+                <ul>
+                  <li *ngFor="let diploma of developer.diploma">{{ diploma }}</li>
+                </ul>
+              </div>
+              <div class="description">
+                <h3>PROJECTS</h3>
+                <ul>
+                  <li *ngFor="let project of developer.project">{{ project }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

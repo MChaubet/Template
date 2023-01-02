@@ -1,24 +1,19 @@
-import { Component, OnInit, RendererFactory2, Renderer2 } from '@angular/core';
+import { Component, OnInit, RendererFactory2, Renderer2, HostListener, Output } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRouteSnapshot, NavigationEnd } from '@angular/router';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import dayjs from 'dayjs/esm';
+import { EventEmitter } from '@angular/core';
 
 import { AccountService } from 'app/services/account.service';
-
-interface SideNavToggle {
-  screenWidth: number;
-  collapsed: boolean;
-}
 
 @Component({
   selector: 'jhi-main',
   templateUrl: './main.component.html',
 })
 export class MainComponent implements OnInit {
-  isSideNavCollapsed = true;
-  screenWidth = 0;
-
+  @Output() scrollChange = new EventEmitter<number>();
+  scrollPosition = 0;
   private renderer: Renderer2;
 
   constructor(
@@ -29,6 +24,11 @@ export class MainComponent implements OnInit {
     rootRenderer: RendererFactory2
   ) {
     this.renderer = rootRenderer.createRenderer(document.querySelector('html'), null);
+
+    this.scrollChange.subscribe(scrollPosition => {
+      this.scrollPosition = scrollPosition;
+      console.log(`Scroll position: ${scrollPosition}`);
+    });
   }
 
   ngOnInit(): void {
@@ -48,9 +48,8 @@ export class MainComponent implements OnInit {
     });
   }
 
-  toggleSideNav(data: SideNavToggle): void {
-    this.screenWidth = data.screenWidth;
-    this.isSideNavCollapsed = data.collapsed;
+  handleScroll(event: any) {
+    this.scrollChange.emit(event.target.scrollTop);
   }
 
   private getPageTitle(routeSnapshot: ActivatedRouteSnapshot): string {
