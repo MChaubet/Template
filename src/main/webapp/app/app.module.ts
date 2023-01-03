@@ -13,15 +13,10 @@ import './config/dayjs';
 import { SharedModule } from 'app/components/shared/shared.module';
 import { TranslationModule } from 'app/components/shared/language/translation.module';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeModule } from './components/pages/home/home.module';
 import { NgbDateDayjsAdapter } from './config/datepicker-adapter';
 import { fontAwesomeIcons } from './config/font-awesome-icons';
 import { MainComponent } from './components/layouts/main/main.component';
-import { NavbarComponent } from './components/layouts/navbar/navbar.component';
-import { FooterComponent } from './components/layouts/footer/footer.component';
-import { PageRibbonComponent } from './components/layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './directives/active-menu.directive';
-import { ErrorComponent } from './components/layouts/error/error.component';
 import { StoreModule } from '@ngrx/store';
 import { NumbersOnlyDirective } from './directives/numbers-only.directive';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
@@ -31,7 +26,7 @@ import { NotificationInterceptor } from './interceptor/notification.interceptor'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { TypeaheadComponent } from './components/shared/typeahead/typeahead.component';
-import { KafkaComponent } from './modules/kafka/kafka.component';
+import { KafkaComponent } from './components/pages/kafka/kafka.component';
 import { ModalContactComponent } from './components/shared/contact/modal-contact/modal-contact.component';
 import { ModalDemarrerComponent } from './components/shared/contact/modal-demarrer/modal-demarrer.component';
 
@@ -64,7 +59,6 @@ export const httpInterceptorProviders = [
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     SharedModule,
-    HomeModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: false }),
     HttpClientModule,
@@ -80,18 +74,7 @@ export const httpInterceptorProviders = [
     httpInterceptorProviders,
     { provide: Window, useValue: window },
   ],
-  declarations: [
-    MainComponent,
-    NavbarComponent,
-    ErrorComponent,
-    PageRibbonComponent,
-    ActiveMenuDirective,
-    FooterComponent,
-    TypeaheadComponent,
-    KafkaComponent,
-    ModalContactComponent,
-    ModalDemarrerComponent,
-  ],
+  declarations: [ActiveMenuDirective, TypeaheadComponent, KafkaComponent, ModalContactComponent, ModalDemarrerComponent],
   bootstrap: [MainComponent],
   exports: [NumbersOnlyDirective],
 })

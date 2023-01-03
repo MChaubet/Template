@@ -16,7 +16,9 @@ export class ShowcaseComponent implements OnInit {
   screenWidth = 0;
 
   constructor(private router: Router) {
-    this.router.navigateByUrl('/showcase/portfolio').then(r => r);
+    if (this.router.url.endsWith('showcase')) {
+      this.router.navigateByUrl('/showcase/portfolio').then(r => r);
+    }
   }
 
   ngOnInit(): void {}

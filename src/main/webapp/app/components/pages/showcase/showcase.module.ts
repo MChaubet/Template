@@ -8,13 +8,13 @@ import { ShoppingComponent } from 'app/components/pages/showcase/shopping/shoppi
 import { SharedModule } from 'app/components/shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { shoppingFeatureKey, shoppingReducer } from 'app/components/pages/showcase/shopping/store/shopping-reducer';
-import { ShoppingCartComponent } from './showcase/shopping/shopping-cart/shopping-cart.component';
+import { ShoppingCartComponent } from './shopping/shopping-cart/shopping-cart.component';
 import { ArticleModalComponent } from 'app/components/pages/showcase/shopping/article-modal-component';
-import { InvoiceComponent } from './showcase/invoice/invoice.component';
-import { PricingComponent } from './showcase/pricing/pricing.component';
-import { BakeryComponent } from './showcase/bakery/bakery.component';
-import { ShowcaseComponent } from './showcase/showcase.component';
-import { SidenavComponent } from '../layouts/sidenav/sidenav.component';
+import { InvoiceComponent } from './invoice/invoice.component';
+import { PricingComponent } from './pricing/pricing.component';
+import { BakeryComponent } from './bakery/bakery.component';
+import { ShowcaseComponent } from './showcase.component';
+import { LayoutsModule } from '../../layouts/layouts.module';
 
 const routes: Routes = [
   {
@@ -65,8 +65,13 @@ const routes: Routes = [
     PricingComponent,
     BakeryComponent,
     ShowcaseComponent,
-    SidenavComponent,
   ],
-  imports: [CommonModule, SharedModule, RouterModule.forChild(routes), StoreModule.forFeature(shoppingFeatureKey, shoppingReducer)],
+  imports: [
+    CommonModule,
+    SharedModule,
+    RouterModule.forChild(routes),
+    StoreModule.forFeature(shoppingFeatureKey, shoppingReducer),
+    LayoutsModule,
+  ],
 })
 export class ShowcaseModule {}

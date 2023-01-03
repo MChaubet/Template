@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { EventSourcePolyfill, EventSourcePolyfillInit } from 'event-source-polyfill';
 import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 import { HttpClient } from '@angular/common/http';
-import { ApplicationConfigService } from '../../services/application-config.service';
+import { ApplicationConfigService } from '../../../services/application-config.service';
 
 @Injectable({
   providedIn: 'root',

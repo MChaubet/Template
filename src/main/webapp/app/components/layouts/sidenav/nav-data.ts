@@ -1,10 +1,5 @@
 export const navbarData = [
   {
-    routeLink: '/',
-    icon: 'fa-solid fa-a',
-    label: 'Accueil',
-  },
-  {
     routeLink: 'portfolio',
     icon: 'fa-solid fa-book',
     label: 'Portfolio',

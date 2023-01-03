@@ -1,69 +1,74 @@
-<div class="sidenav" [ngClass]="collapsed ? '' : 'sidenav-opened'">
-  <div class="openCloseButton-container">
-    <div class="openCloseButtonHoverContainer">
-      <button class="openCloseButton" (click)="toggleCollapse()">
-        <em class="fa-solid fa-bars"></em>
-      </button>
-    </div>
-    <a [routerLink]="'/'" class="project-name" @fadeInOut *ngIf="!collapsed" (click)="closeSidenav()">Juun Project</a>
+<div class="sidenav d-flex flex-column h-100">
+  <div class="sidenav-item">
+    <h5 class="sidenav-item-link title d-flex align-items-center justify-content-center cursor mb-0">
+      <em class="sidenav-item-icon text-center fa-solid fa-bars" (click)="toggleCollapse()"></em>
+      <div class="sidenav-item-text fw-bold flex-grow-1" (click)="closeSidenav()" [routerLink]="'/'" @fadeInOut *ngIf="!collapsed">
+        Juun Project
+      </div>
+    </h5>
   </div>
 
   <hr class="sidenav-hr" />
 
-  <div>
-    <ul class="sidenav-nav">
-      <li class="sidenav-nav-item" *ngFor="let data of navData">
-        <a
-          class="sidenav-nav-link"
-          [routerLink]="[data.routeLink]"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          (click)="closeSidenav()"
-        >
-          <em class="sidenav-link-icon" [class]="data.icon"></em>
-          <div class="sidenav-link-text" @fadeInOut *ngIf="!collapsed">{{ data.label }}</div>
-        </a>
-      </li>
-    </ul>
+  <div class="sidenav-item" *ngFor="let data of navData">
+    <a
+      class="sidenav-item-link d-flex align-items-center justify-content-center"
+      [routerLink]="[data.routeLink]"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <em class="sidenav-item-icon text-center" [class]="data.icon"></em>
+      <div class="sidenav-item-text flex-grow-1" @fadeInOut *ngIf="!collapsed">{{ data.label }}</div>
+    </a>
+  </div>
+
+  <div class="flex-grow-1"></div>
+
+  <div class="sidenav-item" *ngIf="!collapsed">
+    <span class="sidenav-item-text text-white" @fadeInOut>{{ version }}</span>
   </div>
 
   <hr class="sidenav-hr" />
 
-  <div>
-    <ul class="sidenav-nav">
-      <li class="sidenav-nav-item" *jhiHasAnyAuthority="'ROLE_ADMIN'">
-        <a class="sidenav-nav-link" [routerLink]="'admin'" (click)="closeSidenav()">
-          <em class="sidenav-link-icon fa-solid fa-gear"></em>
-          <div class="sidenav-link-text" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.admin.main"></div>
-        </a>
-      </li>
-      <li *ngIf="!account" class="sidenav-nav-item">
-        <a class="sidenav-nav-link" [routerLink]="'account/register'" (click)="closeSidenav()">
-          <em class="sidenav-link-icon fa-xl fa-fw fa-solid fa-user-plus"></em>
-          <div class="sidenav-link-text" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.account.register"></div>
-        </a>
-      </li>
-      <li class="sidenav-nav-item">
-        <a class="sidenav-nav-link" [routerLink]="'login'" (click)="closeSidenav()">
-          <em class="sidenav-link-icon fa-xl fa-fw fa-regular fa-user"></em>
-          <div class="sidenav-link-text" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.account.login"></div>
-        </a>
-      </li>
-      <li *ngIf="account" class="sidenav-nav-item">
-        <a class="sidenav-nav-link" (click)="logout()">
-          <em class="sidenav-link-icon fa-xl fa-fw fa-solid fa-sign-out-alt"></em>
-          <div class="sidenav-link-text" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.account.logout"></div>
-        </a>
-      </li>
-    </ul>
+  <div class="sidenav-item" *jhiHasAnyAuthority="'ROLE_ADMIN'" (click)="closeSidenav()">
+    <a
+      class="sidenav-item-link d-flex align-items-center justify-content-center"
+      [routerLink]="'/admin'"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <em class="sidenav-item-icon text-center fa-solid fa-gear"></em>
+      <div class="sidenav-item-text flex-grow-1" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.admin.main"></div>
+    </a>
   </div>
 
-  <div class="sidenav-version-container">
-    <ul class="sidenav-nav">
-      <li class="sidenav-nav-item" *ngIf="!collapsed">
-        <span class="sidenav-version" @fadeInOut>{{ version }}</span>
-      </li>
-    </ul>
+  <div class="sidenav-item" *ngIf="!account" (click)="closeSidenav()">
+    <a
+      class="sidenav-item-link d-flex align-items-center justify-content-center"
+      [routerLink]="'/account/register'"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <em class="sidenav-item-icon text-center fa-solid fa-user-plus"></em>
+      <div class="sidenav-item-text flex-grow-1" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.account.register"></div>
+    </a>
+  </div>
+  <div class="sidenav-item" *ngIf="!account" (click)="closeSidenav()">
+    <a
+      class="sidenav-item-link d-flex align-items-center justify-content-center"
+      [routerLink]="'/login'"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <em class="sidenav-item-icon text-center fa-solid fa-user"></em>
+      <div class="sidenav-item-text flex-grow-1" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.account.login"></div>
+    </a>
+  </div>
+  <div class="sidenav-item" *ngIf="account" (click)="closeSidenav(); logout()">
+    <a class="sidenav-item-link d-flex align-items-center justify-content-center">
+      <em class="sidenav-item-icon text-center fa-solid fa-sign-out-alt"></em>
+      <div class="sidenav-item-text flex-grow-1" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.account.logout"></div>
+    </a>
   </div>
 
   <!--  todo ajouter les langues dans un menu déroulant  -->

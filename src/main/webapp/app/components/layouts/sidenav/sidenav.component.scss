@@ -1,139 +1,48 @@
 $navbar-theme: #171717;
 
 $button-color: hsla(0, 0%, 100%, 0.6);
-$button-color-hover: hsla(0, 0%, 100%, 0.8);
 $button-color-active: hsla(0, 0%, 100%, 0.8);
 
 .sidenav {
   background: $navbar-theme;
-  z-index: 1;
-  top: 0;
-  width: 5rem;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  border-right: solid #4b4b4b 1px;
+  padding: 9px;
 
-  .openCloseButtonHoverContainer:hover {
-    .openCloseButton {
-      color: #000;
-    }
-  }
-
-  .openCloseButton-container {
-    display: flex;
-    align-items: center;
-    padding: 0.938rem 0.938rem 0 0.938rem;
-    width: 100%;
-
-    .openCloseButton {
-      text-align: center;
-      width: 3rem;
-      min-width: 3rem;
-      border-radius: 0.313rem;
-      padding: 0.313rem;
-      font-size: 24px;
-      font-weight: 900;
-      cursor: pointer;
-      border: none;
-      background-color: $navbar-theme;
-      color: $button-color;
-      transition: all 0.2s ease;
-    }
-
-    .openCloseButton:active {
-      background: $button-color-active;
-    }
-
-    .openCloseButton:hover {
-      background: $button-color-hover;
-    }
-
-    .project-name {
-      margin-left: 1rem;
-      font-size: 24px;
-      font-weight: 700;
-      color: $button-color;
-      white-space: nowrap;
-      text-decoration: none;
-    }
-  }
+  gap: 5px;
 }
 
-.sidenav-opened {
-  width: 16.6rem;
-}
-
-.sidenav-nav {
-  list-style: none;
-  padding: 0 0.938rem 0;
-  margin: 0;
+.sidenav-item-link {
   display: flex;
-  gap: 0.625rem;
-  flex-direction: column;
   align-items: center;
-
-  .sidenav-nav-item {
-    width: 100%;
-
-    .sidenav-nav-link {
-      display: flex;
-      align-items: center;
-      height: 3rem;
-      color: $button-color;
-      text-decoration: none;
-      border-radius: 0.625rem;
-      transition: all 0.2s ease;
-
-      .sidenav-link-icon {
-        font-size: 22px;
-        width: 2rem;
-        min-width: 2rem;
-        margin: 0 0.5rem;
-        text-align: center;
-      }
-
-      .sidenav-link-text {
-        margin-left: 0.5rem;
-        flex-grow: 1;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        font-weight: 300;
-      }
-    }
-  }
-
-  .sidenav-nav-item:hover {
-    .sidenav-nav-link {
-      background-color: $button-color-hover;
-      color: #000;
-    }
-  }
+  color: $button-color;
+  text-decoration: none;
+  border-radius: 0.625rem;
+  transition: all 0.2s ease;
 }
 
-.active {
-  background-color: $button-color-hover;
+.sidenav-item-icon {
+  width: 40px;
+  padding: 10px;
+}
 
-  .sidenav-link-icon,
-  .sidenav-link-text {
+.sidenav-item-text {
+  white-space: nowrap;
+  padding-right: 10px;
+}
+
+.sidenav-item-link:not(.title):active,
+.active {
+  background: $button-color-active;
+  * {
+    color: #000;
+  }
+}
+.sidenav-item-link:not(.title):hover {
+  background: $button-color;
+  * {
     color: #000;
   }
 }
 
-.sidenav-version-container {
-  position: absolute;
-  bottom: 10px;
-}
-
-.sidenav-version {
-  color: $button-color;
-  white-space: nowrap;
-}
-
 .sidenav-hr {
-  margin-left: 1rem;
-  margin-right: 1rem;
-  color: $button-color;
+  border-bottom: solid white 1px;
 }

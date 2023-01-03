@@ -92,6 +92,16 @@ Browser Upgrade Prompt
 Generic styles
 ========================================================================== */
 
+body {
+  min-height: 100vh;
+  max-height: 100vh;
+  height: 100vh;
+}
+
+jhi-showcase {
+  height: 100%;
+}
+
 /* Error highlight on input fields */
 .ng-valid[required],
 .ng-valid.required {
