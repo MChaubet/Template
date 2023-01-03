@@ -39,21 +39,12 @@
     <div class="container px-0 pt-5">
       <div class="row w-100 m-0">
         <div class="col-6 col-lg-4 pb-3 pb-5" *ngFor="let item of photos">
-          <div class="card border-0">
-            <div class="card-header p-0">
-              <div class="text-center position-relative">
-                <img [src]="item.photo" alt="photo" class="w-100" />
-                <div class="position-absolute w-100 img-text appear-hover d-flex align-items-center">
-                  <div class="px-3 w-100">
-                    <h5>{{ item.title }}</h5>
-                    <span>{{ item.text }}</span>
-                  </div>
-                </div>
-              </div>
+          <div class="d-flex flex-column">
+            <div class="flex-grow-1 photo-container">
+              <img class="w-100 photo-zoom" [src]="item.photo" [alt]="item.title" />
+              <div class="h-50 photo-cover text-white pb-2">{{ item.text }}</div>
             </div>
-            <div class="card-body">
-              <h1>{{ item.title }}</h1>
-            </div>
+            <h3>{{ item.title }}</h3>
           </div>
         </div>
       </div>

@@ -40,6 +40,36 @@ button.change-video {
   }
 }
 
+.photo-container {
+  overflow: hidden;
+  position: relative;
+
+  .photo-cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    position: absolute;
+    opacity: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &:hover {
+    .photo-zoom {
+      transform: scale(1.1);
+      transition-timing-function: ease-in;
+      transition-duration: 300ms;
+      transition-property: all;
+    }
+
+    .photo-cover {
+      opacity: 1;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+    }
+  }
+}
+
 .appear-hover {
   height: 100%;
   opacity: 0;
