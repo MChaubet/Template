@@ -17,39 +17,21 @@ export class InvoiceComponent implements OnInit {
 
   // todo mettre ces messages dans un fichier json, avec la trad
   validationMsgs = {
-    numeroClient: [
-      { type: 'required', message: 'Ce champ est requis.' },
-      { type: 'maxlength', message: 'La taille maximale est de 10 caractères.' },
-    ],
-    nomClient: [
-      { type: 'required', message: 'Ce champ est requis.' },
-      { type: 'maxlength', message: 'La taille maximale est de 30 caractères.' },
-    ],
+    numeroClient: [{ type: 'required', message: 'Ce champ est requis.' }],
+    nomClient: [{ type: 'required', message: 'Ce champ est requis.' }],
     pays: [{ type: 'required', message: 'Ce champ est requis.' }],
     numeroAdresse: [
       { type: 'required', message: 'Ce champ est requis.' },
-      { type: 'maxlength', message: 'La taille maximale est de 4 caractères.' },
       { type: 'pattern', message: "Le numéro n'est pas valide." },
     ],
-    extensionAdresse: [{ type: 'maxlength', message: 'La taille maximale est de 4 caractères.' }],
-    natureLibelleVoie: [
-      { type: 'required', message: 'Ce champ est requis.' },
-      { type: 'maxlength', message: 'La taille maximale est de 60 caractères.' },
-    ],
+    natureLibelleVoie: [{ type: 'required', message: 'Ce champ est requis.' }],
     complementLocalisation: [{ type: 'maxlength', message: 'La taille maximale est de 50 caractères.' }],
     codePostal: [
       { type: 'required', message: 'Ce champ est requis.' },
-      { type: 'maxlength', message: 'La taille maximale est de 5 caractères.' },
       { type: 'pattern', message: "Le code postal n'est pas valide." },
     ],
-    ville: [
-      { type: 'required', message: 'Ce champ est requis.' },
-      { type: 'maxlength', message: 'La taille maximale est de 50 caractères.' },
-    ],
-    nomPrestation: [
-      { type: 'required', message: 'Ce champ est requis.' },
-      { type: 'maxlength', message: 'La taille maximale est de 100 caractères.' },
-    ],
+    ville: [{ type: 'required', message: 'Ce champ est requis.' }],
+    nomPrestation: [{ type: 'required', message: 'Ce champ est requis.' }],
     quantitePrestation: [
       { type: 'required', message: 'Ce champ est requis.' },
       { type: 'min', message: 'Veuillez rentrer un nombre entre 1 et 1 000 000.' },
@@ -130,6 +112,17 @@ export class InvoiceComponent implements OnInit {
     });
   }
 
+  resetForm(): void {
+    this.form.reset();
+    this.prestations.clear();
+    this.prestations.push(this.createPrestationFormGroup());
+    this.form.markAsUntouched();
+    Object.keys(this.form.controls).forEach(key => {
+      this.form.get(key)?.markAsUntouched();
+      // this.form.get(key)?.();
+    });
+  }
+
   addPrestation(): void {
     if (this.prestations.length < 10) {
       this.prestations.push(this.createPrestationFormGroup());
@@ -148,7 +141,11 @@ export class InvoiceComponent implements OnInit {
     moveItemInArray(this.prestations.controls, event.previousIndex, event.currentIndex);
   }
 
-  private getInvoiceParameters(): ParametersInvoiceModel {
+  djfhdfjh() {
+    console.log(this.form.get('numeroClient'));
+  }
+
+  getInvoiceParameters(): ParametersInvoiceModel {
     const formValue = this.form.getRawValue();
 
     return {
@@ -165,11 +162,15 @@ export class InvoiceComponent implements OnInit {
     };
   }
 
-  private createPrestationFormGroup(): FormGroup {
+  createPrestationFormGroup(): FormGroup {
     return new FormGroup({
       nom: new FormControl('', [Validators.required, Validators.maxLength(100)]),
       quantite: new FormControl('', [Validators.required, Validators.min(1), Validators.max(1000000)]),
       tarifUnitaire: new FormControl('', [Validators.required, Validators.min(0.01), Validators.max(1000000)]),
     });
+  }
+
+  gojdf() {
+    console.log(this.form.get('numeroClient')?.hasError('required'));
   }
 }

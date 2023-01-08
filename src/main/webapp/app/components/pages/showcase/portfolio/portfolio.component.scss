@@ -70,6 +70,10 @@ button.change-video {
   }
 }
 
+.photo-zoom {
+  transition: transform 0.3s ease-in;
+}
+
 .appear-hover {
   height: 100%;
   opacity: 0;

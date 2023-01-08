@@ -1,13 +1,9 @@
 // ================ Constantes ================
 
-$theme-primary: #3f51b5;
-$background: #f5f7f8;
-
-.invoice {
-  background: #8e9eab; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
+$theme-primary: rgb(241, 217, 188);
+$theme-secondary: rgb(232, 150, 42);
+$background-color: linear-gradient(to left, #e8ecec, #8e9eab);
+$container-color: rgb(251, 249, 250);
 
 // =============== Balises HTML ===============
 
@@ -18,6 +14,12 @@ hr {
 }
 
 // ================= Classes ==================
+.invoice {
+  background: $background-color fixed center;
+  background-size: cover;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
 
 @media (min-width: 768px) {
   .contenu {
@@ -26,8 +28,9 @@ hr {
 }
 
 .contenu {
-  background-color: $background;
-  padding: 50px;
+  box-shadow: -80px 80px 80px rgb(0 0 0 / 70%);
+  background-color: $container-color;
+  padding: 100px 100px;
 }
 
 .titre-container {
@@ -35,15 +38,31 @@ hr {
 }
 
 .titre {
+  font-family: 'Garamond', Calibri;
   margin-bottom: 0 !important;
 }
 
-.bottom-buttons {
-  text-align: right;
+.sous-titre {
+  font-family: 'Garamond', Calibri;
+  font-weight: 300;
+  margin-bottom: 0 !important;
 }
 
-.bottom-buttons button {
-  margin: 0.25rem;
+.asterisk {
+  color: $theme-secondary;
+}
+
+// modifie la weight de la police dans les .form-control
+input {
+  font-weight: 300;
+}
+
+.bottom-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
+  justify-content: end;
 }
 
 input.inputNombre::-webkit-outer-spin-button,
@@ -84,4 +103,15 @@ input.inputNombre {
 .ng-invalid,
 .ng-valid {
   border-left: none;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.form-control.is-invalid:focus {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #ced4da;
 }

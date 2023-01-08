@@ -9,44 +9,24 @@ Bootstrap tweaks
 ===============================================================*/
 
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-button {
-  width: 0;
-  height: 0;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #bebebe;
-  border: 1px none #000000;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #ababab;
-}
-
-::-webkit-scrollbar-thumb:active {
-  background: #8d8d8d;
+  width: 1vh;
+  background-color: #555555;
 }
 
 ::-webkit-scrollbar-track {
-  background: #ffffff;
-  border: 1px none #bababa;
-  border-radius: 10px;
+  background-color: #d2d2d2;
 }
 
-::-webkit-scrollbar-track:hover {
-  background: #ffffff;
+::-webkit-scrollbar-thumb {
+  background-color: #555555;
 }
 
-::-webkit-scrollbar-track:active {
-  background: #ffffff;
+::-webkit-scrollbar-thumb:hover {
+  background: #666666;
 }
 
-::-webkit-scrollbar-corner {
-  background: transparent;
+::-webkit-scrollbar-thumb:active {
+  background: #666666;
 }
 
 body,

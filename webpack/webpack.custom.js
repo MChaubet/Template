@@ -91,6 +91,7 @@ module.exports = async (config, options, targetOptions) => {
   }
 
   const patterns = [
+    'src/main/webapp/content/**',
     // jhipster-needle-add-assets-to-webpack - JHipster will add/remove third-party resources in this array
   ];
 

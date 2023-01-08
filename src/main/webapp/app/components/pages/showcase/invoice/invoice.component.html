@@ -1,20 +1,56 @@
-<div class="invoice py-5">
-  <div class="container-sm contenu rounded">
-    <div class="titre-container d-flex justify-content-center">
-      <em class="fa-solid fa-file-lines fa-4x text-primary"></em>
-      <h1 class="ms-4 align-self-center titre">Edition de factures</h1>
-    </div>
-
-    <div class="text-end">
-      <button class="btn btn-primary text-white" (click)="fillInputsRandomly()">Tout remplir aléatoirement</button>
+<div class="invoice">
+  <div class="container-sm contenu">
+    <div class="titre-container">
+      <h1 class="ms-2 align-self-center titre">EDITION DE FACTURES</h1>
     </div>
 
     <form role="form" [formGroup]="form" novalidate>
       <div class="mb-5">
         <div class="d-flex mb-4">
           <em class="fa-solid fa-id-card fa-3x"></em>
-          <h2 class="ms-4 titre align-self-center">Identification</h2>
+          <h2 class="ms-4 sous-titre align-self-center">Identification</h2>
         </div>
+        <div class="row">
+          <!--          <mat-form-field class="col-xl-5 col-12" appearance="outline">-->
+          <!--            <mat-label>Numéro client</mat-label>-->
+          <!--            <input matInput #inputNumeroClient maxlength="10" formControlName="numeroClient" />-->
+          <!--            <mat-hint align="end">{{ inputNumeroClient.value?.length || 0 }}/10</mat-hint>-->
+          <!--            <mat-error *ngFor="let validation of validationMsgs.numeroClient">-->
+          <!--              <div *ngIf="form.get('numeroClient')?.hasError(validation.type)">-->
+          <!--                {{ validation.message }}-->
+          <!--              </div>-->
+          <!--            </mat-error>-->
+          <!--          </mat-form-field>-->
+
+          <div class="input-group has-validation" (click)="gojdf()">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="numeroClient"
+                formControlName="numeroClient"
+                maxlength="10"
+                class="form-control"
+                [class]="form.get('numeroClient')?.status === 'INVALID' && form.get('numeroClient')?.touched ? 'is-invalid' : ''"
+                placeholder="Numéro client"
+                #inputNumeroClient
+              />
+              <label for="numeroClient">Numéro client <span class="asterisk">*</span></label>
+            </div>
+            <ng-container *ngFor="let validation of validationMsgs.numeroClient">
+              <div class="invalid-feedback" *ngIf="form.get('numeroClient')?.hasError(validation.type)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+
+          <!--          <div class="col-12 col-lg-6 pb-3">-->
+          <!--            <div class="form-floating">-->
+          <!--              <input type="text" id="email" name="email" class="form-control"/>-->
+          <!--              <label for="email">Nom client <span class="asterisk">*</span></label>-->
+          <!--            </div>-->
+          <!--          </div>-->
+        </div>
+
         <div class="row justify-content-between">
           <mat-form-field class="col-xl-5 col-12" appearance="outline">
             <mat-label>Numéro client</mat-label>
@@ -43,7 +79,7 @@
       <div class="mb-5">
         <div class="d-flex mb-4">
           <em class="fa-solid fa-location-dot fa-3x"></em>
-          <h2 class="ms-4 titre align-self-center">Adresse de facturation</h2>
+          <h2 class="ms-4 sous-titre align-self-center">Adresse de facturation</h2>
         </div>
         <div class="row">
           <mat-form-field appearance="outline">
@@ -73,11 +109,6 @@
             <mat-label>Extension</mat-label>
             <input matInput #inputExtensionAdresse formControlName="extensionAdresse" placeholder="Extension" />
             <mat-hint align="end">{{ inputExtensionAdresse.value?.length || 0 }}/4</mat-hint>
-            <mat-error *ngFor="let validation of validationMsgs.extensionAdresse">
-              <div *ngIf="form.get('extensionAdresse')?.hasError(validation.type) && form.get('extensionAdresse')?.touched">
-                {{ validation.message }}
-              </div>
-            </mat-error>
           </mat-form-field>
         </div>
         <div class="row">
@@ -143,7 +174,7 @@
 
       <div class="d-flex mb-4">
         <em class="fa-solid fa-euro-sign fa-3x"></em>
-        <h2 class="ms-4 titre align-self-center">Prestations</h2>
+        <h2 class="ms-4 sous-titre align-self-center">Prestations</h2>
       </div>
       <div>
         <div formArrayName="prestations" cdkDropList (cdkDropListDropped)="drop($event)">
@@ -226,8 +257,10 @@
 
       <hr />
 
-      <div class="text-end">
-        <button (click)="submitForm()" class="btn btn-success text-white me-3">Impression</button>
+      <div class="bottom-buttons">
+        <button type="button" class="btn btn-outline-secondary" (click)="resetForm()">Réinitialiser</button>
+        <button type="button" class="btn btn-outline-primary" (click)="fillInputsRandomly()">Remplir</button>
+        <button (click)="submitForm()" class="btn btn-outline-success">Impression</button>
       </div>
     </form>
   </div>

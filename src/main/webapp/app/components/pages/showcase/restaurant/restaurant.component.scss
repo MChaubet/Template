@@ -11,7 +11,7 @@ hr.hr-logo {
 
 hr.hr-logo:after {
   content: '';
-  background: $body-bg url(~content/images/logo.svg) no-repeat;
+  background: $body-bg url(~content/images/logo/logo.svg) no-repeat;
   background-size: 150px 150px;
   padding: 75px 75px;
 }

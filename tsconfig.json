@@ -17,7 +17,8 @@
     "target": "es2017",
     "module": "es2020",
     "lib": ["es2018", "dom"],
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "types": ["node"]
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
