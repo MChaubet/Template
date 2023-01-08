@@ -15,7 +15,6 @@ import { PricingComponent } from './pricing/pricing.component';
 import { BakeryComponent } from './bakery/bakery.component';
 import { ShowcaseComponent } from './showcase.component';
 import { LayoutsModule } from '../../layouts/layouts.module';
-import { TechnologyComponent } from './technology/technology.component';
 
 const routes: Routes = [
   {
@@ -50,10 +49,6 @@ const routes: Routes = [
         path: 'bakery',
         component: BakeryComponent,
       },
-      {
-        path: 'tech',
-        component: TechnologyComponent,
-      },
     ],
   },
 ];
@@ -69,7 +64,6 @@ const routes: Routes = [
     InvoiceComponent,
     PricingComponent,
     BakeryComponent,
-    TechnologyComponent,
     ShowcaseComponent,
   ],
   imports: [
