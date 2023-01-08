@@ -1,0 +1,17 @@
+<img
+  [src]="'content/images/flags/' + translateService.currentLang + '.svg'"
+  class="cursor"
+  alt="flag"
+  height="20px"
+  placement="auto"
+  [ngbPopover]="popContent"
+/>
+
+<ng-template #popContent>
+  <div class="d-flex flex-column">
+    <div *ngFor="let flag of flags" (click)="changeLanguage(flag)" class="lang d-flex flex-row justify-content-between p-2 cursor">
+      <div class="country">{{ flag.country }}</div>
+      <img [src]="'content/images/flags/' + flag.shortName + '.svg'" alt="flag" height="20px" />
+    </div>
+  </div>
+</ng-template>

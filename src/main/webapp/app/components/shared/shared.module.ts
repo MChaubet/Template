@@ -19,6 +19,7 @@ import { TextAnimationDirective } from 'app/directives/text-animation.directive'
 import { MaskDirective } from 'app/directives/mask.directive';
 import { CurrencyMaskDirective } from 'app/directives/currency-mask.directive';
 import { ContactComponent } from './button-contact/contact.component';
+import { LanguageSelectionComponent } from './language-selection/language-selection.component';
 
 @NgModule({
   imports: [SharedLibsModule],
@@ -41,6 +42,7 @@ import { ContactComponent } from './button-contact/contact.component';
     MaskDirective,
     CurrencyMaskDirective,
     ContactComponent,
+    LanguageSelectionComponent,
   ],
   exports: [
     SharedLibsModule,
@@ -62,6 +64,7 @@ import { ContactComponent } from './button-contact/contact.component';
     MaskDirective,
     CurrencyMaskDirective,
     ContactComponent,
+    LanguageSelectionComponent,
   ],
 })
 export class SharedModule {}
