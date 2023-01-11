@@ -1,26 +1,36 @@
 .btn-contact {
-  top: 0;
-  line-height: 20px;
   font-weight: 500;
   background-image: linear-gradient(45deg, #4568dc, #b06ab3);
-  border: 5em;
-  padding: 15px 25px 15px 25px !important;
-  cursor: pointer;
-  outline: none;
+  border: 0;
+  padding: 7px 15px;
   font-size: 20px;
-  //transform: translate(0);
   border-radius: 65px;
-  box-shadow: 1px 1px 8px hsl(0deg 0% 100% / 44%);
+  box-shadow: 0 0 10px hsl(0deg 0% 100% / 44%);
   transition: box-shadow 0.25s;
-  color: #fff;
+
+  &:hover {
+    box-shadow: 0 0 20px hsl(0deg 0% 100% / 44%);
+  }
+
+  .gradient-text {
+    background-image: linear-gradient(to right, #e3e3e3, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
-.btn-contact:hover {
-  box-shadow: 1px 1px 20px hsl(0deg 0% 100% / 44%);
+.modal-body {
+  height: 75vh;
 }
 
-.texte-contact {
-  background-image: linear-gradient(to right, #e3e3e3, #ffffff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.btn-close:focus,
+.btn-close:active {
+  background-color: transparent;
+  outline: none !important;
+  box-shadow: none;
+}
+
+#answers,
+#inputs {
+  gap: 10px;
 }

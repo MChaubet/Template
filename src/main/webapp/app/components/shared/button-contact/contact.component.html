@@ -1,1 +1,43 @@
-<button class="btn btn-primary btn-contact" (click)="openModalContact()"><span class="texte-contact">Lancez-vous !</span></button>
+<button class="btn btn-primary btn-contact" (click)="openModalContact(content)">
+  <span class="gradient-text text-nowrap">Lancez-vous !</span>
+</button>
+
+<ng-template #content let-modal>
+  <div class="modal-body d-flex flex-column">
+    <div class="d-flex flex-row-reverse">
+      <button type="button" class="btn-close btn-light" (click)="modal.close()"></button>
+    </div>
+    <div class="flex-grow-1 text-center">
+      <ng-container *ngFor="let question of questions; let i = index">
+        <div class="h-100 d-flex flex-column" *ngIf="i === currentQuestionIdx">
+          <div class="">{{ i + 1 }} / {{ questions.length }}</div>
+          <div class="flex-grow-1">
+            <div class="h-100 d-flex justify-content-center align-items-center">
+              <div class="d-flex flex-column">
+                <div>{{ question.question }}</div>
+
+                <div *ngIf="question.answers.length" id="answers" class="d-flex flex-row justify-content-center">
+                  <button *ngFor="let answer of question.answers" (click)="answerQuestion(i, answer)">{{ answer }}</button>
+                </div>
+
+                <div *ngIf="question.inputs.length" id="inputs" class="d-flex flex-column">
+                  <input *ngFor="let input of question.inputs" [type]="input.type" [placeholder]="input.placeholder" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="">
+            <button (click)="previousQuestion()" [disabled]="currentQuestionIdx === 0"><</button>
+            <button (click)="answerQuestion(i, 'response')">></button>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="currentQuestionIdx >= questions.length">
+        <div class="d-flex align-items-center">
+          <h1>Thx</h1>
+          <button (click)="closeModal()">Back to website</button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</ng-template>

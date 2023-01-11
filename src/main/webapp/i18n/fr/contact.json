@@ -1,0 +1,36 @@
+{
+  "contact": {
+    "questions": {
+      "step1": {
+        "question": "Want to get in touch? That’s great! \n In regards to...",
+        "answer1": "Website",
+        "answer2": "Branding",
+        "answer3": "Website & branding"
+      },
+      "step2": {
+        "question": "Awesome! Can you give a few details about what you need?",
+        "input": "Please share some project details"
+      },
+      "step3": {
+        "question": "What type of budget are you looking to invest in this project?",
+        "answer1": "<5K",
+        "answer2": "5K-10K",
+        "answer3": "10K-15K",
+        "answer4": "+15K"
+      },
+      "step4": {
+        "question": "And what’s your timeframe?",
+        "answer1": "Whenever",
+        "answer2": "Within 2 months",
+        "answer3": "Within 3 months",
+        "answer4": "Within 6 months"
+      },
+      "step5": {
+        "question": "Lastly, could you please share a few more details?",
+        "input1": "Your name",
+        "input2": "Your email",
+        "input3": "Any additional details? Existing website?"
+      }
+    }
+  }
+}
