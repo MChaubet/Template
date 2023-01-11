@@ -1,220 +1,329 @@
 <div class="invoice">
-  <div class="container-sm contenu">
-    <div class="titre-container">
-      <h1 class="ms-2 align-self-center titre">EDITION DE FACTURES</h1>
+  <div class="contenu container" style="max-width: 1150px">
+    <div style="margin-bottom: 70px">
+      <h1 class="ms-1 align-self-center titre">Edition de factures</h1>
     </div>
 
     <form role="form" [formGroup]="form" novalidate>
-      <div class="mb-5">
+      <div style="margin-bottom: 70px">
         <div class="d-flex mb-4">
           <em class="fa-solid fa-id-card fa-3x"></em>
           <h2 class="ms-4 sous-titre align-self-center">Identification</h2>
         </div>
-        <div class="row">
-          <!--          <mat-form-field class="col-xl-5 col-12" appearance="outline">-->
-          <!--            <mat-label>Numéro client</mat-label>-->
-          <!--            <input matInput #inputNumeroClient maxlength="10" formControlName="numeroClient" />-->
-          <!--            <mat-hint align="end">{{ inputNumeroClient.value?.length || 0 }}/10</mat-hint>-->
-          <!--            <mat-error *ngFor="let validation of validationMsgs.numeroClient">-->
-          <!--              <div *ngIf="form.get('numeroClient')?.hasError(validation.type)">-->
-          <!--                {{ validation.message }}-->
-          <!--              </div>-->
-          <!--            </mat-error>-->
-          <!--          </mat-form-field>-->
 
-          <div class="input-group has-validation" (click)="gojdf()">
-            <div class="form-floating">
-              <input
-                type="text"
-                id="numeroClient"
-                formControlName="numeroClient"
-                maxlength="10"
-                class="form-control"
+        <div class="row">
+          <div class="col-xl-6 col-12">
+            <div class="input-group has-validation">
+              <div
+                class="form-floating"
                 [class]="form.get('numeroClient')?.status === 'INVALID' && form.get('numeroClient')?.touched ? 'is-invalid' : ''"
-                placeholder="Numéro client"
-                #inputNumeroClient
-              />
-              <label for="numeroClient">Numéro client <span class="asterisk">*</span></label>
-            </div>
-            <ng-container *ngFor="let validation of validationMsgs.numeroClient">
-              <div class="invalid-feedback" *ngIf="form.get('numeroClient')?.hasError(validation.type)">
-                {{ validation.message }}
+              >
+                <input
+                  type="text"
+                  id="numeroClient"
+                  formControlName="numeroClient"
+                  maxlength="10"
+                  class="form-control"
+                  [class]="form.get('numeroClient')?.status === 'INVALID' && form.get('numeroClient')?.touched ? 'is-invalid' : ''"
+                  placeholder="Numéro client"
+                />
+                <label for="numeroClient">Numéro client <span class="asterisk">*</span></label>
               </div>
-            </ng-container>
+              <ng-container *ngFor="let validation of validationMsgs.numeroClient">
+                <div class="invalid-feedback ms-1" *ngIf="form.get('numeroClient')?.hasError(validation.type)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
           </div>
 
-          <!--          <div class="col-12 col-lg-6 pb-3">-->
-          <!--            <div class="form-floating">-->
-          <!--              <input type="text" id="email" name="email" class="form-control"/>-->
-          <!--              <label for="email">Nom client <span class="asterisk">*</span></label>-->
-          <!--            </div>-->
-          <!--          </div>-->
-        </div>
-
-        <div class="row justify-content-between">
-          <mat-form-field class="col-xl-5 col-12" appearance="outline">
-            <mat-label>Numéro client</mat-label>
-            <input matInput #inputNumeroClient maxlength="10" formControlName="numeroClient" />
-            <mat-hint align="end">{{ inputNumeroClient.value?.length || 0 }}/10</mat-hint>
-            <mat-error *ngFor="let validation of validationMsgs.numeroClient">
-              <div *ngIf="form.get('numeroClient')?.hasError(validation.type)">
-                {{ validation.message }}
+          <div class="col-xl-6 col-12">
+            <div class="input-group has-validation">
+              <div
+                class="form-floating"
+                [class]="form.get('nomClient')?.status === 'INVALID' && form.get('nomClient')?.touched ? 'is-invalid' : ''"
+              >
+                <input
+                  type="text"
+                  id="nomClient"
+                  formControlName="nomClient"
+                  maxlength="30"
+                  class="form-control"
+                  [class]="form.get('nomClient')?.status === 'INVALID' && form.get('nomClient')?.touched ? 'is-invalid' : ''"
+                  placeholder="Nom client"
+                />
+                <label for="nomClient">Nom client <span class="asterisk">*</span></label>
               </div>
-            </mat-error>
-          </mat-form-field>
-
-          <mat-form-field class="col-xl-5 col-12" appearance="outline">
-            <mat-label>Nom client</mat-label>
-            <input matInput #inputNomClient maxlength="30" formControlName="nomClient" />
-            <mat-hint align="end">{{ inputNomClient.value?.length || 0 }}/30</mat-hint>
-            <mat-error *ngFor="let validation of validationMsgs.nomClient">
-              <div *ngIf="form.get('nomClient')?.hasError(validation.type) && form.get('nomClient')?.touched">
-                {{ validation.message }}
-              </div>
-            </mat-error>
-          </mat-form-field>
+              <ng-container *ngFor="let validation of validationMsgs.nomClient">
+                <div class="invalid-feedback ms-1" *ngIf="form.get('nomClient')?.hasError(validation.type)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="mb-5">
+      <div style="margin-bottom: 70px">
         <div class="d-flex mb-4">
           <em class="fa-solid fa-location-dot fa-3x"></em>
           <h2 class="ms-4 sous-titre align-self-center">Adresse de facturation</h2>
         </div>
-        <div class="row">
-          <mat-form-field appearance="outline">
-            <mat-label>Pays</mat-label>
-            <mat-select formControlName="pays">
-              <mat-option *ngFor="let c of countries" [value]="c.name">{{ c.name }}</mat-option>
-            </mat-select>
-            <mat-error *ngFor="let validation of validationMsgs.pays">
-              <div *ngIf="form.get('pays')?.hasError(validation.type) && form.get('pays')?.touched">
-                {{ validation.message }}
-              </div>
-            </mat-error>
-          </mat-form-field>
-        </div>
-        <div class="row">
-          <mat-form-field class="col-4" appearance="outline">
-            <mat-label>Numéro</mat-label>
-            <input matInput #inputNumeroAdresse formControlName="numeroAdresse" placeholder="Numéro" />
-            <mat-hint align="end">{{ inputNumeroAdresse.value?.length || 0 }}/4</mat-hint>
-            <mat-error *ngFor="let validation of validationMsgs.numeroAdresse">
-              <div *ngIf="form.get('numeroAdresse')?.hasError(validation.type) && form.get('numeroAdresse')?.touched">
-                {{ validation.message }}
-              </div>
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field class="col-8" appearance="outline">
-            <mat-label>Extension</mat-label>
-            <input matInput #inputExtensionAdresse formControlName="extensionAdresse" placeholder="Extension" />
-            <mat-hint align="end">{{ inputExtensionAdresse.value?.length || 0 }}/4</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="row">
-          <mat-form-field class="col-12" appearance="outline">
-            <mat-label>Nature et libellé de la voie</mat-label>
-            <input
-              matInput
-              #inputNatureLibelleVoie
-              formControlName="natureLibelleVoie"
-              placeholder="Nature et libellé de la voie"
-              maxlength="60"
-            />
-            <mat-hint align="end">{{ inputNatureLibelleVoie.value?.length || 0 }}/60</mat-hint>
-            <mat-error *ngFor="let validation of validationMsgs.natureLibelleVoie">
-              <div *ngIf="form.get('natureLibelleVoie')?.hasError(validation.type) && form.get('natureLibelleVoie')?.touched">
-                {{ validation.message }}
-              </div>
-            </mat-error>
-          </mat-form-field>
-        </div>
-        <div class="row">
-          <mat-form-field class="col-12" appearance="outline">
-            <mat-label>Complément de localisation</mat-label>
-            <input
-              matInput
-              #inputComplementLocalisation
-              formControlName="complementLocalisation"
-              placeholder="Complément de localisation"
-              maxlength="50"
-            />
-            <mat-hint align="end">{{ inputComplementLocalisation.value?.length || 0 }}/50</mat-hint>
-            <mat-error *ngFor="let validation of validationMsgs.complementLocalisation">
-              <div *ngIf="form.get('complementLocalisation')?.hasError(validation.type) && form.get('complementLocalisation')?.touched">
-                {{ validation.message }}
-              </div>
-            </mat-error>
-          </mat-form-field>
-        </div>
-        <div class="row">
-          <mat-form-field class="col-4" appearance="outline">
-            <mat-label>Code postal</mat-label>
-            <input matInput #inputCodePostal formControlName="codePostal" placeholder="Code postal" maxlength="5" />
-            <mat-hint align="end">{{ inputCodePostal.value?.length || 0 }}/5</mat-hint>
-            <mat-error *ngFor="let validation of validationMsgs.codePostal">
-              <div *ngIf="form.get('codePostal')?.hasError(validation.type) && form.get('codePostal')?.touched">
-                {{ validation.message }}
-              </div>
-            </mat-error>
-          </mat-form-field>
+        <div class="row mb-3">
+          <div class="input-group has-validation">
+            <div class="form-floating" [class]="form.get('pays')?.status === 'INVALID' && form.get('pays')?.touched ? 'is-invalid' : ''">
+              <select class="form-select" id="pays" formControlName="pays">
+                <option *ngFor="let c of countries" [value]="c.name">{{ c.name }}</option>
+              </select>
+              <label for="pays">Pays <span class="asterisk">*</span></label>
+            </div>
 
-          <mat-form-field class="col-8" appearance="outline">
-            <mat-label>Ville</mat-label>
-            <input matInput #inputVille formControlName="ville" placeholder="Ville" maxlength="50" />
-            <mat-hint align="end">{{ inputVille.value?.length || 0 }}/50</mat-hint>
-            <mat-error *ngFor="let validation of validationMsgs.ville">
-              <div *ngIf="form.get('ville')?.hasError(validation.type) && form.get('ville')?.touched">
+            <ng-container *ngFor="let validation of validationMsgs.pays">
+              <div class="invalid-feedback ms-1" *ngIf="form.get('pays')?.hasError(validation.type)">
                 {{ validation.message }}
               </div>
-            </mat-error>
-          </mat-form-field>
+            </ng-container>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-4">
+            <div class="input-group has-validation">
+              <div
+                class="form-floating"
+                [class]="form.get('numeroAdresse')?.status === 'INVALID' && form.get('numeroAdresse')?.touched ? 'is-invalid' : ''"
+              >
+                <input
+                  type="text"
+                  id="numeroAdresse"
+                  formControlName="numeroAdresse"
+                  class="form-control"
+                  [class]="form.get('numeroAdresse')?.status === 'INVALID' && form.get('numeroAdresse')?.touched ? 'is-invalid' : ''"
+                  placeholder="Numéro"
+                />
+                <label for="numeroAdresse">Numéro <span class="asterisk">*</span></label>
+              </div>
+              <ng-container *ngFor="let validation of validationMsgs.numeroAdresse">
+                <div class="invalid-feedback ms-1" *ngIf="form.get('numeroAdresse')?.hasError(validation.type)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="form-floating w-100">
+              <input type="text" id="extensionAdresse" formControlName="extensionAdresse" class="form-control" placeholder="Extension" />
+              <label for="extensionAdresse">Extension</label>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-12">
+            <div class="input-group has-validation">
+              <div
+                class="form-floating w-100"
+                [class]="form.get('natureLibelleVoie')?.status === 'INVALID' && form.get('natureLibelleVoie')?.touched ? 'is-invalid' : ''"
+              >
+                <input
+                  type="text"
+                  id="natureLibelleVoie"
+                  formControlName="natureLibelleVoie"
+                  maxlength="60"
+                  class="form-control"
+                  [class]="
+                    form.get('natureLibelleVoie')?.status === 'INVALID' && form.get('natureLibelleVoie')?.touched ? 'is-invalid' : ''
+                  "
+                  placeholder="Nature et libellé de la voie"
+                />
+                <label for="natureLibelleVoie">Nature et libellé de la voie <span class="asterisk">*</span></label>
+              </div>
+              <ng-container *ngFor="let validation of validationMsgs.natureLibelleVoie">
+                <div class="invalid-feedback ms-1" *ngIf="form.get('natureLibelleVoie')?.hasError(validation.type)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-12">
+            <div class="input-group has-validation">
+              <div
+                class="form-floating w-100"
+                [class]="
+                  form.get('complementLocalisation')?.status === 'INVALID' && form.get('complementLocalisation')?.touched
+                    ? 'is-invalid'
+                    : ''
+                "
+              >
+                <input
+                  type="text"
+                  id="complementLocalisation"
+                  formControlName="complementLocalisation"
+                  maxlength="50"
+                  class="form-control"
+                  [class]="
+                    form.get('complementLocalisation')?.status === 'INVALID' && form.get('complementLocalisation')?.touched
+                      ? 'is-invalid'
+                      : ''
+                  "
+                  placeholder="Complément de localisation"
+                />
+                <label for="complementLocalisation">Complément de localisation</label>
+              </div>
+              <ng-container *ngFor="let validation of validationMsgs.complementLocalisation">
+                <div class="invalid-feedback ms-1" *ngIf="form.get('complementLocalisation')?.hasError(validation.type)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <div class="input-group has-validation">
+              <div
+                class="form-floating w-100"
+                [class]="form.get('codePostal')?.status === 'INVALID' && form.get('codePostal')?.touched ? 'is-invalid' : ''"
+              >
+                <input
+                  type="text"
+                  id="codePostal"
+                  formControlName="codePostal"
+                  maxlength="5"
+                  class="form-control"
+                  [class]="form.get('codePostal')?.status === 'INVALID' && form.get('codePostal')?.touched ? 'is-invalid' : ''"
+                  placeholder="Code postal"
+                />
+                <label for="codePostal">Code postal <span class="asterisk">*</span></label>
+              </div>
+              <ng-container *ngFor="let validation of validationMsgs.codePostal">
+                <div class="invalid-feedback ms-1" *ngIf="form.get('codePostal')?.hasError(validation.type)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="col-8">
+            <div class="input-group has-validation">
+              <div
+                class="form-floating w-100"
+                [class]="form.get('ville')?.status === 'INVALID' && form.get('ville')?.touched ? 'is-invalid' : ''"
+              >
+                <input
+                  type="text"
+                  id="ville"
+                  formControlName="ville"
+                  maxlength="50"
+                  class="form-control"
+                  [class]="form.get('ville')?.status === 'INVALID' && form.get('ville')?.touched ? 'is-invalid' : ''"
+                  placeholder="Ville"
+                />
+                <label for="ville">Ville <span class="asterisk">*</span></label>
+              </div>
+              <ng-container *ngFor="let validation of validationMsgs.ville">
+                <div class="invalid-feedback ms-1" *ngIf="form.get('ville')?.hasError(validation.type)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="d-flex mb-4">
-        <em class="fa-solid fa-euro-sign fa-3x"></em>
-        <h2 class="ms-4 sous-titre align-self-center">Prestations</h2>
-      </div>
-      <div>
+      <div class="">
+        <div class="d-flex mb-4">
+          <em class="fa-solid fa-euro-sign fa-3x"></em>
+          <h2 class="ms-4 sous-titre align-self-center">Prestations</h2>
+        </div>
         <div formArrayName="prestations" cdkDropList (cdkDropListDropped)="drop($event)">
           <div
-            class="row draggable-element"
+            class="row draggable-element row-prestation"
             *ngFor="let prestation of prestations.controls; let i = index"
             [formGroupName]="i"
             [cdkDragData]="prestations.controls"
             cdkDrag
             cdkDragLockAxis="y"
           >
-            <mat-form-field style="width: 50%" appearance="outline">
-              <mat-label>Nom</mat-label>
-              <input matInput #inputNomPrestation formControlName="nom" placeholder="Nom" />
-              <mat-hint align="end">{{ inputNomPrestation.value?.length || 0 }}/100</mat-hint>
-              <mat-error *ngFor="let validation of validationMsgs.nomPrestation">
-                <div *ngIf="prestation.get('nom')?.hasError(validation.type) && prestation.get('nom')?.touched">
-                  {{ validation.message }}
+            <div style="width: 40%">
+              <div class="input-group has-validation">
+                <div
+                  class="form-floating w-100"
+                  [class]="prestation.get('nom')?.status === 'INVALID' && prestation.get('nom')?.touched ? 'is-invalid' : ''"
+                >
+                  <input
+                    type="text"
+                    id="nomPrestation"
+                    formControlName="nom"
+                    maxlength="100"
+                    class="form-control"
+                    [class]="prestation.get('nom')?.status === 'INVALID' && prestation.get('nom')?.touched ? 'is-invalid' : ''"
+                    placeholder="Nom"
+                  />
+                  <label for="nomPrestation">Nom <span class="asterisk">*</span></label>
                 </div>
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field style="width: 19%" appearance="outline">
-              <mat-label>Quantité</mat-label>
-              <input matInput formControlName="quantite" placeholder="Quantité" class="text-right" jhiNumbersOnly />
-              <mat-error *ngFor="let validation of validationMsgs.quantitePrestation">
-                <div *ngIf="prestation.get('quantite')?.hasError(validation.type) && prestation.get('quantite')?.touched">
-                  {{ validation.message }}
+                <ng-container *ngFor="let validation of validationMsgs.nomPrestation">
+                  <div class="invalid-feedback ms-1" *ngIf="prestation.get('nom')?.hasError(validation.type)">
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+            <div style="width: 24%">
+              <div class="input-group has-validation">
+                <div
+                  class="form-floating w-100"
+                  [class]="prestation.get('quantite')?.status === 'INVALID' && prestation.get('quantite')?.touched ? 'is-invalid' : ''"
+                >
+                  <input
+                    type="text"
+                    id="quantitePrestation"
+                    formControlName="quantite"
+                    maxlength="5"
+                    class="form-control inputNombre text-right"
+                    [class]="prestation.get('quantite')?.status === 'INVALID' && prestation.get('quantite')?.touched ? 'is-invalid' : ''"
+                    placeholder="Quantité"
+                    jhiNumbersOnly
+                  />
+                  <label for="quantitePrestation">Quantité <span class="asterisk">*</span></label>
                 </div>
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field style="width: 19%" appearance="outline">
-              <mat-label>Tarif unitaire</mat-label>
-              <input matInput formControlName="tarifUnitaire" type="number" class="inputNombre text-right" placeholder="0.00" />
-              <span matSuffix>€</span>
-              <mat-error *ngFor="let validation of validationMsgs.tarifUnitairePrestation">
-                <div *ngIf="prestation.get('tarifUnitaire')?.hasError(validation.type)">
-                  {{ validation.message }}
+                <ng-container *ngFor="let validation of validationMsgs.quantitePrestation">
+                  <div class="invalid-feedback ms-1" *ngIf="prestation.get('quantite')?.hasError(validation.type)">
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+            <div style="width: 24%">
+              <div class="input-group has-validation flex-grow-1">
+                <div
+                  style="width: 84%"
+                  class="form-floating"
+                  [class]="
+                    prestation.get('tarifUnitaire')?.status === 'INVALID' && prestation.get('tarifUnitaire')?.touched ? 'is-invalid' : ''
+                  "
+                >
+                  <input
+                    type="text"
+                    id="tarifUnitairePrestation"
+                    formControlName="tarifUnitaire"
+                    maxlength="10"
+                    class="form-control inputNombre text-right"
+                    [class]="
+                      prestation.get('tarifUnitaire')?.status === 'INVALID' && prestation.get('tarifUnitaire')?.touched ? 'is-invalid' : ''
+                    "
+                    placeholder="Tarif unitaire"
+                  />
+                  <label for="tarifUnitairePrestation">Tarif unitaire <span class="asterisk">*</span></label>
                 </div>
-              </mat-error>
-            </mat-form-field>
+                <span class="input-group-text" style="width: 16%">€</span>
+                <ng-container *ngFor="let validation of validationMsgs.tarifUnitairePrestation">
+                  <div class="invalid-feedback ms-1" *ngIf="prestation.get('tarifUnitaire')?.hasError(validation.type)">
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+            </div>
             <div style="width: 12%">
               <div class="d-flex justify-content-center" style="margin-top: 10px">
                 <button

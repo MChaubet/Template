@@ -1,16 +1,21 @@
 // ================ Constantes ================
 
-$theme-primary: rgb(241, 217, 188);
+$theme-primary: hsl(231, 48%, 48%);
 $theme-secondary: rgb(232, 150, 42);
-$background-color: linear-gradient(to left, #e8ecec, #8e9eab);
-$container-color: rgb(251, 249, 250);
+$background-color: linear-gradient(230deg, #e8ecec, #8e9eab);
+$container-color: rgb(250, 249, 250);
 
 // =============== Balises HTML ===============
 
 hr {
   width: 70%;
-  margin: 75px auto 30px;
+  margin: 75px auto 75px;
   color: $theme-primary;
+}
+
+input,
+select {
+  font-weight: 300;
 }
 
 // ================= Classes ==================
@@ -33,17 +38,14 @@ hr {
   padding: 100px 100px;
 }
 
-.titre-container {
-  margin-bottom: 100px;
-}
-
 .titre {
-  font-family: 'Garamond', Calibri;
+  font-family: ABCNormal, Calibri;
   margin-bottom: 0 !important;
+  font-weight: 300;
 }
 
 .sous-titre {
-  font-family: 'Garamond', Calibri;
+  font-family: ABCNormal, Calibri;
   font-weight: 300;
   margin-bottom: 0 !important;
 }
@@ -52,17 +54,13 @@ hr {
   color: $theme-secondary;
 }
 
-// modifie la weight de la police dans les .form-control
-input {
-  font-weight: 300;
-}
-
 .bottom-buttons {
   display: flex;
   flex-direction: row;
   gap: 1rem;
   width: 100%;
   justify-content: end;
+  font-family: 'Calibri Light', Calibri;
 }
 
 input.inputNombre::-webkit-outer-spin-button,
@@ -92,26 +90,34 @@ input.inputNombre {
   color: rgba(0, 0, 0, 0.2);
 }
 
+.row-prestation:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
 // ============= Override bootstrap =============
 
 .form-control,
 .form-select {
   border: 1px solid #ced4da;
-  border-radius: 0.25rem;
+  //border-radius: 0.25rem;
 }
 
-.ng-invalid,
-.ng-valid {
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border: 1px solid #dc3545;
+}
+
+div.ng-invalid {
   border-left: none;
 }
 
-input:focus {
-  outline: none;
-  box-shadow: none;
+.form-floating {
+  width: 100%;
 }
 
-.form-control.is-invalid:focus {
-  outline: none;
-  box-shadow: none;
-  border: 1px solid #ced4da;
+.currencyinput {
+  border: 1px inset #ccc;
+}
+.currencyinput input {
+  border: 0;
 }

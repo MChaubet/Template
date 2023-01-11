@@ -4,8 +4,10 @@ import { ParametersInvoiceModel } from '../../../../models/invoice/parameters-in
 import { InvoiceService } from '../../../../services/invoice.service';
 import invoicesJson from '../../../../../../resources/json/invoices.json';
 import countriesJson from '../../../../../../resources/json/countries.json';
+import invoiceValidationMessagesJson from '../../../../../../resources/json/invoice-validation-messages.json';
 import { CountryModel } from '../../../../models/invoice/country';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'jhi-invoice',
@@ -14,41 +16,13 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 })
 export class InvoiceComponent implements OnInit {
   randomIndex = 0;
-
-  // todo mettre ces messages dans un fichier json, avec la trad
-  validationMsgs = {
-    numeroClient: [{ type: 'required', message: 'Ce champ est requis.' }],
-    nomClient: [{ type: 'required', message: 'Ce champ est requis.' }],
-    pays: [{ type: 'required', message: 'Ce champ est requis.' }],
-    numeroAdresse: [
-      { type: 'required', message: 'Ce champ est requis.' },
-      { type: 'pattern', message: "Le numéro n'est pas valide." },
-    ],
-    natureLibelleVoie: [{ type: 'required', message: 'Ce champ est requis.' }],
-    complementLocalisation: [{ type: 'maxlength', message: 'La taille maximale est de 50 caractères.' }],
-    codePostal: [
-      { type: 'required', message: 'Ce champ est requis.' },
-      { type: 'pattern', message: "Le code postal n'est pas valide." },
-    ],
-    ville: [{ type: 'required', message: 'Ce champ est requis.' }],
-    nomPrestation: [{ type: 'required', message: 'Ce champ est requis.' }],
-    quantitePrestation: [
-      { type: 'required', message: 'Ce champ est requis.' },
-      { type: 'min', message: 'Veuillez rentrer un nombre entre 1 et 1 000 000.' },
-      { type: 'max', message: 'Veuillez rentrer un nombre entre 1 et 1 000 000.' },
-    ],
-    tarifUnitairePrestation: [
-      { type: 'required', message: 'Ce champ est requis.' },
-      { type: 'min', message: 'Veuillez renseigner un nombre entre 0,01 et 1 000 000.' },
-      { type: 'max', message: 'Veuillez renseigner un nombre entre 0,01 et 1 000 000.' },
-    ],
-  };
+  validationMsgs: any;
 
   form = this.formBuilder.group(
     {
       numeroClient: [null, [Validators.required, Validators.maxLength(10)]],
       nomClient: [null, [Validators.required, Validators.maxLength(30)]],
-      pays: [null, [Validators.required]],
+      pays: ['France', [Validators.required]],
       numeroAdresse: [null, [Validators.required, Validators.maxLength(4), Validators.pattern('^[1-9][0-9]*$')]],
       extensionAdresse: [null, [Validators.maxLength(4)]],
       natureLibelleVoie: [null, [Validators.required, Validators.maxLength(60)]],
@@ -60,7 +34,12 @@ export class InvoiceComponent implements OnInit {
     { updateOn: 'submit' }
   );
 
-  constructor(private formBuilder: FormBuilder, private invoiceService: InvoiceService) {}
+  constructor(private formBuilder: FormBuilder, private invoiceService: InvoiceService, private translateService: TranslateService) {
+    this.getValidationMessages(translateService.currentLang);
+    this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.getValidationMessages(event.lang);
+    });
+  }
 
   ngOnInit(): void {}
 
@@ -141,10 +120,6 @@ export class InvoiceComponent implements OnInit {
     moveItemInArray(this.prestations.controls, event.previousIndex, event.currentIndex);
   }
 
-  djfhdfjh() {
-    console.log(this.form.get('numeroClient'));
-  }
-
   getInvoiceParameters(): ParametersInvoiceModel {
     const formValue = this.form.getRawValue();
 
@@ -170,7 +145,16 @@ export class InvoiceComponent implements OnInit {
     });
   }
 
-  gojdf() {
-    console.log(this.form.get('numeroClient')?.hasError('required'));
+  private getValidationMessages(lang: string) {
+    switch (lang) {
+      case 'fr':
+        this.validationMsgs = invoiceValidationMessagesJson.fr;
+        break;
+      case 'en':
+        this.validationMsgs = invoiceValidationMessagesJson.en;
+        break;
+      default:
+        this.validationMsgs = invoiceValidationMessagesJson.fr;
+    }
   }
 }

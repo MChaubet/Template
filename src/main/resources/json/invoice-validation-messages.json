@@ -1,0 +1,56 @@
+{
+  "fr": {
+    "numeroClient": [{ "type": "required", "message": "Ce champ est requis." }],
+    "nomClient": [{ "type": "required", "message": "Ce champ est requis." }],
+    "pays": [{ "type": "required", "message": "Ce champ est requis." }],
+    "numeroAdresse": [
+      { "type": "required", "message": "Ce champ est requis." },
+      { "type": "pattern", "message": "Le numéro n'est pas valide." }
+    ],
+    "natureLibelleVoie": [{ "type": "required", "message": "Ce champ est requis." }],
+    "complementLocalisation": [{ "type": "maxlength", "message": "La taille maximale est de 50 caractères." }],
+    "codePostal": [
+      { "type": "required", "message": "Ce champ est requis." },
+      { "type": "pattern", "message": "Le code postal n'est pas valide." }
+    ],
+    "ville": [{ "type": "required", "message": "Ce champ est requis." }],
+    "nomPrestation": [{ "type": "required", "message": "Ce champ est requis." }],
+    "quantitePrestation": [
+      { "type": "required", "message": "Ce champ est requis." },
+      { "type": "min", "message": "Veuillez rentrer un nombre entre 1 et 1 000 000." },
+      { "type": "max", "message": "Veuillez rentrer un nombre entre 1 et 1 000 000." }
+    ],
+    "tarifUnitairePrestation": [
+      { "type": "required", "message": "Ce champ est requis." },
+      { "type": "min", "message": "Veuillez renseigner un nombre entre 0,01 et 1 000 000." },
+      { "type": "max", "message": "Veuillez renseigner un nombre entre 0,01 et 1 000 000." }
+    ]
+  },
+  "en": {
+    "numeroClient": [{ "type": "required", "message": "This field is required." }],
+    "nomClient": [{ "type": "required", "message": "This field is required." }],
+    "pays": [{ "type": "required", "message": "This field is required." }],
+    "numeroAdresse": [
+      { "type": "required", "message": "This field is required." },
+      { "type": "pattern", "message": "The number is not valid." }
+    ],
+    "natureLibelleVoie": [{ "type": "required", "message": "This field is required." }],
+    "complementLocalisation": [{ "type": "maxlength", "message": "The maximum size is 50 characters." }],
+    "codePostal": [
+      { "type": "required", "message": "This field is required." },
+      { "type": "pattern", "message": "The postal code is not valid." }
+    ],
+    "ville": [{ "type": "required", "message": "This field is required." }],
+    "nomPrestation": [{ "type": "required", "message": "This field is required." }],
+    "quantitePrestation": [
+      { "type": "required", "message": "This field is required." },
+      { "type": "min", "message": "Please enter a number between 1 and 1,000,000." },
+      { "type": "max", "message": "Please enter a number between 1 and 1,000,000." }
+    ],
+    "tarifUnitairePrestation": [
+      { "type": "required", "message": "This field is required." },
+      { "type": "min", "message": "Please enter a number between 0.01 and 1,000,000." },
+      { "type": "max", "message": "Please enter a number between 0.01 and 1,000,000." }
+    ]
+  }
+}
