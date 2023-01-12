@@ -27,12 +27,6 @@ export class InvoiceService {
   }
 
   generateInvoice(parameters: ParametersInvoiceModel): void {
-    this.http.get('/content/images/showcase/invoice/devis.png', { responseType: 'blob' }).subscribe(blob => {
-      this.readAsync(blob).then(data => {
-        console.log('Suce : ' + data);
-      });
-    });
-
     forkJoin([
       this.http.get('/content/images/showcase/invoice/devis.png', { responseType: 'blob' }),
       this.http.get('/content/images/showcase/invoice/signature.png', { responseType: 'blob' }),

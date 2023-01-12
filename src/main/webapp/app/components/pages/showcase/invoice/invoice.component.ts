@@ -31,7 +31,7 @@ export class InvoiceComponent implements OnInit {
       ville: [null, [Validators.required, Validators.maxLength(50)]],
       prestations: this.formBuilder.array([this.createPrestationFormGroup()]),
     },
-    { updateOn: 'submit' }
+    { updateOn: 'change' }
   );
 
   constructor(private formBuilder: FormBuilder, private invoiceService: InvoiceService, private translateService: TranslateService) {
@@ -56,6 +56,7 @@ export class InvoiceComponent implements OnInit {
       this.invoiceService.generateInvoice(this.getInvoiceParameters());
     } else {
       this.form.markAllAsTouched();
+      console.log();
     }
   }
 
@@ -117,7 +118,22 @@ export class InvoiceComponent implements OnInit {
     moveItemInArray(this.prestations.controls, event.previousIndex, event.currentIndex);
   }
 
-  getInvoiceParameters(): ParametersInvoiceModel {
+  changeOpacityRowPrestation(i: number): void {
+    const row = document.getElementById('prestation-' + i.toString());
+    if (row) {
+      row.style.opacity = '0.5';
+    }
+  }
+
+  private createPrestationFormGroup(): FormGroup {
+    return new FormGroup({
+      nom: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+      quantite: new FormControl([], [Validators.required, Validators.min(1), Validators.max(1000000)]),
+      tarifUnitaire: new FormControl([], [Validators.required, Validators.min(0.01), Validators.max(1000000)]),
+    });
+  }
+
+  private getInvoiceParameters(): ParametersInvoiceModel {
     const formValue = this.form.getRawValue();
 
     return {
@@ -130,23 +146,14 @@ export class InvoiceComponent implements OnInit {
       complementLocalisation: formValue.complementLocalisation,
       codePostal: formValue.codePostal,
       ville: formValue.ville,
-      prestations: formValue.prestations,
+      prestations: formValue.prestations.map((p: { nom: any; quantite: string; tarifUnitaire: string }) => {
+        return {
+          nom: p.nom,
+          quantite: parseFloat(p.quantite),
+          tarifUnitaire: parseFloat(p.tarifUnitaire),
+        };
+      }),
     };
-  }
-
-  createPrestationFormGroup(): FormGroup {
-    return new FormGroup({
-      nom: new FormControl('', [Validators.required, Validators.maxLength(100)]),
-      quantite: new FormControl('', [Validators.required, Validators.min(1), Validators.max(1000000)]),
-      tarifUnitaire: new FormControl('', [Validators.required, Validators.min(0.01), Validators.max(1000000)]),
-    });
-  }
-
-  changeOpacityRowPrestation(i: number): void {
-    const row = document.getElementById('prestation-' + i.toString());
-    if (row) {
-      row.style.opacity = '0.5';
-    }
   }
 
   private getValidationMessages(lang: string) {
