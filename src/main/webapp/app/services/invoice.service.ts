@@ -44,18 +44,15 @@ export class InvoiceService {
         const background = base64Img[2];
 
         if (
-          !parameters.nomClient ||
-          !parameters.numeroAdresse ||
-          !parameters.natureLibelleVoie ||
-          !parameters.codePostal ||
-          !parameters.ville ||
-          !parameters.pays ||
-          !parameters.prestations ||
-          parameters.prestations.length < 1
+          parameters.nomClient &&
+          parameters.numeroAdresse &&
+          parameters.natureLibelleVoie &&
+          parameters.codePostal &&
+          parameters.ville &&
+          parameters.pays &&
+          parameters.prestations &&
+          parameters.prestations.length >= 1
         ) {
-          console.log('Il manque un paramètre');
-          // todo toastr
-        } else {
           const dd = {
             pageSize: 'LETTER' as PageSize,
             background: [
@@ -128,7 +125,7 @@ export class InvoiceService {
                   body: [],
                 },
               },
-              { image: signature, fit: [200, 200], style: 'right' } as ContentImage,
+              { image: signature, fit: [200, 200], style: 'right', margin: [0, 0, 10, 0] as Margins } as ContentImage,
             ],
             styles: {
               bold: {

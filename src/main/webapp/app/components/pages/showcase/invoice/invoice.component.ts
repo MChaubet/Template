@@ -95,11 +95,8 @@ export class InvoiceComponent implements OnInit {
     this.form.reset();
     this.prestations.clear();
     this.prestations.push(this.createPrestationFormGroup());
+    this.form.controls.pays.setValue('France');
     this.form.markAsUntouched();
-    Object.keys(this.form.controls).forEach(key => {
-      this.form.get(key)?.markAsUntouched();
-      // this.form.get(key)?.();
-    });
   }
 
   addPrestation(): void {
@@ -143,6 +140,13 @@ export class InvoiceComponent implements OnInit {
       quantite: new FormControl('', [Validators.required, Validators.min(1), Validators.max(1000000)]),
       tarifUnitaire: new FormControl('', [Validators.required, Validators.min(0.01), Validators.max(1000000)]),
     });
+  }
+
+  changeOpacityRowPrestation(i: number): void {
+    const row = document.getElementById('prestation-' + i.toString());
+    if (row) {
+      row.style.opacity = '0.5';
+    }
   }
 
   private getValidationMessages(lang: string) {

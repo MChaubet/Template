@@ -6,11 +6,11 @@ export class ParametersInvoiceModel {
 
   pays: string;
   numeroAdresse: string;
-  extensionAdresse?: string;
+  extensionAdresse: string;
   natureLibelleVoie: string;
-  complementLocalisation?: string;
-  codePostal?: string;
-  ville?: string;
+  complementLocalisation: string;
+  codePostal: string;
+  ville: string;
 
   prestations?: PrestationModel[];
 

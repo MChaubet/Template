@@ -70,21 +70,4 @@
       <div class="sidenav-item-text flex-grow-1" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.account.logout"></div>
     </a>
   </div>
-
-  <!--  todo ajouter les langues dans un menu déroulant  -->
-  <!--    <li ngbDropdown class="nav-item dropdown pointer" display="dynamic" *ngIf="languages && languages.length > 1">-->
-  <!--      <a class="nav-link dropdown-toggle" ngbDropdownToggle id="languagesnavBarDropdown">-->
-  <!--      <span>-->
-  <!--        <em class="fa-solid fa-flag"></em>-->
-  <!--        <span jhiTranslate="global.menu.language">Language</span>-->
-  <!--      </span>-->
-  <!--      </a>-->
-  <!--    </li>-->
-  <!--    <li *ngFor="let language of languages">-->
-  <!--      <a class="d-flex justify-content-between align-items-center" href="javascript:void(0);"-->
-  <!--         [jhiActiveMenu]="language" (click)="changeLanguage(language);" #elem>-->
-  <!--        <span>{{ language | findLanguageFromKey }}</span>-->
-  <!--        <em *ngIf="elem.classList.contains('active')" class="fa-solid fa-check text-white"></em>-->
-  <!--      </a>-->
-  <!--    </li>-->
 </div>

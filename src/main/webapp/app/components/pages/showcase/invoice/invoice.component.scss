@@ -9,12 +9,13 @@ $container-color: rgb(250, 249, 250);
 
 hr {
   width: 70%;
-  margin: 75px auto 75px;
+  margin: 40px auto 50px;
   color: $theme-primary;
 }
 
 input,
-select {
+select,
+option {
   font-weight: 300;
 }
 
@@ -22,36 +23,14 @@ select {
 .invoice {
   background: $background-color fixed center;
   background-size: cover;
-  padding-top: 100px;
-  padding-bottom: 100px;
-}
-
-@media (min-width: 768px) {
-  .contenu {
-    padding: 100px 150px;
-  }
+  padding: 100px 50px;
 }
 
 .contenu {
   box-shadow: -80px 80px 80px rgb(0 0 0 / 70%);
   background-color: $container-color;
-  padding: 100px 100px;
-}
-
-.titre {
-  font-family: ABCNormal, Calibri;
-  margin-bottom: 0 !important;
-  font-weight: 300;
-}
-
-.sous-titre {
-  font-family: ABCNormal, Calibri;
-  font-weight: 300;
-  margin-bottom: 0 !important;
-}
-
-.asterisk {
-  color: $theme-secondary;
+  padding: 70px 70px;
+  max-width: 1150px;
 }
 
 .bottom-buttons {
@@ -61,6 +40,20 @@ select {
   width: 100%;
   justify-content: end;
   font-family: 'Calibri Light', Calibri;
+}
+
+.sous-partie {
+  margin-top: 70px;
+}
+
+.titre {
+  font-family: ABCNormal, Calibri;
+  margin-bottom: 0 !important;
+  font-weight: 300;
+}
+
+.asterisk {
+  color: $theme-secondary;
 }
 
 input.inputNombre::-webkit-outer-spin-button,
@@ -99,7 +92,6 @@ input.inputNombre {
 .form-control,
 .form-select {
   border: 1px solid #ced4da;
-  //border-radius: 0.25rem;
 }
 
 .form-control.is-invalid,
@@ -118,6 +110,117 @@ div.ng-invalid {
 .currencyinput {
   border: 1px inset #ccc;
 }
+
 .currencyinput input {
   border: 0;
+}
+
+.inputs-prestation {
+  flex-direction: row;
+  width: 90%;
+}
+
+.name-prestation-column {
+  width: 55%;
+}
+
+.quantity-prestation-column {
+  width: 18%;
+  padding: 0 12px;
+}
+
+.price-prestation-column {
+  width: 27%;
+}
+
+.price-prestation-input {
+  width: calc(100% - 35px);
+}
+
+.actions-prestation {
+  width: 10%;
+  margin-top: 10px;
+}
+
+// ================ Responsive ================
+
+@media (max-width: 1068px) {
+  .row-prestation {
+    align-items: center;
+  }
+
+  .inputs-prestation {
+    width: 85%;
+  }
+
+  .name-prestation-column {
+    width: 34%;
+  }
+
+  .quantity-prestation-column {
+    width: 33%;
+    padding: 0 12px;
+  }
+
+  .price-prestation-column {
+    width: 33%;
+  }
+
+  .actions-prestation {
+    margin-top: 0;
+    width: 15%;
+  }
+}
+
+@media (max-width: 850px) {
+  .row-prestation {
+    flex-direction: row;
+  }
+
+  .name-prestation-column,
+  .quantity-prestation-column,
+  .price-prestation-column {
+    width: 100%;
+  }
+
+  .quantity-prestation-column {
+    padding: 10px 0;
+  }
+
+  .inputs-prestation {
+    width: 80%;
+    flex-direction: column;
+  }
+
+  .actions-prestation {
+    margin-top: 0;
+    width: 20%;
+  }
+}
+
+@media (max-width: 768px) {
+  .nom-numero-client {
+    margin-bottom: 10px;
+  }
+
+  .contenu {
+    padding: 40px 20px;
+  }
+
+  .invoice {
+    padding: 10px;
+  }
+
+  .bottom-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .numero-adresse,
+  .nom-numero-client,
+  .code-postal {
+    margin-bottom: 10px;
+  }
 }
