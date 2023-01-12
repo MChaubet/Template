@@ -5,9 +5,9 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:@angular-eslint/recommended",
-    "prettier",
-    "eslint-config-prettier"
+    "plugin:@angular-eslint/recommended"
+    //    "prettier",
+    //    "eslint-config-prettier"
   ],
   "env": {
     "browser": true,
