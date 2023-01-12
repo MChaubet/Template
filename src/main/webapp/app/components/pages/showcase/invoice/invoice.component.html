@@ -18,15 +18,8 @@
                 class="form-floating"
                 [class]="form.get('numeroClient')?.status === 'INVALID' && form.get('numeroClient')?.touched ? 'is-invalid' : ''"
               >
-                <input
-                  type="text"
-                  id="numeroClient"
-                  formControlName="numeroClient"
-                  maxlength="10"
-                  class="form-control"
-                  [class]="form.get('numeroClient')?.status === 'INVALID' && form.get('numeroClient')?.touched ? 'is-invalid' : ''"
-                  placeholder="Numéro client"
-                />
+                <input type="text" id="numeroClient" formControlName="numeroClient" maxlength="10" class="form-control"
+                       [class]="form.get('numeroClient')?.status === 'INVALID' && form.get('numeroClient')?.touched ? 'is-invalid' : ''" placeholder="Numéro client"/>
                 <label for="numeroClient">Numéro client <span class="asterisk">*</span></label>
               </div>
               <ng-container *ngFor="let validation of validationMsgs.numeroClient">
@@ -36,7 +29,6 @@
               </ng-container>
             </div>
           </div>
-
           <div class="col-md-6 col-12">
             <div class="input-group has-validation">
               <div
