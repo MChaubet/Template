@@ -8,7 +8,7 @@
     </h5>
   </div>
 
-  <hr class="sidenav-hr" />
+  <hr class="sidenav-hr my-1" />
 
   <div class="sidenav-item" *ngFor="let data of navData">
     <a
@@ -23,10 +23,6 @@
   </div>
 
   <div class="flex-grow-1"></div>
-
-  <div class="sidenav-item" *ngIf="!collapsed">
-    <span class="sidenav-item-text text-white d-flex justify-content-center" @fadeInOut>{{ version }}</span>
-  </div>
 
   <hr class="sidenav-hr" />
 
@@ -53,12 +49,9 @@
       <div class="sidenav-item-text flex-grow-1" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.account.register"></div>
     </a>
   </div>
-  <div class="sidenav-item" *ngIf="!account" (click)="closeSidenav()">
+  <div class="sidenav-item" *ngIf="!account" (click)="openSignIn()">
     <a
       class="sidenav-item-link d-flex align-items-center justify-content-center"
-      [routerLink]="'/login'"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
     >
       <em class="sidenav-item-icon text-center fa-solid fa-user"></em>
       <div class="sidenav-item-text flex-grow-1" @fadeInOut *ngIf="!collapsed" jhiTranslate="global.menu.account.login"></div>

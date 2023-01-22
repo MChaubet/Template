@@ -15,6 +15,7 @@ import { PricingComponent } from './pricing/pricing.component';
 import { BakeryComponent } from './bakery/bakery.component';
 import { ShowcaseComponent } from './showcase.component';
 import { LayoutsModule } from '../../layouts/layouts.module';
+import {AccountModule} from "../account/account.module";
 
 const routes: Routes = [
   {
@@ -72,6 +73,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     StoreModule.forFeature(shoppingFeatureKey, shoppingReducer),
     LayoutsModule,
+    AccountModule,
   ],
 })
 export class ShowcaseModule {}

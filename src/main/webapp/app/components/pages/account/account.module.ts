@@ -10,6 +10,7 @@ import { PasswordResetInitComponent } from './password-reset/init/password-reset
 import { PasswordResetFinishComponent } from './password-reset/finish/password-reset-finish.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ACCOUNT_ROUTES } from './account.route';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   imports: [SharedModule, RouterModule.forChild(ACCOUNT_ROUTES)],
@@ -21,6 +22,10 @@ import { ACCOUNT_ROUTES } from './account.route';
     PasswordResetInitComponent,
     PasswordResetFinishComponent,
     SettingsComponent,
+    SignInComponent,
   ],
+  exports: [
+    SignInComponent
+  ]
 })
 export class AccountModule {}

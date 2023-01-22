@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
 export class PortfolioComponent {
   videoSrc = ['content/images/production ID_4065948.mp4', 'content/images/production ID_4823567.mp4'];
   text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex';
-  textMin = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.';
 
   items: any[] = [];
   photos: any[] = [];
@@ -23,12 +22,12 @@ export class PortfolioComponent {
     ];
 
     this.photos = [
-      { photo: 'content/images/showcase/portfolio/ecology1.jpg', title: 'Montagne', text: this.textMin },
-      { photo: 'content/images/showcase/portfolio/ecology2.jpg', title: 'Eau', text: this.textMin },
-      { photo: 'content/images/showcase/portfolio/ecology3.jpg', title: 'Vie', text: this.textMin },
-      { photo: 'content/images/showcase/portfolio/ecology2.jpg', title: 'Eau', text: this.textMin },
-      { photo: 'content/images/showcase/portfolio/ecology3.jpg', title: 'Vie', text: this.textMin },
-      { photo: 'content/images/showcase/portfolio/ecology1.jpg', title: 'Montagne', text: this.textMin },
+      { photo: 'content/images/showcase/portfolio/ecology1.jpg', title: 'Montagne', text: this.text },
+      { photo: 'content/images/showcase/portfolio/ecology2.jpg', title: 'Eau', text: this.text },
+      { photo: 'content/images/showcase/portfolio/ecology3.jpg', title: 'Vie', text: this.text },
+      { photo: 'content/images/showcase/portfolio/ecology2.jpg', title: 'Eau', text: this.text },
+      { photo: 'content/images/showcase/portfolio/ecology3.jpg', title: 'Vie', text: this.text },
+      { photo: 'content/images/showcase/portfolio/ecology1.jpg', title: 'Montagne', text: this.text },
     ];
 
     this.newsList = [

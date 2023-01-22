@@ -5,9 +5,9 @@ $button-color-active: hsla(0, 0%, 100%, 0.8);
 
 .sidenav {
   background: $navbar-theme;
-  padding: 9px;
+  padding: 15px 9px;
 
-  gap: 5px;
+  gap: 10px;
 }
 
 .sidenav-item-link {
@@ -17,16 +17,17 @@ $button-color-active: hsla(0, 0%, 100%, 0.8);
   text-decoration: none;
   border-radius: 0.625rem;
   transition: all 0.2s ease;
+  gap: 10px;
+  padding: 0 10px;
 }
 
 .sidenav-item-icon {
-  width: 40px;
-  padding: 10px;
+  padding: 10px 0;
+  width: 20px;
 }
 
 .sidenav-item-text {
   white-space: nowrap;
-  padding-right: 10px;
 }
 
 .sidenav-item-link:not(.title):active,

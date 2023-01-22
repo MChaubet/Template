@@ -10,6 +10,7 @@ import { AccountService } from '../../../services/account.service';
 import { ProfileService } from '../../../services/profile.service';
 import { Router } from '@angular/router';
 import { Account } from '../../../models/account.model';
+import {SignInService} from "../../pages/account/sign-in/sign-in.service";
 
 interface SideNavToggle {
   screenWidth: number;
@@ -42,7 +43,8 @@ export class SidenavComponent implements OnInit {
     private sessionStorageService: SessionStorageService,
     private accountService: AccountService,
     private profileService: ProfileService,
-    private router: Router
+    private router: Router,
+    private signInService: SignInService
   ) {
     if (VERSION) {
       this.version = VERSION.toLowerCase().startsWith('v') ? VERSION : `v${VERSION}`;
@@ -84,5 +86,9 @@ export class SidenavComponent implements OnInit {
     this.loginService.logout();
     this.router.navigate(['']).then(r => r);
     this.closeSidenav();
+  }
+
+  openSignIn(): void {
+    this.signInService.openSignIn();
   }
 }
