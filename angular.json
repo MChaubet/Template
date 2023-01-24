@@ -18,11 +18,8 @@
       "prefix": "jhi",
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser-esbuild",
           "options": {
-            "customWebpackConfig": {
-              "path": "./webpack/webpack.custom.js"
-            },
             "outputPath": "target/classes/static/",
             "index": "src/main/webapp/index.html",
             "main": "src/main/webapp/main.ts",
@@ -49,7 +46,12 @@
               "src/main/webapp/content/scss/font.scss",
               "src/main/webapp/content/fontawesome/css/all.min.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "event-source-polyfill",
+              "pdfmake/build/pdfmake",
+              "pdfmake/build/vfs_fonts"
+            ]
           },
           "configurations": {
             "production": {
@@ -86,8 +88,18 @@
           },
           "defaultConfiguration": "production"
         },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "eslintConfig": ".eslintrc.json",
+            "lintFilePatterns": [
+              "src/main/webapp/app/**/*.js",
+              "src/main/webapp/app/**/*.ts"
+            ]
+          }
+        },
         "serve": {
-          "builder": "@angular-builders/custom-webpack:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "template:build:development",
             "port": 4200
@@ -112,6 +124,7 @@
     }
   },
   "cli": {
+    "schematicCollections": ["@angular-eslint/schematics"],
     "cache": {
       "enabled": true,
       "path": "./target/",

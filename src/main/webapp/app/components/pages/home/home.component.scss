@@ -182,7 +182,7 @@ img:not(.laptop-futuristic) {
   flex-direction: row;
   gap: 3rem;
   width: 100%;
-  justify-content: end;
+  justify-content: flex-end;
 
   a {
     display: block;
