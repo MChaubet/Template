@@ -121,12 +121,12 @@ div.ng-invalid {
 }
 
 .name-prestation-column {
-  width: 55%;
+  width: 52%;
 }
 
 .quantity-prestation-column {
-  width: 18%;
-  padding: 0 12px;
+  width: 21%;
+  padding: 0 24px;
 }
 
 .price-prestation-column {
@@ -144,7 +144,7 @@ div.ng-invalid {
 
 // ================ Responsive ================
 
-@media (max-width: 1068px) {
+@media (max-width: 1192px) {
   .row-prestation {
     align-items: center;
   }
@@ -159,7 +159,7 @@ div.ng-invalid {
 
   .quantity-prestation-column {
     width: 33%;
-    padding: 0 12px;
+    padding: 0 24px;
   }
 
   .price-prestation-column {
@@ -172,7 +172,7 @@ div.ng-invalid {
   }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 856px) {
   .row-prestation {
     flex-direction: row;
   }
@@ -200,7 +200,7 @@ div.ng-invalid {
 
 @media (max-width: 768px) {
   .nom-numero-client {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
   }
 
   .contenu {

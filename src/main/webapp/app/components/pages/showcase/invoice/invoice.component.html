@@ -1,57 +1,42 @@
 <div class="invoice">
   <div class="contenu container">
     <h1 class="titre">Edition de factures</h1>
-    <div class="mt-5" style="right: 0">
+    <div class="mt-5 mb-4" style="right: 0">
       <span><span class="asterisk">*</span> champs obligatoires</span>
     </div>
 
     <form role="form" [formGroup]="form" novalidate>
-      <div class="sous-partie">
-        <div class="d-flex mb-4">
-          <em class="fa-solid fa-id-card fa-3x"></em>
-          <h2 class="ms-4 titre align-self-center">Identification</h2>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-12 nom-numero-client">
-            <div class="input-group has-validation">
-              <div
-                class="form-floating"
-                [class]="form.get('numeroClient')?.status === 'INVALID' && form.get('numeroClient')?.touched ? 'is-invalid' : ''"
-              >
-                <input type="text" id="numeroClient" formControlName="numeroClient" maxlength="10" class="form-control"
-                       [class]="form.get('numeroClient')?.status === 'INVALID' && form.get('numeroClient')?.touched ? 'is-invalid' : ''" placeholder="Numéro client"/>
-                <label for="numeroClient">Numéro client <span class="asterisk">*</span></label>
-              </div>
-              <ng-container *ngFor="let validation of validationMsgs.numeroClient">
-                <div class="invalid-feedback ms-1" *ngIf="form.get('numeroClient')?.hasError(validation.type)">
-                  {{ validation.message }}
-                </div>
-              </ng-container>
+      <div class="d-flex mb-4">
+        <em class="fa-solid fa-id-card fa-3x"></em>
+        <h2 class="ms-4 titre align-self-center">Identification</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-12 nom-numero-client">
+          <div class="input-group has-validation">
+            <div class="form-floating" [class]="form.get('numeroClient')?.status === 'INVALID' && form.get('numeroClient')?.touched ? 'is-invalid' : ''">
+              <input type="text" id="numeroClient" formControlName="numeroClient" maxlength="10" class="form-control"
+                     [class]="form.get('numeroClient')?.status === 'INVALID' && form.get('numeroClient')?.touched ? 'is-invalid' : ''" placeholder="Numéro client"/>
+              <label for="numeroClient">Numéro client <span class="asterisk">*</span></label>
             </div>
+            <ng-container *ngFor="let validation of validationMsgs.numeroClient">
+              <div class="invalid-feedback ms-1" *ngIf="form.get('numeroClient')?.hasError(validation.type)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
           </div>
-          <div class="col-md-6 col-12">
-            <div class="input-group has-validation">
-              <div
-                class="form-floating"
-                [class]="form.get('nomClient')?.status === 'INVALID' && form.get('nomClient')?.touched ? 'is-invalid' : ''"
-              >
-                <input
-                  type="text"
-                  id="nomClient"
-                  formControlName="nomClient"
-                  maxlength="30"
-                  class="form-control"
-                  [class]="form.get('nomClient')?.status === 'INVALID' && form.get('nomClient')?.touched ? 'is-invalid' : ''"
-                  placeholder="Nom client"
-                />
-                <label for="nomClient">Nom client <span class="asterisk">*</span></label>
-              </div>
-              <ng-container *ngFor="let validation of validationMsgs.nomClient">
-                <div class="invalid-feedback ms-1" *ngIf="form.get('nomClient')?.hasError(validation.type)">
-                  {{ validation.message }}
-                </div>
-              </ng-container>
+        </div>
+        <div class="col-md-6 col-12">
+          <div class="input-group has-validation">
+            <div class="form-floating" [class]="form.get('nomClient')?.status === 'INVALID' && form.get('nomClient')?.touched ? 'is-invalid' : ''">
+              <input type="text" id="nomClient" formControlName="nomClient" maxlength="30" class="form-control"
+                     [class]="form.get('nomClient')?.status === 'INVALID' && form.get('nomClient')?.touched ? 'is-invalid' : ''" placeholder="Nom client"/>
+              <label for="nomClient">Nom client <span class="asterisk">*</span></label>
             </div>
+            <ng-container *ngFor="let validation of validationMsgs.nomClient">
+              <div class="invalid-feedback ms-1" *ngIf="form.get('nomClient')?.hasError(validation.type)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
           </div>
         </div>
       </div>
@@ -61,7 +46,7 @@
           <em class="fa-solid fa-location-dot fa-3x"></em>
           <h2 class="ms-4 titre align-self-center">Adresse de facturation</h2>
         </div>
-        <div class="row mb-2">
+        <div class="row mb-3">
           <div class="input-group has-validation">
             <div class="form-floating" [class]="form.get('pays')?.status === 'INVALID' && form.get('pays')?.touched ? 'is-invalid' : ''">
               <select class="form-select" id="pays" formControlName="pays">
@@ -77,21 +62,12 @@
             </ng-container>
           </div>
         </div>
-        <div class="row mb-2">
+        <div class="row mb-3">
           <div class="col-sm-4 col-12 numero-adresse">
             <div class="input-group has-validation">
-              <div
-                class="form-floating"
-                [class]="form.get('numeroAdresse')?.status === 'INVALID' && form.get('numeroAdresse')?.touched ? 'is-invalid' : ''"
-              >
-                <input
-                  type="text"
-                  id="numeroAdresse"
-                  formControlName="numeroAdresse"
-                  class="form-control"
-                  [class]="form.get('numeroAdresse')?.status === 'INVALID' && form.get('numeroAdresse')?.touched ? 'is-invalid' : ''"
-                  placeholder="Numéro"
-                />
+              <div class="form-floating" [class]="form.get('numeroAdresse')?.status === 'INVALID' && form.get('numeroAdresse')?.touched ? 'is-invalid' : ''">
+                <input type="text" id="numeroAdresse" formControlName="numeroAdresse" class="form-control"
+                       [class]="form.get('numeroAdresse')?.status === 'INVALID' && form.get('numeroAdresse')?.touched ? 'is-invalid' : ''" placeholder="Numéro"/>
                 <label for="numeroAdresse">Numéro <span class="asterisk">*</span></label>
               </div>
               <ng-container *ngFor="let validation of validationMsgs.numeroAdresse">
@@ -103,29 +79,18 @@
           </div>
           <div class="col-sm-8 col-12">
             <div class="form-floating">
-              <input type="text" id="extensionAdresse" formControlName="extensionAdresse" class="form-control" placeholder="Extension" />
+              <input type="text" id="extensionAdresse" formControlName="extensionAdresse" class="form-control" placeholder="Extension"/>
               <label for="extensionAdresse">Extension</label>
             </div>
           </div>
         </div>
-        <div class="row mb-2">
+        <div class="row mb-3">
           <div class="col-12">
             <div class="input-group has-validation">
-              <div
-                class="form-floating w-100"
-                [class]="form.get('natureLibelleVoie')?.status === 'INVALID' && form.get('natureLibelleVoie')?.touched ? 'is-invalid' : ''"
-              >
-                <input
-                  type="text"
-                  id="natureLibelleVoie"
-                  formControlName="natureLibelleVoie"
-                  maxlength="60"
-                  class="form-control"
-                  [class]="
-                    form.get('natureLibelleVoie')?.status === 'INVALID' && form.get('natureLibelleVoie')?.touched ? 'is-invalid' : ''
-                  "
-                  placeholder="Nature et libellé de la voie"
-                />
+              <div class="form-floating w-100" [class]="form.get('natureLibelleVoie')?.status === 'INVALID' && form.get('natureLibelleVoie')?.touched ? 'is-invalid' : ''">
+                <input type="text" id="natureLibelleVoie" formControlName="natureLibelleVoie" maxlength="60" class="form-control"
+                       [class]="form.get('natureLibelleVoie')?.status === 'INVALID' && form.get('natureLibelleVoie')?.touched ? 'is-invalid' : ''"
+                       placeholder="Nature et libellé de la voie"/>
                 <label for="natureLibelleVoie">Nature et libellé de la voie <span class="asterisk">*</span></label>
               </div>
               <ng-container *ngFor="let validation of validationMsgs.natureLibelleVoie">
@@ -136,30 +101,13 @@
             </div>
           </div>
         </div>
-        <div class="row mb-2">
+        <div class="row mb-3">
           <div class="col-12">
             <div class="input-group has-validation">
-              <div
-                class="form-floating w-100"
-                [class]="
-                  form.get('complementLocalisation')?.status === 'INVALID' && form.get('complementLocalisation')?.touched
-                    ? 'is-invalid'
-                    : ''
-                "
-              >
-                <input
-                  type="text"
-                  id="complementLocalisation"
-                  formControlName="complementLocalisation"
-                  maxlength="50"
-                  class="form-control"
-                  [class]="
-                    form.get('complementLocalisation')?.status === 'INVALID' && form.get('complementLocalisation')?.touched
-                      ? 'is-invalid'
-                      : ''
-                  "
-                  placeholder="Complément de localisation"
-                />
+              <div class="form-floating w-100" [class]="form.get('complementLocalisation')?.status === 'INVALID' && form.get('complementLocalisation')?.touched? 'is-invalid': ''">
+                <input type="text" id="complementLocalisation" formControlName="complementLocalisation" maxlength="50"
+                       class="form-control" [class]="form.get('complementLocalisation')?.status === 'INVALID' && form.get('complementLocalisation')?.touched? 'is-invalid' : ''"
+                       placeholder="Complément de localisation"/>
                 <label for="complementLocalisation">Complément de localisation</label>
               </div>
               <ng-container *ngFor="let validation of validationMsgs.complementLocalisation">
@@ -173,19 +121,9 @@
         <div class="row">
           <div class="col-sm-4 col-12 code-postal">
             <div class="input-group has-validation">
-              <div
-                class="form-floating w-100"
-                [class]="form.get('codePostal')?.status === 'INVALID' && form.get('codePostal')?.touched ? 'is-invalid' : ''"
-              >
-                <input
-                  type="text"
-                  id="codePostal"
-                  formControlName="codePostal"
-                  maxlength="5"
-                  class="form-control"
-                  [class]="form.get('codePostal')?.status === 'INVALID' && form.get('codePostal')?.touched ? 'is-invalid' : ''"
-                  placeholder="Code postal"
-                />
+              <div class="form-floating w-100" [class]="form.get('codePostal')?.status === 'INVALID' && form.get('codePostal')?.touched ? 'is-invalid' : ''">
+                <input type="text" id="codePostal" formControlName="codePostal" maxlength="5" class="form-control"
+                       [class]="form.get('codePostal')?.status === 'INVALID' && form.get('codePostal')?.touched ? 'is-invalid' : ''" placeholder="Code postal"/>
                 <label for="codePostal">Code postal <span class="asterisk">*</span></label>
               </div>
               <ng-container *ngFor="let validation of validationMsgs.codePostal">
@@ -197,19 +135,8 @@
           </div>
           <div class="col-sm-8 col-12">
             <div class="input-group has-validation">
-              <div
-                class="form-floating w-100"
-                [class]="form.get('ville')?.status === 'INVALID' && form.get('ville')?.touched ? 'is-invalid' : ''"
-              >
-                <input
-                  type="text"
-                  id="ville"
-                  formControlName="ville"
-                  maxlength="50"
-                  class="form-control"
-                  [class]="form.get('ville')?.status === 'INVALID' && form.get('ville')?.touched ? 'is-invalid' : ''"
-                  placeholder="Ville"
-                />
+              <div class="form-floating w-100" [class]="form.get('ville')?.status === 'INVALID' && form.get('ville')?.touched ? 'is-invalid' : ''">
+                <input type="text" id="ville" formControlName="ville" maxlength="50" class="form-control" [class]="form.get('ville')?.status === 'INVALID' && form.get('ville')?.touched ? 'is-invalid' : ''" placeholder="Ville"/>
                 <label for="ville">Ville <span class="asterisk">*</span></label>
               </div>
               <ng-container *ngFor="let validation of validationMsgs.ville">
@@ -228,31 +155,13 @@
           <h2 class="ms-4 titre align-self-center">Prestations</h2>
         </div>
         <div formArrayName="prestations" cdkDropList (cdkDropListDropped)="drop($event)">
-          <div
-            class="row-prestation d-flex draggable-element row"
-            *ngFor="let prestation of prestations.controls; let i = index"
-            [formGroupName]="i"
-            [cdkDragData]="prestations.controls"
-            cdkDrag
-            cdkDragLockAxis="y"
-            [id]="'prestation-' + i"
-          >
+          <div class="row-prestation d-flex draggable-element row" *ngFor="let prestation of prestations.controls; let i = index" [formGroupName]="i" [cdkDragData]="prestations.controls" cdkDrag cdkDragLockAxis="y" [id]="'prestation-' + i">
             <div class="inputs-prestation d-flex">
               <div class="name-prestation-column">
                 <div class="input-group has-validation">
-                  <div
-                    class="form-floating w-100"
-                    [class]="prestation.get('nom')?.status === 'INVALID' && prestation.get('nom')?.touched ? 'is-invalid' : ''"
-                  >
-                    <input
-                      type="text"
-                      id="nomPrestation"
-                      formControlName="nom"
-                      maxlength="100"
-                      class="form-control"
-                      [class]="prestation.get('nom')?.status === 'INVALID' && prestation.get('nom')?.touched ? 'is-invalid' : ''"
-                      placeholder="Nom"
-                    />
+                  <div class="form-floating w-100" [class]="prestation.get('nom')?.status === 'INVALID' && prestation.get('nom')?.touched ? 'is-invalid' : ''">
+                    <input type="text" id="nomPrestation" formControlName="nom" maxlength="100" class="form-control"
+                           [class]="prestation.get('nom')?.status === 'INVALID' && prestation.get('nom')?.touched ? 'is-invalid' : ''" placeholder="Nom"/>
                     <label for="nomPrestation">Nom <span class="asterisk">*</span></label>
                   </div>
                   <ng-container *ngFor="let validation of validationMsgs.nomPrestation">
@@ -264,20 +173,9 @@
               </div>
               <div class="quantity-prestation-column">
                 <div class="input-group has-validation">
-                  <div
-                    class="form-floating w-100"
-                    [class]="prestation.get('quantite')?.status === 'INVALID' && prestation.get('quantite')?.touched ? 'is-invalid' : ''"
-                  >
-                    <input
-                      type="text"
-                      id="quantitePrestation"
-                      formControlName="quantite"
-                      maxlength="5"
-                      class="form-control inputNombre text-right"
-                      [class]="prestation.get('quantite')?.status === 'INVALID' && prestation.get('quantite')?.touched ? 'is-invalid' : ''"
-                      placeholder="Quantité"
-                      jhiNumbersOnly
-                    />
+                  <div class="form-floating w-100" [class]="prestation.get('quantite')?.status === 'INVALID' && prestation.get('quantite')?.touched ? 'is-invalid' : ''">
+                    <input type="text" id="quantitePrestation" formControlName="quantite" maxlength="5" class="form-control inputNombre text-right"
+                           [class]="prestation.get('quantite')?.status === 'INVALID' && prestation.get('quantite')?.touched ? 'is-invalid' : ''" placeholder="Quantité" jhiNumbersOnly/>
                     <label for="quantitePrestation">Quantité <span class="asterisk">*</span></label>
                   </div>
                   <ng-container *ngFor="let validation of validationMsgs.quantitePrestation">
@@ -289,25 +187,9 @@
               </div>
               <div class="price-prestation-column">
                 <div class="input-group has-validation">
-                  <div
-                    class="form-floating price-prestation-input"
-                    [class]="
-                      prestation.get('tarifUnitaire')?.status === 'INVALID' && prestation.get('tarifUnitaire')?.touched ? 'is-invalid' : ''
-                    "
-                  >
-                    <input
-                      type="text"
-                      id="tarifUnitairePrestation"
-                      formControlName="tarifUnitaire"
-                      maxlength="10"
-                      class="form-control inputNombre text-right"
-                      [class]="
-                        prestation.get('tarifUnitaire')?.status === 'INVALID' && prestation.get('tarifUnitaire')?.touched
-                          ? 'is-invalid'
-                          : ''
-                      "
-                      placeholder="Tarif unitaire"
-                    />
+                  <div class="form-floating price-prestation-input" [class]="prestation.get('tarifUnitaire')?.status === 'INVALID' && prestation.get('tarifUnitaire')?.touched ? 'is-invalid' : ''">
+                    <input type="text" id="tarifUnitairePrestation" formControlName="tarifUnitaire" maxlength="10" class="form-control inputNombre text-right"
+                           [class]="prestation.get('tarifUnitaire')?.status === 'INVALID' && prestation.get('tarifUnitaire')?.touched? 'is-invalid': ''" placeholder="Tarif unitaire"/>
                     <label for="tarifUnitairePrestation">Tarif unitaire <span class="asterisk">*</span></label>
                   </div>
                   <span class="input-group-text" style="width: 35px">€</span>
@@ -321,26 +203,10 @@
             </div>
             <div class="actions-prestation">
               <div class="d-flex justify-content-center">
-                <button
-                  mat-icon-button
-                  color="primary"
-                  aria-label="Remove/clear"
-                  type="button"
-                  (click)="deletePrestation(i)"
-                  matTooltip="Supprimer"
-                >
+                <button mat-icon-button color="primary" aria-label="Remove/clear" type="button" (click)="deletePrestation(i)" matTooltip="Supprimer">
                   <mat-icon>highlight_off</mat-icon>
                 </button>
-                <button
-                  class="drag-handle"
-                  mat-icon-button
-                  color="primary"
-                  aria-label="Add"
-                  cdkDragHandle
-                  [disableRipple]="true"
-                  type="button"
-                  (mousedown)="changeOpacityRowPrestation(i)"
-                >
+                <button class="drag-handle" mat-icon-button color="primary" aria-label="Add" cdkDragHandle [disableRipple]="true" type="button" (mousedown)="changeOpacityRowPrestation(i)">
                   <mat-icon>drag_indicator</mat-icon>
                 </button>
               </div>
@@ -348,21 +214,13 @@
           </div>
         </div>
         <div class="d-flex justify-content-center mt-3">
-          <button
-            mat-icon-button
-            color="primary"
-            aria-label="Add"
-            type="button"
-            (click)="addPrestation()"
-            matTooltip="Ajouter"
-            [disabled]="prestations.length === 10"
-          >
+          <button mat-icon-button color="primary" aria-label="Add" type="button" (click)="addPrestation()" matTooltip="Ajouter" [disabled]="prestations.length === 10">
             <mat-icon>add_circle_outline</mat-icon>
           </button>
         </div>
       </div>
 
-      <hr />
+      <hr/>
 
       <div class="bottom-buttons">
         <button type="button" class="btn btn-outline-secondary" (click)="resetForm()">Réinitialiser</button>

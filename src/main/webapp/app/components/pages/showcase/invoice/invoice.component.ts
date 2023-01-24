@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ParametersInvoiceModel } from '../../../../models/invoice/parameters-invoice.model';
-import { InvoiceService } from '../../../../services/invoice.service';
+import {Component, OnInit} from '@angular/core';
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {ParametersInvoiceModel} from '../../../../models/invoice/parameters-invoice.model';
+import {InvoiceService} from '../../../../services/invoice.service';
 import invoicesJson from '../../../../../../resources/json/invoices.json';
 import countriesJson from '../../../../../../resources/json/countries.json';
 import invoiceValidationMessagesJson from '../../../../../../resources/json/invoice-validation-messages.json';
-import { CountryModel } from '../../../../models/invoice/country';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import {CountryModel} from '../../../../models/invoice/country';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'jhi-invoice',
@@ -31,7 +31,7 @@ export class InvoiceComponent implements OnInit {
       ville: [null, [Validators.required, Validators.maxLength(50)]],
       prestations: this.formBuilder.array([this.createPrestationFormGroup()]),
     },
-    { updateOn: 'change' }
+    {updateOn: 'blur'}
   );
 
   constructor(private formBuilder: FormBuilder, private invoiceService: InvoiceService, private translateService: TranslateService) {
@@ -41,7 +41,8 @@ export class InvoiceComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   get countries(): CountryModel[] {
     return countriesJson as CountryModel[];

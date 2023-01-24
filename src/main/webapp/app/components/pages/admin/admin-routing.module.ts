@@ -18,10 +18,10 @@ import { HealthModalComponent } from './health/modal/health-modal.component';
     CommonModule,
     /* jhipster-needle-add-admin-module - JHipster will add admin modules here */
     RouterModule.forChild([
-      // {
-      //   path: '',
-      //   component: AdminComponent,
-      // },
+      {
+        path: '',
+        component: AdminComponent,
+      },
       {
         path: 'user-management',
         loadChildren: () => import('./user-management/user-management.module').then(m => m.UserManagementModule),
