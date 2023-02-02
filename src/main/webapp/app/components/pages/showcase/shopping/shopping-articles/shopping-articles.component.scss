@@ -1,0 +1,94 @@
+@import '../../../../../../content/scss/theme.scss';
+
+.articles-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+}
+
+.article {
+  position: relative;
+  height: 480px;
+  padding: 0 1rem 1rem 1rem;
+  background-color: #fff;
+  border-radius: 0.3rem;
+  border: solid 1px $color-shopping-shadow;
+  box-shadow: 0 0 0.3rem 0.1rem $color-shopping-shadow;
+  transition: all 0.2s;
+
+  &:hover {
+    transition: all 0.2s;
+    box-shadow: 0 0 1rem 0.1rem $color-shopping-shadow-dark;
+  }
+}
+
+.article-body {
+  gap: 0.75rem;
+}
+
+.price {
+  font-weight: 500;
+  font-size: 22px;
+  font-family: Tahoma, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.description {
+  color: #919191;
+  font-size: 13px;
+  line-height: 1.4em;
+  height: 50px;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.btn-favorite {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: inherit;
+  border: none;
+  height: 20px;
+  width: 20px;
+  background-image: url(~content/images/showcase/shopping/heart-empty.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+
+
+  &.is-favorite {
+    background-image: url(~content/images/showcase/shopping/heart-full.svg);
+  }
+}
+
+.btn-add-to-cart {
+  background-color: $color-shopping-primary;
+  color: white;
+  transition: background-color 0.2s ease;
+  font-weight: 500;
+  width: 100%;
+
+  &:hover {
+    background-color: $color-shopping-primary-dark;
+    transition: background-color 0.2s ease;
+  }
+}
+
+@media (max-width: $responsive-shopping-2) {
+  .articles-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: $responsive-shopping-3) {
+  .articles-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: $responsive-shopping-4) {
+  .articles-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

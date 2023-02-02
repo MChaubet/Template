@@ -10,15 +10,15 @@ export class RestaurantComponent {
   text: string;
   photos = [
     {
-      img: 'content/images/carousel1.jpg',
+      img: 'content/images/showcase/carousel1.jpg',
       desc: 'restaurant.carousel.description1',
     },
     {
-      img: 'content/images/carousel2.jpg',
+      img: 'content/images/showcase/carousel2.jpg',
       desc: 'restaurant.carousel.description2',
     },
     {
-      img: 'content/images/carousel3.jpg',
+      img: 'content/images/showcase/carousel3.jpg',
       desc: 'restaurant.carousel.description3',
     },
   ];

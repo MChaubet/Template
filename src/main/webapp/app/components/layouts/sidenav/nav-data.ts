@@ -11,17 +11,17 @@ export const navbarData = [
   },
   {
     routeLink: 'restaurant-dark',
-    icon: 'fa-solid fa-glass-martini',
+    icon: 'fa-solid fa-utensils',
     label: 'Restaurant Dark',
   },
   {
     routeLink: 'shopping',
-    icon: 'fa-solid fa-shopping-basket',
+    icon: 'fa-solid fa-cart-shopping',
     label: 'Shopping',
   },
   {
     routeLink: 'invoice',
-    icon: 'fa-solid fa-file-lines',
+    icon: 'fa-solid fa-pen',
     label: 'Édition de factures',
   },
   {

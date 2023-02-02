@@ -1,16 +1,64 @@
-.card {
-  background-color: transparent;
-}
-.card-body {
-  background: rgba(255, 255, 255, 0.07);
-  color: white;
+@import '../../../../../content/scss/theme.scss';
+
+.header-container {
+  background-color: #fff;
+  padding: 1rem 0 0 0;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
-.badge {
-  background-color: #6394f8;
-  border-radius: 100px;
-  color: white;
-  font-size: 12px;
-  text-align: center;
-  vertical-align: top;
+.main-container {
+  background-color: $color-shopping-secondary;
+}
+
+.filter-and-items-container {
+  gap: 2rem;
+  padding-top: 0.75rem;
+  height: auto;
+}
+
+.filter-container {
+  width: 300px;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.3rem 0.1rem $color-shopping-shadow;
+  height: fit-content;
+}
+
+.items-container {
+  flex: 1;
+  min-height: 800px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+
+.header img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.price {
+  font-size: 16px;
+  color: green;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.rating i {
+  font-size: 16px;
+  color: goldenrod;
+}
+
+.description {
+  font-size: 14px;
+  padding: 16px;
 }

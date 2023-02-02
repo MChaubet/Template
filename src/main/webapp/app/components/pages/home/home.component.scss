@@ -1,21 +1,21 @@
-/* ==========================================================================
-Main page styles
-========================================================================== */
+@import '../../../../content/scss/theme.scss';
 
 /* ----- Variables ----- */
-$color-background: hsl(252, 7%, 15%);
-$color-primary: hsl(0, 0%, 30%);
-$color-secondary: hsl(162, 35%, 81%);
+$img-outline: hsl(0, 0%, 30%);
 
 .dark-mode {
-  $color-background: hsl(0, 0%, 100%);
-  $color-primary: hsl(0, 0%, 30%);
-  $color-secondary: hsl(160, 33%, 65%);
+  //$color-background: hsl(0, 0%, 100%);
+  $color-primary: hsl(160, 33%, 65%);
+  $color-secondary: hsl(0, 0%, 30%);
 }
 
 .home {
   font-family: ABCNormal, serif;
-  background-color: hsl(252, 7%, 15%);
+  background-color: $color-secondary;
+}
+
+.btn-contact-fixed-top {
+  // todo
 }
 
 .text-cursor:after {
@@ -36,7 +36,7 @@ $color-secondary: hsl(162, 35%, 81%);
   line-height: 4vw;
   letter-spacing: -0.05em;
   font-weight: 400;
-  color: $color-secondary;
+  color: $color-primary;
 }
 
 .big-text {
@@ -44,7 +44,7 @@ $color-secondary: hsl(162, 35%, 81%);
   line-height: 4.642vw;
   letter-spacing: -0.05em;
   font-weight: 400;
-  color: $color-secondary;
+  color: $color-primary;
 }
 
 .medium-text {
@@ -52,7 +52,7 @@ $color-secondary: hsl(162, 35%, 81%);
   line-height: 2vw;
   letter-spacing: -0.05em;
   font-weight: 300;
-  color: $color-secondary;
+  color: $color-primary;
 
   &.italic {
     font-style: italic;
@@ -64,10 +64,10 @@ $color-secondary: hsl(162, 35%, 81%);
   line-height: 1vw;
   letter-spacing: -0.05em;
   font-weight: 300;
-  color: $color-secondary;
+  color: $color-primary;
 }
 
-.img-dev {
+.laptop-futuristic {
   max-width: 100%;
   height: auto;
   width: auto;
@@ -78,8 +78,6 @@ $color-secondary: hsl(162, 35%, 81%);
   border-radius: 15px;
 }
 
-// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-
 /* ----- Footer Section ----- */
 
 /* ----- Global ----- */
@@ -87,11 +85,11 @@ $color-secondary: hsl(162, 35%, 81%);
 h3 {
   font-size: 0.7em;
   letter-spacing: 1.2px;
-  color: $color-secondary;
+  color: $color-primary;
 }
 
-img {
-  filter: drop-shadow(1px 1px 3px $color-primary);
+img:not(.laptop-futuristic) {
+  filter: drop-shadow(1px 1px 3px $img-outline);
 }
 
 .row.separator-top {
@@ -108,10 +106,10 @@ img {
 
 .product {
   $padding-x: 3rem;
-  background-color: hsl(252, 6%, 20%);
+  background-color: $color-secondary-light;
   border: solid hsla(162, 35%, 81%, 0.15);
   border-radius: 5px;
-  color: $color-secondary !important;
+  color: $color-primary !important;
 
   .product_photo {
     position: relative;
@@ -124,7 +122,7 @@ img {
 
       height: unset;
 
-      background-color: hsla(162, 35%, 81%, 0.3);
+      background-color: $color-primary-transparent;
       border-radius: 5px;
 
       width: calc(100%);
@@ -169,10 +167,10 @@ img {
 }
 
 .btn-header {
-  font-size: 20px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 18px;
   font-weight: 400;
-  color: $color-secondary;
+  color: $color-primary;
   background: transparent;
   border: 0;
   flex-shrink: 0;
@@ -186,10 +184,11 @@ img {
   width: 100%;
   justify-content: end;
 
-  button {
+  a {
     display: block;
     position: relative;
     padding: 0.2em 0;
+    text-decoration: none;
   }
 
   .btn-header::after {
@@ -199,7 +198,7 @@ img {
     left: 0;
     width: 100%;
     height: 0.12em;
-    background-color: #776aff;
+    background-color: $color-link-underline;
     opacity: 0;
     transition: opacity 300ms, transform 300ms;
   }

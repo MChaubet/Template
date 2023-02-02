@@ -1,0 +1,13 @@
+<button (click)="toggleMenu()" class="btn btn-primary">Menu</button>
+
+<div *ngIf="isMenuOpened" style="position: fixed; z-index: 100; left: 0; top: 0;" class="w-100 h-100">
+  <div class="d-flex flex-row h-100">
+    <div class="w-15" style="background-color: white">
+      y'a le menu là
+    </div>
+    <div class="w-85" style="background-color: rgba(0,0,0,.8); cursor:pointer;" (click)="toggleMenu()">
+      <button (click)="toggleMenu()" class="btn btn-danger">Fermer</button>
+    </div>
+  </div>
+
+</div>

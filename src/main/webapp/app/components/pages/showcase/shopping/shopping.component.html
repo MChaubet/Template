@@ -1,71 +1,17 @@
-<div style="background-color: #282828">
-  <ng-template #popContent><jhi-shopping-cart></jhi-shopping-cart></ng-template>
-  <ng-template #popTitle>
-    <div class="d-flex justify-content-between">
-      <em class="fa-solid fa-shopping-basket"></em>
-      <div class="font-weight-bold">
-        Total: <span style="color: #3e8acc">{{ shoppingCartPrice }}€</span>
-      </div>
-    </div>
-  </ng-template>
-  <button
-    style="z-index: 1000; position: fixed; right: 0; margin-right: 10px; background-color: rgba(0, 0, 0, 0.5); color: white"
-    type="button"
-    class="btn btn-outline-secondary"
-    placement="bottom-right"
-    [animation]="true"
-    [autoClose]="false"
-    [ngbPopover]="popContent"
-    [popoverTitle]="popTitle"
-  >
-    <span *ngIf="shoppingCart.length" class="badge">{{ shoppingCartQty }}</span>
-    <fa-icon class="fa-2xl" icon="shopping-basket" style="font-size: 2rem"></fa-icon>
-  </button>
-
-  <div class="container-fluid" style="background-color: #86d1e4">
-    <div class="row p-4">
-      <div class="col-8 text-center align-self-center">
-        <h1 class="font-weight-bold display-3">Title</h1>
-        <h4 class="font-weight-bold text-white">Hello everyone</h4>
-        <h4 class="font-weight-bold text-white">But not one of you</h4>
-      </div>
-      <img class="col-4" src="../../../../../content/images/showcase/shopping/planet.svg" alt="planet" height="300px" />
-    </div>
+<div class="d-flex flex-column">
+  <div class="header-container">
+    <jhi-shopping-header></jhi-shopping-header>
   </div>
-
-  <div class="container py-5">
-    <div class="row">
-      <div *ngFor="let article of articles" class="col-lg-2 col-md-4 col-6 pb-3">
-        <div class="card h-100">
-          <div class="card-header w-100 text-center mx-auto bg-white cursor" (click)="open(article)">
-            <img [src]="article.img" alt="plat" height="75px" />
-          </div>
-
-          <div class="card-body p-2 d-flex align-items-start flex-column">
-            <h6 class="cursor" (click)="open(article)">{{ article.name }}</h6>
-            <div class="mt-auto w-100">
-              <div>{{ article.price }} €</div>
-
-              <div class="d-flex justify-content-between mt-auto">
-                <ngb-rating
-                  class="my-auto"
-                  [(rate)]="article.rate!"
-                  [readonly]="true"
-                  [max]="maxRate"
-                  ngbTooltip="{{ article.rate! }} / {{ maxRate }}"
-                  [openDelay]="300"
-                  placement="right"
-                >
-                  <ng-template let-fill="fill">
-                    <span class="star" [class.full]="fill === 100"> <span class="half" [style.width.%]="fill">&starf;</span>&starf; </span>
-                  </ng-template>
-                </ngb-rating>
-                <button class="btn btn-light btn-sm fa fa-solid fa-plus" (click)="addArticle($event, article)"></button>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="main-container">
+    <jhi-shopping-breadcrumb></jhi-shopping-breadcrumb>
+    <div class="filter-and-items-container shopping-container d-flex flex-row">
+      <div class="filter-container" style="background-color: white">
+        <jhi-shopping-filter></jhi-shopping-filter>
+      </div>
+      <div class="items-container">
+        <jhi-shopping-articles></jhi-shopping-articles>
       </div>
     </div>
+    <jhi-shopping-footer></jhi-shopping-footer>
   </div>
 </div>

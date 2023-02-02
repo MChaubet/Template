@@ -1,13 +1,16 @@
-$navbar-theme: #171717;
+$navbar-theme: hsl(252, 6%, 15%);
 
 $button-color: hsla(0, 0%, 100%, 0.6);
 $button-color-active: hsla(0, 0%, 100%, 0.8);
 
 .sidenav {
   background: $navbar-theme;
-  padding: 15px 9px;
+  padding: 9px;
+  gap: 6px;
 
-  gap: 10px;
+  &.open {
+    width: 210px;
+  }
 }
 
 .sidenav-item-link {
@@ -18,7 +21,7 @@ $button-color-active: hsla(0, 0%, 100%, 0.8);
   border-radius: 0.625rem;
   transition: all 0.2s ease;
   gap: 10px;
-  padding: 0 10px;
+  padding: 2px 10px;
 }
 
 .sidenav-item-icon {

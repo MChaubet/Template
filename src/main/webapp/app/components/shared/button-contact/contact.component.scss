@@ -1,23 +1,4 @@
-.btn-contact {
-  font-weight: 500;
-  background-image: linear-gradient(45deg, #4568dc, #b06ab3);
-  border: 0;
-  padding: 9px 17px;
-  font-size: 20px;
-  border-radius: 65px;
-  box-shadow: 0 0 10px hsl(0deg 0% 100% / 44%);
-  transition: box-shadow 0.25s;
-
-  &:hover {
-    box-shadow: 0 0 20px hsl(0deg 0% 100% / 44%);
-  }
-
-  .gradient-text {
-    background-image: linear-gradient(to right, #e3e3e3, #ffffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
+@import '../../../../content/scss/theme.scss';
 
 .modal-body {
   height: 75vh;
@@ -33,4 +14,69 @@
 #answers,
 #inputs {
   gap: 10px;
+}
+
+.button--wayra {
+  float: left;
+  width: 150px;
+  min-width: 150px;
+  max-width: 250px;
+  display: block;
+  padding: 0.7em 0.3em;
+  background: none;
+  color: $color-primary;
+  border: $color-primary;
+  vertical-align: middle;
+  position: relative;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 2px solid;
+  overflow: hidden;
+  -webkit-transition: border-color 0.5s, color 0.5s;
+  transition: border-color 0.5s, color 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 100%;
+    background: $color-primary;
+    z-index: -1;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+    transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    -webkit-transition: -webkit-transform 0.5s, opacity 0.5s, background-color 0.5s;
+    transition: transform 0.5s, opacity 0.5s, background-color 0.5s;
+  }
+
+  &:hover {
+    color: $color-secondary;
+    border-color: $color-primary;
+  }
+
+  &:hover::before {
+    opacity: 1;
+    background-color: $color-primary;
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.button--wayra > span {
+  vertical-align: middle;
 }

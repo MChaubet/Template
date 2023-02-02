@@ -1,0 +1,101 @@
+@import '../../../../../../content/scss/theme.scss';
+
+.footer-container {
+  max-width: 900px;
+  padding-inline: 1rem;
+  margin: 0 auto;
+  gap: 1.5rem;
+}
+
+.footer-top {
+  padding: 150px 0 80px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.footer-bottom {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+  color: $color-shopping-tertiary;
+  padding-top: 5px;
+  padding-bottom: 40px;
+}
+
+.about-widget a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline $color-shopping-tertiary;
+  }
+}
+
+.social-widget a {
+  text-decoration: none;
+}
+
+.f-list li {
+  margin-bottom: 15px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.f-list {
+  margin-bottom: 0;
+}
+
+.f-social-icon a {
+  width: 46px;
+  height: 46px;
+  border: 1px solid #e2e2eb;
+  font-size: 24px;
+  border-radius: 50%;
+  line-height: 45px;
+  color: $color-shopping-tertiary;
+  display: inline-block;
+  background: transparent;
+  text-align: center;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.ti-facebook:before {
+  content: "\e741";
+}
+
+.ti-twitter-alt:before {
+  content: "\e74b";
+}
+
+.ti-vimeo-alt:before {
+  content: "\e74a";
+}
+
+.f-social-icon a:hover {
+  background: $color-shopping-tertiary;
+  border-color: $color-shopping-tertiary;
+  color: white;
+}
+
+.f-social-icon a + a {
+  margin-left: 4px;
+}
+
+.f-title {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #263b5e;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #4b505e;
+}
+
+.footer-top .about-widget .f-list li a {
+  color: #6a7695;
+}
+

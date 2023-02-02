@@ -13,10 +13,10 @@ import { addArticleInCart } from 'app/components/pages/showcase/shopping/store/s
       </div>
       <div class="modal-body">
         <div class="row p-3">
-          <img class=" col-lg-4 col-12 align-self-center p-3" [src]="article.img" width="400px" alt="article" />
+          <img class=" col-lg-4 col-12 align-self-center p-3" [src]="article.image" width="400px" alt="article"/>
           <div class="col-lg-8 col-12">
             <div class="h-100 d-flex align-items-center">
-              <h6 class="mt-0 py-3 text-justify">{{ article.desc }}</h6>
+              <h6 class="mt-0 py-3 text-justify">{{ article.description }}</h6>
             </div>
           </div>
         </div>

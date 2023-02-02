@@ -1,14 +1,14 @@
 <div class="home w-100 h-100 text-white">
   <div class="container-fluid h-100" (scroll)="handleScroll()">
-    <button *ngIf="buttonDemarrerFixed === true" class="btn btn-primary btn-contact" (click)="openModalContact()">
-      <span class="gradient-text">Démarrer</span>
-    </button>
+    <div *ngIf="buttonDemarrerFixed === true" class="btn-contact-fixed-top">
+      <jhi-contact></jhi-contact>
+    </div>
     <div class="d-flex align-items-center" style="height: 120px">
       <div class="header me-5 align-items-center">
-        <button class="btn-header">Nous contacter</button>
-        <button class="btn-header">À propos</button>
-        <button class="btn-header">Langue</button>
-        <button class="btn-header" [routerLink]="'showcase'">Exemples</button>
+        <a class="btn-header">Nous contacter</a>
+        <a class="btn-header">À propos</a>
+        <a class="btn-header">Langue</a>
+        <a class="btn-header" [routerLink]="'showcase'">Exemples</a>
         <jhi-contact></jhi-contact>
       </div>
     </div>
@@ -18,7 +18,7 @@
         <div class="catchphrase">Demandez votre site web en quelques clics.</div>
       </div>
       <div class="col-md-5">
-        <img src="../../../../content/images/home/laptop-home.png" alt="typing" class="img-dev" />
+        <img src="../../../../content/images/home/laptop-home.png" alt="laptop-futirstic" class="laptop-futuristic"/>
       </div>
     </div>
 

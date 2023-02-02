@@ -1,0 +1,28 @@
+.filter-container {
+  border-bottom: 1px solid #dddddd;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.openable-content {
+  overflow: hidden;
+  height: 0;
+
+  &.open {
+    height: auto;
+  }
+}
+
+//.openable-content {
+//  overflow: hidden;
+//  max-height: 0;
+//  transition: max-height 0.4s cubic-bezier(.5, 0, .5, 1);
+//
+//  &.open {
+//    max-height: 200px; // todo réfléchir à ça
+//    transition: max-height 0.4s cubic-bezier(.5, 0, .5, 1);
+//  }
+//}

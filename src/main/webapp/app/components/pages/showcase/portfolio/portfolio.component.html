@@ -82,15 +82,7 @@
             </div>
             <div class="card-body">
               <div class="d-flex justify-content-center mt-auto">
-                <ngb-rating
-                  class="my-auto"
-                  [(rate)]="rate"
-                  [readonly]="true"
-                  [max]="rate"
-                  ngbTooltip="Best"
-                  [openDelay]="300"
-                  placement="right"
-                >
+                <ngb-rating class="my-auto" [(rate)]="rate" [readonly]="true" [max]="rate" ngbTooltip="Best" [openDelay]="300" placement="right">
                   <ng-template let-fill="fill">
                     <span class="star" [class.full]="fill === 100"> <span class="half" [style.width.%]="fill">&starf;</span>&starf; </span>
                   </ng-template>
@@ -107,15 +99,7 @@
             </div>
             <div class="card-body">
               <div class="d-flex justify-content-center mt-auto">
-                <ngb-rating
-                  class="my-auto"
-                  [(rate)]="rate"
-                  [readonly]="true"
-                  [max]="rate"
-                  ngbTooltip="Best"
-                  [openDelay]="300"
-                  placement="right"
-                >
+                <ngb-rating class="my-auto" [(rate)]="rate" [readonly]="true" [max]="rate" ngbTooltip="Best" [openDelay]="300" placement="right">
                   <ng-template let-fill="fill">
                     <span class="star" [class.full]="fill === 100"> <span class="half" [style.width.%]="fill">&starf;</span>&starf; </span>
                   </ng-template>

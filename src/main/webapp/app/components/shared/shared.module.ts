@@ -20,6 +20,8 @@ import { MaskDirective } from 'app/directives/mask.directive';
 import { CurrencyMaskDirective } from 'app/directives/currency-mask.directive';
 import { ContactComponent } from './button-contact/contact.component';
 import { LanguageSelectionComponent } from './language-selection/language-selection.component';
+import {CurrencyShopingPipe} from "../../pipes/currency-shopping.pipe";
+
 
 @NgModule({
   imports: [SharedLibsModule],
@@ -32,6 +34,7 @@ import { LanguageSelectionComponent } from './language-selection/language-select
     DurationPipe,
     FormatMediumDatetimePipe,
     FormatMediumDatePipe,
+    CurrencyShopingPipe,
     SortByDirective,
     SortDirective,
     ItemCountComponent,
@@ -65,6 +68,7 @@ import { LanguageSelectionComponent } from './language-selection/language-select
     CurrencyMaskDirective,
     ContactComponent,
     LanguageSelectionComponent,
+    CurrencyShopingPipe,
   ],
 })
 export class SharedModule {}

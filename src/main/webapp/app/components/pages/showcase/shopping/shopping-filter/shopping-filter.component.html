@@ -1,0 +1,66 @@
+<div class="w-100 p-4">
+  <div class="filter-title mb-4">Filtres</div>
+  <div class="d-flex flex-column filter-panels">
+    <form>
+      <jhi-shopping-filter-panel [title]="'Prix'">
+        <div class="price-slider">
+          <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="optionsSlideMontants"></ngx-slider>
+        </div>
+      </jhi-shopping-filter-panel>
+      <jhi-shopping-filter-panel [title]="'Note'">
+        <ul class="filter-list d-flex flex-column">
+          <li *ngFor="let rating of ratings; let i = index">
+            <div class="checkbox d-flex align-items-center">
+              <input class="custom-checkbox cursor" type="checkbox" [id]="'rating-checkbox_' + i">
+              <label class="cursor d-flex align-items-center" [for]="'rating-checkbox_' + i">
+                <span *ngFor="let i of [1, 2, 3, 4, 5]" [ngClass]="{'full-star': i <= rating.value, 'empty-star': i > rating.value}"></span>
+                <span class="ms-2"> ({{rating.value}} et plus)</span>
+              </label>
+            </div>
+          </li>
+        </ul>
+      </jhi-shopping-filter-panel>
+      <jhi-shopping-filter-panel [title]="'Marques'">
+        <ul class="filter-list d-flex flex-column">
+          <li *ngFor="let brand of brands; let i = index">
+            <div class="checkbox d-flex align-items-center">
+              <input class="custom-checkbox cursor" type="checkbox" [id]="'brand-checkbox_' + i">
+              <label class="cursor" [for]="'brand-checkbox_' + i">{{brand.name}}</label>
+            </div>
+          </li>
+        </ul>
+      </jhi-shopping-filter-panel>
+      <jhi-shopping-filter-panel [title]="'Options de retrait'">
+        <ul class="filter-list d-flex flex-column">
+          <li>
+            <div class="checkbox d-flex align-items-center">
+              <input class="custom-checkbox cursor" type="checkbox" id="home-delivery">
+              <label class="cursor" for="home-delivery">Livraison à domicile</label>
+            </div>
+          </li>
+          <li>
+            <div class="checkbox d-flex align-items-center">
+              <input class="custom-checkbox cursor" type="checkbox" id="drive-2h">
+              <label class="cursor" for="drive-2h">Drive 2h</label>
+            </div>
+          </li>
+          <li>
+            <div class="checkbox d-flex align-items-center">
+              <input class="custom-checkbox cursor" type="checkbox" id="in-store">
+              <label class="cursor" for="in-store">En magasin</label>
+            </div>
+          </li>
+        </ul>
+      </jhi-shopping-filter-panel>
+
+      <div class="bottom-buttons pt-3">
+        <button class="btn btn-apply-filters">Appliquer les filtres</button>
+        <button class="btn btn-reset">Réinitialiser</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+

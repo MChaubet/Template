@@ -9,6 +9,7 @@ import { SharedLibsModule } from '../shared/shared-libs.module';
 import { LayoutsModule } from '../layouts/layouts.module';
 import { UserRouteAccessService } from '../../services/user-route-access.service';
 import { Authority } from '../../constants/authority.constants';
+import { MenuSidebarOpacityComponent } from './misc/menu-sidebar-opacity/menu-sidebar-opacity.component';
 
 const PAGES_ROUTES = [
   {
@@ -46,7 +47,7 @@ const PAGES_ROUTES = [
 ];
 
 @NgModule({
-  declarations: [HomeComponent, LoginComponent],
+  declarations: [HomeComponent, LoginComponent, MenuSidebarOpacityComponent],
   imports: [RouterModule.forChild(PAGES_ROUTES), CommonModule, LayoutsModule, SharedModule, SharedLibsModule],
 })
 export class PagesModule {}

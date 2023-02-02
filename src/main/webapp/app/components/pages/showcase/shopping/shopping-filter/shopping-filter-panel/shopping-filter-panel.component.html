@@ -1,0 +1,13 @@
+<div class="filter-container">
+  <div class="cursor" (click)="togglePanel()">
+    <div class="d-flex justify-content-between align-items-center py-3 user-select-none">
+      <div class="title ">{{title}}</div>
+      <img src="../../../../../../../content/images/showcase/shopping/arrow-down.svg" alt="arrow-down" height="16px" width="16px" [@rotatedState]="arrowState">
+    </div>
+  </div>
+  <div class="openable-content" [class.open]="isOpen">
+    <div class="px-1 pb-3">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

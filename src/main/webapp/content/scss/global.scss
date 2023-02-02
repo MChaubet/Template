@@ -3,6 +3,7 @@
 @import '~bootstrap/scss/variables';
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import '~bootstrap/dist/css/bootstrap.css';
+@import '../../content/scss/theme.scss';
 
 /* ==============================================================
 Bootstrap tweaks
@@ -183,8 +184,8 @@ jhi-showcase {
 }
 
 .footer {
-  border-top: solid #4b4b4b 1px;
-  background-color: #171717;
+  border-top: solid $color-border 1px;
+  background-color: $color-footer;
 }
 
 .hand,
@@ -300,24 +301,6 @@ ui bootstrap tweaks
   cursor: pointer;
 }
 
-.star {
-  position: relative;
-  display: inline-block;
-  font-size: 1.3rem;
-  color: #fff;
-}
-
-.full {
-  color: $blue-dark-custom;
-}
-
-.half {
-  position: absolute;
-  display: inline-block;
-  overflow: hidden;
-  color: $blue-dark-custom;
-}
-
 ngb-accordion .card-header > button {
   text-align: left;
   width: 100%;
@@ -334,4 +317,28 @@ ngb-accordion .card-header {
     background: transparent;
     border: none;
   }
+}
+
+.shopping-container {
+  width: 100%;
+  padding: 0 0.75rem;
+  margin: 0 auto;
+}
+
+@media (min-width: $responsive-shopping-1) {
+  .shopping-container {
+    max-width: 1500px;
+  }
+}
+
+.full-star {
+  width: 20px;
+  height: 20px;
+  background-image: url(~content/images/showcase/shopping/star-full.svg);
+}
+
+.empty-star {
+  width: 20px;
+  height: 20px;
+  background-image: url(~content/images/showcase/shopping/star-empty.svg);
 }

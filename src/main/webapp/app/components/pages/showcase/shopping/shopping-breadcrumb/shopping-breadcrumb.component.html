@@ -1,0 +1,35 @@
+<div class="shopping-container">
+  <div class="mb-3">
+    <div style="height: 60px">
+      <div class="shopping-breadcrumb d-flex">
+        <a routerLink="laptops">Accueil</a>
+        <span class="breadcrumb-separator"> > </span>
+        <a routerLink="laptops">Ordinateurs portables</a>
+        <span class="breadcrumb-separator"> > </span>
+        <b>Ultrabooks</b>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <div>
+        <div class="category-title">Ultrabooks</div>
+        <div class="result-number">18 résultats</div>
+      </div>
+      <div class="filter-button-container">
+        <button class="filter-button cursor" type="button" (click)="toggleFilterChoices()">
+        <span>
+          <span class="filter-button-title">Trier par</span>
+          <span class="active-filter">{{activeFilterName}}</span>
+        </span>
+          <img src="../../../../../../content/images/showcase/shopping/arrow-down.svg" alt="arrow-down" aria-hidden="true" height="16px" width="16px" [@rotatedState]="arrowState">
+        </button>
+        <div class="filter-choices" *ngIf="isFilterChoicesOpen">
+          <div class="filter-choice cursor" [class.selected-choice]="i === activeFilter"
+               *ngFor="let filter of filters; let i = index" (click)="selectFilter(i)">
+            {{filter}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

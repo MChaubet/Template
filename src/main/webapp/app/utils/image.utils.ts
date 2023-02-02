@@ -1,6 +1,8 @@
-import * as fs from 'fs';
-
-export const importImageAsBase64 = (filePath: string): string => {
-  const bitmap = fs.readFileSync(filePath);
-  return new Buffer(bitmap).toString('base64');
-};
+export const convertToBase64 = (blob: Blob): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(String(reader.result));
+    reader.onerror = err => reject(String(err));
+    reader.readAsDataURL(blob);
+  });
+}

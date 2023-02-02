@@ -16,6 +16,14 @@ import { BakeryComponent } from './bakery/bakery.component';
 import { ShowcaseComponent } from './showcase.component';
 import { LayoutsModule } from '../../layouts/layouts.module';
 import {AccountModule} from "../account/account.module";
+import { ShoppingFilterComponent } from './shopping/shopping-filter/shopping-filter.component';
+import { ShoppingArticlesComponent } from './shopping/shopping-articles/shopping-articles.component';
+import { ShoppingHeaderComponent } from './shopping/shopping-header/shopping-header.component';
+import { ShoppingBreadcrumbComponent } from './shopping/shopping-breadcrumb/shopping-breadcrumb.component';
+import { ShoppingFilterPanelComponent } from './shopping/shopping-filter/shopping-filter-panel/shopping-filter-panel.component';
+import {NgxSliderModule} from "@angular-slider/ngx-slider";
+import { ShoppingFooterComponent } from './shopping/shopping-footer/shopping-footer.component';
+import { ShoppingOldComponent } from './shopping/shopping-old/shopping-old.component';
 
 const routes: Routes = [
   {
@@ -66,6 +74,13 @@ const routes: Routes = [
     PricingComponent,
     BakeryComponent,
     ShowcaseComponent,
+    ShoppingFilterComponent,
+    ShoppingArticlesComponent,
+    ShoppingHeaderComponent,
+    ShoppingBreadcrumbComponent,
+    ShoppingFilterPanelComponent,
+    ShoppingFooterComponent,
+    ShoppingOldComponent,
   ],
   imports: [
     CommonModule,
@@ -74,6 +89,7 @@ const routes: Routes = [
     StoreModule.forFeature(shoppingFeatureKey, shoppingReducer),
     LayoutsModule,
     AccountModule,
+    NgxSliderModule
   ],
 })
 export class ShowcaseModule {}

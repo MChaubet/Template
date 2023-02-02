@@ -1,0 +1,58 @@
+<div class="shopping-container">
+  <div class="header-grid mb-3">
+    <div class="div1">
+      <a routerLink="/showcase/shopping" class="d-flex align-items-center justify-content-start">
+        <img src="../../../../../content/images/showcase/shopping/logo_shopping.png" alt="logo" height="60px"/>
+      </a>
+    </div>
+    <form role="form" [formGroup]="form" novalidate class="div2 d-flex align-items-center">
+      <div class="search-box">
+        <input type="text" class="form-control search-input" placeholder="Recherchez un produit, une marque..." formControlName="search">
+        <button class="clear" *ngIf="form.controls.search.value" (click)="clearSearch()">
+          <em class="fa-solid fa-times"></em>
+        </button>
+
+        <button class="search" (click)="search()">
+          <em class="fa-solid fa-search"></em>
+        </button>
+      </div>
+    </form>
+
+    <div class="d-flex align-items-center justify-content-end div3">
+      <div class="d-flex header-buttons-container">
+        <a class="login-button header-button d-flex align-items-center justify-content-between">
+          <span class="text-button-account">Mon compte</span>
+          <em class="text-center fa-solid fa-user"></em>
+        </a>
+        <a class="favorite-cart-button header-button d-flex align-items-center justify-content-center">
+          <em class="text-center fa-solid fa-heart"></em>
+        </a>
+        <a class="favorite-cart-button header-button d-flex align-items-center justify-content-center">
+          <em class="text-center fa-solid fa-cart-shopping"></em>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="category-menu">
+    <div *ngFor="let category of menuData; let i = index" class="custom-dropdown">
+      <a class="category" routerLink="/showcase/shopping/category/0" [style]="'color: ' + category.color">
+        <span>{{ category.title }}</span>
+      </a>
+      <div class="dropdown-content">
+        <div class="row no-gutters" *ngFor="let item of category.items">
+          <div class="col-4" *ngFor="let subItem of item">
+            <a class="custom-dropdown-item cursor" routerLink="/showcase/shopping/category/0"> <!-- ajouter les liens dans le json -->
+              <em class="fa-solid fa-microchip fa-xl align-self-center"></em> <!-- ajouter les icones dans le json -->
+              <span>{{ subItem }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--    <div class="scroll-btn cursor" (click)="scrollMenu()">-->
+<!--      <em class="fa-solid fa-arrow-right"></em>-->
+<!--    </div>-->
+
+  </div>
+</div>

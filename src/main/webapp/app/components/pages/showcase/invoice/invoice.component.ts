@@ -57,7 +57,6 @@ export class InvoiceComponent implements OnInit {
       this.invoiceService.generateInvoice(this.getInvoiceParameters());
     } else {
       this.form.markAllAsTouched();
-      console.log();
     }
   }
 
@@ -157,7 +156,7 @@ export class InvoiceComponent implements OnInit {
     };
   }
 
-  private getValidationMessages(lang: string) {
+  private getValidationMessages(lang: string): void {
     switch (lang) {
       case 'fr':
         this.validationMsgs = invoiceValidationMessagesJson.fr;

@@ -1,0 +1,157 @@
+@import '../../../../../../content/scss/theme.scss';
+
+.filter-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.filter-panels {
+}
+
+.filter-list {
+  list-style-type: none;
+  padding-inline: 0.2rem;
+  gap: 0.5rem;
+  margin-bottom: 0;
+
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.label-checkbox {
+  gap: 10px;
+}
+
+.hidden-checkbox {
+  position: absolute;
+  opacity: 0;
+}
+
+.checkbox {
+
+  &:hover .custom-checkbox {
+    border: red; // todo
+  }
+
+  .custom-checkbox {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .custom-checkbox + label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+  }
+
+  .custom-checkbox + label::before {
+    transition: 0.2s;
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+  }
+
+  .custom-checkbox:checked + label::before {
+    border-color: $color-shopping-primary;
+    background-color: $color-shopping-primary;
+    background-image: url(~content/images/showcase/shopping/checkmark.svg);
+  }
+
+}
+
+.bottom-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: inherit;
+  transition: all .15s ease;
+
+  .btn {
+    font-weight: 500;
+  }
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.btn-apply-filters {
+  background-color: $color-shopping-primary;
+  color: white;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $color-shopping-primary-dark;
+    transition: background-color 0.2s ease;
+  }
+}
+
+.btn-reset {
+  background-color: #ffffff;
+  color: #212529;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #f5f5f5;
+    transition: all 0.2s ease;
+  }
+}
+
+.price-slider {
+  padding-top: 0.7rem;
+}
+
+::ng-deep {
+  .price-slider .ngx-slider .ngx-slider-bar {
+    background: hsl(222, 53%, 90%);
+    height: 2px;
+  }
+
+  .price-slider .ngx-slider .ngx-slider-selection {
+    background: $color-shopping-primary;
+  }
+
+  .price-slider .ngx-slider .ngx-slider-pointer {
+    width: 20px;
+    height: 20px;
+    top: auto;
+    bottom: -7px;
+    background-color: white;
+    border: solid 2px $color-shopping-primary;
+  }
+
+  .price-slider .ngx-slider .ngx-slider-pointer:after {
+    display: none;
+  }
+
+  .price-slider .ngx-slider .ngx-slider-bubble {
+    color: $color-shopping-primary;
+    bottom: 25px;
+    font-weight: bold;
+  }
+
+  .price-slider .ngx-slider .ngx-slider-limit {
+    font-weight: 300;
+  }
+
+  .custom-slider .ngx-slider .ngx-slider-tick.ngx-slider-selected {
+    background: red; // todo
+  }
+
+  .ngx-slider-pointer {
+    &:focus {
+      outline: 0 !important;
+    }
+  }
+}
+
