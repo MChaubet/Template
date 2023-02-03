@@ -3,7 +3,7 @@
 @font-face {
   font-display: swap;
   font-family: ABCNormal;
-  src: url(~content/fonts/ABCNormal-Light.woff) format('woff');
+  src: url("../fonts/ABCNormal-Light.woff") format('woff');
   font-style: normal;
   font-weight: 300;
 }
@@ -11,7 +11,7 @@
 @font-face {
   font-display: swap;
   font-family: ABCNormal;
-  src: url(~content/fonts/ABCNormal-Regular.woff) format('woff');
+  src: url("../fonts/ABCNormal-Regular.woff") format('woff');
   font-style: normal;
   font-weight: 400;
 }
@@ -19,7 +19,7 @@
 @font-face {
   font-display: swap;
   font-family: ABCNormal;
-  src: url(~content/fonts/ABCNormal-Medium.woff) format('woff');
+  src: url("../fonts/ABCNormal-Medium.woff") format('woff');
   font-style: normal;
   font-weight: 500;
 }
@@ -27,6 +27,6 @@
 @font-face {
   font-display: swap;
   font-family: Blackout;
-  src: url(~content/fonts/Blackout.otf) format('opentype');
+  src: url("../fonts/Blackout.otf") format('opentype');
   font-style: normal;
 }

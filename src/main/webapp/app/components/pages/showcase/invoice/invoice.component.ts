@@ -8,6 +8,7 @@ import invoiceValidationMessagesJson from '../../../../../../resources/json/invo
 import {CountryModel} from '../../../../models/invoice/country';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
+import {PrestationModel} from "../../../../models/invoice/prestation.model";
 
 @Component({
   selector: 'jhi-invoice',
@@ -20,15 +21,15 @@ export class InvoiceComponent implements OnInit {
 
   form = this.formBuilder.group(
     {
-      numeroClient: [null, [Validators.required, Validators.maxLength(10)]],
-      nomClient: [null, [Validators.required, Validators.maxLength(30)]],
-      pays: ['France', [Validators.required]],
-      numeroAdresse: [null, [Validators.required, Validators.maxLength(4), Validators.pattern('^[1-9][0-9]*$')]],
-      extensionAdresse: [null, [Validators.maxLength(4)]],
-      natureLibelleVoie: [null, [Validators.required, Validators.maxLength(60)]],
-      complementLocalisation: [null, [Validators.maxLength(50)]],
-      codePostal: [null, [Validators.required, Validators.maxLength(5), Validators.pattern('[0-9]{5}')]],
-      ville: [null, [Validators.required, Validators.maxLength(50)]],
+      numeroClient: new FormControl<string|null>(null, [Validators.required, Validators.maxLength(10)]),
+      nomClient: new FormControl<string|null>(null, [Validators.required, Validators.maxLength(30)]),
+      pays: new FormControl<string|null>('France', [Validators.required]),
+      numeroAdresse: new FormControl<string|null>(null, [Validators.required, Validators.maxLength(4), Validators.pattern('^[1-9][0-9]*$')]),
+      extensionAdresse: new FormControl<string|null>(null, [Validators.maxLength(4)]),
+      natureLibelleVoie: new FormControl<string|null>(null, [Validators.required, Validators.maxLength(60)]),
+      complementLocalisation: new FormControl<string|null>(null, [Validators.maxLength(50)]),
+      codePostal: new FormControl<string|null>(null, [Validators.required, Validators.maxLength(5), Validators.pattern('[0-9]{5}')]),
+      ville: new FormControl<string|null>(null, [Validators.required, Validators.maxLength(50)]),
       prestations: this.formBuilder.array([this.createPrestationFormGroup()]),
     },
     {updateOn: 'blur'}
@@ -128,8 +129,8 @@ export class InvoiceComponent implements OnInit {
   private createPrestationFormGroup(): FormGroup {
     return new FormGroup({
       nom: new FormControl('', [Validators.required, Validators.maxLength(100)]),
-      quantite: new FormControl([], [Validators.required, Validators.min(1), Validators.max(1000000)]),
-      tarifUnitaire: new FormControl([], [Validators.required, Validators.min(0.01), Validators.max(1000000)]),
+      quantite: new FormControl<number|null>(null, [Validators.required, Validators.min(1), Validators.max(1000000)]),
+      tarifUnitaire: new FormControl<number|null>(null, [Validators.required, Validators.min(0.01), Validators.max(1000000)]),
     });
   }
 
@@ -137,23 +138,17 @@ export class InvoiceComponent implements OnInit {
     const formValue = this.form.getRawValue();
 
     return {
-      numeroClient: formValue.numeroClient,
-      nomClient: formValue.nomClient,
-      pays: formValue.pays,
-      numeroAdresse: formValue.numeroAdresse,
-      extensionAdresse: formValue.extensionAdresse,
-      natureLibelleVoie: formValue.natureLibelleVoie,
-      complementLocalisation: formValue.complementLocalisation,
-      codePostal: formValue.codePostal,
-      ville: formValue.ville,
-      prestations: formValue.prestations.map((p: { nom: any; quantite: string; tarifUnitaire: string }) => {
-        return {
-          nom: p.nom,
-          quantite: parseFloat(p.quantite),
-          tarifUnitaire: parseFloat(p.tarifUnitaire),
-        };
-      }),
-    };
+      numeroClient: formValue.numeroClient ?? '',
+      nomClient: formValue.nomClient ?? '',
+      pays: formValue.pays ?? '',
+      numeroAdresse: formValue.numeroAdresse ?? '',
+      extensionAdresse: formValue.extensionAdresse ?? '',
+      natureLibelleVoie: formValue.natureLibelleVoie ?? '',
+      complementLocalisation: formValue.complementLocalisation ?? '',
+      codePostal: formValue.codePostal ?? '',
+      ville: formValue.ville ?? '',
+      prestations: formValue.prestations.map(p => new PrestationModel(p.nom, p.quantite, p.tarifUnitaire))
+    } as ParametersInvoiceModel;
   }
 
   private getValidationMessages(lang: string): void {

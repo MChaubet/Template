@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 import { AccountService } from 'app/services/account.service';
@@ -15,10 +15,10 @@ export class SettingsComponent implements OnInit {
   success = false;
   languages = LANGUAGES;
   settingsForm = this.fb.group({
-    firstName: [undefined, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]],
-    lastName: [undefined, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]],
-    email: [undefined, [Validators.required, Validators.minLength(5), Validators.maxLength(254), Validators.email]],
-    langKey: [undefined],
+    firstName: new FormControl<string|null>(null, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
+    lastName: new FormControl<string|null>(null, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
+    email: new FormControl<string|null>(null, [Validators.required, Validators.minLength(5), Validators.maxLength(254), Validators.email]),
+    langKey: new FormControl<string|null>(null),
   });
 
   constructor(private accountService: AccountService, private fb: FormBuilder, private translateService: TranslateService) {}
@@ -43,8 +43,8 @@ export class SettingsComponent implements OnInit {
 
     this.account.firstName = this.settingsForm.get('firstName')!.value;
     this.account.lastName = this.settingsForm.get('lastName')!.value;
-    this.account.email = this.settingsForm.get('email')!.value;
-    this.account.langKey = this.settingsForm.get('langKey')!.value;
+    this.account.email = this.settingsForm.get('email')!.value ?? '';
+    this.account.langKey = this.settingsForm.get('langKey')!.value ?? '';
 
     this.accountService.save(this.account).subscribe(() => {
       this.success = true;

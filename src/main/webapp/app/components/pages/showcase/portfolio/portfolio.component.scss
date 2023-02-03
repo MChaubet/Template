@@ -49,7 +49,7 @@ button.change-video {
   .photo-cover {
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
     position: absolute;
     opacity: 0;
     bottom: 0;
