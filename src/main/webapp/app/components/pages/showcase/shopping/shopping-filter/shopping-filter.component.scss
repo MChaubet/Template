@@ -30,6 +30,7 @@
 }
 
 .checkbox {
+  position: relative;
 
   &:hover .custom-checkbox {
     border: red; // todo
@@ -53,7 +54,7 @@
     width: 20px;
     height: 20px;
     border: 1px solid #cccccc;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     margin-right: 0.5em;
     background-repeat: no-repeat;
     background-position: center center;

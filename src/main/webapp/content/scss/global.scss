@@ -335,10 +335,14 @@ ngb-accordion .card-header {
   width: 20px;
   height: 20px;
   background-image: url(~content/images/showcase/shopping/star-full.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .empty-star {
   width: 20px;
   height: 20px;
   background-image: url(~content/images/showcase/shopping/star-empty.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }

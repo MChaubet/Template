@@ -46,21 +46,33 @@
 
 .btn-favorite {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 0.25rem;
+  right: 0.25rem;
   background-color: inherit;
   border: none;
-  height: 20px;
-  width: 20px;
-  background-image: url(~content/images/showcase/shopping/heart-empty.svg);
+  background-image: url(~content/images/showcase/shopping/web_heart_animation.png);
   background-repeat: no-repeat;
-  background-position: center center;
+  background-size: 2900%;
+  background-position: left;
+  height: 50px;
+  width: 50px;
+  margin: 0 auto;
+  cursor: pointer;
+}
 
+.animate {
+  animation: heart-burst .6s steps(28) forwards;
+}
 
-  &.is-favorite {
-    background-image: url(~content/images/showcase/shopping/heart-full.svg);
+@keyframes heart-burst {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
   }
 }
+
 
 .btn-add-to-cart {
   background-color: $color-shopping-primary;

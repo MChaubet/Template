@@ -2,7 +2,7 @@
   <div *ngFor="let article of articles">
     <div class="article cursor d-flex flex-column">
       <div class="flex-grow-1">
-        <button class="btn-favorite" [class.is-favorite]="article.favorite" (click)="toggleFavorite(article.id)"></button>
+        <button class="btn-favorite" [class.animate]="article.favorite" (click)="toggleFavorite(article.id)"></button>
         <div class="d-flex align-items-center justify-content-center">
           <img *ngIf="article.image" src="{{ article.image }}" alt="{{ article.name }}">
         </div>
@@ -13,7 +13,7 @@
           </div>
           <div class="description">{{ article.description }}</div>
           <div class="d-flex justify-content-end">
-            <div class="price">{{ article.price | currencyShoping}}</div>
+            <div class="price">{{ article.price | currencyShoping }}</div>
           </div>
         </div>
       </div>
