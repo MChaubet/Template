@@ -23,7 +23,7 @@ import { ShoppingBreadcrumbComponent } from './shopping/shopping-breadcrumb/shop
 import { ShoppingFilterPanelComponent } from './shopping/shopping-filter/shopping-filter-panel/shopping-filter-panel.component';
 import {NgxSliderModule} from "@angular-slider/ngx-slider";
 import { ShoppingFooterComponent } from './shopping/shopping-footer/shopping-footer.component';
-import { ShoppingOldComponent } from './shopping/shopping-old/shopping-old.component';
+import {SharedLibsModule} from "../../shared/shared-libs.module";
 
 const routes: Routes = [
   {
@@ -80,11 +80,11 @@ const routes: Routes = [
     ShoppingBreadcrumbComponent,
     ShoppingFilterPanelComponent,
     ShoppingFooterComponent,
-    ShoppingOldComponent,
   ],
   imports: [
     CommonModule,
     SharedModule,
+    SharedLibsModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature(shoppingFeatureKey, shoppingReducer),
     LayoutsModule,

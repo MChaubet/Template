@@ -28,7 +28,7 @@ export class ShoppingHeaderComponent {
     this.form.controls.search.setValue(null);
   }
 
-  scrollMenu() {
+  scrollMenu(): void {
     const categoryMenu = document.querySelector('.category-menu');
     categoryMenu!.scrollLeft += 100;
   }
