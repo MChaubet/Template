@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit, AfterViewInit, ElementRef } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { LoginService } from 'app/services/login.service';
@@ -16,9 +16,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
   authenticationError = false;
 
   loginForm = this.fb.group({
-    username: [null, [Validators.required]],
-    password: [null, [Validators.required]],
-    rememberMe: [false],
+    username: new FormControl<string | null>(null, [Validators.required]),
+    password: new FormControl<string | null>(null, [Validators.required]),
+    rememberMe: new FormControl<boolean | null>(false),
   });
 
   constructor(
@@ -44,9 +44,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
   login(): void {
     this.loginService
       .login({
-        username: this.loginForm.get('username')!.value,
-        password: this.loginForm.get('password')!.value,
-        rememberMe: this.loginForm.get('rememberMe')!.value,
+        username: this.loginForm.get('username')!.value ?? '',
+        password: this.loginForm.get('password')!.value ?? '',
+        rememberMe: this.loginForm.get('rememberMe')!.value ?? true,
       })
       .subscribe({
         next: () => {

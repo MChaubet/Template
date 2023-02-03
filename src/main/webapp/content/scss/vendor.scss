@@ -12,7 +12,7 @@ eg $input-color: red;
 /* jhipster-needle-scss-add-vendor JHipster will add new css style */
 @font-face {
   font-family: Chalk;
-  src: url(~content/fonts/Chalk.ttf) format('truetype');
+  src: url(../../content/fonts/Chalk.ttf) format('truetype');
 }
 
 .popover {

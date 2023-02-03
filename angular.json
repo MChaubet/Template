@@ -18,8 +18,11 @@
       "prefix": "jhi",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser-esbuild",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": {
+              "path": "./webpack/webpack.custom.js"
+            },
             "outputPath": "target/classes/static/",
             "index": "src/main/webapp/index.html",
             "main": "src/main/webapp/main.ts",
@@ -47,11 +50,12 @@
               "src/main/webapp/content/fontawesome/css/all.min.css"
             ],
             "scripts": [],
-            "allowedCommonJsDependencies": [
-              "event-source-polyfill",
-              "pdfmake/build/pdfmake",
-              "pdfmake/build/vfs_fonts"
-            ]
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/main/webapp",
+                "./"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -72,7 +76,7 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
+                  "maximumWarning": "3kb",
                   "maximumError": "10kb"
                 }
               ]
@@ -88,18 +92,8 @@
           },
           "defaultConfiguration": "production"
         },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "eslintConfig": ".eslintrc.json",
-            "lintFilePatterns": [
-              "src/main/webapp/app/**/*.js",
-              "src/main/webapp/app/**/*.ts"
-            ]
-          }
-        },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "browserTarget": "template:build:development",
             "port": 4200
@@ -123,8 +117,8 @@
       }
     }
   },
+  "defaultProject": "template",
   "cli": {
-    "schematicCollections": ["@angular-eslint/schematics"],
     "cache": {
       "enabled": true,
       "path": "./target/",

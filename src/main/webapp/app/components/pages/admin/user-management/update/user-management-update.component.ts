@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 import { LANGUAGES } from 'app/constants/language.constants';
@@ -17,22 +17,19 @@ export class UserManagementUpdateComponent implements OnInit {
   isSaving = false;
 
   editForm = this.fb.group({
-    id: [],
-    login: [
-      '',
-      [
-        Validators.required,
-        Validators.minLength(1),
-        Validators.maxLength(50),
-        Validators.pattern('^[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$|^[_.@A-Za-z0-9-]+$'),
-      ],
-    ],
-    firstName: ['', [Validators.maxLength(50)]],
-    lastName: ['', [Validators.maxLength(50)]],
-    email: ['', [Validators.minLength(5), Validators.maxLength(254), Validators.email]],
-    activated: [],
-    langKey: [],
-    authorities: [],
+    id: new FormControl<number|null>(null, []),
+    login: new FormControl<string|null>('', [
+      Validators.required,
+      Validators.minLength(1),
+      Validators.maxLength(50),
+      Validators.pattern('^[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$|^[_.@A-Za-z0-9-]+$'),
+    ]),
+    firstName: new FormControl<string|null>('', [Validators.maxLength(50)]),
+    lastName: new FormControl<string|null>('', [Validators.maxLength(50)]),
+    email: new FormControl<string|null>('', [Validators.minLength(5), Validators.maxLength(254), Validators.email]),
+    activated: new FormControl<boolean|null>(null, []),
+    langKey: new FormControl<string|null>(null, []),
+    authorities: new FormControl<string[]|null>(null, [])
   });
 
   constructor(private userService: UserManagementService, private route: ActivatedRoute, private fb: FormBuilder) {}
