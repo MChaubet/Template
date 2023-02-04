@@ -41,16 +41,15 @@ $separator-size: 10px;
 .welcome {
   background-image: url("../../../../../content/images/showcase/bakery/pastries_welcome.png");
   background-position: center;
-  background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   box-shadow: inset 0 0 0 1000px hsla(0, 0%, 0%, 0.4);
-
-  padding-top: 7.5rem;
-  padding-bottom: 7.5rem;
 }
 
 .welcome-title {
   font-weight: 700;
+  padding-top: 2rem;
 }
 
 .welcome-content {
@@ -64,7 +63,7 @@ $separator-size: 10px;
 
 .about-us-content {
   font-weight: 500;
-  font-size: 1.25vw;
+  font-size: 0.9rem;
 }
 
 .img-container {
@@ -93,6 +92,19 @@ $separator-size: 10px;
 
 .img-container-product {
   padding: 20px;
+
+  &:hover {
+    .photo-zoom {
+      transform: scale(1.1);
+      transition-timing-function: ease-in;
+      transition-duration: 300ms;
+      transition-property: all;
+    }
+  }
+}
+
+.photo-zoom {
+  transition: transform 0.3s ease-in;
 }
 
 .text-inside-img {
@@ -107,30 +119,52 @@ $separator-size: 10px;
 }
 
 .description {
-  padding-top: 20px;
   background-color: $color-primary;
 }
 
 .bakery-text-bold {
   color: $color-secondary;
   font-weight: bold;
-  font-size: 1.5vw;
+  font-size: 1rem;
 }
 .bakery-text {
   color: $text-color;
-  font-size: 1.5vw;
+  font-size: 1rem;
 }
 
 .catering-service {
   background-image: url(../../../../../content/images/showcase/bakery/bread_large.png);
   background-position: center;
-  background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   box-shadow: inset 0 0 0 1000px $color-primary-opacity-2;
 }
 
 .catering-service-button {
   width: fit-content;
+}
+
+.why-us {
+  min-width: 50%;
+}
+
+.description-2 {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+
+  @media (max-width: 766px) {
+    flex-direction: column;
+  }
+}
+
+.description-2-img {
+  background-image: url("../../../../../content/images/showcase/bakery/bakery.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 200px;
 }
 
 .description-2-title {
@@ -140,10 +174,12 @@ $separator-size: 10px;
 
 .description-2-list {
   list-style: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   color: $text-color;
   font-weight: 500;
-  font-size: 1.5vw;
+  font-size: 1rem;
 
   li::before {
     content: '\2022';
@@ -211,15 +247,8 @@ $separator-size: 10px;
 
 .contact-us-input,
 .contact-us-textarea {
-  background-color: $color-input-opacity;
-  color: $text-color;
-
   border: solid 2px $color-secondary;
   border-radius: 5px;
-
-  &::placeholder {
-    color: $text-color;
-  }
 }
 
 .border-card {
