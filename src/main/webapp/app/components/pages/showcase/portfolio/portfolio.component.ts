@@ -36,13 +36,4 @@ export class PortfolioComponent {
       { title: 'Beautiful render', date: '10 January, 2020', desc: this.text },
     ];
   }
-
-  // changeVideo(): void {
-  //   const video = document.getElementById('video') as HTMLVideoElement;
-  //   const source = document.getElementById('source') as HTMLSourceElement;
-  //
-  //   source.setAttribute('src', this.videoSrc.reverse()[0]);
-  //   video.load();
-  //   video.play().then(r => r);
-  // }
 }

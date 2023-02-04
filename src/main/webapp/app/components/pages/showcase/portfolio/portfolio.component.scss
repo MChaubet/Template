@@ -1,23 +1,21 @@
 @import '../../../../../content/scss/bootstrap-variables';
 
-div.video-banner {
-  height: 400px;
-  overflow: hidden;
-}
+.title-container {
+  background-image: url(../../../../../content/images/showcase/carousel1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-@media screen and (max-device-width: 900px) {
-  div.video-banner {
-    height: 180px;
+  .title {
+    padding-block: 2rem;
+
+    .title-1 {
+      font-size: 70px;
+    }
+    .title-2 {
+      font-size: 50px;
+    }
   }
-}
-
-.overlay-video {
-  position: absolute;
-  right: 0;
-}
-
-button.change-video {
-  background: rgba(255, 255, 255, 0.5);
 }
 
 .img-text-title {
@@ -124,13 +122,6 @@ ul.timeline > li:before {
   z-index: 400;
 }
 
-.icon-contact {
-  transition: 300ms linear;
-  &:hover {
-    transform: scale(1.3);
-  }
-}
-
 @media screen and (max-device-width: 900px) {
   .icon-contact:hover {
     p {
@@ -138,12 +129,20 @@ ul.timeline > li:before {
     }
   }
 
-  p.contact-text {
+  p.contact-text,
+  a.contact-text {
     font-size: 1rem !important;
   }
 }
-p.contact-text {
+p.contact-text,
+a.contact-text {
   font-size: 1.3rem;
+}
+
+.tel-num,
+.mailto {
+  text-decoration: none;
+  color: black;
 }
 
 .card.card-no {

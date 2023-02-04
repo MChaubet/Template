@@ -1,19 +1,8 @@
-<!--<div class="video-banner w-100 position-relative">-->
-<!--  <video id="video" class="m-auto w-100 position-absolute" style="top: 50%; bottom: 50%" [muted]="'muted'" loop autoplay>-->
-<!--    <source id="source" [src]="videoSrc[0]" type="video/mp4" />-->
-<!--    Your browser does not support HTML video.-->
-<!--  </video>-->
-<!--  <div class="overlay-video">-->
-<!--    <button class="change-video btn btn-lg m-2 btn-light border-0" (click)="changeVideo()">Switch</button>-->
-<!--  </div>-->
-<!--</div>-->
-
 <div class="container-fluid p-0" style="background-color: #f7f7f7">
-  <div class="text-center position-relative pb-5">
-    <img src="../../../../../content/images/showcase/carousel1.jpg" alt="ville" class="w-100" />
-    <div class="position-absolute w-100 text-white img-text-title">
-      <h1 class="display-1 text-shadow">Hello team</h1>
-      <h1 class="display-4 text-shadow">Jordan N, Mathieu C</h1>
+  <div class="title-container">
+    <div class="title">
+      <div class="title-1 text-shadow text-white text-center">Hello team</div>
+      <div class="title-2 text-shadow text-white text-center">Jordan N, Mathieu C</div>
     </div>
   </div>
 
@@ -68,7 +57,7 @@
     </div>
   </div>
 
-  <div class="text-center pb-5">
+  <div class="text-center pb-3">
     <h1 class="font-weight-bold pt-5">Our amazing team</h1>
     <span class="font-italic">Loren ipsum dolor sit amet consectetur</span>
 
@@ -112,23 +101,23 @@
     </div>
   </div>
 
-  <div class="container pt-5">
+  <div class="container pt-3">
     <section class="pb-5">
       <h1 class="h1-responsive font-weight-bold text-center my-5">Contact us</h1>
 
       <div class="d-flex justify-content-around pb-5">
-        <div class="col-3 text-center icon-contact">
+        <a class="col-3 text-center icon-contact d-flex flex-column tel-num" href="tel:6031112298">
           <em class="fas fa-phone fa-3x pb-3"></em>
-          <p class="text-truncate contact-text">+ 01 234 567 89</p>
-        </div>
+          <a class="tel-num text-truncate contact-text">+ 01 234 567 89</a>
+        </a>
         <div class="col-3 text-center icon-contact">
           <em class="fas fa-map-marker-alt fa-3x pb-3"></em>
           <p class="text-truncate contact-text">San Francisco, CA 94126, USA</p>
         </div>
-        <div class="col-3 text-center icon-contact">
+        <a class="col-3 text-center icon-contact d-flex flex-column mailto" href="mailto:example@gmail.com?subject=Contact">
           <em class="fas fa-envelope fa-3x pb-3"></em>
-          <p class="text-truncate contact-text">contact@us.com</p>
-        </div>
+          <a class="mailto text-truncate contact-text">example@gmail.com</a>
+        </a>
       </div>
 
       <hr />
