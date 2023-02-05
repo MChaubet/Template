@@ -1,6 +1,7 @@
 {
   "contact": {
     "questions": {
+      "continue": "Continue",
       "step1": {
         "question": "Want to get in touch? That’s great! \n In regards to...",
         "answer1": "Website",
@@ -31,6 +32,7 @@
         "input2": "Your email",
         "input3": "Any additional details? Existing website?"
       }
-    }
+    },
+    "thank-you": "Thank you! We'll be back in few"
   }
 }

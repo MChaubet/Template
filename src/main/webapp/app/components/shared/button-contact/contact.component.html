@@ -2,38 +2,48 @@
 
 <ng-template #content let-modal>
   <div class="modal-body d-flex flex-column">
-    <div class="d-flex flex-row-reverse">
-      <button type="button" class="btn-close btn-light" (click)="modal.close()"></button>
+    <div class="d-flex flex-row justify-content-between">
+      <div>
+        <em *ngIf="currentQuestionIdx !== 0 && currentQuestionIdx < questions.length" class="button-header cursor fa-solid fa-arrow-left" (click)="previousQuestion()"></em>
+      </div>
+      <em class="button-header cursor fa-solid fa-x" (click)="modal.close()"></em>
     </div>
-    <div class="flex-grow-1 text-center">
+    <div class="flex-grow-1 text-center px-4">
       <ng-container *ngFor="let question of questions; let i = index">
         <div class="h-100 d-flex flex-column" *ngIf="i === currentQuestionIdx">
-          <div class="">{{ i + 1 }} / {{ questions.length }}</div>
+          <div class="number-question">0{{ i + 1 }} / 0{{ questions.length }}</div>
           <div class="flex-grow-1">
             <div class="h-100 d-flex justify-content-center align-items-center">
-              <div class="d-flex flex-column">
-                <div>{{ question.question }}</div>
+              <div class="d-flex flex-column gap-4">
+                <div class="question-contact">{{ question.question }}</div>
 
-                <div *ngIf="question.answers.length" id="answers" class="d-flex flex-row justify-content-center">
-                  <button *ngFor="let answer of question.answers" (click)="answerQuestion(i, answer)">{{ answer }}</button>
+                <div *ngIf="question.buttons.length" id="buttons" class="d-flex flex-row justify-content-center flex-wrap">
+                  <button class="button-contact" *ngFor="let answer of question.buttons" (click)="answerQuestionButton(i, answer)">{{ answer.name }}</button>
                 </div>
 
-                <div *ngIf="question.inputs.length" id="inputs" class="d-flex flex-column">
-                  <input *ngFor="let input of question.inputs" [type]="input.type" [placeholder]="input.placeholder" />
-                </div>
+                <form #f="ngForm">
+                  <div *ngIf="question.inputs.length" id="inputs" class="d-flex flex-column gap-2 pb-3">
+                    <ng-container *ngFor="let input of question.inputs">
+                      <input [name]="input.placeholder" *ngIf="input.type === 'input'" class="input-contact"
+                             [type]="input.type" [placeholder]="input.placeholder" [(ngModel)]="input.value" required/>
+                      <input [name]="input.placeholder" *ngIf="input.type === 'email'" class="email-contact"
+                             [type]="input.type" [placeholder]="input.placeholder" [(ngModel)]="input.value" required/>
+                      <textarea [name]="input.placeholder" *ngIf="input.type === 'textarea'" class="textarea-contact"
+                                [placeholder]="input.placeholder" [(ngModel)]="input.value" required></textarea>
+                    </ng-container>
+                  </div>
+                  <input type="submit" *ngIf="question.inputs.length" [value]="'contact.questions.continue' | translate"
+                         class="button-contact button-continue" (click)="nextQuestion()">
+                </form>
+
               </div>
             </div>
-          </div>
-          <div class="">
-            <button (click)="previousQuestion()" [disabled]="currentQuestionIdx === 0"><</button>
-            <button (click)="answerQuestion(i, 'response')">></button>
           </div>
         </div>
       </ng-container>
       <ng-container *ngIf="currentQuestionIdx >= questions.length">
-        <div class="d-flex align-items-center">
-          <h1>Thx</h1>
-          <button (click)="closeModal()">Back to website</button>
+        <div class="h-100 d-flex justify-content-center">
+          <div class="my-auto question-contact" jhiTranslate="contact.thank-you">Thx</div>
         </div>
       </ng-container>
     </div>

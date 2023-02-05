@@ -1,4 +1,4 @@
-@import '../../../../content/scss/theme.scss';
+@import 'content/scss/theme.scss';
 
 .modal-body {
   height: 75vh;
@@ -11,7 +11,7 @@
   box-shadow: none;
 }
 
-#answers,
+#buttons,
 #inputs {
   gap: 10px;
 }
@@ -79,4 +79,68 @@
 
 .button--wayra > span {
   vertical-align: middle;
+}
+
+.number-question {
+  font-size: 0.875em;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.button-header {
+  font-size: 40px;
+}
+
+.question-contact {
+  font-size: 1.5em;
+  line-height: 1em;
+  font-weight: 400;
+}
+
+.button-contact {
+  padding: 0.875rem;
+  border-radius: 8px;
+  background-color: $navbar-theme;
+  color: white;
+  transition: background-color 200ms ease;
+  white-space: nowrap;
+  font-size: 0.875em;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.button-continue {
+  width: max-content;
+  margin-inline: auto;
+}
+
+.email-contact,
+.input-contact {
+  min-height: 3.25em;
+  padding: 0.8em;
+  border-radius: 16px;
+  background-color: hsl(0deg 0% 90%);
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333333;
+  vertical-align: middle;
+  border: 1px solid #cccccc;
+}
+
+.textarea-contact {
+  overflow-y: scroll;
+  min-height: 7em;
+  height: auto;
+  padding: 0.8em;
+  border-radius: 16px 0 0 16px;
+  background-color: hsl(0deg 0% 90%);
+  font-size: 14px;
+  color: #333333;
+  vertical-align: middle;
+  border: 1px solid hsl(0deg 0% 80%);
 }
