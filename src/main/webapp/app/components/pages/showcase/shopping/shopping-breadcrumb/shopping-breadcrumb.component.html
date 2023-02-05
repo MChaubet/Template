@@ -19,7 +19,7 @@
         <button class="filter-button cursor" type="button" (click)="toggleFilterChoices()">
         <span>
           <span class="filter-button-title">Trier par</span>
-          <span class="active-filter">{{activeFilterName}}</span>
+          <span class="active-filter">{{filters[activeFilter]}}</span>
         </span>
           <img src="../../../../../../content/images/showcase/shopping/arrow-down.svg" alt="arrow-down" aria-hidden="true" height="16px" width="16px" [@rotatedState]="arrowState">
         </button>

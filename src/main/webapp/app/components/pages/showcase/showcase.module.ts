@@ -25,6 +25,7 @@ import {NgxSliderModule} from "@angular-slider/ngx-slider";
 import {ShoppingFooterComponent} from './shopping/shopping-footer/shopping-footer.component';
 import {SharedLibsModule} from "../../shared/shared-libs.module";
 import {ShowcaseGuard} from "../../../guards/showcase.guard";
+import {NavbarComponent} from "../../layouts/navbar/navbar.component";
 
 const routes: Routes = [
   {
@@ -82,6 +83,7 @@ const routes: Routes = [
     ShoppingBreadcrumbComponent,
     ShoppingFilterPanelComponent,
     ShoppingFooterComponent,
+    NavbarComponent,
   ],
   imports: [
     CommonModule,
