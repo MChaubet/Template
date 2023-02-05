@@ -1,15 +1,16 @@
-<div>
-  <div class="row">
-    <div class="col-md-4">
-      <span class="hipster img-fluid rounded"></span>
-    </div>
-
-    <div class="col-md-8">
-      <h1 jhiTranslate="error.title">Error Page!</h1>
-
-      <div *ngIf="errorMessage">
-        <div class="alert alert-danger">{{ errorMessage }}</div>
-      </div>
-    </div>
+<section class="vh-100 bg-white d-flex justify-content-center align-items-center overflow-hidden">
+  <div class="position-relative my-auto">
+    <img src="https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif" alt="error404">
+    <h1 class="cursor text-inside-img">Look like you're lost</h1>
   </div>
-</div>
+</section>
+
+<style>
+  .text-inside-img {
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+  }
+</style>
