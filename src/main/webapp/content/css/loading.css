@@ -8,15 +8,11 @@
 }
 
 #loading-text {
-  display: block;
   position: absolute;
   top: 50%;
   left: 50%;
   color: #999;
-  width: 100px;
-  height: 30px;
-  margin: -7px 0 0 -45px;
-  text-align: center;
+  transform: translate(-50%, -50%);
   font-family: 'PT Sans Narrow', sans-serif;
   font-size: 20px;
 }
@@ -54,35 +50,23 @@
 
 #loading-content {
   border: 3px solid transparent;
-  border-top-color: #4D658D;
-  border-bottom-color: #4D658D;
+  border-block-color: #4D658D;
   border-radius: 50%;
-  -webkit-animation: loader 2s linear infinite;
-  -moz-animation: loader 2s linear infinite;
-  -o-animation: loader 2s linear infinite;
   animation: loader 2s linear infinite;
 }
 
 #loading-content:before {
   border: 3px solid transparent;
-  border-top-color: #D4CC6A;
-  border-bottom-color: #D4CC6A;
+  border-block-color: #D4CC6A;
   border-radius: 50%;
-  -webkit-animation: loader 3s linear infinite;
-  -moz-animation: loader 2s linear infinite;
-  -o-animation: loader 2s linear infinite;
   animation: loader 3s linear infinite;
 }
 
 #loading-content:after {
   border: 3px solid transparent;
-  border-top-color: #84417C;
-  border-bottom-color: #84417C;
+  border-block-color: #84417C;
   border-radius: 50%;
-  -webkit-animation: loader 1.5s linear infinite;
   animation: loader 1.5s linear infinite;
-  -moz-animation: loader 2s linear infinite;
-  -o-animation: loader 2s linear infinite;
 }
 
 @-webkit-keyframes loaders {
