@@ -73,34 +73,24 @@
   }
 }
 
-
-.btn-add-to-cart {
-  background-color: $color-shopping-primary;
-  color: white;
-  transition: background-color 0.2s ease;
-  font-weight: 500;
-  width: 100%;
-
-  &:hover {
-    background-color: $color-shopping-primary-dark;
-    transition: background-color 0.2s ease;
-  }
-}
-
 @media (max-width: $responsive-shopping-2) {
   .articles-container {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: $responsive-shopping-3) {
+@media (max-width: $responsive-shopping-4) {
   .articles-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: $responsive-shopping-4) {
+@media (max-width: $responsive-shopping-5) {
   .articles-container {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .article {
+    height: 460px;
   }
 }

@@ -1,6 +1,6 @@
-<div class="w-100 p-4">
+<div class="filters-container h-100">
   <div class="filter-title mb-4">Filtres</div>
-  <div class="d-flex flex-column filter-panels">
+  <div class="h-100">
     <form>
       <jhi-shopping-filter-panel [title]="'Prix'">
         <div class="price-slider">
@@ -14,7 +14,8 @@
               <input class="custom-checkbox cursor" type="checkbox" [id]="'rating-checkbox_' + i">
               <label class="cursor d-flex align-items-center" [for]="'rating-checkbox_' + i">
                 <span *ngFor="let i of [1, 2, 3, 4, 5]" [ngClass]="{'full-star': i <= rating.value, 'empty-star': i > rating.value}"></span>
-                <span class="ms-2"> ({{rating.value}} et plus)</span>
+                <span *ngIf="rating.value !== 5" class="ms-2"> ({{rating.value}} et plus)</span>
+                <span *ngIf="rating.value === 5" class="ms-2"> ({{rating.value}})</span>
               </label>
             </div>
           </li>
@@ -52,12 +53,11 @@
           </li>
         </ul>
       </jhi-shopping-filter-panel>
-
-      <div class="bottom-buttons pt-3">
-        <button class="btn btn-apply-filters">Appliquer les filtres</button>
-        <button class="btn btn-reset">Réinitialiser</button>
-      </div>
     </form>
+  </div>
+  <div class="bottom-buttons py-4">
+    <button class="btn blue-shopping-btn" (click)="closeFixedFilters()">Appliquer les filtres</button>
+    <button class="btn btn-reset">Réinitialiser</button>
   </div>
 </div>
 

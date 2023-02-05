@@ -124,6 +124,7 @@
       "path": "./target/",
       "environment": "all"
     },
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": false
   }
 }

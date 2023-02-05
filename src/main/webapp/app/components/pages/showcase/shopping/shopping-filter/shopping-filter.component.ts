@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Options} from "@angular-slider/ngx-slider";
+import {ShoppingService} from "../../../../../services/shopping.service";
 
 @Component({
   selector: 'jhi-shopping-filter',
@@ -28,8 +29,7 @@ export class ShoppingFilterComponent implements OnInit {
     }
   };
 
-
-  constructor() {
+  constructor(private shoppingService: ShoppingService) {
   }
 
   ngOnInit(): void {
@@ -38,14 +38,20 @@ export class ShoppingFilterComponent implements OnInit {
     this.brands.push({id: 3, name: 'HP'});
     this.brands.push({id: 4, name: 'Lenovo'});
     this.brands.push({id: 5, name: 'Acer'});
+    this.brands.push({id: 6, name: 'Sosce'});
+    this.brands.push({id: 7, name: 'Sescent'});
 
     this.ratings.push({id: 1, value: 1});
     this.ratings.push({id: 2, value: 2});
     this.ratings.push({id: 3, value: 3});
     this.ratings.push({id: 4, value: 4});
+    this.ratings.push({id: 5, value: 5});
     this.ratings.reverse();
   }
 
+  closeFixedFilters() {
+    this.shoppingService.closeFixedFiltersSubject.next(null);
+  }
 }
 
 export class Brand {

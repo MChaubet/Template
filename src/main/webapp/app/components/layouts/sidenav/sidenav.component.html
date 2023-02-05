@@ -1,12 +1,12 @@
-<div class="sidenav d-flex flex-column h-100" [class.open]="!collapsed">
+<div class="sidenav d-flex flex-column h-100" [class.open]="open">
 
   <div class="sidenav-item">
     <h5 class="sidenav-item-link title d-flex align-items-center justify-content-center cursor mb-0" (click)="toggleCollapse()">
       <div class="menu-toggle">
         <em class="sidenav-item-icon text-center fa-solid fa-bars menu-toggle"></em>
       </div>
-      <div class="sidenav-item-text fw-bold flex-grow-1" *ngIf="!collapsed">
-        Juun Project
+      <div class="sidenav-item-text fw-bold flex-grow-1" *ngIf="open">
+        Menu
       </div>
     </h5>
   </div>
@@ -16,7 +16,7 @@
   <div class="sidenav-item" *ngFor="let data of navData">
     <a class="sidenav-item-link d-flex align-items-center justify-content-center" [routerLink]="[data.routeLink]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
       <em class="sidenav-item-icon text-center" [class]="data.icon"></em>
-      <div class="sidenav-item-text flex-grow-1" *ngIf="!collapsed">{{ data.label }}</div>
+      <div class="sidenav-item-text flex-grow-1" *ngIf="open">{{ data.label }}</div>
     </a>
   </div>
 
@@ -27,26 +27,26 @@
   <div class="sidenav-item" *jhiHasAnyAuthority="'ROLE_ADMIN'" (click)="closeSidenav()">
     <a class="sidenav-item-link d-flex align-items-center justify-content-center" [routerLink]="'/admin'" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
       <em class="sidenav-item-icon text-center fa-solid fa-gear"></em>
-      <div class="sidenav-item-text flex-grow-1" *ngIf="!collapsed" jhiTranslate="global.menu.admin.main"></div>
+      <div class="sidenav-item-text flex-grow-1" *ngIf="open" jhiTranslate="global.menu.admin.main"></div>
     </a>
   </div>
 
   <div class="sidenav-item" *ngIf="!account" (click)="closeSidenav()">
     <a class="sidenav-item-link d-flex align-items-center justify-content-center" [routerLink]="'/account/register'" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
       <em class="sidenav-item-icon text-center fa-solid fa-user-plus"></em>
-      <div class="sidenav-item-text flex-grow-1" *ngIf="!collapsed" jhiTranslate="global.menu.account.register"></div>
+      <div class="sidenav-item-text flex-grow-1" *ngIf="open" jhiTranslate="global.menu.account.register"></div>
     </a>
   </div>
   <div class="sidenav-item" *ngIf="!account" (click)="openSignIn()">
     <a class="sidenav-item-link d-flex align-items-center justify-content-center">
       <em class="sidenav-item-icon text-center fa-solid fa-user"></em>
-      <div class="sidenav-item-text flex-grow-1" *ngIf="!collapsed" jhiTranslate="global.menu.account.login"></div>
+      <div class="sidenav-item-text flex-grow-1" *ngIf="open" jhiTranslate="global.menu.account.login"></div>
     </a>
   </div>
   <div class="sidenav-item" *ngIf="account" (click)="closeSidenav(); logout()">
     <a class="sidenav-item-link d-flex align-items-center justify-content-center">
       <em class="sidenav-item-icon text-center fa-solid fa-sign-out-alt"></em>
-      <div class="sidenav-item-text flex-grow-1" *ngIf="!collapsed" jhiTranslate="global.menu.account.logout"></div>
+      <div class="sidenav-item-text flex-grow-1" *ngIf="open" jhiTranslate="global.menu.account.logout"></div>
     </a>
   </div>
 </div>

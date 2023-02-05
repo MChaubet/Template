@@ -346,3 +346,22 @@ ngb-accordion .card-header {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.blue-shopping-btn {
+
+  background-color: $color-shopping-primary;
+  color: white;
+  transition: background-color 0.2s ease;
+  font-weight: 500;
+  width: 100%;
+
+  &:hover {
+    background-color: $color-shopping-primary-dark;
+    transition: background-color 0.2s ease;
+    color: white;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+}

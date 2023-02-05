@@ -14,7 +14,7 @@ import {SignInService} from "../../pages/account/sign-in/sign-in.service";
 
 interface SideNavToggle {
   screenWidth: number;
-  collapsed: boolean;
+  open: boolean;
 }
 
 @Component({
@@ -30,7 +30,7 @@ interface SideNavToggle {
 })
 export class SidenavComponent implements OnInit {
   @Output() toggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
-  collapsed = true;
+  open = false;
   screenWidth = 0;
   navData = navbarData;
   languages = LANGUAGES;
@@ -55,8 +55,8 @@ export class SidenavComponent implements OnInit {
   onResize(event: any): void {
     this.screenWidth = window.innerWidth;
     if (this.screenWidth <= 768) {
-      this.collapsed = true;
-      this.toggleSideNav.emit({ collapsed: this.collapsed, screenWidth: this.screenWidth });
+      this.open = false;
+      this.toggleSideNav.emit({ open: this.open, screenWidth: this.screenWidth });
     }
   }
 
@@ -68,13 +68,13 @@ export class SidenavComponent implements OnInit {
   }
 
   toggleCollapse(): void {
-    this.collapsed = !this.collapsed;
-    this.toggleSideNav.emit({ collapsed: this.collapsed, screenWidth: this.screenWidth });
+    this.open = !this.open;
+    this.toggleSideNav.emit({ open: this.open, screenWidth: this.screenWidth });
   }
 
   closeSidenav(): void {
-    this.collapsed = true;
-    this.toggleSideNav.emit({ collapsed: this.collapsed, screenWidth: this.screenWidth });
+    this.open = false;
+    this.toggleSideNav.emit({ open: this.open, screenWidth: this.screenWidth });
   }
 
   changeLanguage(languageKey: string): void {

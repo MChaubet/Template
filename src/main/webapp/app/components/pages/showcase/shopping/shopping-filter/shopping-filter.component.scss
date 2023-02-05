@@ -5,7 +5,8 @@
   font-weight: 600;
 }
 
-.filter-panels {
+.filters-container {
+  padding: 1.5rem 1.5rem 0 1.5rem;
 }
 
 .filter-list {
@@ -70,11 +71,14 @@
 }
 
 .bottom-buttons {
+  position: sticky;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
   background: inherit;
   transition: all .15s ease;
+  background-color: white;
 
   .btn {
     font-weight: 500;
@@ -84,17 +88,6 @@
 .btn:focus {
   outline: none;
   box-shadow: none;
-}
-
-.btn-apply-filters {
-  background-color: $color-shopping-primary;
-  color: white;
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background-color: $color-shopping-primary-dark;
-    transition: background-color 0.2s ease;
-  }
 }
 
 .btn-reset {

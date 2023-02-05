@@ -21,6 +21,7 @@
   width: 300px;
   border-radius: 0.5rem;
   box-shadow: 0 0 0.3rem 0.1rem $color-shopping-shadow;
+  background-color: white;
   height: fit-content;
 }
 
@@ -61,4 +62,47 @@
 .description {
   font-size: 14px;
   padding: 1rem;
+}
+
+.fixed-filter-button-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 0 0 0.3rem 0.1rem $color-shopping-shadow;
+  background: white;
+  z-index: 100;
+}
+
+.fixed-filter-button {
+  gap: 0.5rem;
+}
+
+.fixed-filter-popup {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: white;
+  z-index: 1000;
+  max-height: 100%;
+  transition: all 0.3s;
+  transform: translateY(0%);
+}
+
+.display-none {
+  z-index: -1;
+  max-height: 0;
+  //transform: translateY(100%);
+  //opacity: 0;
+  transition: all 0.3s;
+}
+
+.fixed-filter-header {
+  padding: 1rem;
+  height: 50px;
+  background-color: $color-shopping-primary;
+  color: white;
 }
