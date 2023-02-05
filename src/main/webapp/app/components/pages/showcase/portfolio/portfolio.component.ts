@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, TemplateRef} from '@angular/core';
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'jhi-portfolio',
@@ -14,7 +15,7 @@ export class PortfolioComponent {
   newsList: any[] = [];
   rate = 5;
 
-  constructor() {
+  constructor(private modalService: NgbModal) {
     this.items = [
       { title: 'Arbre', text: this.text },
       { title: 'Bonbon', text: this.text },
@@ -35,5 +36,9 @@ export class PortfolioComponent {
       { title: 'New Web Design', date: '03 January, 2020', desc: this.text },
       { title: 'Beautiful render', date: '10 January, 2020', desc: this.text },
     ];
+  }
+
+  openMapModal(content: TemplateRef<any>): void {
+    this.modalService.open(content, { centered: true, size: 'xl' });
   }
 }
