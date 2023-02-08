@@ -46,7 +46,7 @@
   display: grid;
   grid-template-areas: "grid-1 grid-2 grid-3";
   grid-template-columns: 2fr 16fr 3fr;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .links-container {
@@ -125,8 +125,18 @@
   color: $color-secondary;
 }
 
-
 @media (max-width: 770px) {
+  .titre-showcase {
+    display: none;
+  }
+
+  .grid-2, .links-container, .route-button, .route-choices  {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 500px) {
   .header-grid {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
@@ -135,21 +145,11 @@
   }
 
   .grid-2 {
-    width: 100%;
     grid-column: 1 / 3;
     justify-content: space-around;
   }
 }
 
-@media (max-width: 474px) {
-  .titre-showcase {
-    display: none;
-  }
-
-  .links-container, .route-button, .route-choices  {
-    width: 100%;
-  }
-}
 @media (max-width: 320px) {
   .back-to-home-link div {
     display: none;
