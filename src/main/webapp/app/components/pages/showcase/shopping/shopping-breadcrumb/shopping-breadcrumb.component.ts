@@ -21,6 +21,12 @@ export class ShoppingBreadcrumbComponent {
   constructor() {
   }
 
+  // todo
+  closeFilterChoices(): void {
+    this.isFilterChoicesOpen = false;
+    this.arrowState = 'default';
+  }
+
   toggleFilterChoices(): void {
     this.isFilterChoicesOpen = !this.isFilterChoicesOpen;
     this.arrowState = (this.arrowState === 'default' ? 'rotated' : 'default');
