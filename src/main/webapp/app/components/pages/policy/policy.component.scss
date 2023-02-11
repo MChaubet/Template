@@ -1,0 +1,64 @@
+.section-header-title {
+  font-size: 30px;
+}
+
+/* hide original list counter */
+* {
+  font-weight: 300;
+  font-size: 15px;
+}
+
+strong {
+  font-weight: 500;
+}
+
+ol {
+  padding-block: 10px;
+  line-height: normal;
+}
+
+ol > li {
+  display: block;
+  padding-bottom: 5px;
+}
+
+ol > *:first-child {
+  counter-reset: item;
+}
+
+/* reset counter */
+ol > * {
+  counter-increment: item;
+}
+
+/* increment counter */
+ol > *:before {
+  content: counters(item, ".") ". ";
+}
+
+.sub-title {
+  display: contents;
+}
+
+.main-ol {
+  padding-left: 0;
+}
+
+@media (max-width: 576px) {
+  ol {
+    padding-left: 1rem;
+  }
+}
+
+ol > li.sub-title {
+  &,
+  &:before {
+    font-size: 30px;
+    line-height: 1;
+  }
+
+  & > div {
+    display: inline-block;
+    padding-bottom: 1rem;
+  }
+}

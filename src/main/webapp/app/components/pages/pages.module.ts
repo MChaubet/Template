@@ -10,6 +10,8 @@ import { LayoutsModule } from '../layouts/layouts.module';
 import { UserRouteAccessService } from '../../services/user-route-access.service';
 import { Authority } from '../../constants/authority.constants';
 import { MenuSidebarOpacityComponent } from './misc/menu-sidebar-opacity/menu-sidebar-opacity.component';
+import { PolicyComponent } from './policy/policy.component';
+import { LegalMentionsComponent } from './legal-mentions/legal-mentions.component';
 
 const PAGES_ROUTES = [
   {
@@ -44,10 +46,18 @@ const PAGES_ROUTES = [
     path: 'kafka',
     component: KafkaComponent,
   },
+  {
+    path: 'policy',
+    component: PolicyComponent,
+  },
+  {
+    path: 'legal-mentions',
+    component: LegalMentionsComponent,
+  },
 ];
 
 @NgModule({
-  declarations: [HomeComponent, LoginComponent, MenuSidebarOpacityComponent],
+  declarations: [HomeComponent, LoginComponent, MenuSidebarOpacityComponent, PolicyComponent, LegalMentionsComponent],
   imports: [RouterModule.forChild(PAGES_ROUTES), CommonModule, LayoutsModule, SharedModule, SharedLibsModule],
 })
 export class PagesModule {}
