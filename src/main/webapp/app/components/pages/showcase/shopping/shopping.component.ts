@@ -28,11 +28,11 @@ export class ShoppingComponent implements OnInit {
     });
   }
 
-  toggleFilters() {
+  toggleFilters(): void {
     this.showFilters = !this.showFilters;
   }
 
-  closeFilters() {
+  closeFilters(): void {
     this.showFilters = false;
   }
 }

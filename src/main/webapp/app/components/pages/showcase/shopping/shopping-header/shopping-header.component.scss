@@ -35,10 +35,15 @@ a {
   font-size: 0.8rem;
   font-weight: normal;
   user-select: none;
+  white-space: nowrap;
+
+  @media (max-width: $responsive-shopping-5) {
+    display: none;
+  }
 }
 
 .login-button {
-  width: 130px;
+  //width: 130px;
   border: solid 1px #5c7b9e;
 
   &:focus {
@@ -64,6 +69,11 @@ a {
 
   &:hover, &:focus {
     box-shadow: 0 0 0.3rem 0.1rem rgba(0, 0, 0, 0.08);
+  }
+
+  &:placeholder-shown {
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 
@@ -101,31 +111,27 @@ a {
 .category {
   position: relative;
   overflow: hidden;
-  display: inline-block;
+  display: block;
   padding: 0.5rem 1rem;
   color: $color-shopping-primary-dark;
   font-size: 14px;
   line-height: 1.5rem;
   font-weight: 600;
   white-space: nowrap;
+}
 
-  &:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -1px;
-    height: 3px;
-    background-color: $color-shopping-primary-dark;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    transform: translateY(100%);
-    transition: transform .15s ease-out;
-  }
-
-  &:hover:after {
-    transform: translateY(0);
-  }
+.category:hover:after,
+.category-hover:after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 3px;
+  background-color: $color-shopping-primary-dark;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  transition: transform .15s ease-out;
 }
 
 //.dropdown-content:hover .category:after {
@@ -232,7 +238,7 @@ a {
   display: grid;
   grid-template-areas: "div1 div2 div3";
   grid-template-columns: 1fr 4fr 1fr;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 @media (max-width: $responsive-shopping-4) {

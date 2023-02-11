@@ -3,6 +3,7 @@ import {SignInService} from "../account/sign-in/sign-in.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {navbarData} from "../../layouts/sidenav/nav-data";
 import {rotate} from "../../../animations/animations";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'jhi-showcase',
@@ -22,8 +23,10 @@ export class ShowcaseComponent implements OnInit {
 
   @ViewChild('content') modal: TemplateRef<any> | undefined;
 
-  constructor(public signInService: SignInService,
+  constructor(private router: Router,
+              public signInService: SignInService,
               private modalService: NgbModal) {
+    this.selectRouteAfterReload();
   }
 
   ngOnInit(): void {
@@ -42,9 +45,14 @@ export class ShowcaseComponent implements OnInit {
     this.signInService.closeSignIn();
   }
 
-  toggleRouteChoices() {
+  toggleRouteChoices(): void {
     this.isRouteChoicesOpen = !this.isRouteChoicesOpen;
     this.arrowState = (this.arrowState === 'default' ? 'rotated' : 'default');
+  }
+
+  selectRouteAfterReload(): void {
+    const segments = this.router.url.split('/');
+    this.activeRoute = this.routes.findIndex(value => value.routeLink === segments[segments.length - 1]);
   }
 
   selectRoute(route: number): void {

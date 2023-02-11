@@ -2,7 +2,7 @@
   <div class="header-grid mb-3">
     <div class="div1">
       <a routerLink="/showcase/shopping" class="d-flex align-items-center justify-content-start">
-        <img src="../../../../../content/images/showcase/shopping/logo_shopping.png" alt="logo" height="60px"/>
+        <img src="../../../../../content/images/showcase/shopping/logo_shopping.png" alt="logo" height="55px"/>
       </a>
     </div>
     <form role="form" [formGroup]="form" novalidate class="div2 d-flex align-items-center">
@@ -20,7 +20,7 @@
 
     <div class="d-flex align-items-center justify-content-end div3">
       <div class="d-flex header-buttons-container">
-        <a class="login-button header-button d-flex align-items-center justify-content-between">
+        <a class="login-button header-button d-flex gap-2 align-items-center justify-content-between">
           <em class="text-center fa-solid fa-user"></em>
           <span class="text-button-account">Mon compte</span>
         </a>
@@ -36,10 +36,12 @@
 
   <div class="category-menu">
     <div *ngFor="let category of menuData; let i = index" class="custom-dropdown">
-      <a class="category" [style]="'color: ' + category.color">
+      <a class="category" #cat [style]="'color: ' + category.color">
         <span>{{ category.title }}</span>
       </a>
-      <div class="dropdown-content">
+      <div (mouseenter)="cat.classList.toggle('category-hover')"
+           (mouseleave)="cat.classList.toggle('category-hover')"
+           class="dropdown-content">
         <div class="row no-gutters" *ngFor="let item of category.items">
           <div class="col-4" *ngFor="let subItem of item">
             <a class="custom-dropdown-item cursor">
