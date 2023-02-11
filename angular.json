@@ -14,7 +14,7 @@
         }
       },
       "root": "",
-      "sourceRoot": "src/main/webapp",
+      "sourceRoot": "src",
       "prefix": "jhi",
       "architect": {
         "build": {
@@ -24,16 +24,16 @@
               "path": "./webpack/webpack.custom.js"
             },
             "outputPath": "target/classes/static/",
-            "index": "src/main/webapp/index.html",
-            "main": "src/main/webapp/main.ts",
-            "polyfills": "src/main/webapp/polyfills.ts",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/main/webapp/content",
-              "src/main/webapp/favicon.ico",
-              "src/main/webapp/manifest.webapp",
-              "src/main/webapp/robots.txt",
+              "src/content",
+              "src/favicon.ico",
+              "src/manifest.webapp",
+              "src/robots.txt",
               {
                 "glob": "*.{js,css,html,png}",
                 "input": "./node_modules/swagger-ui-dist",
@@ -41,18 +41,18 @@
                 "ignore": ["**/index.html"]
               },
               { "glob": "axios.min.js", "input": "./node_modules/axios/dist", "output": "swagger-ui" },
-              { "glob": "**/*", "input": "src/main/webapp/swagger-ui/", "output": "swagger-ui" }
+              { "glob": "**/*", "input": "src/swagger-ui/", "output": "swagger-ui" }
             ],
             "styles": [
-              "src/main/webapp/content/scss/vendor.scss",
-              "src/main/webapp/content/scss/global.scss",
-              "src/main/webapp/content/scss/font.scss",
-              "src/main/webapp/content/fontawesome/css/all.min.css"
+              "src/content/scss/vendor.scss",
+              "src/content/scss/global.scss",
+              "src/content/scss/font.scss",
+              "src/content/fontawesome/css/all.min.css"
             ],
             "scripts": [],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/main/webapp",
+                "src",
                 "./"
               ]
             }

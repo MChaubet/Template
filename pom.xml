@@ -479,7 +479,7 @@
                         <warSourceDirectory>target/classes/static/</warSourceDirectory>
                         <webResources>
                             <resource>
-                                <directory>src/main/webapp</directory>
+                                <directory>src</directory>
                                 <includes>
                                     <include>WEB-INF/**</include>
                                 </includes>
@@ -864,7 +864,7 @@
                                 <fileSet>
                                     <directory>${project.basedir}</directory>
                                     <includes>
-                                        <include>src/main/webapp/**/*.*</include>
+                                        <include>src/**/*.*</include>
                                         <include>target/classes/static/**/*.*</include>
                                         <include>package-lock.json</include>
                                         <include>package.json</include>
