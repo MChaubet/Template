@@ -24,12 +24,12 @@ export class PortfolioComponent {
     ];
 
     this.photos = [
-      {photo: 'content/images/showcase/portfolio/ecology1.jpg', title: 'Montagne', text: this.text},
-      {photo: 'content/images/showcase/portfolio/ecology2.jpg', title: 'Eau', text: this.text},
-      {photo: 'content/images/showcase/portfolio/ecology3.jpg', title: 'Vie', text: this.text},
-      {photo: 'content/images/showcase/portfolio/ecology2.jpg', title: 'Eau', text: this.text},
-      {photo: 'content/images/showcase/portfolio/ecology3.jpg', title: 'Vie', text: this.text},
-      {photo: 'content/images/showcase/portfolio/ecology1.jpg', title: 'Montagne', text: this.text},
+      {photo: 'content/images/showcase/portfolio/ecology1.jpg', title: 'Montagne'},
+      {photo: 'content/images/showcase/portfolio/ecology2.jpg', title: 'Eau'},
+      {photo: 'content/images/showcase/portfolio/ecology3.jpg', title: 'Vie'},
+      {photo: 'content/images/showcase/portfolio/ecology2.jpg', title: 'Eau'},
+      {photo: 'content/images/showcase/portfolio/ecology3.jpg', title: 'Vie'},
+      {photo: 'content/images/showcase/portfolio/ecology1.jpg', title: 'Montagne'},
     ];
 
     this.newsList = [
