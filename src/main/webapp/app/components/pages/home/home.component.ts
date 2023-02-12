@@ -7,7 +7,6 @@ import { AccountService } from 'app/services/account.service';
 import { Account } from 'app/models/account.model';
 import { TranslateService } from '@ngx-translate/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalDemarrerComponent } from '../../shared/contact/modal-demarrer/modal-demarrer.component';
 import { InjectionToken } from '@angular/core';
 
 export const WINDOW = new InjectionToken<Window>('Window', {
@@ -77,12 +76,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  openModalContact(): void {
-    const modalRef = this.modalService.open(ModalDemarrerComponent, { size: 'lg', centered: true, windowClass: 'modal-contact' });
-  }
-
   @HostListener('window:scroll', ['$event'])
-  onScroll(event: Event) {
+  onScroll(event: Event): void {
     const scrollPosition = (event.target as Window).scrollY;
     console.log(`La position de la barre de défilement est ${scrollPosition} pixels.`);
     // console.log(event);
@@ -90,7 +85,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     // console.log(document.body.clientHeight / 2);
   }
 
-  handleScroll() {
+  handleScroll(): void {
     console.log(window.scrollY);
     console.log(document.body.clientHeight / 2);
 
@@ -105,7 +100,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     // }
   }
 
-  private addDevelopers() {
+  private addDevelopers(): void {
     const mathieuDiploma = ['IUT Informatique', 'Licence informatique', 'Master génie logiciel'];
     const mathieuProject = [
       "Consultant développeur ERP Cloud, réalisation du SI d'Orange",

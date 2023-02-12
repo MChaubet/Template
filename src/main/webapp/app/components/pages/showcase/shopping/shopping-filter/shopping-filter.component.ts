@@ -49,7 +49,7 @@ export class ShoppingFilterComponent implements OnInit {
     this.ratings.reverse();
   }
 
-  closeFixedFilters() {
+  closeFixedFilters(): void {
     this.shoppingService.closeFixedFiltersSubject.next(null);
   }
 }
