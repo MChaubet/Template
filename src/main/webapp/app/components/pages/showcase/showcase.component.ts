@@ -45,19 +45,14 @@ export class ShowcaseComponent implements OnInit {
     this.signInService.closeSignIn();
   }
 
-  toggleRouteChoices(): void {
-    this.isRouteChoicesOpen = !this.isRouteChoicesOpen;
-    this.arrowState = (this.arrowState === 'default' ? 'rotated' : 'default');
-  }
-
   selectRouteAfterReload(): void {
-    const segments = this.router.url.split('/');
-    this.activeRoute = this.routes.findIndex(value => value.routeLink === segments[segments.length - 1]);
+    this.router.events.subscribe(() => {
+      const segments = this.router.url.split('/');
+      this.activeRoute = this.routes.findIndex(value => value.routeLink === segments[segments.length - 1]);
+    });
   }
 
-  selectRoute(route: number): void {
-    this.activeRoute = route;
-    this.isRouteChoicesOpen = false;
-    this.arrowState = 'default';
+  openEvent($event: boolean): void {
+    this.arrowState = $event ? 'rotated' : 'default';
   }
 }
