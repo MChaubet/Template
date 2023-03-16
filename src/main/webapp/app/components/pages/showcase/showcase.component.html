@@ -10,7 +10,7 @@
       <div class="grid-2 m-auto d-flex align-items-center justify-content-between gap-3">
         <div class="titre-showcase">Voici des exemples de pages que vous pourriez trouver sur votre site.</div>
         <div class="links-container">
-          <div ngbDropdown class="" [autoClose]="true" (openChange)="openEvent($event)">
+          <div ngbDropdown [autoClose]="true" (openChange)="openEvent($event)">
             <button type="button" class="route-button cursor" id="dropdownBasic1" ngbDropdownToggle>
               <span>
                 <span class="active-route">
@@ -46,9 +46,3 @@
   </div>
 
 </div>
-
-<ng-template #content let-modal>
-  <div class="h-100 d-flex align-items-center justify-content-center">
-    <jhi-sign-in></jhi-sign-in>
-  </div>
-</ng-template>

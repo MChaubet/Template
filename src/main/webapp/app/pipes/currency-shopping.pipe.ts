@@ -4,12 +4,13 @@ import {Pipe, PipeTransform} from '@angular/core';
   name: 'currencyShoping'
 })
 export class CurrencyShopingPipe implements PipeTransform {
+  transform(value: number): string {
+    if (isNaN(value)) {
+      return '0.00 €';
+    }
 
-  transform(value: number): any {
-    const euros = Math.floor(value);
-    const cents = Math.round((value - euros) * 100);
-    return `${euros}€${cents.toString().padStart(2, '0')}`;
+    const formattedValue = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: false }).format(value);
+    return formattedValue.replace(',', '.');
   }
-  // todo mater comment mettre les centimes plus petits dans le html
 
 }

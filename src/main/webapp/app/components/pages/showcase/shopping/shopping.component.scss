@@ -1,5 +1,19 @@
 @import '../../../../../content/scss/theme.scss';
 
+.contenu-scrollable {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.fixed-filter-button-container {
+  height: 54px;
+  padding: 0.5rem 1.25rem;
+  box-shadow: 0 0 0.3rem 0.1rem $color-shopping-shadow;
+  z-index: 100;
+}
+
 .header-container {
   background-color: #fff;
   padding: 1rem 0 0 0;
@@ -12,7 +26,7 @@
 }
 
 .filter-and-items-container {
-  gap: 2rem;
+  gap: 1.5rem;
   padding-top: 0.75rem;
   height: auto;
 }
@@ -64,17 +78,6 @@
   padding: 1rem;
 }
 
-.fixed-filter-button-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 1rem;
-  box-shadow: 0 0 0.3rem 0.1rem $color-shopping-shadow;
-  background: white;
-  z-index: 100;
-}
-
 .fixed-filter-button {
   gap: 0.5rem;
 }
@@ -100,8 +103,29 @@
 }
 
 .fixed-filter-header {
-  padding: 1rem;
+  padding: 0.75rem;
   height: 50px;
   background-color: $color-shopping-primary;
   color: white;
+}
+
+.close-filter-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: 0.2s;
+  &:hover, &:active {
+    background-color: $color-shopping-primary-dark;
+  }
+}
+
+@media (max-width: $responsive-shopping-mobile) {
+  .contenu-scrollable {
+    height: calc(100% - 54px);
+  }
+
+  .filter-and-items-container {
+    background-color: #fff;
+    padding-top: 0;
+  }
 }

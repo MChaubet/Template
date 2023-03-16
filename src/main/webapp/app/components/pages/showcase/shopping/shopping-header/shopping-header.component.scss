@@ -8,6 +8,14 @@ a {
   text-decoration: none;
 }
 
+.logo-image {
+  background-image: url(../../../../../../content/images/showcase/shopping/logo_shopping.png);
+  height: 50px;
+  width: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .form-control:focus {
   box-shadow: none;
   border-color: #aaa;
@@ -18,7 +26,6 @@ a {
 }
 
 .header-button {
-  height: 40px;
   color: $color-shopping-tertiary;
   transition: all 0.2s ease;
   padding: 0.8rem;
@@ -29,6 +36,11 @@ a {
     background-color: #f5f5f5;
   }
 
+  em {
+    height: 20px;
+    width: 20px
+  }
+
 }
 
 .text-button-account {
@@ -37,23 +49,11 @@ a {
   user-select: none;
   white-space: nowrap;
 
-  @media (max-width: $responsive-shopping-5) {
+  @media (max-width: $responsive-shopping-text-button-account-none) {
     display: none;
   }
 }
 
-.login-button {
-  //width: 130px;
-  border: solid 1px #5c7b9e;
-
-  &:focus {
-    background-color: red;
-  }
-}
-
-.favorite-cart-button {
-  width: 40px;
-}
 
 .search-box {
   position: relative;
@@ -118,10 +118,27 @@ a {
   line-height: 1.5rem;
   font-weight: 600;
   white-space: nowrap;
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 3px;
+    background-color: $color-shopping-primary-dark;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    transform: translateY(100%);
+    transition: transform .15s ease-out;
+  }
+
+  &:hover:after {
+    transform: translateY(0);
+  }
 }
 
-.category:hover:after,
-.category-hover:after{
+.category-hover:after {
   content: "";
   position: absolute;
   left: 0;
@@ -131,49 +148,23 @@ a {
   background-color: $color-shopping-primary-dark;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
+  transform: translateY(0);
   transition: transform .15s ease-out;
 }
-
-//.dropdown-content:hover .category:after {
-//  transform: translateY(0);
-//} // todo résoudre ce truc
 
 .category-menu {
   display: flex;
   align-items: center;
   position: relative;
-  //overflow-x: scroll;
-  //white-space: nowrap;
-  //&::-webkit-scrollbar {
-  //  display: none;
-  //} // todo gérer le scroll
 }
 
-
-//.scroll-btn {
-//  display: none;
-//  width: 30px;
-//  height: 30px;
-//  background-color: #ffffff;
-//  opacity: 0.9;
-//  color: #000000;
-//  align-items: center;
-//  justify-content: center;
-//  position: absolute;
-//  right: 0;
-//  top: 0;
-//  border-radius: 20px;
-//  z-index: 200;
-//  border: solid 1px #c1c1c1;
-//}
-
-@media (max-width: $responsive-shopping-2) {
+@media (max-width: $responsive-shopping-category-menu) {
   .category {
     padding: 0.5rem 0.75rem;
   }
 }
 
-@media (max-width: $responsive-shopping-3) {
+@media (max-width: $responsive-shopping-category-menu-none) {
   .category-menu {
     display: none;
   }
@@ -241,7 +232,7 @@ a {
   gap: 0.4rem;
 }
 
-@media (max-width: $responsive-shopping-4) {
+@media (max-width: $responsive-shopping-mobile) {
   .header-grid {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
@@ -252,5 +243,13 @@ a {
   .div2 {
     grid-column: 1 / 3;
   }
-
 }
+
+@media (max-width: $responsive-shopping-logo-small) {
+  .logo-image {
+    background-image: url(../../../../../../content/images/showcase/shopping/logo_shopping_without_text.png);
+    height: 50px;
+    width: 50px;
+  }
+}
+

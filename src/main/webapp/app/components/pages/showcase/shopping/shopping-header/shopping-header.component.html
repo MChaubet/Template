@@ -2,7 +2,7 @@
   <div class="header-grid mb-3">
     <div class="div1">
       <a routerLink="/showcase/shopping" class="d-flex align-items-center justify-content-start">
-        <img src="../../../../../content/images/showcase/shopping/logo_shopping.png" alt="logo" height="55px"/>
+        <div class="logo-image"></div>
       </a>
     </div>
     <form role="form" [formGroup]="form" novalidate class="div2 d-flex align-items-center">
@@ -20,14 +20,14 @@
 
     <div class="d-flex align-items-center justify-content-end div3">
       <div class="d-flex header-buttons-container">
-        <a class="login-button header-button d-flex gap-2 align-items-center justify-content-between">
+        <a class="header-button d-flex gap-2 align-items-center justify-content-between">
           <em class="text-center fa-solid fa-user"></em>
           <span class="text-button-account">Mon compte</span>
         </a>
-        <a class="favorite-cart-button header-button d-flex align-items-center justify-content-center">
+        <a class="header-button d-flex align-items-center justify-content-center">
           <em class="text-center fa-solid fa-heart"></em>
         </a>
-        <a class="favorite-cart-button header-button d-flex align-items-center justify-content-center">
+        <a class="header-button d-flex align-items-center justify-content-center">
           <em class="text-center fa-solid fa-cart-shopping"></em>
         </a>
       </div>
@@ -45,7 +45,7 @@
         <div class="row no-gutters" *ngFor="let item of category.items">
           <div class="col-4" *ngFor="let subItem of item">
             <a class="custom-dropdown-item cursor">
-              <em class="fa-solid fa-microchip fa-xl align-self-center"></em> <!-- ajouter les icones dans le json -->
+              <em class="fa-solid fa-circle fa-xl align-self-center" style="font-size: 0.4rem"></em> <!-- ajouter les icones dans le json -->
               <span>{{ subItem }}</span>
             </a>
           </div>

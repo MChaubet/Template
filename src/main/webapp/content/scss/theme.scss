@@ -2,6 +2,7 @@
 $navbar-theme: hsl(252, 6%, 15%);
 
 $color-primary: hsl(162, 35%, 81%);
+$color-primary-light: hsl(162, 35%, 86%);
 $color-primary-transparent: hsla(162, 35%, 81%, 0.3);
 
 $color-secondary: hsl(252, 7%, 15%);
@@ -20,7 +21,7 @@ $responsive-portfolio-5: 904px;
 $color-shopping-primary: hsl(225, 53%, 46%);
 $color-shopping-primary-dark: hsl(225, 53%, 40%);
 
-$color-shopping-secondary: hsl(0, 0%, 98%);
+$color-shopping-secondary: hsl(0, 0%, 97%);
 
 $color-shopping-tertiary: hsl(212, 26%, 49%);
 
@@ -30,8 +31,9 @@ $color-shopping-border-light: hsl(0, 0%, 90%);
 $color-shopping-shadow: hsl(0, 0%, 91%);
 $color-shopping-shadow-dark: hsl(0, 0%, 85%);
 
-$responsive-shopping-1: 1580px;
-$responsive-shopping-2: 1390px;
-$responsive-shopping-3: 1286px;
-$responsive-shopping-4: 1100px;
-$responsive-shopping-5: 904px;
+$responsive-shopping-container: 1500px;
+$responsive-shopping-category-menu: 1390px;
+$responsive-shopping-category-menu-none: 1286px;
+$responsive-shopping-mobile: 960px; // attention à modifier également dans shopping.component.html
+$responsive-shopping-text-button-account-none: 904px;
+$responsive-shopping-logo-small: 380px;

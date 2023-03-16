@@ -4,9 +4,11 @@ export class Article {
     public name: string,
     public price: number,
     public favorite: boolean,
+    public rating: number,
+    public numberOfRatings: number,
+    public stock: number,
     public description?: string,
-    public image?: string,
-    public rating?: number,
+    public image?: string
   ) {
   }
 }

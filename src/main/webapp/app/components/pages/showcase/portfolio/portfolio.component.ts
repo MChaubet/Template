@@ -45,6 +45,6 @@ export class PortfolioComponent {
 
   openImgModal(contentModalImg: TemplateRef<any>, idxImg: number): void {
     this.idxImg = idxImg.toString();
-    this.modalService.open(contentModalImg, {centered: true, size: 'xl'});
+    this.modalService.open(contentModalImg, {centered: true, size: 'xl', windowClass: 'modal-carousel'});
   }
 }

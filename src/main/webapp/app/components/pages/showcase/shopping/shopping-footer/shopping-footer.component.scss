@@ -46,6 +46,12 @@
   margin-bottom: 0;
 }
 
+.f-social-icon {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: row;
+}
+
 .f-social-icon a {
   width: 46px;
   height: 46px;
@@ -80,10 +86,6 @@
   color: white;
 }
 
-//.f-social-icon a + a {
-//  margin-left: 0.25rem;
-//}
-
 .f-title {
   font-weight: 600;
   font-size: 18px;
@@ -99,3 +101,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #6a7695;
 }
 
+@media (max-width: 445px) {
+  .f-social-icon {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

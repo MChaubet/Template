@@ -1,6 +1,6 @@
 <div class="container">
   <h1 class="text-center my-4">Administration</h1>
-  <div class="grid">
+  <div class="admin-grid">
     <a *ngFor="let data of adminData" [routerLink]="data.routeLink" class="card card-clickable" style="text-decoration: none">
       <div class="card-body text-center">
         <span jhiTranslate="{{ data.jhiTranslate }}">{{ data.label }}</span>

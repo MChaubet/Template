@@ -46,7 +46,8 @@
   display: grid;
   grid-template-areas: "grid-1 grid-2 grid-3";
   grid-template-columns: 2fr 16fr 3fr;
-  gap: 1rem;
+  column-gap: 1rem;
+  row-gap: 0.5rem;
 }
 
 .links-container {
@@ -87,7 +88,6 @@
 .route-choices {
   width: 200px;
   background: linear-gradient(90deg, rgb(43, 43, 46) 0%, rgb(51, 51, 53) 100%);
-  border: 2px solid $color-primary;
   margin-top: 0.25rem;
 }
 
@@ -100,20 +100,25 @@
   min-height: 3rem;
   font-size: 15px;
   line-height: 20px;
-  font-weight: 400;
   z-index: 500;
 
-  &:hover {
-    background-color: $color-primary;
-    color: $color-secondary;
-  }
-}
-
-.showcase-link {
   padding: 0.5rem 1rem;
   font-weight: 300;
   text-decoration: none;
   color: $color-primary;
+
+  &:first-child {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+  }
+  &:last-child {
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+  }
+  &:hover {
+    background-color: $color-primary-light;
+    color: $color-secondary;
+  }
 }
 
 .selected-choice {
@@ -121,12 +126,12 @@
   color: $color-secondary;
 }
 
-@media (max-width: 776px) {
+@media (max-width: 794px) {
   .titre-showcase {
     display: none;
   }
 
-  .grid-2, .links-container, .route-button, .route-choices  {
+  .grid-2, .links-container, .route-button, .route-dropdown  {
     width: 100%;
   }
 }

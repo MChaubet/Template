@@ -30,8 +30,25 @@ a {
   font-weight: 400;
 }
 
-.filter-button-container {
-  position: relative;
+.breadcrumb-grid {
+  display: grid;
+  grid-template-areas: "grid-1 grid-2";
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.grid-1 {
+  grid-area: grid-1;
+  justify-self: start;
+}
+
+.grid-2 {
+  grid-area: grid-2;
+  justify-self: end;
+}
+
+.dropdown-toggle::after {
+  display:none;
 }
 
 .filter-button {
@@ -44,7 +61,7 @@ a {
   padding: 0.25rem 1rem 0.5rem;
   align-items: center;
   justify-content: space-between;
-  min-width: 200px;
+  width: 250px;
   background: #fff;
 }
 
@@ -66,19 +83,11 @@ a {
 }
 
 .filter-choices {
-  position: absolute;
-  display: block;
-  flex-direction: column;
   width: 250px;
-  min-height: 3rem;
-  max-height: 200px;
   background-color: #fff;
   border-radius: 0.25rem;
   border: 1px solid $color-shopping-border;
-  list-style-type: none;
   margin-top: 0.25rem;
-  box-sizing: border-box;
-  z-index: 500;
 }
 
 .filter-choice {
@@ -90,6 +99,7 @@ a {
   font-size: 15px;
   line-height: 20px;
   font-weight: 400;
+  text-decoration: none;
   z-index: 500;
 
   &:hover {
@@ -100,4 +110,24 @@ a {
 .selected-choice {
   font-weight: bold;
   background-color: #edf2f3;
+}
+
+@media (max-width: $responsive-shopping-mobile) {
+  .filter-button {
+    padding: 0.2rem 0.7rem 0.4rem;
+    width: 190px;
+  }
+
+  .filter-choices {
+    width: 190px;
+  }
+}
+
+@media(max-width: 410px) {
+  .breadcrumb-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "grid-1"
+      "grid-2";
+  }
 }

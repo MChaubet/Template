@@ -175,6 +175,26 @@ img:not(.laptop-futuristic) {
   border: 0;
   flex-shrink: 0;
   text-align: inherit;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 0.12em;
+    background-color: $color-link-underline;
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+    transform: scale(0);
+    transform-origin: center;
+  }
+
+  &:hover:after,
+  &:focus:after {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .header {
@@ -189,34 +209,5 @@ img:not(.laptop-futuristic) {
     position: relative;
     padding: 0.2em 0;
     text-decoration: none;
-  }
-
-  .btn-header::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 0.12em;
-    background-color: $color-link-underline;
-    opacity: 0;
-    transition: opacity 300ms, transform 300ms;
-  }
-
-  .btn-header:hover::after,
-  .btn-header:focus::after {
-    opacity: 1;
-    transform: translate3d(0, 0.2em, 0);
-  }
-
-  .btn-header::after {
-    opacity: 1;
-    transform: scale(0);
-    transform-origin: center;
-  }
-
-  .btn-header:hover::after,
-  .btn-header:focus::after {
-    transform: scale(1);
   }
 }

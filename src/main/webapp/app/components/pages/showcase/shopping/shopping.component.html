@@ -1,12 +1,12 @@
 <div class="d-flex flex-column h-100">
-  <div *ngIf="!showFilters" class="d-flex flex-column flex-grow-1 overflow-auto">
+  <div class="contenu-scrollable">
     <div class="header-container">
       <jhi-shopping-header></jhi-shopping-header>
     </div>
     <div class="main-container">
       <jhi-shopping-breadcrumb></jhi-shopping-breadcrumb>
       <div class="filter-and-items-container shopping-container d-flex flex-row">
-        <div class="filter-container" *ngIf="screenWidth >= 600">
+        <div class="filter-container" *ngIf="screenWidth > 960">
           <ng-container *ngTemplateOutlet="template_filter"></ng-container>
         </div>
         <div class="items-container">
@@ -17,18 +17,18 @@
     </div>
   </div>
 
-  <div class="d-flex flex-column" [class.h-100]="showFilters" *ngIf="screenWidth < 600">
-    <div>
-      <button *ngIf="!showFilters" class="btn blue-shopping-btn gap-2 d-flex align-items-center justify-content-center" (click)="toggleFilters()">
-        <img src="../../../../../content/images/showcase/shopping/filter.svg" alt="filtre" height="20px"/>
-        <div>Filtres</div>
-      </button>
-      <div *ngIf="showFilters" class="fixed-filter-header d-flex align-items-center justify-content-end">
-        <em class="fa-solid fa-times cursor" style="font-size: 1.5rem" (click)="closeFilters()"></em>
-      </div>
-    </div>
+  <div class="fixed-filter-button-container" *ngIf="screenWidth <= 960">
+    <button class="btn blue-shopping-btn fixed-filter-button d-flex align-items-center justify-content-center" (click)="toggleFilters()">
+      <img src="../../../../../content/images/showcase/shopping/filter.svg" alt="filtre" height="20px"/>
+      <div>Filtres</div>
+    </button>
 
-    <div class="flex-grow-1 w-100 overflow-auto" *ngIf="showFilters">
+    <div class="fixed-filter-popup" [class.display-none]="!showFilters">
+      <div class="fixed-filter-header d-flex align-items-center justify-content-end">
+        <div class="close-filter-button d-flex align-items-center justify-content-center cursor" (click)="closeFilters()">
+          <em class="fa-solid fa-times" style="font-size: 1.5rem"></em>
+        </div>
+      </div>
       <ng-container *ngTemplateOutlet="template_filter"></ng-container>
     </div>
   </div>

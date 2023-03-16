@@ -15,13 +15,10 @@ import {Router} from "@angular/router";
 })
 export class ShowcaseComponent implements OnInit {
 
-  isRouteChoicesOpen = false;
   routes = navbarData;
   activeRoute = 0;
 
   arrowState = 'default';
-
-  @ViewChild('content') modal: TemplateRef<any> | undefined;
 
   constructor(private router: Router,
               public signInService: SignInService,
@@ -30,19 +27,10 @@ export class ShowcaseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.signInService.displaySignInSub.subscribe((isDisplayed) => {
-      if (isDisplayed && this.modal) {
-        this.openModalContact(this.modal);
-      }
-    })
   }
 
   openModalContact(content: TemplateRef<any>): void {
     this.modalService.open(content, { centered: true, size: 'sm', windowClass: 'modal-sign-in' });
-  }
-
-  closeSignIn(): void {
-    this.signInService.closeSignIn();
   }
 
   selectRouteAfterReload(): void {

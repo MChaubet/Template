@@ -332,13 +332,24 @@ ngb-accordion .card-header {
   }
 }
 
+.modal-carousel {
+  .modal-content {
+    border-radius: 0;
+    border: 0;
+  }
+
+  .carousel-control-prev, .carousel-control-next {
+    width: 10%;
+  }
+}
+
 .shopping-container {
   width: 100%;
   padding: 0 0.75rem;
   margin: 0 auto;
 }
 
-@media (min-width: $responsive-shopping-1) {
+@media (min-width: $responsive-shopping-container) {
   .shopping-container {
     max-width: 1500px;
   }
@@ -367,7 +378,6 @@ ngb-accordion .card-header {
   transition: background-color 0.2s ease;
   font-weight: 500;
   width: 100%;
-  border-radius: 0;
 
   &:hover {
     background-color: $color-shopping-primary-dark;

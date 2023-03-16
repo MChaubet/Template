@@ -2,8 +2,8 @@
 
 $theme-primary: hsl(231, 48%, 48%);
 $theme-secondary: rgb(232, 150, 42);
-$background-color: linear-gradient(230deg, #e8ecec, #8e9eab);
-$container-color: rgb(250, 249, 250);
+$background-color: #353b4f;
+$container-color: #f4f4f4;
 
 // =============== Balises HTML ===============
 
@@ -20,17 +20,23 @@ option {
 }
 
 // ================= Classes ==================
-.invoice {
-  background: $background-color fixed center;
-  background-size: cover;
-  padding: 50px;
+
+.sidebar {
+  width: 300px;
+  background-color: #353b4f;
 }
 
-.contenu {
-  box-shadow: -80px 80px 80px rgb(0 0 0 / 70%);
+
+.background {
+  background-color: $background-color;
+}
+
+.main-content {
+  //box-shadow: -40px 40px 40px rgb(0 0 0 / 30%);
   background-color: $container-color;
   padding: 70px 70px;
-  max-width: 1150px;
+  max-width: 1250px;
+  flex-grow: 1;
 }
 
 .bottom-buttons {

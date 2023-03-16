@@ -37,7 +37,7 @@
           <div class="d-flex flex-column">
             <div class="flex-grow-1 photo-container cursor" (click)="openImgModal(contentModalImg, i)">
               <img class="w-100 photo-zoom" [src]="item.photo" [alt]="item.title" />
-              <em class="position-absolute top-0 end-0 p-3 fa-solid fa-magnifying-glass-plus text-white text-shadow"></em>
+              <em class="position-absolute top-0 end-0 p-3 fa-solid fa-expand text-white text-shadow"></em>
             </div>
             <h3 class="text-center">{{ item.title }}</h3>
           </div>
@@ -162,7 +162,7 @@
 
 <ng-template #contentModalImg>
   <div class="modal-body p-0">
-    <ngb-carousel *ngIf="photos" [showNavigationArrows]="true" [showNavigationIndicators]="false" [activeId]="idxImg">
+    <ngb-carousel *ngIf="photos" [showNavigationArrows]="true" [showNavigationIndicators]="false" [activeId]="idxImg" [animation]="false">
       <ng-template ngbSlide *ngFor="let item of photos; let i = index" [id]="i.toString()">
         <img [src]="item.photo" [alt]="item.title" height="100%" width="100%" />
       </ng-template>
