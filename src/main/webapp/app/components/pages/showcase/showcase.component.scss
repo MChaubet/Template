@@ -116,7 +116,7 @@
     border-bottom-right-radius: 0.25rem;
   }
   &:hover {
-    background-color: $color-primary-light;
+    background-color: $color-primary;
     color: $color-secondary;
   }
 }
@@ -124,6 +124,7 @@
 .selected-choice {
   background-color: $color-primary;
   color: $color-secondary;
+  font-weight: 500;
 }
 
 @media (max-width: 794px) {

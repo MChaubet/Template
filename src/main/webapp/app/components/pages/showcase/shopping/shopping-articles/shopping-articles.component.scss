@@ -5,8 +5,14 @@
   flex-direction: column;
   gap: 0.75rem;
   width: 100%;
+  min-height: 500px;
+  border-radius: 0.4rem;
 
   .article {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
     padding: 1rem 0 1rem 1rem;
     background-color: #fff;
     border-radius: 0.4rem;
@@ -30,6 +36,17 @@
       width: 100%;
       height: 100%;
     }
+  }
+
+  .article-delivery {
+    grid-area: article-delivery;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #5c955c;
+    font-size: 15px;
   }
 
   .article-info {
@@ -76,14 +93,13 @@
   }
 
   .article-price-stock {
+    width: 160px;
     grid-area: article-price-stock;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
 
     font-family: "Segoe UI", Century Gothic, CenturyGothic, AppleGothic, sans-serif;
     border-left: 1px solid $color-shopping-shadow;
@@ -114,7 +130,7 @@
 
   .article-grid {
     display: grid;
-    grid-template-columns: 3fr 16fr 3fr;
+    grid-template-columns: 2fr 14fr 3fr;
     grid-template-rows: 1fr 0.5fr 1fr;
     grid-template-areas:
     "article-image article-info article-price-stock"
@@ -138,6 +154,45 @@
   box-shadow: none;
 }
 
+.no-articles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+
+  .no-articles-text {
+    font-size: 1.2rem;
+  }
+}
+
+.block-ui-wrapper .block-ui-spinner > div {
+  background-color: red !important;
+}
+
+::ng-deep {
+  .block-ui-spinner {
+    top: 50% !important;
+  }
+
+  .block-ui-wrapper {
+    background: rgba(0, 0, 0, 0.20) !important;
+  }
+}
+
+@keyframes darkening {
+  0% {
+    background-color: red;
+  }
+  100% {
+    background-color: darkred;
+  }
+}
+
+.block-ui-wrapper .block-ui-spinner > div {
+  background-color: red !important;
+  animation: darkening 3s infinite; /* Modifiez la durée (3s) en fonction de vos préférences */
+}
+
 @media (max-width: $responsive-shopping-mobile) {
   .articles-container {
     gap: 0;
@@ -155,6 +210,7 @@
       }
 
       .article-grid {
+        grid-template-columns: 2fr 16fr 3fr;
         grid-template-areas:
         "article-image article-info article-info"
         "article-image article-info article-info"
@@ -177,8 +233,8 @@
         }
 
         .article-price-stock {
-          padding-right: 0;
-          padding-left: 0;
+          width: fit-content;
+          padding-left: 0.5rem;
           justify-self: end;
           border-left: none;
 

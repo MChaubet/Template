@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ParametersInvoiceModel} from '../../../../models/invoice/parameters-invoice.model';
-import {InvoiceService} from '../../../../services/invoice.service';
+import {InvoiceService} from '../../../../services/showcase/invoice.service';
 import invoicesJson from '../../../../../../resources/json/invoices.json';
 import countriesJson from '../../../../../../resources/json/countries.json';
 import invoiceValidationMessagesJson from '../../../../../../resources/json/invoice-validation-messages.json';

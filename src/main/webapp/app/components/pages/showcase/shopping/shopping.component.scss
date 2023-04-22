@@ -1,6 +1,6 @@
 @import '../../../../../content/scss/theme.scss';
 
-.contenu-scrollable {
+.scrollable-content {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -120,7 +120,7 @@
 }
 
 @media (max-width: $responsive-shopping-mobile) {
-  .contenu-scrollable {
+  .scrollable-content {
     height: calc(100% - 54px);
   }
 

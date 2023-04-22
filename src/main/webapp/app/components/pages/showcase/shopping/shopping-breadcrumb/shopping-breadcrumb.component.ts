@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {rotate} from "../../../../../animations/animations";
+import {ShoppingService} from "../../../../../services/showcase/shopping.service";
 
 @Component({
   selector: 'jhi-shopping-breadcrumb',
@@ -11,19 +12,19 @@ import {rotate} from "../../../../../animations/animations";
 })
 export class ShoppingBreadcrumbComponent {
 
-  isFilterChoicesOpen = false;
-  filters = ["Pertinence", "Prix croissant", "Prix décroissant", "Meilleures notes"];
-  activeFilter = 0;
+  @Input() articleCount = 0;
+
+  sortList = ["Pertinence", "Prix croissant", "Prix décroissant", "Meilleures notes"];
+  activeSort = 0;
 
   arrowState = 'default';
 
-  constructor() {
+  constructor(private shoppingService: ShoppingService) {
   }
 
-  selectFilter(filter: number): void {
-    this.activeFilter = filter;
-    this.isFilterChoicesOpen = false;
-    this.arrowState = 'default';
+  onSortChange(index: number): void {
+    this.activeSort = index;
+    this.shoppingService.sortSubject.next(this.sortList[this.activeSort]);
   }
 
   openEvent($event: boolean): void {

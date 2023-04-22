@@ -1,16 +1,16 @@
 <div class="d-flex flex-column h-100">
-  <div class="contenu-scrollable">
+  <div class="scrollable-content">
     <div class="header-container">
       <jhi-shopping-header></jhi-shopping-header>
     </div>
     <div class="main-container">
-      <jhi-shopping-breadcrumb></jhi-shopping-breadcrumb>
+      <jhi-shopping-breadcrumb [articleCount]="filteredArticles.length"></jhi-shopping-breadcrumb>
       <div class="filter-and-items-container shopping-container d-flex flex-row">
         <div class="filter-container" *ngIf="screenWidth > 960">
           <ng-container *ngTemplateOutlet="template_filter"></ng-container>
         </div>
         <div class="items-container">
-          <jhi-shopping-articles></jhi-shopping-articles>
+          <jhi-shopping-articles [articles]="filteredArticles"></jhi-shopping-articles>
         </div>
       </div>
       <jhi-shopping-footer></jhi-shopping-footer>

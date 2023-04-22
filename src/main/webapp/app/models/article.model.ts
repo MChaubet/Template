@@ -1,14 +1,17 @@
+import {DeliveryOption} from "./delivery-option.enum";
+
 export class Article {
   constructor(
     public id: number,
     public name: string,
     public price: number,
-    public favorite: boolean,
+    public brand: string,
     public rating: number,
     public numberOfRatings: number,
     public stock: number,
+    public deliveryOption: DeliveryOption,
     public description?: string,
-    public image?: string
+    public image?: string,
   ) {
   }
 }

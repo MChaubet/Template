@@ -18,7 +18,8 @@ export const shoppingReducer = createReducer(
       return {
         articles: articles.map(article => ({
           article: article.article,
-          quantity: article.quantity + (article.article.id === o.id ? 1 : 0),
+          quantity: article.quantity,
+            // + (article.article.id === o.id ? 1 : 0),
         })),
       };
     } else {

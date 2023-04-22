@@ -1,6 +1,8 @@
 @import '../../../../../../content/scss/theme.scss';
 
 .shopping-breadcrumb {
+  display: flex;
+
   padding: 0.8rem 0;
   gap: 0.3rem;
   font-weight: 400;
@@ -48,12 +50,14 @@ a {
 }
 
 .dropdown-toggle::after {
-  display:none;
+  display: none;
 }
 
-.filter-button {
+.sort-button {
   display: flex;
   position: relative;
+  cursor: pointer;
+
   min-height: 3rem;
   border-radius: 0.25rem;
   border: 1px solid $color-shopping-border;
@@ -63,15 +67,15 @@ a {
   justify-content: space-between;
   width: 250px;
   background: #fff;
+
+  .sort-button-title {
+    font-size: 0.75rem;
+    transition: font-size .5s;
+    color: #8b91a1;
+  }
 }
 
-.filter-button-title {
-  font-size: 0.75rem;
-  transition: font-size .5s;
-  color: #8b91a1;
-}
-
-.active-filter {
+.active-sort {
   display: flex;
   align-items: center;
   position: relative;
@@ -82,7 +86,7 @@ a {
   padding: 0;
 }
 
-.filter-choices {
+.sort-choices {
   width: 250px;
   background-color: #fff;
   border-radius: 0.25rem;
@@ -90,20 +94,26 @@ a {
   margin-top: 0.25rem;
 }
 
-.filter-choice {
+.sort-choice {
   display: flex;
+
   align-items: center;
   width: 100%;
   padding: 0.5rem 0.5rem 0.5rem 1rem;
   min-height: 3rem;
+
   font-size: 15px;
   line-height: 20px;
   font-weight: 400;
   text-decoration: none;
+
+  cursor: pointer;
   z-index: 500;
 
   &:hover {
     background-color: #edf2f3;
+    text-decoration: none;
+    color: inherit;
   }
 }
 
@@ -113,12 +123,12 @@ a {
 }
 
 @media (max-width: $responsive-shopping-mobile) {
-  .filter-button {
+  .sort-button {
     padding: 0.2rem 0.7rem 0.4rem;
     width: 190px;
   }
 
-  .filter-choices {
+  .sort-choices {
     width: 190px;
   }
 }

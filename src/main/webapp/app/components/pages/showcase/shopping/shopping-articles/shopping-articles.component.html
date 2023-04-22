@@ -1,35 +1,46 @@
-<div class="articles-container">
-  <div *ngFor="let article of articles" class="article cursor d-flex flex-column">
-    <div class="article-grid">
-      <div class="article-image">
-        <div class="d-flex align-items-center justify-content-center">
-          <img *ngIf="article.image" src="{{ article.image }}" alt="{{ article.name }}">
+<div *blockUI="'articles-spinner'">
+  <div class="articles-container">
+    <div *ngFor="let article of articles">
+      <div class="article">
+        <div class="article-grid">
+          <div class="article-image">
+            <div class="d-flex align-items-center justify-content-center">
+              <img *ngIf="article.image" src="{{ article.image }}" alt="{{ article.name }}">
+            </div>
+          </div>
+          <div class="article-info py-2">
+            <div class="article-name">
+              {{ article.name }}
+            </div>
+            <div class="article-description">
+              {{ article.description }}
+            </div>
+          </div>
+          <div class="article-rating" *ngIf="article.rating !== 0">
+            <div class="d-flex align-items-center">
+              <div *ngFor="let i of [1, 2, 3, 4, 5]" [ngClass]="{'full-star': i <= article.rating, 'empty-star': i > article.rating}"></div>
+              <div class="number-of-ratings ms-1" *ngIf="article.numberOfRatings !== 0"> ({{article.numberOfRatings}})</div>
+            </div>
+          </div>
+          <div class="article-price-stock">
+            <div class="article-price">{{ article.price | currencyShoping }}</div>
+            <div class="article-stock no-stock" *ngIf="article.stock === 0">
+              RUPTURE
+            </div>
+            <div class="article-stock low-stock" *ngIf="article.stock > 0 && article.stock <= 5">
+              {{article.stock}} EN STOCK
+            </div>
+            <div class="article-stock in-stock" *ngIf="article.stock > 5">
+              EN STOCK
+            </div>
+          </div>
         </div>
       </div>
-      <div class="article-info py-2">
-        <div class="article-name">
-          {{ article.name }}
-        </div>
-        <div class="article-description">
-          {{ article.description }}
-        </div>
-      </div>
-      <div class="article-rating" *ngIf="article.rating !== 0">
-        <div class="d-flex align-items-center">
-          <div *ngFor="let i of [1, 2, 3, 4, 5]" [ngClass]="{'full-star': i <= article.rating, 'empty-star': i > article.rating}"></div>
-          <div class="number-of-ratings ms-1" *ngIf="article.numberOfRatings !== 0"> ({{article.numberOfRatings}})</div>
-        </div>
-      </div>
-      <div class="article-price-stock">
-        <div class="article-price">{{ article.price | currencyShoping }}</div>
-        <div class="article-stock no-stock" *ngIf="article.stock === 0">
-          RUPTURE
-        </div>
-        <div class="article-stock low-stock" *ngIf="article.stock > 0 && article.stock <= 5">
-          {{article.stock}} EN STOCK
-        </div>
-        <div class="article-stock in-stock" *ngIf="article.stock > 5">
-          EN STOCK
+    </div>
+    <div *ngIf="articles.length === 0">
+      <div class="no-articles">
+        <div class="no-articles-text">
+          Aucun article ne correspond à votre recherche.
         </div>
       </div>
     </div>

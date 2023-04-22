@@ -21,7 +21,7 @@
               <img src="../../../../../../content/images/showcase/shopping/arrow-down-blue.svg" alt="arrow-down" aria-hidden="true" height="16px" width="16px" [@rotatedState]="arrowState">
             </button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="route-choices p-0">
-              <a ngbDropdownItem class="route-choice showcase-link" *ngFor="let route of routes; let i = index"
+              <a ngbDropdownItem class="route-choice" *ngFor="let route of routes; let i = index"
                  [routerLink]="route.routeLink" [class.selected-choice]="i === activeRoute">
                 <em [class]="route.icon"></em>
                 {{route.label}}

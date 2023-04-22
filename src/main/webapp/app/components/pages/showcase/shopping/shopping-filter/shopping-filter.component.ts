@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Options} from "@angular-slider/ngx-slider";
-import {ShoppingService} from "../../../../../services/shopping.service";
+import {ShoppingService} from "../../../../../services/showcase/shopping.service";
+import {FormArray, FormBuilder, FormControl} from "@angular/forms";
+import {ShoppingFilter} from "../../../../../models/shopping.filter";
+import {DeliveryOption} from "../../../../../models/delivery-option.enum";
 
 @Component({
   selector: 'jhi-shopping-filter',
@@ -8,68 +11,99 @@ import {ShoppingService} from "../../../../../services/shopping.service";
   styleUrls: ['./shopping-filter.component.scss']
 })
 export class ShoppingFilterComponent implements OnInit {
-  FLOOR = 0;
-  CEIL = 1800;
 
-  value = this.FLOOR;
-  highValue = this.CEIL;
+  priceMin = 0;
+  priceMax = 1800;
 
-  brands: Brand[] = [];
-  ratings: Rating[] = [];
+  filtersForm = this.formBuilder.group({
+    rating: new FormControl<number|null>(0),
+    brands: new FormArray([]),
+    deliveryOptions: new FormArray([]),
+  });
 
   optionsSlideMontants: Options = {
-    floor: this.value,
-    ceil: this.highValue,
+    floor: this.priceMin,
+    ceil: this.priceMax,
     animate: false,
-    translate (value) {
+    translate(value) {
       return value.toString() + '€';
     },
-    combineLabels (minLabel, maxLabel) {
+    combineLabels(minLabel, maxLabel) {
       return minLabel === maxLabel ? maxLabel : minLabel + ' - ' + maxLabel;
     }
   };
 
-  constructor(private shoppingService: ShoppingService) {
+  constructor(private shoppingService: ShoppingService,
+              private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
-    this.brands.push({id: 1, name: 'Asus'});
-    this.brands.push({id: 2, name: 'Dell'});
-    this.brands.push({id: 3, name: 'HP'});
-    this.brands.push({id: 4, name: 'Lenovo'});
-    this.brands.push({id: 5, name: 'Acer'});
-    this.brands.push({id: 6, name: 'Sosce'});
-    this.brands.push({id: 7, name: 'Sescent'});
+  }
 
-    this.ratings.push({id: 1, value: 1});
-    this.ratings.push({id: 2, value: 2});
-    this.ratings.push({id: 3, value: 3});
-    this.ratings.push({id: 4, value: 4});
-    this.ratings.push({id: 5, value: 5});
-    this.ratings.reverse();
+  get ratings(): number[] {
+    return [5, 4, 3, 2, 1];
+  }
+
+  get brands(): string[] {
+    return ['Acer', 'Asus', 'Dell', 'Lenovo', 'Medion'];
+  }
+
+  get deliveryOptions(): string[] {
+    return Object.values(DeliveryOption);
+  }
+
+  applyFilters(isReset: boolean): void {
+    if (!isReset) {
+      this.closeFixedFilters();
+    }
+    const priceMin = this.priceMin;
+    const priceMax = this.priceMax;
+    const rating = this.filtersForm.get('rating')?.value ?? 0;
+    const brands = this.filtersForm.get('brands')?.value;
+    const deliveryOptions = this.filtersForm.get('deliveryOptions')?.value ?? [];
+
+    this.shoppingService.filtersSubject.next(new ShoppingFilter(priceMin, priceMax, rating, brands, deliveryOptions));
+  }
+
+  resetFilters(): void {
+    this.filtersForm.reset();
+    this.filtersForm.get('rating')?.setValue(0);
+    this.priceMin = 0;
+    this.priceMax = 1800;
+    this.applyFilters(true);
   }
 
   closeFixedFilters(): void {
     this.shoppingService.closeFixedFiltersSubject.next(null);
   }
-}
 
-export class Brand {
-  id: number;
-  name: string;
-
-  constructor(id: number, name: string) {
-    this.id = id;
-    this.name = name;
+  toggleRating(rating: number): void {
+    if (this.filtersForm.get('rating')?.value === rating) {
+      this.filtersForm.get('rating')?.setValue(0);
+    }
   }
-}
 
-export class Rating {
-  id: number;
-  value: number;
+  onBrandChange(event: Event, brand: string): void {
+    const brandsArray = this.filtersForm.get('brands') as FormArray;
+    if ((event.target as HTMLInputElement).checked) {
+      brandsArray.push(new FormControl(brand));
+    } else {
+      const index = brandsArray.controls.findIndex(control => control.value === brand);
+      if (index >= 0) {
+        brandsArray.removeAt(index);
+      }
+    }
+  }
 
-  constructor(id: number, value: number) {
-    this.id = id;
-    this.value = value;
+  onDeliveryOptionChange(event: Event, deliveryOption: string): void {
+    const deliveryOptionsArray = this.filtersForm.get('deliveryOptions') as FormArray;
+    if ((event.target as HTMLInputElement).checked) {
+      deliveryOptionsArray.push(new FormControl(deliveryOption));
+    } else {
+      const index = deliveryOptionsArray.controls.findIndex(control => control.value === deliveryOption);
+      if (index >= 0) {
+        deliveryOptionsArray.removeAt(index);
+      }
+    }
   }
 }

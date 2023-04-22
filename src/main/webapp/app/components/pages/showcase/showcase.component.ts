@@ -1,4 +1,4 @@
-import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {SignInService} from "../account/sign-in/sign-in.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {navbarData} from "../../layouts/sidenav/nav-data";

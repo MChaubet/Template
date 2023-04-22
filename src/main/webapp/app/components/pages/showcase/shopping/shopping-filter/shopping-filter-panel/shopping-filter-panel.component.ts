@@ -1,5 +1,4 @@
 import {Component, Input} from '@angular/core';
-import {animate, state, style, transition, trigger} from "@angular/animations";
 import {rotate} from "../../../../../../animations/animations";
 
 @Component({
@@ -18,7 +17,7 @@ export class ShoppingFilterPanelComponent {
 
   constructor() { }
 
-  togglePanel() {
+  togglePanel(): void {
     this.isOpen = !this.isOpen;
     this.arrowState = (this.arrowState === 'default' ? 'rotated' : 'default');
   }

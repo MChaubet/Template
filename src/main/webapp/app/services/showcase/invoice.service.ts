@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {ParametersInvoiceModel} from '../models/invoice/parameters-invoice.model';
+import {ParametersInvoiceModel} from '../../models/invoice/parameters-invoice.model';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import {ContentImage, Margins, PageSize, Style, Table} from 'pdfmake/interfaces';
-import {formatDateToddMMyyyy} from '../utils/date.utils';
+import {formatDateToddMMyyyy} from '../../utils/date.utils';
 import {HttpClient} from '@angular/common/http';
 import {forkJoin} from 'rxjs';
-import {convertToBase64} from "../utils/image.utils";
+import {convertToBase64} from "../../utils/image.utils";
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 

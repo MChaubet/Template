@@ -1,7 +1,7 @@
 <div class="shopping-container">
   <div class="mb-3">
     <div style="height: 60px">
-      <div class="shopping-breadcrumb d-flex">
+      <div class="shopping-breadcrumb">
         <a>Accueil</a>
         <span class="breadcrumb-separator"> > </span>
         <a>Ordinateurs portables</a>
@@ -13,20 +13,28 @@
     <div class="breadcrumb-grid">
       <div class="grid-1">
         <div class="category-title">Ultrabooks</div>
-        <div class="result-number">10 résultats</div>
+        <div class="result-number">
+          <div *ngIf="articleCount <= 1">
+            {{articleCount}} résultat
+          </div>
+          <div *ngIf="articleCount >= 2">
+            {{articleCount}} résultats
+          </div>
+        </div>
       </div>
       <div class="grid-2 position-relative">
         <div ngbDropdown [autoClose]="true" (openChange)="openEvent($event)">
-          <button type="button" class="filter-button cursor" id="dropdownBasic1" ngbDropdownToggle>
+          <button type="button" class="sort-button" id="dropdownBasic1" ngbDropdownToggle>
             <span>
-              <span class="filter-button-title">Trier par</span>
-              <span class="active-filter">{{filters[activeFilter]}}</span>
+              <span class="sort-button-title">Trier par</span>
+              <span class="active-sort">{{sortList[activeSort]}}</span>
             </span>
             <img src="../../../../../../content/images/showcase/shopping/arrow-down.svg" alt="arrow-down" aria-hidden="true" height="16px" width="16px" [@rotatedState]="arrowState">
           </button>
-          <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="filter-choices p-0">
-            <a ngbDropdownItem class="filter-choice cursor" *ngFor="let filter of filters; let i = index" [class.selected-choice]="i === activeFilter">
-              {{filter}}
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="sort-choices p-0">
+            <a ngbDropdownItem class="sort-choice" *ngFor="let sort of sortList; let i = index"
+               [class.selected-choice]="i === activeSort" (click)="onSortChange(i)">
+              {{sort}}
             </a>
           </div>
         </div>

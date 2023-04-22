@@ -26,6 +26,7 @@ import {ShoppingFooterComponent} from './shopping/shopping-footer/shopping-foote
 import {SharedLibsModule} from "../../shared/shared-libs.module";
 import {ShowcaseGuard} from "../../../guards/showcase.guard";
 import {NavbarComponent} from "../../layouts/navbar/navbar.component";
+import {BlockUIModule, BlockUIService} from "ng-block-ui";
 
 const routes: Routes = [
   {
@@ -93,8 +94,12 @@ const routes: Routes = [
     StoreModule.forFeature(shoppingFeatureKey, shoppingReducer),
     LayoutsModule,
     AccountModule,
-    NgxSliderModule
+    NgxSliderModule,
+    BlockUIModule.forRoot()
   ],
+  providers: [
+    BlockUIService
+  ]
 })
 export class ShowcaseModule {
 }

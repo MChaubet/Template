@@ -22,7 +22,7 @@ export const navbarData = [
   {
     routeLink: 'invoice',
     icon: 'fa-solid fa-pen',
-    label: 'Édition de factures',
+    label: 'Facturation',
   },
   {
     routeLink: 'bakery',

@@ -2,54 +2,42 @@
   <div class="filter-content p-4">
     <div class="filter-title mb-4">Filtres</div>
     <div>
-      <form>
+      <form [formGroup]="filtersForm">
         <jhi-shopping-filter-panel [title]="'Prix'">
           <div class="price-slider">
-            <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="optionsSlideMontants"></ngx-slider>
+            <ngx-slider [(value)]="priceMin" [(highValue)]="priceMax" [options]="optionsSlideMontants"></ngx-slider>
           </div>
         </jhi-shopping-filter-panel>
         <jhi-shopping-filter-panel [title]="'Note'">
-          <ul class="filter-list d-flex flex-column">
-            <li *ngFor="let rating of ratings; let i = index">
-              <div class="checkbox d-flex align-items-center">
-                <input class="custom-checkbox cursor" type="checkbox" [id]="'rating-checkbox_' + i">
-                <label class="cursor d-flex align-items-center" [for]="'rating-checkbox_' + i">
-                  <span *ngFor="let i of [1, 2, 3, 4, 5]" [ngClass]="{'full-star': i <= rating.value, 'empty-star': i > rating.value}"></span>
-                  <span *ngIf="rating.value !== 5" class="ms-2"> ({{rating.value}} et plus)</span>
-                  <span *ngIf="rating.value === 5" class="ms-2"> ({{rating.value}})</span>
+          <ul class="filter-list">
+            <li *ngFor="let rating of ratings">
+              <div class="checkbox">
+                <input class="custom-checkbox" type="radio" [id]="'rating-checkbox_' + rating" [value]="rating" formControlName="rating" (click)="toggleRating(rating)">
+                <label class="cursor d-flex align-items-center" [for]="'rating-checkbox_' + rating">
+                  <span *ngFor="let i of [1, 2, 3, 4, 5]" [ngClass]="{'full-star': i <= rating, 'empty-star': i > rating}"></span>
+                  <span *ngIf="rating !== 5" class="ms-2"> ({{rating}} et +)</span>
+                  <span *ngIf="rating === 5" class="ms-2"> ({{rating}})</span>
                 </label>
               </div>
             </li>
           </ul>
         </jhi-shopping-filter-panel>
         <jhi-shopping-filter-panel [title]="'Marques'">
-          <ul class="filter-list d-flex flex-column">
+          <ul class="filter-list" formArrayName="brands">
             <li *ngFor="let brand of brands; let i = index">
-              <div class="checkbox d-flex align-items-center">
-                <input class="custom-checkbox cursor" type="checkbox" [id]="'brand-checkbox_' + i">
-                <label class="cursor" [for]="'brand-checkbox_' + i">{{brand.name}}</label>
+              <div class="checkbox">
+                <input class="custom-checkbox" type="checkbox" [id]="'brand-checkbox_' + i" (change)="onBrandChange($event, brand)">
+                <label class="cursor" [for]="'brand-checkbox_' + i">{{brand}}</label>
               </div>
             </li>
           </ul>
         </jhi-shopping-filter-panel>
         <jhi-shopping-filter-panel [title]="'Options de retrait'">
-          <ul class="filter-list d-flex flex-column">
-            <li>
-              <div class="checkbox d-flex align-items-center">
-                <input class="custom-checkbox cursor" type="checkbox" id="home-delivery">
-                <label class="cursor" for="home-delivery">Livraison à domicile</label>
-              </div>
-            </li>
-            <li>
-              <div class="checkbox d-flex align-items-center">
-                <input class="custom-checkbox cursor" type="checkbox" id="drive-2h">
-                <label class="cursor" for="drive-2h">Drive 2h</label>
-              </div>
-            </li>
-            <li>
-              <div class="checkbox d-flex align-items-center">
-                <input class="custom-checkbox cursor" type="checkbox" id="in-store">
-                <label class="cursor" for="in-store">En magasin</label>
+          <ul class="filter-list" formArrayName="deliveryOptions">
+            <li *ngFor="let deliveryOption of deliveryOptions; let i = index">
+              <div class="checkbox">
+                <input class="custom-checkbox" type="checkbox" [id]="'delivery-option-checkbox_' + i" (change)="onDeliveryOptionChange($event, deliveryOption)">
+                <label class="cursor" [for]="'delivery-option-checkbox_' + i">{{deliveryOption}}</label>
               </div>
             </li>
           </ul>
@@ -58,7 +46,7 @@
     </div>
   </div>
   <div class="bottom-buttons px-4 pt-2">
-    <button class="btn blue-shopping-btn" (click)="closeFixedFilters()">Appliquer les filtres</button>
-    <button class="btn btn-reset">Réinitialiser</button>
+    <button class="btn blue-shopping-btn" (click)="applyFilters(false)">Appliquer les filtres</button>
+    <button class="btn btn-reset" (click)="resetFilters()">Réinitialiser</button>
   </div>
 </div>

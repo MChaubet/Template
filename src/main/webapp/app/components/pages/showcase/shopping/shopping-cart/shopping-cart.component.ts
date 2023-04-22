@@ -18,10 +18,10 @@ export class ShoppingCartComponent implements OnDestroy {
 
   constructor(private store: Store) {
     this.shoppingCartSub = this.store.select(getShopping).subscribe({
-      next: res => (this.shoppingCart = res.articles),
+      // next: res => (this.shoppingCart = res.articles),
     });
     this.shoppingCartPriceSub = this.store.select(getShoppingCartPrice).subscribe({
-      next: res => (this.shoppingCartPrice = res),
+      // next: res => (this.shoppingCartPrice = res),
     });
   }
 
