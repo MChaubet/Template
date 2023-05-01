@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { clearShoppingCart, loadShoppingCart, addArticleInCart, removeArticleInCart } from './shopping-action';
-import { ShoppingCart } from 'app/models/shopping-cart.model';
-import { Article, ArticleQty } from 'app/models/article.model';
+import { ShoppingCart } from 'app/models/shopping/shopping-cart.model';
+import { Article, ArticleQty } from 'app/models/shopping/article.model';
 
 const initialState: ShoppingCart = new ShoppingCart([]);
 

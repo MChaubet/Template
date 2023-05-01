@@ -1,6 +1,6 @@
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Component, Input } from '@angular/core';
-import { Article } from 'app/models/article.model';
+import { Article } from 'app/models/shopping/article.model';
 import { Store } from '@ngrx/store';
 import { addArticleInCart } from 'app/components/pages/showcase/shopping/store/shopping-action';
 

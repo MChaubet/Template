@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ArticleQty } from 'app/models/article.model';
+import { ArticleQty } from 'app/models/shopping/article.model';
 import { Subscription } from 'rxjs';
 import { getShopping, getShoppingCartPrice } from 'app/components/pages/showcase/shopping/store/shopping-selector';
 import { addArticleInCart, clearShoppingCart, removeArticleInCart } from 'app/components/pages/showcase/shopping/store/shopping-action';

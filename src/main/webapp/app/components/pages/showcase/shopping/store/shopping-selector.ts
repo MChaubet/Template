@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { shoppingFeatureKey } from './shopping-reducer';
-import { ShoppingCart } from 'app/models/shopping-cart.model';
+import { ShoppingCart } from 'app/models/shopping/shopping-cart.model';
 
 export const getShoppingState = createFeatureSelector<ShoppingCart>(shoppingFeatureKey);
 

@@ -1,11 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ShoppingService} from "../../../../services/showcase/shopping.service";
-import {ShoppingFilter} from "../../../../models/shopping.filter";
+import {ShoppingFilter} from "../../../../models/shopping/shopping.filter";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {forkJoin, Subject} from "rxjs";
 import {convertToBase64} from "../../../../utils/image.utils";
-import {Article} from "../../../../models/article.model";
-import {DeliveryOption} from "../../../../models/delivery-option.enum";
+import {Article} from "../../../../models/shopping/article.model";
+import {DeliveryOption} from "../../../../models/shopping/delivery-option.enum";
 import {HttpClient} from "@angular/common/http";
 import {takeUntil} from "rxjs/operators";
 

@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
-import { ShoppingCart } from 'app/models/shopping-cart.model';
-import { Article } from 'app/models/article.model';
+import { ShoppingCart } from 'app/models/shopping/shopping-cart.model';
+import { Article } from 'app/models/shopping/article.model';
 
 export const clearShoppingCart = createAction('Clear shopping cart');
 export const loadShoppingCart = createAction('Load shopping cart', props<ShoppingCart>());

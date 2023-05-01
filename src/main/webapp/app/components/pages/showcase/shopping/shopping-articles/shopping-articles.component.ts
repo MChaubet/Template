@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Article} from "../../../../../models/article.model";
+import {Article} from "../../../../../models/shopping/article.model";
 import {ShoppingService} from "../../../../../services/showcase/shopping.service";
 import {BlockUI, NgBlockUI} from "ng-block-ui";
 

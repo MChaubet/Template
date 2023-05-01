@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Options} from "@angular-slider/ngx-slider";
 import {ShoppingService} from "../../../../../services/showcase/shopping.service";
 import {FormArray, FormBuilder, FormControl} from "@angular/forms";
-import {ShoppingFilter} from "../../../../../models/shopping.filter";
-import {DeliveryOption} from "../../../../../models/delivery-option.enum";
+import {ShoppingFilter} from "../../../../../models/shopping/shopping.filter";
+import {DeliveryOption} from "../../../../../models/shopping/delivery-option.enum";
 
 @Component({
   selector: 'jhi-shopping-filter',

@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Article, ArticleQty} from "../../../../../models/article.model";
+import {Article, ArticleQty} from "../../../../../models/shopping/article.model";
 import {Subscription} from "rxjs";
 import {Store} from "@ngrx/store";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";

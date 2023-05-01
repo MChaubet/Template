@@ -35,7 +35,9 @@ export class InvoiceComponent implements OnInit {
     {updateOn: 'blur'}
   );
 
-  constructor(private formBuilder: FormBuilder, private invoiceService: InvoiceService, private translateService: TranslateService) {
+  constructor(private formBuilder: FormBuilder,
+              private invoiceService: InvoiceService,
+              private translateService: TranslateService) {
     this.getValidationMessages(translateService.currentLang);
     this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
       this.getValidationMessages(event.lang);
@@ -163,4 +165,6 @@ export class InvoiceComponent implements OnInit {
         this.validationMsgs = invoiceValidationMessagesJson.fr;
     }
   }
+
+
 }

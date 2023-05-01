@@ -32,8 +32,9 @@ $img-outline: hsl(0, 0%, 30%);
 }
 
 .catchphrase {
-  font-size: 4vw;
-  line-height: 4vw;
+  margin-left: 6rem;
+  font-size: 90px;
+  line-height: 90px;
   letter-spacing: -0.05em;
   font-weight: 400;
   color: $color-primary;
@@ -48,8 +49,8 @@ $img-outline: hsl(0, 0%, 30%);
 }
 
 .medium-text {
-  font-size: 2vw;
-  line-height: 2vw;
+  font-size: 40px;
+  line-height: 40px;
   letter-spacing: -0.05em;
   font-weight: 300;
   color: $color-primary;
@@ -67,15 +68,12 @@ $img-outline: hsl(0, 0%, 30%);
   color: $color-primary;
 }
 
-.laptop-futuristic {
-  max-width: 100%;
-  height: auto;
-  width: auto;
+.laptop-image {
+  width: 75%;
 }
 
 .img-keyboard {
   width: 75%;
-  border-radius: 15px;
 }
 
 /* ----- Footer Section ----- */
@@ -88,19 +86,15 @@ h3 {
   color: $color-primary;
 }
 
-img:not(.laptop-futuristic) {
-  filter: drop-shadow(1px 1px 3px $img-outline);
-}
-
 .row.separator-top {
   padding-top: 3vw;
 }
 
 .row.separator {
-  padding-top: 10vw;
+  padding-top: 5vw;
 
   &:last-child {
-    padding-bottom: 10vw;
+    padding-bottom: 5vw;
   }
 }
 
